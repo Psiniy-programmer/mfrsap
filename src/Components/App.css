@@ -1,0 +1,11 @@
+body {
+    font-family: Roboto;
+}
+
+.App {
+    margin: 0 10px;
+}
+
+.Link {
+    text-decoration: none;
+}

@@ -1,0 +1,30 @@
+.SearchDescription {
+    margin: 10px 0;
+}
+
+.SearchDescription {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #7B8685;
+}
+
+.SearchInput {
+    display: grid;
+    grid-template-rows: 1fr;
+    margin-bottom: 10px;
+}
+
+.SearchPage input[type=text] {
+    width:100%;
+    /*padding: 16px -10px 16px 20px;*/
+    border: 1px #429C97 solid;
+    border-radius: 4px;
+}
+
+.SearchTittle {
+    margin: 0;
+    padding: 11px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #7B8685;
+}

@@ -1,0 +1,27 @@
+.SearchButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px
+}
+
+.SearchButtons a {
+    display: grid;
+    height: 50px;
+    align-items: center;
+    align-content: center;
+    background-color: #429C97;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+    border-radius: 4px;
+    padding: 2px 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.SearchButtons a:last-child {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}

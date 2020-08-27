@@ -1,0 +1,10 @@
+.DepartmentList {
+    margin-bottom: 55px;
+}
+
+.DepartmentList a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-decoration: none;
+}

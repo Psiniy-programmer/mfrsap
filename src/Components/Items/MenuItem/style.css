@@ -1,0 +1,14 @@
+.MenuItem {
+    display: grid;
+    grid-template-rows: 1fr;
+    background-color: #429C97;
+    height: 50px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.MenuItem p {
+    margin: 0;
+    padding: 16px 0 16px 20px;
+}
