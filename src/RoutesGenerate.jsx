@@ -8,9 +8,6 @@ import CourseList from "./Components/SearchPage/CourseList/CourseList";
 import TittleApp from "./Components/TittleApp/TittleApp";
 
 class RoutesGenerate extends Component {
-    generateCourseListRoutes() {
-        {}
-    }
 
     render() {
         return <>
@@ -22,29 +19,13 @@ class RoutesGenerate extends Component {
             }}
             />
 
-            <Route path={`/:faculty`} render={(routerProps) => <>
+            <Route exact path={`/:faculty`} render={(routerProps) => <>
                 <SearchPage {...routerProps}/>
-                <DepartmentList facName={`К`} {...routerProps}/>
+                <DepartmentList {...routerProps}/>
             </>}
             />
 
-            {/*<Route exact path={`/facultyId=31`} render={() => <>*/}
-            {/*    <SearchPage description={`Космический факультет`}/>*/}
-            {/*    <DepartmentList facName={`К`}/>*/}
-            {/*</>}*/}
-            {/*/>*/}
-            {/*<Route exact path={`/facultyId=32`} render={() => <>*/}
-            {/*    <SearchPage description={`Лесной факультет`}/>*/}
-            {/*    <DepartmentList facName={`ЛТ`}/>*/}
-            {/*</>}*/}
-            {/*/>*/}
-            {/*<Route exact path={`/facultyId=33`} render={() => <>*/}
-            {/*    <SearchPage description={`Аспирантура`}/>*/}
-            {/*    <DepartmentList facName={'Аспирантура'}/>*/}
-            {/*</>}*/}
-            {/*/>*/}
-
-            <Route path={`/facultyId=31/:department`} render={(routerProps) => <>
+            <Route exact path={`/:faculty/:department`} render={(routerProps) => <>
                 <SearchPage description={`Кафедра `} {...routerProps}/>
                 <CourseList {...routerProps}/>
             </>}

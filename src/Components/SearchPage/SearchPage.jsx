@@ -1,28 +1,25 @@
 import React, {Component} from 'react';
 import './style.css';
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
+import {changeLangEngToRus, changeLangRusToEng, findFacultyName} from '../../helpers/helpers.js'
 
 class SearchPage extends Component {
-    // переводим язык из адресной строки
-    changeLang(word) {
-        let str;
-        switch (word[0].toLowerCase()) {
-            case 'k' : str = 'К'; break;
-            case 'l' : str = 'ЛТ'; break;
-            case 'a' : str = 'Аспирантура'; break;
-            default : break;
-        }
-        return str;
-    }
-
     // Динамичное подставление нужной инфы
     dynamic() {
         const { match } = this.props; // деструктурируем для удобства
-        // подставление для инфы
+        // Генерим описания к шапке
         if (match !== undefined) {
-            console.log(match.url)
-            return this.changeLang(match.params.department)
-        } else return <></>
+            switch(match.path) {
+                case '/:faculty' : {
+                    return findFacultyName(match.url);
+                }
+                case '/:faculty/:department': {
+                    return changeLangEngToRus(match.params.department);
+                }
+                // case '/:faculry/'
+
+            }
+        } else return <>Начните вводить группу, преподователя или аудиторию</>
     }
 
     render() {
@@ -30,7 +27,6 @@ class SearchPage extends Component {
             <div className={'SearchPage'}>
                 <h1 className={'SearchTittle'}>Рассписание МФ МГТУ</h1>
                 <p className={'SearchDescription'}>
-                    {/*{this.props.description}*/}
                     {this.dynamic()}
                 </p>
             </div>

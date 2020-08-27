@@ -7,16 +7,8 @@ class Search extends Component {
     findItem() {
         this.props.onFindItem(this.nameInput.value);
     }
-    getFacInfo(facName) {
-        this.props.facultyList.map(item => {
-            if (item.facultyname === facName) {
-                console.log(item)
-            }
-        })
-    }
 
     render() {
-        // console.log(this.getFacInfo('ЛТ'))
         return (
             <div className={'Search'}>
                 <input
@@ -32,18 +24,13 @@ class Search extends Component {
                 </p>
                 {
                     this.props.findInput.length === 0 ? <div className={'SearchButtons'}>
-                        <Link
-                            onClick={() => this.props.dispatchLink('faculty','31')}
-                            to={`/facultyId=31`}>
+                        <Link to={`/K`}>
                             <span>К</span>
                         </Link>
-                        <Link
-                            onClick={() => this.props.dispatchLink('faculty','32')}
-                            to={`/facultyId=32`}>
+                        <Link to={`/LT`}>
                             <span>ЛТ</span>
                         </Link>
-                        <Link onClick={() => this.props.dispatchLink('faculty','33')}
-                              to={`/facultyId=33`}>
+                        <Link to={`/Aspirant`}>
                             <span>Аспирантура</span>
                         </Link>
                     </div> : <span>kek</span>

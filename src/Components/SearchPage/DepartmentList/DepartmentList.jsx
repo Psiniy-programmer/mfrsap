@@ -1,18 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import MenuItem from "../../Items/MenuItem/MenuItem";
-import './style.css';
 import {Link} from "react-router-dom";
+import {changeLangEngToRus} from "../../../helpers/helpers";
+import './style.css';
+
 
 class DepartmentList extends Component {
     getFacultyList() {
-        const { links, match } = this.props;
+        const { match } = this.props;
         let list = [];
-        let str;
+        let str = '';
         let curID;
+        // Кидаем в str название факультета
+        for (let i = 1; i < match.url.length; i++) str += match.url[i];
+        // переворачиваем в нужынй язык для поиска id факультета
+        str = changeLangEngToRus(str);
         // Получаем id факультета
         this.props.facultyList.map(item => {
-            if (this.props.facName === item.facultyname) curID = item.facultyid;
+            if (str === item.facultyname) curID = item.facultyid;
         })
         // Составляем список кафедр
         this.props.groupsList.map(item => {
@@ -37,14 +43,14 @@ class DepartmentList extends Component {
                 default : break;
             }
             str += item.match(/\d+/g)[0];
+            console.log('test');
             return <>
                 <Link onClick={() => {this.props.dispatchLink('department', str)}}
-                      to={`/facultyId=${links.faculty}/${str}`}>
+                      to={`${match.url}/${str}`}>
                     <MenuItem text={item}/>
                 </Link></>
         })
     }
-    // to={`/facultyId=${links.faculty}/department=${links.department}`}>
     render() {
         return (
             <div className={`DepartmentList`}>
