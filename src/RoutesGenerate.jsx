@@ -30,6 +30,11 @@ class RoutesGenerate extends Component {
                 <CourseList {...routerProps}/>
             </>}
             />
+
+            <Route exact path={`/:faculty/:department/:course`} render={(routerProps) => <>
+
+            </>}
+            />
         </>
     }
 }
