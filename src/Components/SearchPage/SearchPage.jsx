@@ -1,35 +1,56 @@
 import React, {Component} from 'react';
 import './style.css';
 import {connect} from 'react-redux';
-import {changeLangEngToRus, findFacultyName} from '../../helpers/helpers.js'
+import {
+    changeLangEngToRus,
+    findFacultyName,
+    translateFullGroupNameToRus
+} from '../../helpers/helpers.js'
 
 class SearchPage extends Component {
-    // Динамичное подставление нужной инфы
-    dynamic() {
+    // Динамичное подставление нужного описания (текст под заголовком)
+    dynamicDescription() {
         const { match } = this.props; // деструктурируем для удобства
         // Генерим описания к шапке
-        if (match !== undefined) {
-            switch(match.path) {
-                case '/:faculty' : {
-                    return findFacultyName(match.url);
-                }
-                case '/:faculty/:department' : {
-                    return 'Кафедра ' + changeLangEngToRus(match.params.department);
-                }
-                case '/:faculty/:department/:course' : {
-                    return `Кафедра ${changeLangEngToRus(match.params.department)} - ${match.params.course} курс`;
-                }
-                default : break;
+        switch (match.path) {
+            case '/' : {
+                return <>Начните вводить группу, преподавателя или аудиторию</>
             }
-        } else return <>Начните вводить группу, преподователя или аудиторию</>
+            case '/:faculty' : {
+                return findFacultyName(match.url);
+            }
+            case '/:faculty/:department' : {
+                return 'Кафедра ' + changeLangEngToRus(match.params.department);
+            }
+            case '/:faculty/:department/:course' : {
+                return `Кафедра ${changeLangEngToRus(match.params.department)} - ${match.params.course} курс`;
+            }
+            default :
+                break;
+        }
+    }
+
+    dynamicHeader() {
+        const { match } = this.props;
+        // Если мы находимся в состоянии щелканья кнопок и не добрались до расписания группы то заголовок стандартный
+        if (match.path !== '/:faculty/:department/:course/:rasp') return <>Расписание МФ МГТУ</>
+        else { // Если в адресе расписания есть эти ключевые слова то возвращаем соотв. заголовоки (имя препода\номер аудитории)
+            if ((match.params.rasp).match('auditoryid=')) return <>Auditory</>
+            else if ((match.params.rasp).match('teacherid=')) return <>teacher</>
+            else { // иначе переводим имя группы из ссылки на русский и выдаем
+                return <>{ translateFullGroupNameToRus(match.params.rasp) }</>
+            }
+        }
     }
 
     render() {
         return (
             <div className={'SearchPage'}>
-                <h1 className={'SearchTittle'}>Рассписание МФ МГТУ</h1>
-                <p className={'SearchDescription'}>
-                    {this.dynamic()}
+                <h1 className={'SearchTittle'}>
+                    Расписание МФ МГТУ
+                </h1>
+                <p className={'SearchDescription grayText'}>
+                    {this.dynamicDescription()}
                 </p>
             </div>
         );

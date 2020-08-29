@@ -20,10 +20,6 @@ class App extends Component {
 
     render() {
         return <>
-            <div className="App">
-                {/*<TittleApp/>*/}
-                {/*<SearchPage/>*/}
-            </div>
             <RoutesGenerate/>
             <NavigationBar/>
         </>

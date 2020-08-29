@@ -6,14 +6,16 @@ import DepartmentList from "./Components/SearchPage/DepartmentList/DepartmentLis
 import {connect} from "react-redux";
 import CourseList from "./Components/SearchPage/CourseList/CourseList";
 import RaspList from "./Components/SearchPage/RaspList/RaspList";
+import RaspItem from "./Components/Items/RaspItem/RaspItem";
+import RaspItemHeader from "./Components/Items/RaspItem/RaspItemHeader/RaspItemHeader";
 
 class RoutesGenerate extends Component {
 
     render() {
         return <>
-            <Route exact path={`/`} render={() => {
+            <Route exact path={`/`} render={(routerProps) => {
                 return <>
-                    <SearchPage description={`Начните вводить группу, преподавателя или аудиторию`}/>
+                    <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
                     <Search/>
                 </>
             }}
@@ -34,6 +36,11 @@ class RoutesGenerate extends Component {
             <Route exact path={`/:faculty/:department/:course`} render={(routerProps) => <>
                 <SearchPage {...routerProps}/>
                 <RaspList {...routerProps}/>
+            </>}
+            />
+
+            <Route exact path={`/:faculty/:department/:course/:rasp`} render={(routerProps) => <>
+                <RaspItem {...routerProps}/>
             </>}
             />
         </>

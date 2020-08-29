@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import MenuItem from "../../Items/MenuItem/MenuItem";
 import {Link} from "react-router-dom";
-import {changeLangEngToRus} from "../../../helpers/helpers";
+import {changeLangEngToRus, changeLangRusToEng} from "../../../helpers/helpers";
 import './style.css';
 
 class DepartmentList extends Component {
@@ -37,16 +37,9 @@ class DepartmentList extends Component {
         // Возвращаем список на отрисовку
         return list.map(item => {
             // выполняем обработку названий кафедр для закидывания их в адрес.строку
-            switch (item[0]) {
-                case 'К' : str = 'k'; break;
-                case 'Л' : str = 'lt'; break;
-                case 'А' : str = 'aspirant'; break;
-                default : break;
-            }
-            str += item.match(/\d+/g)[0];
+            str = changeLangRusToEng(item);
             return <>
-                <Link onClick={() => {this.props.dispatchLink('department', str)}}
-                      to={`${match.url}/${str}`}>
+                <Link to={`${match.url}/${str}`}>
                     <MenuItem text={item}/>
                 </Link></>
         })

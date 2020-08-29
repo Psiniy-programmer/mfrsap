@@ -9,3 +9,14 @@ body {
 .Link {
     text-decoration: none;
 }
+
+h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #7B8685;
+}
+
+.grayText{
+    font-size: 14px;
+    color: #7B8685;
+}

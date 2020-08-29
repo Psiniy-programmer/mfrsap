@@ -34,4 +34,34 @@ const findFacultyName = (word) => {
     return str;
 }
 
-export {changeLangEngToRus, changeLangRusToEng, findFacultyName}
+const translateFullGroupNameToRus = (word) => {
+    let str = '';
+    switch (word[0].toUpperCase()) {
+        case 'K' :  str += 'К' ; break;
+        case 'LT' : str += 'ЛТ' ; break;
+        default : break;
+    }
+    for (let i = 1; i < word.length - 1; i++) str += word[i];
+    switch (word[word.length-1].toUpperCase()) {
+        case 'B' : return str += 'Б';
+        case 'M' :  return str += 'М';
+        default : return str += word[word.length-1];
+    }
+}
+
+const translateFullGroupNameToEng = (word) => {
+    let str = '';
+    switch (word[0].toUpperCase()) {
+        case 'К' :  str += 'K' ; break;
+        case 'ЛТ' : str += 'LT' ; break;
+        default : break;
+    }
+    for (let i = 1; i < word.length - 1; i++) str += word[i];
+    switch (word[word.length-1].toUpperCase()) {
+        case 'Б' : return str += 'B';
+        case 'М' :  return str += 'M';
+        default : return str;
+    }
+}
+
+export {changeLangEngToRus, changeLangRusToEng, findFacultyName, translateFullGroupNameToEng, translateFullGroupNameToRus}
