@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import {changeLangEngToRus} from "../../../helpers/helpers";
 import './style.css';
 
-
 class DepartmentList extends Component {
     getFacultyList() {
         const { match } = this.props;
@@ -17,10 +16,12 @@ class DepartmentList extends Component {
         // переворачиваем в нужынй язык для поиска id факультета
         str = changeLangEngToRus(str);
         // Получаем id факультета
+        // eslint-disable-next-line
         this.props.facultyList.map(item => {
             if (str === item.facultyname) curID = item.facultyid;
         })
         // Составляем список кафедр
+        // eslint-disable-next-line
         this.props.groupsList.map(item => {
             str = '';
             if (item.facultyid === curID) {
@@ -43,7 +44,6 @@ class DepartmentList extends Component {
                 default : break;
             }
             str += item.match(/\d+/g)[0];
-            console.log('test');
             return <>
                 <Link onClick={() => {this.props.dispatchLink('department', str)}}
                       to={`${match.url}/${str}`}>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './style.css';
 import {connect} from 'react-redux';
-import {changeLangEngToRus, changeLangRusToEng, findFacultyName} from '../../helpers/helpers.js'
+import {changeLangEngToRus, findFacultyName} from '../../helpers/helpers.js'
 
 class SearchPage extends Component {
     // Динамичное подставление нужной инфы
@@ -13,11 +13,13 @@ class SearchPage extends Component {
                 case '/:faculty' : {
                     return findFacultyName(match.url);
                 }
-                case '/:faculty/:department': {
-                    return changeLangEngToRus(match.params.department);
+                case '/:faculty/:department' : {
+                    return 'Кафедра ' + changeLangEngToRus(match.params.department);
                 }
-                // case '/:faculry/'
-
+                case '/:faculty/:department/:course' : {
+                    return `Кафедра ${changeLangEngToRus(match.params.department)} - ${match.params.course} курс`;
+                }
+                default : break;
             }
         } else return <>Начните вводить группу, преподователя или аудиторию</>
     }

@@ -6,7 +6,8 @@ const changeLangEngToRus = (word) => {
         case 'a' : str = 'Аспирантура'; break;
         default : break;
     }
-    return str;
+    // Возвращаем цифры в строку
+    return word.match(/\d+/g) === null ? str : str + word.match(/\d+/g)[0];
 }
 
 const changeLangRusToEng = (word) => {
@@ -17,7 +18,8 @@ const changeLangRusToEng = (word) => {
         case 'А' : str = 'Aspirant'; break;
         default : break;
     }
-    return str;
+    // Возвращаем цифры в строку
+    return word.match(/\d+/g) === null ? str : str + word.match(/\d+/g)[0];
 }
 
 const findFacultyName = (word) => {

@@ -5,7 +5,7 @@ import Search from "./Components/SearchPage/Search/Search";
 import DepartmentList from "./Components/SearchPage/DepartmentList/DepartmentList";
 import {connect} from "react-redux";
 import CourseList from "./Components/SearchPage/CourseList/CourseList";
-import TittleApp from "./Components/TittleApp/TittleApp";
+import RaspList from "./Components/SearchPage/RaspList/RaspList";
 
 class RoutesGenerate extends Component {
 
@@ -26,13 +26,14 @@ class RoutesGenerate extends Component {
             />
 
             <Route exact path={`/:faculty/:department`} render={(routerProps) => <>
-                <SearchPage description={`Кафедра `} {...routerProps}/>
+                <SearchPage {...routerProps}/>
                 <CourseList {...routerProps}/>
             </>}
             />
 
             <Route exact path={`/:faculty/:department/:course`} render={(routerProps) => <>
-
+                <SearchPage {...routerProps}/>
+                <RaspList {...routerProps}/>
             </>}
             />
         </>
