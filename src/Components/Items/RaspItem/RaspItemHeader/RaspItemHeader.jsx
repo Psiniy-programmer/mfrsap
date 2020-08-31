@@ -25,7 +25,6 @@ class RaspItemHeader extends Component {
     }
 
     render() {
-        console.log(this.props.match)
         return (
             <div className={'RaspItemHeader'}>
                 <img className={'RaspItemHeader_Logo'} src={star} alt="error"/>

@@ -1,9 +1,11 @@
+/*html,body {*/
+/*    overflow-x: hidden;*/
+/*}*/
+
 body {
     font-family: Roboto;
-}
-
-.App {
     margin: 0 10px;
+
 }
 
 .Link {
@@ -20,3 +22,34 @@ h1 {
     font-size: 14px;
     color: #7B8685;
 }
+
+
+
+/*.RaspItemDays {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    max-height: 70px;*/
+/*    overflow-x: auto;*/
+/*    !*width: 370px;*!*/
+/*}*/
+
+
+/*.DayItem {*/
+/*    !*display: flex;*!*/
+/*    !*justify-content: center;*!*/
+/*    !*align-items: center;*!*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    margin-top: 10px;*/
+/*    !*margin-right: 10px;*!*/
+
+/*    border: 10px solid #429C97;*/
+/*    border-radius: 25px;*/
+/*    !*box-sizing: border-box;*!*/
+
+    /*font-size: 16px;*/
+    /*font-weight: 500;*/
+    /*line-height: 100%;*/
+    /*text-align: center;*/
+/*}*/
+

@@ -1,0 +1,32 @@
+.RaspItemDays {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-gap: 10px;
+    max-height: 70px;
+    /*max-width: 400px;*/
+    overflow-x: auto;
+    /*width: 370px;*/
+    margin-top: 10px;
+}
+
+.DayItem {
+    color: #429C97;
+    display: grid;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #429C97;
+    border-radius: 25px;
+    margin: 10px 0;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    text-align: center;
+}
+
+.DayItem_active {
+    background-color: #429C97;
+    color: #FFFFFF;
+}
