@@ -1,13 +1,13 @@
 .RaspItemDays {
     display: grid;
-    grid-template-columns: repeat(6,1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(6, 50px);
+    grid-gap: 8px;
     max-height: 70px;
-    /*max-width: 400px;*/
+    max-width: 350px;
     overflow-x: auto;
-    /*width: 370px;*/
     margin-top: 10px;
 }
+
 
 .DayItem {
     color: #429C97;
@@ -18,7 +18,6 @@
     border: 1px solid #429C97;
     border-radius: 25px;
     margin: 10px 0;
-
     font-size: 16px;
     font-style: normal;
     font-weight: 500;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import './style.css';
+import {generateUniqKey} from "../../../../helpers/helpers";
 
 let daysData = [
     {
@@ -43,22 +44,17 @@ class RaspItemDays extends Component {
     }
 
     handleClick(day) {
-        let result = {};
         for (let key in this.state) {
-            if (key === day) this.state[key] = true;
-            else this.state[key] = false;
+            if (key === day) this.setState({[key] : true})
+            else this.setState({[key]: false})
         }
-        this.setState(result)
-        console.error(this.state)
     }
 
     getDayList() {
         let resArr = [];
-        daysData.map(item => {
-            return (
-                resArr.push(<div onClick={() => this.handleClick(item.eng)} className={`DayItem DayItem_${this.state[item.eng] ? 'active' : 'unActive'}`}> {item.rus} </div>)
-            )
-        })
+        daysData.map((item, index) =>
+            resArr.push(<div key={generateUniqKey('days', index)} onClick={() => this.handleClick(item.eng)} className={`DayItem DayItem_${this.state[item.eng] ? 'active' : 'unActive'}`}> {item.rus} </div>)
+        )
         return resArr;
     }
 

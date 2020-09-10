@@ -7,7 +7,6 @@ import {connect} from "react-redux";
 import CourseList from "./Components/SearchPage/CourseList/CourseList";
 import RaspList from "./Components/SearchPage/RaspList/RaspList";
 import RaspItem from "./Components/Items/RaspItem/RaspItem";
-import RaspItemHeader from "./Components/Items/RaspItem/RaspItemHeader/RaspItemHeader";
 
 class RoutesGenerate extends Component {
 

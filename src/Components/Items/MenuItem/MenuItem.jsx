@@ -7,7 +7,7 @@ class MenuItem extends Component {
     render() {
         return (
             <div className={'MenuItem'}>
-                <p>{this.props.text}</p>
+                <p >{this.props.text}</p>
             </div>
         );
     }

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {changeLangEngToRus, changeLangRusToEng, translateFullGroupNameToEng} from "../../../helpers/helpers";
+import {changeLangEngToRus} from "../../../helpers/helpers";
 import MenuItem from "../../Items/MenuItem/MenuItem";
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types';
 import './style.css';
 
 class RaspList extends Component {
@@ -41,13 +42,13 @@ class RaspList extends Component {
         // находим нужные нам группы по семестру
         // eslint-disable-next-line 
         tempList.map(item => {
+            link = `${match.url}/groupid=${item.groupid}`;
             // Получаем цифру семестра у группы
             semNumber = item.groupname.match(/\d+/g)[1];
             // Поиск для 5 курса
             if (courseNumber === 5) {
                 if ((Number(semNumber[0] + semNumber[1]) === courseNumber * 2) || (Number(semNumber[0] + semNumber[1]) === courseNumber * 2 -1)) {
-                    link = `${match.url}/${match.params.department}-${semNumber}`;
-                    resultArr.push(<Link className={`Link`} to={link}>
+                    resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
                         <MenuItem text={item.groupname}/>
                     </Link>)
                 } // Поиск для остальных курсов
@@ -55,16 +56,13 @@ class RaspList extends Component {
                 // Поиск для магистратуры
                 if (match.params.course === 'VI' || match.params.course === 'VII') {
                     if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1)) && (item.groupname[item.groupname.length-1]) === 'М') {
-                        link = `${match.url}/${match.params.department}-${semNumber}M`;
-                        resultArr.push(<Link className={`Link`} to={link}>
+                        resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
                             <MenuItem text={item.groupname}/>
                         </Link>)
                     }
                 } else { // поиск для бакалавров
                     if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1)) && ((item.groupname[item.groupname.length-1]) !== 'М')) {
-                        link = `${match.url}/${match.params.department}-${semNumber}`;
-                        if (item.groupname[item.groupname.length - 1] === 'Б') link += 'B'
-                        resultArr.push(<Link className={`Link`} to={link}>
+                        resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
                             <MenuItem text={item.groupname}/>
                         </Link>)
                     }
@@ -91,6 +89,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToState = dispatch => {
     return {}
+}
+
+RaspList.propTypes = {
+    groupsList: PropTypes.array
 }
 
 export default connect(mapStateToProps, mapDispatchToState)(RaspList)

@@ -13,9 +13,9 @@ const changeLangEngToRus = (word) => {
 const changeLangRusToEng = (word) => {
     let str;
     switch (word[0].toUpperCase()) {
-        case 'К' : str = 'K'; break;
-        case 'Л' : str = 'LT'; break;
-        case 'А' : str = 'Aspirant'; break;
+        case 'К' : str = 'k'; break;
+        case 'Л' : str = 'lt'; break;
+        case 'А' : str = 'aspirant'; break;
         default : break;
     }
     // Возвращаем цифры в строку
@@ -52,16 +52,18 @@ const translateFullGroupNameToRus = (word) => {
 const translateFullGroupNameToEng = (word) => {
     let str = '';
     switch (word[0].toUpperCase()) {
-        case 'К' :  str += 'K' ; break;
-        case 'ЛТ' : str += 'LT' ; break;
+        case 'К' :  str += 'k' ; break;
+        case 'ЛТ' : str += 'lt' ; break;
         default : break;
     }
     for (let i = 1; i < word.length - 1; i++) str += word[i];
     switch (word[word.length-1].toUpperCase()) {
-        case 'Б' : return str += 'B';
-        case 'М' :  return str += 'M';
+        case 'Б' : return str += 'b';
+        case 'М' :  return str += 'm';
         default : return str;
     }
 }
 
-export {changeLangEngToRus, changeLangRusToEng, findFacultyName, translateFullGroupNameToEng, translateFullGroupNameToRus}
+const generateUniqKey = (prefix, index) => `${prefix}_${new Date().getTime() + index}`
+
+export {changeLangEngToRus, changeLangRusToEng, findFacultyName, translateFullGroupNameToEng, translateFullGroupNameToRus, generateUniqKey}

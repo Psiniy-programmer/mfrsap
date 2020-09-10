@@ -2,10 +2,20 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import MenuItem from "../../Items/MenuItem/MenuItem";
 import {Link} from "react-router-dom";
-import {changeLangEngToRus, changeLangRusToEng} from "../../../helpers/helpers";
+import {changeLangEngToRus, changeLangRusToEng, generateUniqKey} from "../../../helpers/helpers";
 import './style.css';
 
 class DepartmentList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {renderList: []}
+    }
+
+    componentDidMount() {
+        // this.setState({renderList: this.getFacultyList()})
+        this.setState({renderList: [<>1</>,<>2</>]})
+    }
+
     getFacultyList() {
         const { match } = this.props;
         let list = [];
@@ -32,21 +42,36 @@ class DepartmentList extends Component {
                 }
             }
             // Если строки нету в списке на отрисовку, то кидаем ее туда
-            if (!list.includes(str) && str.length !== 0) list.push(str)
+            if (!list.includes(str) && str.length !== 0) list.push(str);
         })
         // Возвращаем список на отрисовку
-        return list.map(item => {
+        return list.map((item, index) => {
             // выполняем обработку названий кафедр для закидывания их в адрес.строку
             str = changeLangRusToEng(item);
-            return <>
-                <Link to={`${match.url}/${str}`}>
-                    <MenuItem text={item}/>
-                </Link></>
+            return (
+                <Link key={generateUniqKey('depart_', index)} to={`${match.url}/${str}`}>
+                    <MenuItem text={item} />
+                </Link>
+            )
         })
     }
+
+    test() {
+        let res = [];
+        for (let i = 0; i < 10; i++) {
+            res.push(
+                <Link key={`depart_${new Date().getTime() + i}`} to={'d'}>
+                    <MenuItem text={i}/>
+                </Link>
+            )
+        }
+        return res;
+    }
+
     render() {
         return (
             <div className={`DepartmentList`}>
+                {/*{this.test()}*/}
                 {this.getFacultyList()}
             </div>
         );
