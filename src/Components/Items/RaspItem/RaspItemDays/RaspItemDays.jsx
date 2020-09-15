@@ -53,7 +53,7 @@ class RaspItemDays extends Component {
     getDayList() {
         let resArr = [];
         daysData.map((item, index) =>
-            resArr.push(<div key={generateUniqKey('days', index)} onClick={() => this.handleClick(item.eng)} className={`DayItem DayItem_${this.state[item.eng] ? 'active' : 'unActive'}`}> {item.rus} </div>)
+            resArr.push(<div key={generateUniqKey('days', index)} onClick={this.handleClick.bind(this, item.eng)} className={`DayItem DayItem_${this.state[item.eng] ? 'active' : 'unActive'}`}> {item.rus} </div>)
         )
         return resArr;
     }

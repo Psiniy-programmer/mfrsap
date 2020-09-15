@@ -21,7 +21,7 @@ class App extends Component {
     render() {
         return <>
             <RoutesGenerate/>
-            <NavigationBar/>
+            <NavigationBar routes={this.props.match}/>
         </>
     }
 }

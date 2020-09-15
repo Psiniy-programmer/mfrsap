@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import star from './Icons/star.svg';
-import starActive from './Icons/star_active.svg';
-
 import './style.css';
-import {translateFullGroupNameToRus} from "../../../../helpers/helpers";
 
 class RaspItemHeader extends Component {
     // Получаем динамически нужный заголовок (Группу\Препода\Адуиторию)
@@ -16,9 +13,7 @@ class RaspItemHeader extends Component {
         else if ((match.params.rasp).match('teacherid=')) return <>teacher</> // code
         else { // иначе переводим имя группы из ссылки на русский и выдаем
             this.props.groupsList.forEach(item => {
-                // console.log(item)
                 if (item.groupid === id) resultStr = <>{item.groupname}</>;
-                else return;
             })
         }
         return resultStr;
