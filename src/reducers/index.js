@@ -7,7 +7,6 @@ import auditoryList from './auditoryList.js';
 import raspData from './raspData.js';
 import scrolls from './scrolls.js';
 import sideBarToggler from './sideBarToggler.js';
-import linkData from './linkData.js';
 
 export default combineReducers({
     groupsList,
@@ -17,6 +16,5 @@ export default combineReducers({
     raspData,
     filterItems,
     scrolls,
-    sideBarToggler,
-    linkData
+    sideBarToggler
 });
