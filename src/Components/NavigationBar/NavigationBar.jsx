@@ -31,9 +31,8 @@ class NavigationBar extends Component {
             <div className={'NavigationBar'}>
                 <Link onClick={this.handleClick.bind(this, 'searchBtn')}
                       to={`/`}>
-                    <span>
+                    <span {...this.props}>
                         <img
-                            id = {`search`}
                             src={this.state.searchBtn ? searchLogo_active : searchLogo}
                             alt="searchLogo trouble"
                         />
@@ -41,7 +40,7 @@ class NavigationBar extends Component {
                 </Link>
                 <Link onClick={this.handleClick.bind(this, 'starBtn')}
                       to={`/favorites`}>
-                    <span>
+                    <span {...this.props}>
                         <img
                             src={this.state.starBtn ? starLogo_active : starLogo}
                             alt="starLogo trouble"
@@ -50,7 +49,7 @@ class NavigationBar extends Component {
                 </Link>
                 <Link onClick={this.handleClick.bind(this, 'settingsBtn')}
                       to={`/settings`}>
-                    <span>
+                    <span {...this.props}>
                         <img
                             src={this.state.settingsBtn ? settingsLogo_active : settingsLogo}
                             alt="settingsLogo trouble"

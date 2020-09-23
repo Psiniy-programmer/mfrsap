@@ -18,6 +18,7 @@ class RaspItemSchedule extends Component {
         const {day} = this.props.raspData.data;
         let isEmpty = true;
         if (!day[curday].special_day) {
+            // eslint-disable-next-line
             day[curday].pairList.map(item => {
                 if (item.pair.length !== 0) isEmpty = false;
             })
