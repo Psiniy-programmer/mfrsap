@@ -56,22 +56,9 @@ class DepartmentList extends Component {
         })
     }
 
-    test() {
-        let res = [];
-        for (let i = 0; i < 10; i++) {
-            res.push(
-                <Link key={`depart_${new Date().getTime() + i}`} to={'d'}>
-                    <MenuItem text={i}/>
-                </Link>
-            )
-        }
-        return res;
-    }
-
     render() {
         return (
             <div className={`DepartmentList`}>
-                {/*{this.test()}*/}
                 {this.getFacultyList()}
             </div>
         );

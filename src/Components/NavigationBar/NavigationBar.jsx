@@ -10,13 +10,14 @@ import {Link} from "react-router-dom";
 
 class NavigationBar extends Component {
     render() {
-        const {url} = this.props.match;
+        const {icon} = this.props;
+        console.log(icon)
         return (
             <div className={'NavigationBar'}>
                 <Link to={`/`}>
                     <span {...this.props}>
                         <img
-                            src={url === '/' ? searchLogo_active : searchLogo}
+                            src={icon === 'finder' ? searchLogo_active : searchLogo}
                             alt="searchLogo trouble"
                         />
                     </span>
@@ -24,7 +25,7 @@ class NavigationBar extends Component {
                 <Link to={`/favorites`}>
                     <span {...this.props}>
                         <img
-                            src={url === '/favorites' ? starLogo_active : starLogo}
+                            src={icon === 'favorites' ? starLogo_active : starLogo}
                             alt="starLogo trouble"
                         />
                     </span>
@@ -32,7 +33,7 @@ class NavigationBar extends Component {
                 <Link to={`/settings`}>
                     <span {...this.props}>
                         <img
-                            src={url === '/settings' ? settingsLogo_active : settingsLogo}
+                            src={icon === 'settings' ? settingsLogo_active : settingsLogo}
                             alt="settingsLogo trouble"
                         />
                     </span>

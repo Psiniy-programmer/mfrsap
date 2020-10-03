@@ -10,19 +10,22 @@ import RaspItem from "./Components/Items/RaspItem/RaspItem";
 import NavigationBar from "./Components/NavigationBar/NavigationBar";
 
 class RoutesGenerate extends Component {
-
     render() {
         return <>
-            <Route exact path={'/'} render={(routerProps) => <>
-                <NavigationBar {...routerProps} activeicon={'finder'}/>
+            <Route path ={'/:faculty'} render={()=> <>
+                <NavigationBar icon={'none'}/>
             </>}
             />
-            <Route exact path={'/favorites'} render={(routerProps) => <>
-                <NavigationBar {...routerProps} activeicon={'favorite'}/>
+            <Route exact path={'/'} render={() => <>
+                <NavigationBar icon={'finder'}/>
             </>}
             />
-            <Route exact path={'/settings'} render={(routerProps) => <>
-                <NavigationBar {...routerProps} activeicon={'settings'}/>
+            <Route exact path={'/favorites'} render={() => <>
+                <NavigationBar icon={'favorites'}/>
+            </>}
+            />
+            <Route exact path={'/settings'} render={() => <>
+                <NavigationBar icon={'settings'}/>
             </>}
             />
             <Route exact path={`/`} render={(routerProps) => {
