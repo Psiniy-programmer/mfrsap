@@ -11,7 +11,6 @@ import {Link} from "react-router-dom";
 class NavigationBar extends Component {
     render() {
         const {icon} = this.props;
-        console.log(icon)
         return (
             <div className={'NavigationBar'}>
                 <Link to={`/`}>

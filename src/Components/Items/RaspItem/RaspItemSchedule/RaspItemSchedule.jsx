@@ -20,12 +20,12 @@ class RaspItemSchedule extends Component {
         });
         return <RaspItemCard time={'8:40'}/>
     }
-    getRasp(curday) {
+    getRasp(curDay) {
         const {day} = this.props.raspData;
         let isEmpty = true;
-        if (!day[curday].special_day) {
+        if (!day[curDay].special_day) {
             // eslint-disable-next-line
-            day[curday].pairList.map(item => {
+            day[curDay].pairList.map(item => {
                 if (item.pair.length !== 0) isEmpty = false;
             })
         } else return <>Special</>
@@ -34,12 +34,11 @@ class RaspItemSchedule extends Component {
     returnRasp() {
         // Проверяем загрузились ли данные
         if (Object.keys(this.props.raspData).length !== 0) {
-            let curDay = 1;
-            return this.getRasp(curDay);
+            return this.getRasp(this.props.currentDayIndex);
         }
     }
     render() {
-        // console.log(typeof (this.props.raspData.day))
+        console.log(this.props)
         return (
             <div className={'RaspItemSchedule'}>
                 {this.returnRasp()}

@@ -9,6 +9,19 @@ import {fetchAuditoryRaspData} from "../../../actions/auditoryRaspData";
 import RaspItemSchedule from "./RaspItemSchedule/RaspItemSchedule";
 
 class RaspItem extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentDayIndex: 0
+        }
+        this.dayIndexUpdate = this.dayIndexUpdate.bind(this);
+    }
+
+    dayIndexUpdate(index) {
+        return this.setState({currentDayIndex: index});
+    }
+
     componentDidMount() {
         // Реализовать подцепление расписания для нужного типа распасания
     }
@@ -17,8 +30,8 @@ class RaspItem extends Component {
         return (
             <div className={'RaspItem'}>
                 <RaspItemHeader match={this.props.match}/>
-                <RaspItemDays />
-                <RaspItemSchedule match={this.props.match}/>
+                <RaspItemDays updateDays={this.dayIndexUpdate}/>
+                <RaspItemSchedule currentDayIndex={this.state.currentDayIndex} match={this.props.match}/>
             </div>
         );
     }
