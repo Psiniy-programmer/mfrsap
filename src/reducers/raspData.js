@@ -1,15 +1,12 @@
 export default function raspData(state = {}, action) {
     switch (action.type) {
         case 'GROUP_RASP_DATA_FETCH_OK' :
-            return {
-                data: action.groupRaspData,
-                isFetched: true
-            }
+            return action.groupRaspData;
         case 'TEACHER_RASP_DATA_FETCH_OK' :
-            return action.teacherRaspData
+            return action.teacherRaspData;
         case 'AUDITORY_RASP_DATA_FETCH_OK' :
-            return action.auditoryRaspData
+            return action.auditoryRaspData;
         default :
-            return state
+            return state;
     }
 }

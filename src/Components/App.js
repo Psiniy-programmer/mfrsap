@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import NavigationBar from "./NavigationBar/NavigationBar";
 
 import { fetchGroupsData } from '../actions/groupsList.js';
 import { fetchFacultyData } from '../actions/facultyList.js';
@@ -21,7 +20,6 @@ class App extends Component {
     render() {
         return <>
             <RoutesGenerate/>
-            <NavigationBar routes={this.props.match}/>
         </>
     }
 }

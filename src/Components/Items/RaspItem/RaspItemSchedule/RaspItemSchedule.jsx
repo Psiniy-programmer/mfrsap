@@ -13,9 +13,15 @@ class RaspItemSchedule extends Component {
         let id = match.params.rasp.match(/\d+/g)[0];
         this.props.fetchGroupRasp(`https://mf.bmstu.ru/rasp/test/?type=1&groupid=${id}`)
     }
-
+    getCommonRasp() {
+        const {day} = this.props.raspData;
+        day.map(item => {
+            
+        });
+        return <RaspItemCard time={'8:40'}/>
+    }
     getRasp(curday) {
-        const {day} = this.props.raspData.data;
+        const {day} = this.props.raspData;
         let isEmpty = true;
         if (!day[curday].special_day) {
             // eslint-disable-next-line
@@ -25,10 +31,6 @@ class RaspItemSchedule extends Component {
         } else return <>Special</>
         return isEmpty ? <>Занятий нет</> : this.getCommonRasp();
     }
-    getCommonRasp() {
-        return <RaspItemCard time={'8:40'}/>
-    }
-
     returnRasp() {
         // Проверяем загрузились ли данные
         if (Object.keys(this.props.raspData).length !== 0) {
@@ -36,7 +38,6 @@ class RaspItemSchedule extends Component {
             return this.getRasp(curDay);
         }
     }
-
     render() {
         // console.log(typeof (this.props.raspData.day))
         return (

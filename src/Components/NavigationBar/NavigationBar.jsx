@@ -9,49 +9,30 @@ import './style.css';
 import {Link} from "react-router-dom";
 
 class NavigationBar extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            searchBtn: true,
-            starBtn: false,
-            settingsBtn: false
-        }
-    }
-
-    handleClick(tittle) {
-        for (let key in this.state) {
-            if (key === tittle) this.setState({[key] : true})
-            else this.setState({[key]: false})
-        }
-    }
-
     render() {
+        const {url} = this.props.match;
         return (
             <div className={'NavigationBar'}>
-                <Link onClick={this.handleClick.bind(this, 'searchBtn')}
-                      to={`/`}>
+                <Link to={`/`}>
                     <span {...this.props}>
                         <img
-                            src={this.state.searchBtn ? searchLogo_active : searchLogo}
+                            src={url === '/' ? searchLogo_active : searchLogo}
                             alt="searchLogo trouble"
                         />
                     </span>
                 </Link>
-                <Link onClick={this.handleClick.bind(this, 'starBtn')}
-                      to={`/favorites`}>
+                <Link to={`/favorites`}>
                     <span {...this.props}>
                         <img
-                            src={this.state.starBtn ? starLogo_active : starLogo}
+                            src={url === '/favorites' ? starLogo_active : starLogo}
                             alt="starLogo trouble"
                         />
                     </span>
                 </Link>
-                <Link onClick={this.handleClick.bind(this, 'settingsBtn')}
-                      to={`/settings`}>
+                <Link to={`/settings`}>
                     <span {...this.props}>
                         <img
-                            src={this.state.settingsBtn ? settingsLogo_active : settingsLogo}
+                            src={url === '/settings' ? settingsLogo_active : settingsLogo}
                             alt="settingsLogo trouble"
                         />
                     </span>

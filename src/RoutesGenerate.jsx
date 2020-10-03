@@ -7,11 +7,24 @@ import {connect} from "react-redux";
 import CourseList from "./Components/SearchPage/CourseList/CourseList";
 import RaspList from "./Components/SearchPage/RaspList/RaspList";
 import RaspItem from "./Components/Items/RaspItem/RaspItem";
+import NavigationBar from "./Components/NavigationBar/NavigationBar";
 
 class RoutesGenerate extends Component {
 
     render() {
         return <>
+            <Route exact path={'/'} render={(routerProps) => <>
+                <NavigationBar {...routerProps} activeicon={'finder'}/>
+            </>}
+            />
+            <Route exact path={'/favorites'} render={(routerProps) => <>
+                <NavigationBar {...routerProps} activeicon={'favorite'}/>
+            </>}
+            />
+            <Route exact path={'/settings'} render={(routerProps) => <>
+                <NavigationBar {...routerProps} activeicon={'settings'}/>
+            </>}
+            />
             <Route exact path={`/`} render={(routerProps) => {
                 return <>
                     <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
