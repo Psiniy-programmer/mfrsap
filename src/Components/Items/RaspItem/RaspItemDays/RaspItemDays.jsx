@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-
 import './style.css';
-import {generateUniqKey} from "../../../../helpers/helpers";
+import {generateUniqKey, numeratorSecs} from "../../../../helpers/helpers";
 
 let daysData = [
     {
@@ -34,27 +33,34 @@ class RaspItemDays extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            days: {
-                monday: true,
-                tuesday: false,
-                wednesday: false,
-                thursday: false,
-                friday: false,
-                saturday: false,
-            }
+            monday: true,
+            tuesday: false,
+            wednesday: false,
+            thursday: false,
+            friday: false,
+            saturday: false,
+        }
+    }
+
+    componentDidMount() {
+        let stateIndex = 0;
+        let currentDayIndex = this.props.Date.getDay() - 1;
+        if (currentDayIndex === -1) stateIndex = 1;
+        for (let key in this.state) {
+            stateIndex === currentDayIndex ? this.setState({[key]: true}) : this.setState({[key]: false})
+            stateIndex++;
         }
     }
 
     handleClick(day) {
-        let tempObj = this.state.days;
+        let tempObj = this.state;
         let curday = null;
         let dayIndex = 0;
         for (let key in tempObj) {
             if (key === day) {
                 tempObj[key] = true;
                 curday = dayIndex;
-            }
-            else tempObj[key] = false;
+            } else tempObj[key] = false;
             dayIndex++;
         }
         this.setState({days: tempObj});
@@ -68,7 +74,7 @@ class RaspItemDays extends Component {
                 <div
                     key={generateUniqKey('days', index)}
                     onClick={this.handleClick.bind(this, item.eng)}
-                    className={`DayItem DayItem_${this.state.days[item.eng] ? 'active' : 'unActive'}`}> {item.rus}
+                    className={`DayItem DayItem_${this.state[item.eng] ? 'active' : 'unActive'}`}> {item.rus}
                 </div>
             )
         )

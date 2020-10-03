@@ -38,7 +38,6 @@ class RaspItemSchedule extends Component {
         }
     }
     render() {
-        console.log(this.props)
         return (
             <div className={'RaspItemSchedule'}>
                 {this.returnRasp()}
