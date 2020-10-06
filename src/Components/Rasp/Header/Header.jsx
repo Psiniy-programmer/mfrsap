@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import star from './Icons/star.svg';
 import './style.css';
 
-class RaspItemHeader extends Component {
+class Header extends Component {
     // Получаем динамически нужный заголовок (Группу\Препода\Адуиторию)
     getHeaderTittle() {
         const { match } = this.props; // деструктурируем для удобства
@@ -27,9 +27,9 @@ class RaspItemHeader extends Component {
 
     render() {
         return (
-            <div className={'RaspItemHeader'}>
-                <img className={'RaspItemHeader_Logo'} src={star} alt="error"/>
-                <div className={'RaspItemHeader_Text'}>
+            <div className={'Header'}>
+                <img className={'Header_Logo'} src={star} alt="error"/>
+                <div className={'Header_Text'}>
                     <h1>{this.getHeaderTittle()}</h1>
                     <p className={'grayText'}>{this.getHeaderWeek()}</p>
                 </div>
@@ -48,4 +48,4 @@ const mapDispatchToState = dispatch => {
     return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(RaspItemHeader)
+export default connect(mapStateToProps, mapDispatchToState)(Header)

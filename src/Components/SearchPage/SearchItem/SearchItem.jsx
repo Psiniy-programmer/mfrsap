@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import './style.css'
 
-class MenuItem extends Component {
+class SearchItem extends Component {
     render() {
         return (
-            <div {...this.props} className={'MenuItem'}>
+            <div {...this.props} className={'SearchItem'}>
                 <p >{this.props.text}</p>
             </div>
         );
     }
 }
 
-export default MenuItem;
+export default SearchItem;

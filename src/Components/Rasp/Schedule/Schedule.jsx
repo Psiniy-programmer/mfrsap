@@ -5,20 +5,30 @@ import {fetchGroupRaspData} from "../../../../actions/groupRaspData";
 import {fetchTeacherRaspData} from "../../../../actions/teacherRaspData";
 import {fetchAuditoryRaspData} from "../../../../actions/auditoryRaspData";
 import {connect} from "react-redux";
-import RaspItemCard from "../RaspItemCard/RaspItemCard";
+import Card from './Card/Card'
 
-class RaspItemSchedule extends Component {
+const test = [];
+
+class Schedule extends Component {
     componentDidMount() {
         const {match} = this.props;
         let id = match.params.rasp.match(/\d+/g)[0];
-        this.props.fetchGroupRasp(`https://mf.bmstu.ru/rasp/test/?type=1&groupid=${id}`)
+        this.props.fetchGroupRasp(`https://mf.bmstu.ru/rasp/test/?type=1&groupid=${id}`);
+
     }
-    getCommonRasp() {
-        const {day} = this.props.raspData;
-        day.map(item => {
-            
+    getCommonRasp(curDay) {
+        let resList = [];
+        let isDouble = false;
+        const {pairList} = curDay;
+        console.log(curDay)
+        pairList.map(item => {
+            if (item.pair.length === 2) isDouble = true;
+            // Если расписание пары двойное(по неделям), то выдаем
+            resList.push(<Card rasp={pairList} isDouble={isDouble}/>);
+            console.log(item);
+            isDouble = false;
         });
-        return <RaspItemCard time={'8:40'}/>
+        return resList;
     }
     getRasp(curDay) {
         const {day} = this.props.raspData;
@@ -29,17 +39,19 @@ class RaspItemSchedule extends Component {
                 if (item.pair.length !== 0) isEmpty = false;
             })
         } else return <>Special</>
-        return isEmpty ? <>Занятий нет</> : this.getCommonRasp();
+        return isEmpty ? <>Занятий нет</> : this.getCommonRasp(day[curDay]);
     }
     returnRasp() {
         // Проверяем загрузились ли данные
-        if (Object.keys(this.props.raspData).length !== 0) {
-            return this.getRasp(this.props.currentDayIndex);
+        const {raspData, currentDayIndex} = this.props;
+        if (Object.keys(raspData).length !== 0) {
+            return this.getRasp(currentDayIndex);
         }
     }
     render() {
+        console.log(this.props.raspData)
         return (
-            <div className={'RaspItemSchedule'}>
+            <div className={'Schedule'}>
                 {this.returnRasp()}
             </div>
         );
@@ -67,4 +79,4 @@ const mapDispatchToState = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(RaspItemSchedule)
+export default connect(mapStateToProps, mapDispatchToState)(Schedule)

@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
-import RaspItemHeader from "./RaspItemHeader/RaspItemHeader";
 import './style.css';
-import RaspItemDays from "./RaspItemDays/RaspItemDays";
+import {connect} from "react-redux";
+import Header from "./Header/Header";
+import DaysCarousel from "./DaysCarousel/DaysCarousel";
 import {fetchGroupRaspData} from "../../../actions/groupRaspData";
 import {fetchTeacherRaspData} from "../../../actions/teacherRaspData";
 import {fetchAuditoryRaspData} from "../../../actions/auditoryRaspData";
-import RaspItemSchedule from "./RaspItemSchedule/RaspItemSchedule";
+import Schedule from "./Schedule/Schedule";
 
 const date = new Date();
 
-class RaspItem extends Component {
+class Rasp extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            currentDayIndex: date.getDate()
+            currentDayIndex: date.getDay() - 1
         }
         this.dayIndexUpdate = this.dayIndexUpdate.bind(this);
     }
@@ -30,10 +30,10 @@ class RaspItem extends Component {
 
     render() {
         return (
-            <div className={'RaspItem'}>
-                <RaspItemHeader match={this.props.match}/>
-                <RaspItemDays Date={date} updateDays={this.dayIndexUpdate}/>
-                <RaspItemSchedule currentDayIndex={this.state.currentDayIndex} match={this.props.match}/>
+            <div className={'Rasp'}>
+                <Header match={this.props.match}/>
+                <DaysCarousel currentDayIndex={this.state.currentDayIndex} updateDays={this.dayIndexUpdate}/>
+                <Schedule currentDayIndex={this.state.currentDayIndex} match={this.props.match}/>
             </div>
         );
     }
@@ -59,4 +59,4 @@ const mapDispatchToState = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(RaspItem)
+export default connect(mapStateToProps, mapDispatchToState)(Rasp)

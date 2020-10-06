@@ -1,4 +1,4 @@
-.MenuItem {
+.SearchItem {
     display: grid;
     grid-template-rows: 1fr;
     background-color: #429C97;
@@ -8,7 +8,7 @@
     margin-bottom: 10px;
 }
 
-.MenuItem p {
+.SearchItem p {
     margin: 0;
     padding: 16px 0 16px 20px;
 }

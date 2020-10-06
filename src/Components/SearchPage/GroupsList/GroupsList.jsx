@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {changeLangEngToRus} from "../../../helpers/helpers";
-import MenuItem from "../../Items/MenuItem/MenuItem";
+import SearchItem from "../SearchItem/SearchItem";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import './style.css';
@@ -49,7 +49,7 @@ class RaspList extends Component {
             if (courseNumber === 5) {
                 if ((Number(semNumber[0] + semNumber[1]) === courseNumber * 2) || (Number(semNumber[0] + semNumber[1]) === courseNumber * 2 -1)) {
                     resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
-                        <MenuItem text={item.groupname}/>
+                        <SearchItem text={item.groupname}/>
                     </Link>)
                 } // Поиск для остальных курсов
             } else {
@@ -57,13 +57,13 @@ class RaspList extends Component {
                 if (match.params.course === 'VI' || match.params.course === 'VII') {
                     if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1)) && (item.groupname[item.groupname.length-1]) === 'М') {
                         resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
-                            <MenuItem text={item.groupname}/>
+                            <SearchItem text={item.groupname}/>
                         </Link>)
                     }
                 } else { // поиск для бакалавров
                     if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1)) && ((item.groupname[item.groupname.length-1]) !== 'М')) {
                         resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
-                            <MenuItem text={item.groupname}/>
+                            <SearchItem text={item.groupname}/>
                         </Link>)
                     }
                 }

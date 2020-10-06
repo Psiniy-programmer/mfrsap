@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './style.css';
-import {generateUniqKey, numeratorSecs} from "../../../../helpers/helpers";
+import {generateUniqKey, numeratorSecs} from "../../../helpers/helpers";
 
 let daysData = [
     {
@@ -29,7 +29,7 @@ let daysData = [
     }
 ]
 
-class RaspItemDays extends Component {
+class DaysCarousel extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -43,9 +43,9 @@ class RaspItemDays extends Component {
     }
 
     componentDidMount() {
+        const {currentDayIndex} = this.props;
         let stateIndex = 0;
-        let currentDayIndex = this.props.Date.getDay() - 1;
-        if (currentDayIndex === -1) stateIndex = 1;
+        if (currentDayIndex === -1) stateIndex = 1; // Если вскр, то перекидываем на пн
         for (let key in this.state) {
             stateIndex === currentDayIndex ? this.setState({[key]: true}) : this.setState({[key]: false})
             stateIndex++;
@@ -83,11 +83,11 @@ class RaspItemDays extends Component {
 
     render() {
         return (
-            <div className={'RaspItemDays'}>
+            <div className={'DaysCarousel'}>
                 {this.getDayList()}
             </div>
         )
     }
 }
 
-export default RaspItemDays;
+export default DaysCarousel;

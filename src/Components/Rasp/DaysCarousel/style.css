@@ -1,4 +1,4 @@
-.RaspItemDays {
+.DaysCarousel {
     display: grid;
     grid-template-columns: repeat(6, 50px);
     grid-gap: 8px;
