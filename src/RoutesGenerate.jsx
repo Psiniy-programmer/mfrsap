@@ -5,8 +5,8 @@ import Search from "./Components/SearchPage/Search/Search";
 import DepartmentList from "./Components/SearchPage/DepartmentList/DepartmentList";
 import {connect} from "react-redux";
 import CourseList from "./Components/SearchPage/CourseList/CourseList";
-import RaspList from "./Components/SearchPage/RaspList/RaspList";
-import RaspItem from "./Components/Items/RaspItem/RaspItem";
+import RaspList from "./Components/SearchPage/GroupsList/GroupsList";
+import RaspItem from "./Components/Rasp/Rasp";
 import NavigationBar from "./Components/NavigationBar/NavigationBar";
 
 class RoutesGenerate extends Component {

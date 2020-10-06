@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import './style.css';
 
-class RaspList extends Component {
+class GroupsList extends Component {
     getRaspList() {
         const { match, groupsList } = this.props;
         let courseNumber;
@@ -91,8 +91,8 @@ const mapDispatchToState = dispatch => {
     return {}
 }
 
-RaspList.propTypes = {
+GroupsList.propTypes = {
     groupsList: PropTypes.array
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(RaspList)
+export default connect(mapStateToProps, mapDispatchToState)(GroupsList)

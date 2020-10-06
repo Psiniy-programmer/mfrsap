@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import MenuItem from "../../Items/MenuItem/MenuItem";
+import SearchItem from "../SearchItem/SearchItem";
 import {Link} from "react-router-dom";
 import {changeLangEngToRus, changeLangRusToEng, generateUniqKey} from "../../../helpers/helpers";
 import './style.css';
@@ -50,7 +50,7 @@ class DepartmentList extends Component {
             str = changeLangRusToEng(item);
             return (
                 <Link key={generateUniqKey('depart_', index)} to={`${match.url}/${str}`}>
-                    <MenuItem text={item} />
+                    <SearchItem text={item} />
                 </Link>
             )
         })

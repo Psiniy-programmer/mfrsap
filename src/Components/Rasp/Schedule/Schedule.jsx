@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
 import './style.css'
-import {fetchGroupRaspData} from "../../../../actions/groupRaspData";
-import {fetchTeacherRaspData} from "../../../../actions/teacherRaspData";
-import {fetchAuditoryRaspData} from "../../../../actions/auditoryRaspData";
+import {fetchGroupRaspData} from "../../../actions/groupRaspData";
+import {fetchTeacherRaspData} from "../../../actions/teacherRaspData";
+import {fetchAuditoryRaspData} from "../../../actions/auditoryRaspData";
 import {connect} from "react-redux";
 import Card from './Card/Card'
 
