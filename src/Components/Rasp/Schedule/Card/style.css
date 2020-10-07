@@ -1,15 +1,7 @@
 .schedule-item {
-    margin-bottom: 10px;
-    border-radius: 4px;
-}
-
-.schedule-item__Double {
-    background-color: red;
+    background-color: #429C97;
     max-width: 100%;
     display: grid;
-}
-
-.schedule-item__Single {
-    background-color: #1ea7fd;
-    display: grid;
+    margin-bottom: 10px;
+    border-radius: 4px;
 }

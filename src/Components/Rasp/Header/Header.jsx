@@ -30,7 +30,7 @@ class Header extends Component {
             <div className={'Header'}>
                 <img className={'Header_Logo'} src={star} alt="error"/>
                 <div className={'Header_Text'}>
-                    <h1>{this.getHeaderTittle()}</h1>
+                    <h1 className={'shift-text'}>{this.getHeaderTittle()}</h1>
                     <p className={'grayText'}>{this.getHeaderWeek()}</p>
                 </div>
             </div>

@@ -7,8 +7,6 @@ import {fetchAuditoryRaspData} from "../../../actions/auditoryRaspData";
 import {connect} from "react-redux";
 import Card from './Card/Card'
 
-const test = [];
-
 class Schedule extends Component {
     componentDidMount() {
         const {match} = this.props;
@@ -24,7 +22,7 @@ class Schedule extends Component {
         pairList.map(item => {
             if (item.pair.length === 2) isDouble = true;
             // Если расписание пары двойное(по неделям), то выдаем
-            resList.push(<Card rasp={pairList} isDouble={isDouble}/>);
+            resList.push(<Card rasp={item} isDouble={isDouble}/>);
             console.log(item);
             isDouble = false;
         });
@@ -50,6 +48,7 @@ class Schedule extends Component {
     }
     render() {
         console.log(this.props.raspData)
+        console.warn(this.props.audData)
         return (
             <div className={'Schedule'}>
                 {this.returnRasp()}
@@ -61,7 +60,8 @@ class Schedule extends Component {
 const mapStateToProps = state => {
     return {
         groupsList: state.groupsList,
-        raspData: state.raspData
+        raspData: state.raspData,
+        audData: state.auditoryList
     }
 }
 

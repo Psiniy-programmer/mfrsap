@@ -1,0 +1,26 @@
+.context {
+    margin: 10px 10px 16px 10px;
+    display: grid;
+}
+
+.context__timer {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.context__timer img{
+    margin-right: 8px;
+}
+
+.context__subject {
+    margin-bottom: 6px;
+}
+
+.context__underSubject {
+    margin-bottom: 6px;
+}
+
+.context__lastStr {
+    display: flex;
+    justify-content: space-between;
+}
