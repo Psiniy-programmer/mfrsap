@@ -47,7 +47,7 @@ class Rasp extends Component {
         let currentNumber = date.getDate(),
             currentMounth = date.getMonth(),
             countWeeks = 1; // 1 т.к начинаем с 1 недели
-        while (currentNumber > 7 || currentMounth != 8) {
+        while (currentNumber > 7 || currentMounth !== 8) {
             currentNumber -= 7;
             if (currentMounth > 8 && currentNumber < 7) {
                 currentNumber += daysInYear[currentMounth];

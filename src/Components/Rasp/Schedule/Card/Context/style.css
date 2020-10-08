@@ -1,5 +1,5 @@
 .context {
-    margin: 10px 10px 16px 10px;
+    margin: 0 10px 16px 10px;
     display: grid;
     grid-template-columns: 1fr 0.1fr;
 }
@@ -11,8 +11,8 @@
 }
 
 .context__timer {
+    margin: 10px 10px 12px 10px;
     display: flex;
-    margin-bottom: 12px;
 }
 
 .context__timer img{
@@ -30,4 +30,8 @@
 .context__lastStr {
     display: flex;
     justify-content: space-between;
+}
+
+.context_unactive {
+    opacity: 0.5;
 }

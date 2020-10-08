@@ -7,22 +7,27 @@ import {connect} from "react-redux";
 import Card from './Card/Card'
 
 class Schedule extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state ={'kek': 0}
+    }
     componentDidMount() {
         const {match} = this.props;
         let id = match.params.rasp.match(/\d+/g)[0];
         this.props.fetchGroupRasp(`https://mf.bmstu.ru/rasp/test/?type=1&groupid=${id}`);
-
     }
 
     getCommonRasp(curDay) {
         let resList = [];
         let isDouble = false;
         const {pairList} = curDay;
+        console.log(pairList)
         // eslint-disable-next-line
         pairList.map(item => {
             if (item.pair.length === 2) isDouble = true;
             // Если расписание пары двойное(по неделям), то выдаем
-            resList.push(<Card rasp={item} isDouble={isDouble}/>);
+            resList.push(<Card weekIsOdd={this.props.weekIsOdd} rasp={item} isDouble={isDouble}/>);
             isDouble = false;
         });
         return resList;
