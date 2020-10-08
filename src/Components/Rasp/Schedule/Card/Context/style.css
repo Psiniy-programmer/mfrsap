@@ -1,6 +1,13 @@
 .context {
     margin: 10px 10px 16px 10px;
     display: grid;
+    grid-template-columns: 1fr 0.1fr;
+}
+
+.context__rightInfo {
+    display: grid;
+    justify-items: end;
+    align-items: end;
 }
 
 .context__timer {

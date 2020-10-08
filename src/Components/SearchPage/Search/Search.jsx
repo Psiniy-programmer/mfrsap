@@ -44,7 +44,6 @@ const mapStateToProps = state => {
     return {
         facultyList: state.facultyList,
         findInput : state.filterItems,
-        links: state.linkData
     }
 }
 
@@ -52,9 +51,6 @@ const mapDispatchToState = dispatch => {
     return { // Метод реализующий поиск по приложухе //
         onFindItem: name => {
             dispatch({type: 'FIND_ITEM', payload: name})
-        },
-        dispatchLink: (name, link) => {
-            dispatch({type: 'ADD_LINK', name: name, payload: link})
         },
     }
 }

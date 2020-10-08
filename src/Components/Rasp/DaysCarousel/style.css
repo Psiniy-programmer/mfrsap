@@ -1,3 +1,8 @@
+.scroller-container {
+    width: 100%;
+    overflow: hidden;
+}
+
 .DaysCarousel {
     display: grid;
     grid-template-columns: repeat(6, 50px);
@@ -5,7 +10,8 @@
     max-height: 70px;
     max-width: 350px;
     overflow-x: auto;
-    margin-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
 }
 
 

@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import './style.css'
 import SearchItem from "../SearchItem/SearchItem";
 import {Link} from "react-router-dom";
-import {connect} from "react-redux";
-
 
 class CourseList extends Component {
     render() {
@@ -22,16 +20,4 @@ class CourseList extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        facultyList: state.facultyList,
-        findInput: state.filterItems,
-        links: state.linkData
-    }
-}
-
-const mapDispatchToState = dispatch => {
-    return {}
-}
-
-export default connect(mapStateToProps, mapDispatchToState)(CourseList)
+export default CourseList

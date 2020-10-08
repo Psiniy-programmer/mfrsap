@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import './style.css'
 import {fetchGroupRaspData} from "../../../actions/groupRaspData";
 import {fetchTeacherRaspData} from "../../../actions/teacherRaspData";
@@ -14,20 +13,21 @@ class Schedule extends Component {
         this.props.fetchGroupRasp(`https://mf.bmstu.ru/rasp/test/?type=1&groupid=${id}`);
 
     }
+
     getCommonRasp(curDay) {
         let resList = [];
         let isDouble = false;
         const {pairList} = curDay;
-        console.log(curDay)
+        // eslint-disable-next-line
         pairList.map(item => {
             if (item.pair.length === 2) isDouble = true;
             // Если расписание пары двойное(по неделям), то выдаем
             resList.push(<Card rasp={item} isDouble={isDouble}/>);
-            console.log(item);
             isDouble = false;
         });
         return resList;
     }
+
     getRasp(curDay) {
         const {day} = this.props.raspData;
         let isEmpty = true;
@@ -39,6 +39,7 @@ class Schedule extends Component {
         } else return <>Special</>
         return isEmpty ? <>Занятий нет</> : this.getCommonRasp(day[curDay]);
     }
+
     returnRasp() {
         // Проверяем загрузились ли данные
         const {raspData, currentDayIndex} = this.props;
@@ -46,9 +47,8 @@ class Schedule extends Component {
             return this.getRasp(currentDayIndex);
         }
     }
+
     render() {
-        console.log(this.props.raspData)
-        console.warn(this.props.audData)
         return (
             <div className={'Schedule'}>
                 {this.returnRasp()}

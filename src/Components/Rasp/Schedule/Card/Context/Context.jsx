@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './style.css'
-import timer_icon from './icons/timer-icon.svg';
+// import timer_icon from './icons/timer-icon.svg';
 import clock_icon from './icons/clock-icon.svg';
 
 class Context extends Component {
@@ -13,14 +13,17 @@ class Context extends Component {
             </div>
         }
     }
+
     render() {
-        const {timer, subject, underSubject, leftInfo, rightInfo} = this.props;
+        const {subject, underSubject, leftInfo, rightInfo} = this.props;
         return <div className={'context'}>
-            {this.getTimer()}
-            <h2 className={'context__subject text-bold--large text-white'}>{subject}</h2>
-            <p className={'context__underSubject text-regular--small text-white'}>{underSubject}</p>
-            <div className={'context__lastStr'}>
+            <div className="context__leftInfo">
+                {this.getTimer()}
+                <h2 className={'context__subject text-bold--large text-white'}>{subject}</h2>
+                <p className={'context__underSubject text-regular--small text-white'}>{underSubject}</p>
                 <p className={'text-regular--small text-white'}>{leftInfo}</p>
+            </div>
+            <div className="context__rightInfo">
                 <p className={'text-regular--small text-white'}>{rightInfo}</p>
             </div>
         </div>

@@ -9,13 +9,28 @@ import {fetchAuditoryRaspData} from "../../actions/auditoryRaspData";
 import Schedule from "./Schedule/Schedule";
 
 const date = new Date();
+const daysInYear = {
+    0: 31, // Январь
+    1: date.getFullYear() % 4 === 0 ? 29 : 28, // Февраль
+    2: 31, // Март
+    3: 30, // Апрель
+    4: 31, // Май
+    5: 30, // Июнь
+    6: 31, // Июль
+    7: 31, // Август
+    8: 30, // Сентябрь
+    9: 31, // Октябрь
+    10: 30, // Ноябрь
+    11: 31 // Декабрь
+}
 
 class Rasp extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            currentDayIndex: date.getDay() - 1
+            currentDayIndex: date.getDay() - 1,
+            isOdd: true
         }
         this.dayIndexUpdate = this.dayIndexUpdate.bind(this);
     }
@@ -25,15 +40,40 @@ class Rasp extends Component {
     }
 
     componentDidMount() {
-        // Реализовать подцепление расписания для нужного типа распасания
+        this.weekIsOdd()
+    }
+
+    weekIsOdd() {
+        let currentNumber = date.getDate(),
+            currentMounth = date.getMonth(),
+            countWeeks = 1; // 1 т.к начинаем с 1 недели
+        while (currentNumber > 7 || currentMounth != 8) {
+            currentNumber -= 7;
+            if (currentMounth > 8 && currentNumber < 7) {
+                currentNumber += daysInYear[currentMounth];
+                currentMounth--;
+            }
+            countWeeks++;
+        }
+        return countWeeks % 2 === 1 ? this.setState({isOdd: true}) : this.setState({isOdd: false});
     }
 
     render() {
         return (
             <div className={'Rasp'}>
-                <Header match={this.props.match}/>
-                <DaysCarousel currentDayIndex={this.state.currentDayIndex} updateDays={this.dayIndexUpdate}/>
-                <Schedule currentDayIndex={this.state.currentDayIndex} match={this.props.match}/>
+                <Header
+                    weekIsOdd={this.state.isOdd}
+                    match={this.props.match}
+                />
+                <DaysCarousel
+                    currentDayIndex={this.state.currentDayIndex}
+                    updateDays={this.dayIndexUpdate}
+                />
+                <Schedule
+                    weekIsOdd={this.state.isOdd}
+                    currentDayIndex={this.state.currentDayIndex}
+                    match={this.props.match}
+                />
             </div>
         );
     }

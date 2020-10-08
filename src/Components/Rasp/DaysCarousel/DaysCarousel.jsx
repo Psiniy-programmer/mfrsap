@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './style.css';
-import {generateUniqKey, numeratorSecs} from "../../../helpers/helpers";
+import {generateUniqKey} from "../../../helpers/helpers";
 
 let daysData = [
     {
@@ -83,8 +83,10 @@ class DaysCarousel extends Component {
 
     render() {
         return (
-            <div className={'DaysCarousel'}>
-                {this.getDayList()}
+            <div className={'scroller-container'}>
+                <div className={'DaysCarousel'}>
+                    {this.getDayList()}
+                </div>
             </div>
         )
     }

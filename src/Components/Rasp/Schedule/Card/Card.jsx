@@ -5,8 +5,7 @@ import EmptyCard from "../EmptyCard/EmptyCard";
 
 class Card extends Component {
     render() {
-        const {pairnumber, pairtime, pair} = this.props.rasp;
-        console.log(pair);
+        const {pairtime, pair} = this.props.rasp;
         // Для двойных занятиий
         if (this.props.isDouble) return (
             <div className={'schedule-item schedule-item__Double'}>
@@ -15,7 +14,7 @@ class Card extends Component {
                         timer={pairtime}
                         subject={pair[0].subject}
                         underSubject={pair[0].teacher}
-                        leftInfo={!pair[0].subgroup ? "" : `${pair[0].subgroup} Подгруппа`}
+                        leftInfo={!pair[0].subgroup ? null : `${pair[0].subgroup} Подгруппа`}
                         rightInfo={pair[0].aud}
                     />
                 </div>
@@ -24,7 +23,7 @@ class Card extends Component {
                     <Context
                         subject={pair[1].subject}
                         underSubject={pair[1].teacher}
-                        leftInfo={!pair[1].subgroup ? "" : `${pair[1].subgroup} Подгруппа`}
+                        leftInfo={!pair[1].subgroup ? null : `${pair[1].subgroup} Подгруппа`}
                         rightInfo={pair[1].aud}
                     />
                 </div>
@@ -41,7 +40,7 @@ class Card extends Component {
                     timer={pairtime}
                     subject={pair[0].subject}
                     underSubject={pair[0].teacher}
-                    leftInfo={!pair[0].subgroup ? "" : `${pair[0].subgroup} Подгруппа`}
+                    leftInfo={!pair[0].subgroup ? null : `${pair[0].subgroup} Подгруппа`}
                     rightInfo={pair[0].aud}
                 />
             </div>

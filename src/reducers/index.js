@@ -5,8 +5,6 @@ import teachersList from './teachersList.js';
 import filterItems from './filterItems.js';
 import auditoryList from './auditoryList.js';
 import raspData from './raspData.js';
-import scrolls from './scrolls.js';
-import sideBarToggler from './sideBarToggler.js';
 
 export default combineReducers({
     groupsList,
@@ -14,7 +12,5 @@ export default combineReducers({
     teachersList,
     auditoryList,
     raspData,
-    filterItems,
-    scrolls,
-    sideBarToggler
+    filterItems
 });

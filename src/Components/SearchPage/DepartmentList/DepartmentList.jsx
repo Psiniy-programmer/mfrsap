@@ -6,16 +6,6 @@ import {changeLangEngToRus, changeLangRusToEng, generateUniqKey} from "../../../
 import './style.css';
 
 class DepartmentList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {renderList: []}
-    }
-
-    componentDidMount() {
-        // this.setState({renderList: this.getFacultyList()})
-        this.setState({renderList: [<>1</>,<>2</>]})
-    }
-
     getFacultyList() {
         const { match } = this.props;
         let list = [];
@@ -70,16 +60,11 @@ const mapStateToProps = state => {
     return {
         facultyList: state.facultyList,
         groupsList: state.groupsList,
-        links: state.linkData,
     }
 };
 
 const mapDispatchToProps = dispatch => {
-    return {
-        dispatchLink: (name, link) => {
-            dispatch({type: 'ADD_LINK', name: name, payload: link})
-        },
-    }
+    return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DepartmentList);
