@@ -31,3 +31,7 @@
 .context_unactive {
     opacity: 0.5;
 }
+
+.context-under {
+    margin-top: 6px;
+}

@@ -37,8 +37,8 @@ class Schedule extends Component {
             day[curDay].pairList.map(item => {
                 if (item.pair.length !== 0) isEmpty = false;
             })
-        } else return <SearchItem subClass={'text-bold--large Header-item'} text={'Занятия по особому расписанию'}/>
-        return isEmpty ? <SearchItem subClass={'text-bold--large Header-item'} text={'Занятий нет'}/> : this.getCommonRasp(day[curDay]);
+        } else return <SearchItem subclass={'text-bold--large Header-item'} text={'Занятия по особому расписанию'}/>
+        return isEmpty ? <SearchItem subclass={'text-bold--large Header-item'} text={'Занятий нет'}/> : this.getCommonRasp(day[curDay]);
     }
 
     returnRasp() {

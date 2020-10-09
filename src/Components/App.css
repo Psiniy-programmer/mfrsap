@@ -26,55 +26,49 @@ p, h1, h2 {
 }
 
 .text-bold--large {
-    /* Roboto-bold-18 */
+    /* R-bold-18 */
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 120%;
-    /* txt-gray */
-    color: #FFFFFF;
 }
 
 .text-regular--small {
-    /* Roboto-regular-14 */
+    /* R-regular-14 */
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 130%;
-    /* txt-gray */
-    color: #7B8685;
 }
 
 .text-regular--medium {
-    /* Roboto-regular-16 */
+    /* R-regular-16 */
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 130%;
-    /* txt-gray */
-    color: #7B8685;
-}
-
-.text-medium--small {
-    /* Roboto-medium-14 */
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 130%;
 }
 
 .text-medium--medium {
-    /* Roboto-medium-16 */
+    /* R-medium-16 */
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
 }
+.text-medium--small {
+/* R-medium-14 */
+font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+}
+
 
 .text-gray {
     color: #7B8685

@@ -7,15 +7,14 @@ import thunk from 'redux-thunk';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import * as serviceWorker from './serviceWorker';
-
 import App from './Components/App';
 
+const axios = require('axios');
 const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
 const devtoolMiddleware =
     ext && process.env.NODE_ENV === 'development' ? ext() : func => func;
-
 const store = createStore(reducer, compose(applyMiddleware(thunk), devtoolMiddleware));
-export const history = createBrowserHistory();
+const history = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
@@ -34,3 +33,5 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register();
+
+export {axios, history}

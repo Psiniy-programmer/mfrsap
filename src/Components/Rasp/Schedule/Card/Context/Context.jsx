@@ -22,7 +22,7 @@ class Context extends Component {
                 <div className="context__leftInfo">
                     <h2 className={'context__subject text-bold--large text-white'}>{subject}</h2>
                     {underSubject !== '' ? <p className={'context__underSubject text-regular--small text-white'}>{underSubject}</p> : ''}
-                    {leftInfo !== null ? <p className={'text-regular--small text-white'}>{leftInfo}</p> : ''}
+                    {leftInfo !== null ? <p className={'context-under text-regular--small text-white'}>{leftInfo}</p> : ''}
                 </div>
                 <div className="context__rightInfo">
                     <p className={'text-regular--small text-white'}>{rightInfo}</p>
