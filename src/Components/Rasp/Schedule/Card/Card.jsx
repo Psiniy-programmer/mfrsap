@@ -25,7 +25,7 @@ class Card extends Component {
                         rightInfo={pair[0].aud}
                     />
                 </div>
-                <div className="splitter">------------------------------</div>
+                <div className="splitter"></div>
                 <div className={'schedule-item__denominator'}>
                     <Context
                         opacity={weekIsOdd ? true : false}

@@ -1,3 +1,7 @@
 .Schedule {
     max-height: 100%
 }
+
+.Header-item {
+    padding: 10px;
+}

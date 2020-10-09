@@ -10,29 +10,29 @@ import {Link} from "react-router-dom";
 
 class NavigationBar extends Component {
     render() {
-        const {icon} = this.props;
+        const {pathname} = this.props.location
         return (
             <div className={'NavigationBar'}>
                 <Link to={`/`}>
-                    <span {...this.props}>
+                    <span >
                         <img
-                            src={icon === 'finder' ? searchLogo_active : searchLogo}
+                            src={pathname === '/' ? searchLogo_active : searchLogo}
                             alt="searchLogo trouble"
                         />
                     </span>
                 </Link>
                 <Link to={`/favorites`}>
-                    <span {...this.props}>
+                    <span >
                         <img
-                            src={icon === 'favorites' ? starLogo_active : starLogo}
+                            src={pathname === '/favorites' ? starLogo_active : starLogo}
                             alt="starLogo trouble"
                         />
                     </span>
                 </Link>
                 <Link to={`/settings`}>
-                    <span {...this.props}>
+                    <span >
                         <img
-                            src={icon === 'settings' ? settingsLogo_active : settingsLogo}
+                            src={pathname === '/settings' ? settingsLogo_active : settingsLogo}
                             alt="settingsLogo trouble"
                         />
                     </span>

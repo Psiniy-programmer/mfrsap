@@ -19,12 +19,8 @@
     margin-right: 8px;
 }
 
-.context__subject {
-    margin-bottom: 6px;
-}
-
 .context__underSubject {
-    margin-bottom: 6px;
+    margin-top: 6px;
 }
 
 .context__lastStr {

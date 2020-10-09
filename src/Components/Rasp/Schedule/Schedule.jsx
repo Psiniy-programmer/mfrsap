@@ -3,15 +3,12 @@ import './style.css'
 import {fetchGroupRaspData} from "../../../actions/groupRaspData";
 import {fetchTeacherRaspData} from "../../../actions/teacherRaspData";
 import {fetchAuditoryRaspData} from "../../../actions/auditoryRaspData";
+import {generateUniqKey} from "../../../helpers/helpers";
 import {connect} from "react-redux";
 import Card from './Card/Card'
+import SearchItem from "../../SearchPage/SearchItem/SearchItem";
 
 class Schedule extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state ={'kek': 0}
-    }
     componentDidMount() {
         const {match} = this.props;
         let id = match.params.rasp.match(/\d+/g)[0];
@@ -22,12 +19,11 @@ class Schedule extends Component {
         let resList = [];
         let isDouble = false;
         const {pairList} = curDay;
-        console.log(pairList)
         // eslint-disable-next-line
-        pairList.map(item => {
+        pairList.map((item, index) => {
             if (item.pair.length === 2) isDouble = true;
             // Если расписание пары двойное(по неделям), то выдаем
-            resList.push(<Card weekIsOdd={this.props.weekIsOdd} rasp={item} isDouble={isDouble}/>);
+            resList.push(<Card key={generateUniqKey('Card_', index)} weekIsOdd={this.props.weekIsOdd} rasp={item} isDouble={isDouble}/>);
             isDouble = false;
         });
         return resList;
@@ -41,8 +37,8 @@ class Schedule extends Component {
             day[curDay].pairList.map(item => {
                 if (item.pair.length !== 0) isEmpty = false;
             })
-        } else return <>Special</>
-        return isEmpty ? <>Занятий нет</> : this.getCommonRasp(day[curDay]);
+        } else return <SearchItem subClass={'text-bold--large Header-item'} text={'Занятия по особому расписанию'}/>
+        return isEmpty ? <SearchItem subClass={'text-bold--large Header-item'} text={'Занятий нет'}/> : this.getCommonRasp(day[curDay]);
     }
 
     returnRasp() {

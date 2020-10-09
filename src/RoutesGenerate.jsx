@@ -12,22 +12,9 @@ import NavigationBar from "./Components/NavigationBar/NavigationBar";
 class RoutesGenerate extends Component {
     render() {
         return <>
-            <Route path ={'/:faculty'} render={()=> <>
-                <NavigationBar icon={'none'}/>
-            </>}
-            />
-            <Route exact path={'/'} render={() => <>
-                <NavigationBar icon={'finder'}/>
-            </>}
-            />
-            <Route exact path={'/favorites'} render={() => <>
-                <NavigationBar icon={'favorites'}/>
-            </>}
-            />
-            <Route exact path={'/settings'} render={() => <>
-                <NavigationBar icon={'settings'}/>
-            </>}
-            />
+            <Route path={'/'} render={(routerProps) => <>
+                <NavigationBar {...routerProps}/>
+            </>}/>
             <Route exact path={`/`} render={(routerProps) => {
                 return <>
                     <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
@@ -65,8 +52,7 @@ class RoutesGenerate extends Component {
 const mapStateToProps = state => {
     return {
         facultyList: state.facultyList,
-        findInput: state.filterItems,
-        links: state.linkData
+        findInput: state.filterItems
     }
 }
 
