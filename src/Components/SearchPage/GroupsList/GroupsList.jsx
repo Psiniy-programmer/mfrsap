@@ -29,7 +29,7 @@ class GroupsList extends Component {
         // находим нужные нам группы по кафедре
         department = changeLangEngToRus(match.params.department);
         // eslint-disable-next-line
-        groupsList.map(item => {
+        groupsList.data.map(item => {
             tempStr = '';
             // получаем название кафедры из списка групп
             for (let i = 0; i < item.groupname.length; i++) {

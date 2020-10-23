@@ -5,7 +5,6 @@ import star_active from './Icons/star_active.svg'
 import './style.css';
 
 const localStorage = window.localStorage;
-// localStorage.clear();
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -15,28 +14,22 @@ class Header extends Component {
         }
     }
 
-    // Получаем динамически нужный заголовок (Группу\Препода\Адуиторию)
     getHeaderTittle() {
-        const { match } = this.props; // деструктурируем для удобства
+        const { match, groupsList } = this.props; // деструктурируем для удобства
         let id = Number(match.params.rasp.match(/\d+/g)[0]);
         let resultStr = '';
         if ((match.params.rasp).match('auditoryid=')) return <>Auditory</> // code
         else if ((match.params.rasp).match('teacherid=')) return <>teacher</> // code
         else { // иначе переводим имя группы из ссылки на русский и выдаем
-            this.props.groupsList.forEach(item => {
+            groupsList.data.forEach(item => {
                 if (item.groupid === id) resultStr = <>{item.groupname}</>;
             })
         }
         return resultStr;
     }
 
-    // Получаем Числитель\Знаменатель в зависимости от текущей учебной недели
     getHeaderWeek() {
         return this.props.weekIsOdd ? <>Числитель</> : <>Знаменатель</>
-    }
-
-    componentDidMount() {
-        
     }
 
     addRemoveToFavorites() {

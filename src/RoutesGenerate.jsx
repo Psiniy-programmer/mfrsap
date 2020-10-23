@@ -22,7 +22,6 @@ class RoutesGenerate extends Component {
                 </>
             }}
             />
-
             <Route exact path={`/:faculty`} render={(routerProps) => <>
                 <SearchPage {...routerProps}/>
                 <DepartmentList {...routerProps}/>
