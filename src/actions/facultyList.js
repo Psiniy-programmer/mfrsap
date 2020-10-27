@@ -5,16 +5,25 @@ function fetchFacultyDataSuccess(facultyList) {
     }
 }
 
+function fetchFacultyDataLoading() {
+    return {
+        type : 'FACULTY_DATA_FETCH_LOADING'
+    }
+}
+
+function fetchFacultyDataError(error) {
+    return {
+        type : 'RASP_DATA_FETCH_ERROR',
+        error
+    }
+}
+
 export function fetchFacultyData(url) {
     return (dispatch) => {
+        dispatch(fetchFacultyDataLoading())
         fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(response.statusText);
-                }
-                return response
-            })
             .then(response => response.json())
+            .catch(error => dispatch(fetchFacultyDataError(error)))
             .then(facultyList => dispatch(fetchFacultyDataSuccess(facultyList)))
     }
 }

@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 
 class NavigationBar extends Component {
     render() {
-        const {pathname} = this.props.location
+        const {pathname, match} = this.props.location
         return (
             <div className={'NavigationBar'}>
                 <Link to={`/`}>

@@ -20,12 +20,10 @@ function fetchGroupsDataError(error) {
 
 export function fetchGroupsData(url) {
     return (dispatch) => {
+        dispatch(fetchGroupsDataLoading())
         fetch(url)
-            .then(response => {
-                response.ok ? dispatch(fetchGroupsDataLoading()) : dispatch(fetchGroupsDataError(response.statusText))
-                return response;
-            })
             .then(response => response.json())
+            .catch(error => dispatch(fetchGroupsDataError(error)))
             .then(groupsList => dispatch(fetchGroupsDataSuccess(groupsList)))
     }
 }

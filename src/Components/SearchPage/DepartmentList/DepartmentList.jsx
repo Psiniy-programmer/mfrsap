@@ -8,13 +8,13 @@ import './style.css';
 class DepartmentList extends Component {
     getFacultyList() {
         const { match, facultyList, groupsList } = this.props;
-        let list = [];
-        let str = '';
-        let curID;
+        let list = [],
+            str = '',
+            curID;
         for (let i = 1; i < match.url.length; i++) str += match.url[i];
         str = changeLangEngToRus(str);
         // eslint-disable-next-line
-        facultyList.map(item => {if (str === item.facultyname) return curID = item.facultyid})
+        facultyList.data.map(item => {if (str === item.facultyname) return curID = item.facultyid})
         // eslint-disable-next-line
         groupsList.data.map(item => {
             str = '';

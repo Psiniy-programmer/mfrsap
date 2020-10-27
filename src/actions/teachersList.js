@@ -5,16 +5,25 @@ function fetchTeachersDataSuccess(teachersList) {
     }
 }
 
+function fetchTeachersDataLoading() {
+    return {
+        type: 'TEACHERS_DATA_FETCH_LOADING'
+    }
+}
+
+function fetchTeachersDataError(error) {
+    return {
+        type : 'TEACHERS_DATA_FETCH_ERROR',
+        error
+    }
+}
+
 export function fetchTeachersData(url) {
     return (dispatch) => {
+        dispatch(fetchTeachersDataLoading())
         fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(response.statusText);
-                }
-                return response
-            })
             .then(response => response.json())
+            .catch(error => dispatch(fetchTeachersDataError(error)))
             .then(teachersList => dispatch(fetchTeachersDataSuccess(teachersList)))
     }
 }

@@ -8,23 +8,38 @@ import './style.css';
 
 class GroupsList extends Component {
     getRaspList() {
-        const { match, groupsList } = this.props;
-        let courseNumber;
-        let semNumber;
-        let department;
-        let tempList = []; // Временный массив в который закинем группы по совпадению с названием кафдеры
-        let resultArr = [];
-        let tempStr; // Понадобится для выборки кафедр по названию
-        let link;
+        const {match, groupsList} = this.props;
+        let courseNumber,
+            semNumber,
+            department,
+            tempList = [], // Временный массив в который закинем группы по совпадению с названием кафдеры
+            resultArr = [],
+            tempStr, // Понадобится для выборки кафедр по названию
+            link;
         switch (match.params.course) {
-            case 'I' : courseNumber = 1; break;
-            case 'II' : courseNumber = 2; break;
-            case 'III' : courseNumber = 3; break;
-            case 'IV' : courseNumber = 4; break;
-            case 'V' : courseNumber = 5; break;
-            case 'VI' : courseNumber = 1; break;
-            case 'VII' : courseNumber = 2; break;
-            default : break;
+            case 'I' :
+                courseNumber = 1;
+                break;
+            case 'II' :
+                courseNumber = 2;
+                break;
+            case 'III' :
+                courseNumber = 3;
+                break;
+            case 'IV' :
+                courseNumber = 4;
+                break;
+            case 'V' :
+                courseNumber = 5;
+                break;
+            case 'VI' :
+                courseNumber = 1;
+                break;
+            case 'VII' :
+                courseNumber = 2;
+                break;
+            default :
+                break;
         }
         // находим нужные нам группы по кафедре
         department = changeLangEngToRus(match.params.department);
@@ -47,7 +62,8 @@ class GroupsList extends Component {
             semNumber = item.groupname.match(/\d+/g)[1];
             // Поиск для 5 курса
             if (courseNumber === 5) {
-                if ((Number(semNumber[0] + semNumber[1]) === courseNumber * 2) || (Number(semNumber[0] + semNumber[1]) === courseNumber * 2 -1)) {
+                if ((Number(semNumber[0] + semNumber[1]) === courseNumber * 2)
+                    || (Number(semNumber[0] + semNumber[1]) === courseNumber * 2 - 1)) {
                     resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
                         <SearchItem text={item.groupname}/>
                     </Link>)
@@ -55,13 +71,15 @@ class GroupsList extends Component {
             } else {
                 // Поиск для магистратуры
                 if (match.params.course === 'VI' || match.params.course === 'VII') {
-                    if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1)) && (item.groupname[item.groupname.length-1]) === 'М') {
+                    if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1))
+                        && (item.groupname[item.groupname.length - 1]) === 'М') {
                         resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
                             <SearchItem text={item.groupname}/>
                         </Link>)
                     }
                 } else { // поиск для бакалавров
-                    if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1)) && ((item.groupname[item.groupname.length-1]) !== 'М')) {
+                    if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1))
+                        && ((item.groupname[item.groupname.length - 1]) !== 'М')) {
                         resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
                             <SearchItem text={item.groupname}/>
                         </Link>)

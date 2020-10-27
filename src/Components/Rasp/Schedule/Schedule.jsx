@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import './style.css'
-import {fetchGroupRaspData} from "../../../actions/groupRaspData";
-import {fetchTeacherRaspData} from "../../../actions/teacherRaspData";
-import {fetchAuditoryRaspData} from "../../../actions/auditoryRaspData";
+import {fetchGroupRaspData} from "../../../actions/raspData";
 import {generateUniqKey} from "../../../helpers/helpers";
 import {connect} from "react-redux";
 import Card from './Card/Card'
@@ -30,7 +28,7 @@ class Schedule extends Component {
     }
 
     getRasp(curDay) {
-        const {day} = this.props.raspData;
+        const {day} = this.props.raspData.data;
         let isEmpty = true;
         if (!day[curDay].special_day) {
             // eslint-disable-next-line
@@ -44,7 +42,7 @@ class Schedule extends Component {
     returnRasp() {
         // Проверяем загрузились ли данные
         const {raspData, currentDayIndex} = this.props;
-        if (Object.keys(raspData).length !== 0) {
+        if (raspData.loading === false) {
             return this.getRasp(currentDayIndex);
         }
     }
@@ -60,9 +58,7 @@ class Schedule extends Component {
 
 const mapStateToProps = state => {
     return {
-        groupsList: state.groupsList,
         raspData: state.raspData,
-        audData: state.auditoryList
     }
 }
 
@@ -70,12 +66,6 @@ const mapDispatchToState = dispatch => {
     return {
         fetchGroupRasp: url => {
             dispatch(fetchGroupRaspData(url))
-        },
-        fetchTeacherRasp: url => {
-            dispatch(fetchTeacherRaspData(url))
-        },
-        fetchAuditoryRasp: url => {
-            dispatch(fetchAuditoryRaspData(url))
         }
     }
 }

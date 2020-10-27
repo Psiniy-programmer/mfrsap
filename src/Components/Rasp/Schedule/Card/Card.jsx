@@ -17,7 +17,7 @@ class Card extends Component {
             <div className={'schedule-item schedule-item__Double'}>
                 <div className={'schedule-item__numerator'}>
                     <Context
-                        opacity={weekIsOdd ? false : true}
+                        opacity={!weekIsOdd}
                         timer={pairtime}
                         subject={pair[0].subject}
                         underSubject={pair[0].teacher}
@@ -28,7 +28,7 @@ class Card extends Component {
                 <div className="splitter"></div>
                 <div className={'schedule-item__denominator'}>
                     <Context
-                        opacity={weekIsOdd ? true : false}
+                        opacity={!!weekIsOdd}
                         subject={pair[1].subject}
                         underSubject={pair[1].teacher}
                         leftInfo={!pair[1].subgroup ? null : `${pair[1].subgroup} Подгруппа`}

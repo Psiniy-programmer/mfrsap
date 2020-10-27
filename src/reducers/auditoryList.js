@@ -1,8 +1,8 @@
 const initialState = {
-    loading: false,
+    loading: null,
     data: [],
     error: ''
-}
+};
 
 export default function auditoryList(state = initialState, action) {
     switch (action.type) {
@@ -11,17 +11,17 @@ export default function auditoryList(state = initialState, action) {
                 ...state,
                 loading: true
             };
+        case 'AUDITORY_DATA_FETCH_ERROR' :
+            return {
+                loading: false,
+                data: [],
+                error: action.error
+            };
         case 'AUDITORY_DATA_FETCH_OK' :
             return {
                 loading: false,
                 data: action.auditoryList,
                 error: ''
-            };
-        case 'AUDITORY_DATA_FETCH_ERROR' :
-            return {
-                loading: false,
-                data: [],
-                error: action.auditoryList
             };
         default :
             return state

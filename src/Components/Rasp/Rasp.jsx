@@ -3,9 +3,7 @@ import './style.css';
 import {connect} from "react-redux";
 import Header from "./Header/Header";
 import DaysCarousel from "./DaysCarousel/DaysCarousel";
-import {fetchGroupRaspData} from "../../actions/groupRaspData";
-import {fetchTeacherRaspData} from "../../actions/teacherRaspData";
-import {fetchAuditoryRaspData} from "../../actions/auditoryRaspData";
+import {fetchGroupRaspData} from "../../actions/raspData";
 import Schedule from "./Schedule/Schedule";
 
 const date = new Date();
@@ -89,12 +87,6 @@ const mapDispatchToState = dispatch => {
     return {
         fetchGroupRasp: url => {
             dispatch(fetchGroupRaspData(url))
-        },
-        fetchTeacherRasp: url => {
-            dispatch(fetchTeacherRaspData(url))
-        },
-        fetchAuditoryRasp: url => {
-            dispatch(fetchAuditoryRaspData(url))
         }
     }
 }

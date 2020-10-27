@@ -8,6 +8,24 @@ class Search extends Component {
         this.props.onFindItem(this.nameInput.value);
     }
 
+    getView() {
+        if (this.props.findInput.length === 0) {
+            return <div className={'SearchButtons'}>
+                <Link to={`/K`}>
+                    <span>К</span>
+                </Link>
+                <Link to={`/LT`}>
+                    <span>ЛТ</span>
+                </Link>
+                <Link to={`/Aspirant`}>
+                    <span>Аспирантура</span>
+                </Link>
+            </div>
+        } else {
+            return <span>return list</span>
+        }
+    }
+
     render() {
         return (
             <div className={'Search'}>
@@ -15,26 +33,16 @@ class Search extends Component {
                     className={'SearchInput'}
                     placeholder={'Поиск'}
                     value={this.props.findInput}
-                    ref={(input) => {this.nameInput = input}}
+                    ref={(input) => {
+                        this.nameInput = input
+                    }}
                     onChange={this.findItem.bind(this)}
                     type={'text'}
                 />
                 <p className={'SearchDescription grayText'}>
                     Или выберите группу из списка
                 </p>
-                {
-                    this.props.findInput.length === 0 ? <div className={'SearchButtons'}>
-                        <Link to={`/K`}>
-                            <span>К</span>
-                        </Link>
-                        <Link to={`/LT`}>
-                            <span>ЛТ</span>
-                        </Link>
-                        <Link to={`/Aspirant`}>
-                            <span>Аспирантура</span>
-                        </Link>
-                    </div> : <span>kek</span>
-                }
+                {this.getView()}
             </div>
         );
     }
@@ -43,7 +51,7 @@ class Search extends Component {
 const mapStateToProps = state => {
     return {
         facultyList: state.facultyList,
-        findInput : state.filterItems,
+        findInput: state.filterItems,
     }
 }
 
