@@ -7,24 +7,24 @@ import {
     translateFullGroupNameToRus
 } from '../../helpers/helpers.js'
 
-class SearchPage extends Component {
+class AppHeader extends Component {
     // Динамичное подставление нужного описания (текст под заголовком)
     dynamicDescription() {
         const { match } = this.props; // деструктурируем для удобства
         // Генерим описания к шапке
         switch (match.path) {
-            case '/' : {
+            case '/' :
                 return <>Начните вводить группу, преподавателя или аудиторию</>
-            }
-            case '/:faculty' : {
+            case '/:faculty' :
                 return findFacultyName(match.url);
-            }
-            case '/:faculty/:department' : {
+            case '/:faculty/:department' :
                 return 'Кафедра ' + changeLangEngToRus(match.params.department);
-            }
-            case '/:faculty/:department/:course' : {
+            case '/:faculty/:department/:course' :
                 return `Кафедра ${changeLangEngToRus(match.params.department)} - ${match.params.course} курс`;
-            }
+            case '/settings' :
+                return 'Настройки'
+            case '/favorites' :
+                return 'Избранное'
             default :
                 break;
         }
@@ -45,8 +45,8 @@ class SearchPage extends Component {
 
     render() {
         return (
-            <div className={'SearchPage'}>
-                <h1 className={'SearchTittle'}>
+            <div className={'AppHeader'}>
+                <h1 className={'SearchTittle text-bold--large'}>
                     Расписание МФ МГТУ
                 </h1>
                 <p className={'SearchDescription grayText'}>
@@ -70,4 +70,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AppHeader);

@@ -32,6 +32,7 @@ p, h1, h2 {
     font-weight: bold;
     font-size: 18px;
     line-height: 120%;
+    color: #133533;
 }
 
 .text-regular--small {
@@ -62,13 +63,12 @@ p, h1, h2 {
 }
 .text-medium--small {
 /* R-medium-14 */
-font-family: Roboto;
+    font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 130%;
 }
-
 
 .text-gray {
     color: #7B8685

@@ -3,7 +3,7 @@ import './style.css';
 import {connect} from "react-redux";
 import Header from "./Header/Header";
 import DaysCarousel from "./DaysCarousel/DaysCarousel";
-import {fetchGroupRaspData} from "../../actions/raspData";
+import {fetchGroupRaspData} from "../../../actions/raspData";
 import Schedule from "./Schedule/Schedule";
 
 const date = new Date();
@@ -58,7 +58,7 @@ class Rasp extends Component {
 
     render() {
         return (
-            <div className={'Rasp'}>
+            <div className={'RaspView'}>
                 <Header
                     weekIsOdd={this.state.isOdd}
                     match={this.props.match}

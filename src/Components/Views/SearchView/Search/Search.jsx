@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import './style.css'
-
 class Search extends Component {
     findItem() {
         this.props.onFindItem(this.nameInput.value);
@@ -11,13 +10,13 @@ class Search extends Component {
     getView() {
         if (this.props.findInput.length === 0) {
             return <div className={'SearchButtons'}>
-                <Link to={`/K`}>
+                <Link to={`/search/K`}>
                     <span>К</span>
                 </Link>
-                <Link to={`/LT`}>
+                <Link to={`/search/LT`}>
                     <span>ЛТ</span>
                 </Link>
-                <Link to={`/Aspirant`}>
+                <Link to={`/search/Aspirant`}>
                     <span>Аспирантура</span>
                 </Link>
             </div>

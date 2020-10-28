@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import './style.css'
-import {fetchGroupRaspData} from "../../../actions/raspData";
-import {generateUniqKey} from "../../../helpers/helpers";
+import {fetchGroupRaspData} from "../../../../actions/raspData";
+import {generateUniqKey} from "../../../../helpers/helpers";
 import {connect} from "react-redux";
 import Card from './Card/Card'
-import SearchItem from "../../SearchPage/SearchItem/SearchItem";
+import SearchItem from "../../SearchView/SearchItem/SearchItem";
 
 class Schedule extends Component {
     componentDidMount() {

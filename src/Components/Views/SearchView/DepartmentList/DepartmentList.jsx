@@ -2,16 +2,15 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import SearchItem from "../SearchItem/SearchItem";
 import {Link} from "react-router-dom";
-import {changeLangEngToRus, changeLangRusToEng, generateUniqKey} from "../../../helpers/helpers";
+import {changeLangEngToRus, changeLangRusToEng, generateUniqKey} from "../../../../helpers/helpers";
 import './style.css';
-
 class DepartmentList extends Component {
     getFacultyList() {
         const { match, facultyList, groupsList } = this.props;
+        console.log(match)
         let list = [],
-            str = '',
+            str = match.params.faculty,
             curID;
-        for (let i = 1; i < match.url.length; i++) str += match.url[i];
         str = changeLangEngToRus(str);
         // eslint-disable-next-line
         facultyList.data.map(item => {if (str === item.facultyname) return curID = item.facultyid})

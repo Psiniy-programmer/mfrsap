@@ -45,7 +45,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div className={'Header'}>
+            <div className={'RaspHeader'}>
                 <img
                     onClick={() => this.addRemoveToFavorites()}
                     className={'Header_Logo'}

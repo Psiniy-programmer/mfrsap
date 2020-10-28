@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import './App.css';
+import '../App.css';
 
-import { fetchGroupsData } from '../actions/groupsList.js';
-import { fetchFacultyData } from '../actions/facultyList.js';
-import { fetchTeachersData } from '../actions/teachersList.js';
-import { fetchAuditoryData } from '../actions/auditoryList.js';
-import RoutesGenerate from "../RoutesGenerate";
+import { fetchGroupsData } from '../../actions/groupsList.js';
+import { fetchFacultyData } from '../../actions/facultyList.js';
+import { fetchTeachersData } from '../../actions/teachersList.js';
+import { fetchAuditoryData } from '../../actions/auditoryList.js';
+import RoutesGenerate from "../../RoutesGenerate";
 
 class App extends Component {
 

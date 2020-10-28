@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {changeLangEngToRus} from "../../../helpers/helpers";
+import {changeLangEngToRus} from "../../../../helpers/helpers";
 import SearchItem from "../SearchItem/SearchItem";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';

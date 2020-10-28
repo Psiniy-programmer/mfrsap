@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './style.css';
-import {generateUniqKey} from "../../../helpers/helpers";
+import {generateUniqKey} from "../../../../helpers/helpers";
 
 let daysData = [
     {
