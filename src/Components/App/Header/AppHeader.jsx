@@ -5,7 +5,7 @@ import {
     changeLangEngToRus,
     findFacultyName,
     translateFullGroupNameToRus
-} from '../../helpers/helpers.js'
+} from '../../../helpers/helpers.js'
 
 class AppHeader extends Component {
     // Динамичное подставление нужного описания (текст под заголовком)
@@ -46,10 +46,10 @@ class AppHeader extends Component {
     render() {
         return (
             <div className={'AppHeader'}>
-                <h1 className={'SearchTittle text-bold--large'}>
+                <h1 className={'SearchTittle text-bold--large black'}>
                     Расписание МФ МГТУ
                 </h1>
-                <p className={'SearchDescription grayText'}>
+                <p className={'SearchDescription text-regular--medium black'}>
                     {this.dynamicDescription()}
                 </p>
             </div>

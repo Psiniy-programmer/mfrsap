@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './style.css';
 import {connect} from "react-redux";
-import Header from "./Header/Header";
+import Header from "./RaspHeader/RaspHeader";
 import DaysCarousel from "./DaysCarousel/DaysCarousel";
 import {fetchGroupRaspData} from "../../../actions/raspData";
 import Schedule from "./Schedule/Schedule";

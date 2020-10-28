@@ -38,7 +38,7 @@ class Search extends Component {
                     onChange={this.findItem.bind(this)}
                     type={'text'}
                 />
-                <p className={'SearchDescription grayText'}>
+                <p className={'SearchDescription text-regular--medium black'}>
                     Или выберите группу из списка
                 </p>
                 {this.getView()}

@@ -5,7 +5,7 @@ import star_active from './Icons/star_active.svg'
 import './style.css';
 
 const localStorage = window.localStorage;
-class Header extends Component {
+class RaspHeader extends Component {
     constructor(props) {
         super(props);
 
@@ -45,7 +45,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div className={'RaspHeader'}>
+            <div className={'RaspHeader black'}>
                 <img
                     onClick={() => this.addRemoveToFavorites()}
                     className={'Header_Logo'}
@@ -71,4 +71,4 @@ const mapDispatchToState = dispatch => {
     return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(Header)
+export default connect(mapStateToProps, mapDispatchToState)(RaspHeader)

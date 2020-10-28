@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import '../App.css';
+import './App.css';
 
 import { fetchGroupsData } from '../../actions/groupsList.js';
 import { fetchFacultyData } from '../../actions/facultyList.js';
 import { fetchTeachersData } from '../../actions/teachersList.js';
 import { fetchAuditoryData } from '../../actions/auditoryList.js';
-import RoutesGenerate from "../../RoutesGenerate";
+import {Route} from "react-router-dom";
+import NavigationBar from "../NavigationBar/NavigationBar";
+import SearchPage from "./Header/AppHeader";
+import Search from "../Views/SearchView/Search/Search";
+import SearchRoutes from "../Routes/SearchRoutes";
+import SettignsRoutes from "../Routes/SettignsRoutes";
 
 class App extends Component {
 
@@ -19,7 +24,13 @@ class App extends Component {
 
     render() {
         return <div className={'App'}>
-            <RoutesGenerate/>
+            <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/>
+            <Route exact path={`/`} render={routerProps => <>
+                <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
+                <Search/>
+            </>}/>
+            <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
+            <SettignsRoutes/>
         </div>
     }
 }

@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import * as serviceWorker from './serviceWorker';
-import App from './Components/App';
+import App from './Components/App/App';
 
 const axios = require('axios');
 const ext = window.__REDUX_DEVTOOLS_EXTENSION__;

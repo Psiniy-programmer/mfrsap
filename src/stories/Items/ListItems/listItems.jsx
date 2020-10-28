@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SearchItem from "../../../Components/SearchPage/SearchItem/SearchItem";
+import SearchItem from "../../../Components/Views/SearchView/SearchItem/SearchItem";
 
 class ListItems extends Component {
 
