@@ -1,0 +1,55 @@
+.SettingsItem {
+    display: grid;
+    grid-template-rows: 1fr;
+    background-color: #429C97;
+    color: #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 0 10px 0;
+    padding: 16px 20px;
+}
+
+.SettingsItem__radio {
+    display: grid;
+    grid-template-columns: 1fr 0.1fr;
+}
+
+.toggle {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.toggle__input {
+    display: none;
+}
+
+.toggle__fill {
+    position: relative;
+    width: 34px;
+    height: 14px;
+    border-radius: 10px;
+    background: #09201E;
+    transition: background 0.3s;
+}
+
+.toggle__input:checked ~ .toggle__fill {
+    background: #FFFFFF;
+}
+
+.toggle__fill::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    transition: transform 0.3s;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+    background: #27536B;
+    transform: translateX(14px);
+    transition: transform 0.3s;
+}

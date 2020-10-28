@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import './style.css'
-class Search extends Component {
+class SearchView extends Component {
     findItem() {
         this.props.onFindItem(this.nameInput.value);
     }
@@ -62,4 +62,4 @@ const mapDispatchToState = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(Search);
+export default connect(mapStateToProps, mapDispatchToState)(SearchView);

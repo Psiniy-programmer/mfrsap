@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {changeLangEngToRus} from "../../../../helpers/helpers";
-import SearchItem from "../SearchItem/SearchItem";
+import MenuItem from "../MenuItem/MenuItem";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import './style.css';
@@ -65,7 +65,7 @@ class GroupsList extends Component {
                 if ((Number(semNumber[0] + semNumber[1]) === courseNumber * 2)
                     || (Number(semNumber[0] + semNumber[1]) === courseNumber * 2 - 1)) {
                     resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
-                        <SearchItem text={item.groupname}/>
+                        <MenuItem text={item.groupname}/>
                     </Link>)
                 } // Поиск для остальных курсов
             } else {
@@ -74,14 +74,14 @@ class GroupsList extends Component {
                     if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1))
                         && (item.groupname[item.groupname.length - 1]) === 'М') {
                         resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
-                            <SearchItem text={item.groupname}/>
+                            <MenuItem text={item.groupname}/>
                         </Link>)
                     }
                 } else { // поиск для бакалавров
                     if (((Number(semNumber[0]) === courseNumber * 2) || (Number(semNumber[0]) === courseNumber * 2 - 1))
                         && ((item.groupname[item.groupname.length - 1]) !== 'М')) {
                         resultArr.push(<Link key={Date.now() + item.groupid} className={`Link`} to={link}>
-                            <SearchItem text={item.groupname}/>
+                            <MenuItem text={item.groupname}/>
                         </Link>)
                     }
                 }

@@ -4,7 +4,7 @@ import {fetchGroupRaspData} from "../../../../actions/raspData";
 import {generateUniqKey} from "../../../../helpers/helpers";
 import {connect} from "react-redux";
 import Card from './Card/Card'
-import SearchItem from "../../SearchView/SearchItem/SearchItem";
+import MenuItem from "../../SearchView/MenuItem/MenuItem";
 
 class Schedule extends Component {
     componentDidMount() {
@@ -35,8 +35,8 @@ class Schedule extends Component {
             day[curDay].pairList.map(item => {
                 if (item.pair.length !== 0) isEmpty = false;
             })
-        } else return <SearchItem subclass={'text-bold--large RaspHeader-item'} text={'Занятия по особому расписанию'}/>
-        return isEmpty ? <SearchItem subclass={'text-bold--large RaspHeader-item'} text={'Занятий нет'}/> : this.getCommonRasp(day[curDay]);
+        } else return <MenuItem subclass={'text-bold--large RaspHeader-item'} text={'Занятия по особому расписанию'}/>
+        return isEmpty ? <MenuItem subclass={'text-bold--large RaspHeader-item'} text={'Занятий нет'}/> : this.getCommonRasp(day[curDay]);
     }
 
     returnRasp() {

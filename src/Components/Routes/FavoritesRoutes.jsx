@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import {Switch, Route} from "react-router-dom";
-import SettingsView from "../Views/SettingsView/SettingsView";
+import FavoritesView from "../Views/FavoritesView/FavoritesView";
+import SearchPage from "../App/Header/AppHeader";
 
 class FavoritesRoutes extends Component {
     render() {
         return (
             <Switch>
-                <Route exact path={'/settings'} render={routerProps => <SettingsView {...routerProps}/>}/>
+                <Route exact path={'/favorites'} render={routerProps => <>
+                    <SearchPage {...routerProps}/>
+                    <FavoritesView {...routerProps}/>
+                </>}/>
             </Switch>
         );
     }

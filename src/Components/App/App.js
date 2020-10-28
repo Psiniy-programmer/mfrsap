@@ -9,9 +9,10 @@ import { fetchAuditoryData } from '../../actions/auditoryList.js';
 import {Route} from "react-router-dom";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import SearchPage from "./Header/AppHeader";
-import Search from "../Views/SearchView/Search/Search";
+import Search from "../Views/SearchView/SearchView";
 import SearchRoutes from "../Routes/SearchRoutes";
 import SettignsRoutes from "../Routes/SettignsRoutes";
+import FavoritesRoutes from "../Routes/FavoritesRoutes";
 
 class App extends Component {
 
@@ -31,6 +32,7 @@ class App extends Component {
             </>}/>
             <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
             <SettignsRoutes/>
+            <FavoritesRoutes/>
         </div>
     }
 }

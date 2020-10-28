@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './style.css'
-import SearchItem from "../SearchItem/SearchItem";
+import MenuItem from "../MenuItem/MenuItem";
 import {Link} from "react-router-dom";
 
 class CourseList extends Component {
@@ -9,13 +9,13 @@ class CourseList extends Component {
         console.log(match)
         return (
             <div className={'CourseList'}>
-                <Link className={`Link`} to={`${match.url}/I`}><SearchItem text={'I курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/II`}><SearchItem text={'II курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/III`}><SearchItem text={'III курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/IV`}><SearchItem text={'IV курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/V`}><SearchItem text={'V курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/VI`}><SearchItem text={'I курс магистратура'}/></Link>
-                <Link className={`Link`} to={`${match.url}/VII`}><SearchItem text={'I курс магистратура'}/></Link>
+                <Link className={`Link`} to={`${match.url}/I`}><MenuItem text={'I курс'}/></Link>
+                <Link className={`Link`} to={`${match.url}/II`}><MenuItem text={'II курс'}/></Link>
+                <Link className={`Link`} to={`${match.url}/III`}><MenuItem text={'III курс'}/></Link>
+                <Link className={`Link`} to={`${match.url}/IV`}><MenuItem text={'IV курс'}/></Link>
+                <Link className={`Link`} to={`${match.url}/V`}><MenuItem text={'V курс'}/></Link>
+                <Link className={`Link`} to={`${match.url}/VI`}><MenuItem text={'I курс магистратура'}/></Link>
+                <Link className={`Link`} to={`${match.url}/VII`}><MenuItem text={'I курс магистратура'}/></Link>
             </div>
         );
     }
