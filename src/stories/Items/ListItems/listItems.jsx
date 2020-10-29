@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MenuItem from "../../../Components/Views/SearchView/MenuItem/MenuItem";
+import MenuItem from "../../../Components/MenuItem/MenuItem";
 
 class ListItems extends Component {
 

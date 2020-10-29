@@ -1,0 +1,4 @@
+.RaspView {
+    display: grid;
+    grid-gap: var(--items--gap);
+}

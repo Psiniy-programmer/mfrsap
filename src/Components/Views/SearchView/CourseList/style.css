@@ -1,0 +1,4 @@
+.CourseList {
+    display: grid;
+    gap: var(--items--gap);
+}

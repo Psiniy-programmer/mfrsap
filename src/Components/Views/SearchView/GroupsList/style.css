@@ -1,0 +1,4 @@
+.GroupsList {
+    display: grid;
+    gap: var(--items--gap);
+}

@@ -5,6 +5,7 @@ import teachersList from './teachersList.js';
 import filterItems from './filterItems.js';
 import auditoryList from './auditoryList.js';
 import raspData from './raspData.js';
+import darkTheme from "./darkTheme.js";
 
 export default combineReducers({
     groupsList,
@@ -12,5 +13,6 @@ export default combineReducers({
     teachersList,
     auditoryList,
     raspData,
-    filterItems
+    filterItems,
+    darkTheme
 });

@@ -15,15 +15,15 @@ class AppHeader extends Component {
         switch (match.path) {
             case '/' :
                 return <>Начните вводить группу, преподавателя или аудиторию</>
-            case '/:faculty' :
-                return findFacultyName(match.url);
-            case '/:faculty/:department' :
+            case '/search/:faculty' :
+                return findFacultyName(match.params.faculty);
+            case '/search/:faculty/:department' :
                 return 'Кафедра ' + changeLangEngToRus(match.params.department);
-            case '/:faculty/:department/:course' :
+            case '/search/:faculty/:department/:course' :
                 return `Кафедра ${changeLangEngToRus(match.params.department)} - ${match.params.course} курс`;
-            case '/settings' :
+            case '/search/settings' :
                 return 'Настройки'
-            case '/favorites' :
+            case '/search/favorites' :
                 return 'Избранное'
             default :
                 break;
@@ -46,10 +46,10 @@ class AppHeader extends Component {
     render() {
         return (
             <div className={'AppHeader'}>
-                <h1 className={'SearchTittle text-bold--large black'}>
+                <h1 className={'SearchTittle text-bold--large textColor'}>
                     Расписание МФ МГТУ
                 </h1>
-                <p className={'SearchDescription text-regular--medium black'}>
+                <p className={'SearchDescription text-regular--medium textColor'}>
                     {this.dynamicDescription()}
                 </p>
             </div>

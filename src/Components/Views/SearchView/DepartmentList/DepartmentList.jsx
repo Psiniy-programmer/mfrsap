@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import MenuItem from "../MenuItem/MenuItem";
+import MenuItem from "../../../MenuItem/MenuItem";
 import {Link} from "react-router-dom";
 import {changeLangEngToRus, changeLangRusToEng, generateUniqKey} from "../../../../helpers/helpers";
 import './style.css';

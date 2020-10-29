@@ -23,8 +23,7 @@ const changeLangRusToEng = (word) => {
 }
 
 const findFacultyName = (word) => {
-    let str = '';
-    for (let i = 1; i < word.length; i++) str += word[i];
+    let str = word;
     switch (str.toLowerCase()) {
         case 'k' : str = 'Космический факультет'; break;
         case 'lt' : str = 'Лесной факультет'; break;

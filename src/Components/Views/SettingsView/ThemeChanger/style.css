@@ -1,0 +1,32 @@
+.ThemeChanger {
+    display: grid;
+    margin-top: var(--items--gap);
+    gap: var(--items--gap);
+}
+
+.ThemeChanger__changer {
+    display: grid;
+    align-content: space-between;
+    align-items: center;
+    grid-template-columns: 1fr 0.1fr;
+    padding: 16px 20px;
+}
+
+.ThemeChanger__input {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.ThemeChanger__checkbox {
+    width: 1.42em;
+    height: 1.42em;
+    background: url("img/Vector.svg");
+}
+
+.ThemeChanger__input:checked + .ThemeChanger__checkbox {
+    background: url("img/Vector2.svg");
+    width: 1.42em;
+    height: 1.42em;
+}

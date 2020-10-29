@@ -4,7 +4,7 @@ import {fetchGroupRaspData} from "../../../../actions/raspData";
 import {generateUniqKey} from "../../../../helpers/helpers";
 import {connect} from "react-redux";
 import Card from './Card/Card'
-import MenuItem from "../../SearchView/MenuItem/MenuItem";
+import MenuItem from "../../../MenuItem/MenuItem";
 
 class Schedule extends Component {
     componentDidMount() {

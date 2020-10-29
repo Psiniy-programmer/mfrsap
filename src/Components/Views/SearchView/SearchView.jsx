@@ -11,13 +11,13 @@ class SearchView extends Component {
         if (this.props.findInput.length === 0) {
             return <div className={'SearchButtons'}>
                 <Link to={`/search/K`}>
-                    <span>К</span>
+                    <span className={'raspTextColor'}>К</span>
                 </Link>
                 <Link to={`/search/LT`}>
-                    <span>ЛТ</span>
+                    <span className={'raspTextColor'}>ЛТ</span>
                 </Link>
                 <Link to={`/search/Aspirant`}>
-                    <span>Аспирантура</span>
+                    <span className={'raspTextColor'}>Аспирантура</span>
                 </Link>
             </div>
         } else {
@@ -38,7 +38,7 @@ class SearchView extends Component {
                     onChange={this.findItem.bind(this)}
                     type={'text'}
                 />
-                <p className={'SearchDescription text-regular--medium black'}>
+                <p className={'SearchDescription text-regular--medium textColor'}>
                     Или выберите группу из списка
                 </p>
                 {this.getView()}

@@ -1,10 +1,5 @@
 .DepartmentList {
+    display: grid;
+    gap: var(--items--gap);
     margin-bottom: 55px;
-}
-
-.DepartmentList a {
-    font-size: 14px;
-    font-weight: 500;
-    color: #FFFFFF;
-    text-decoration: none;
 }

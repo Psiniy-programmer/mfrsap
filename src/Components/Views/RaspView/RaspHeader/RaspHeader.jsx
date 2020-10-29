@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import star from './Icons/star.svg';
-import star_active from './Icons/star_active.svg'
+// import star_active from './Icons/star_active.svg'
 import './style.css';
 
 const localStorage = window.localStorage;
@@ -45,7 +45,7 @@ class RaspHeader extends Component {
 
     render() {
         return (
-            <div className={'RaspHeader black'}>
+            <div className={'RaspHeader textColor'}>
                 <img
                     onClick={() => this.addRemoveToFavorites()}
                     className={'Header_Logo'}
@@ -53,7 +53,7 @@ class RaspHeader extends Component {
                     alt="error"
                 />
                 <div className={'Header_Text'}>
-                    <h1 className={'shift-text'}>{this.getHeaderTittle()}</h1>
+                    <h1 className={'shift-text text-bold--large'}>{this.getHeaderTittle()}</h1>
                     <p className={'text-regular--medium'}>{this.getHeaderWeek()}</p>
                 </div>
             </div>

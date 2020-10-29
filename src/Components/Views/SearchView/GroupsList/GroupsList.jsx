@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {changeLangEngToRus} from "../../../../helpers/helpers";
-import MenuItem from "../MenuItem/MenuItem";
+import MenuItem from "../../../MenuItem/MenuItem";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import './style.css';
@@ -92,7 +92,7 @@ class GroupsList extends Component {
 
     render() {
         return (
-            <div className={`RaspList`}>
+            <div className={`GroupsList`}>
                 {this.getRaspList()}
             </div>
         );

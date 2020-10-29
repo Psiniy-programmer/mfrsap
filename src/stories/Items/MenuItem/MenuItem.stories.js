@@ -2,7 +2,7 @@ import React from 'react';
 import {storiesOf} from "@storybook/react";
 import {action} from "@storybook/addon-actions";
 import {text, withKnobs, number} from "@storybook/addon-knobs";
-import MenuItem from "../../../Components/Views/SearchView/MenuItem/MenuItem";
+import MenuItem from "../../../Components/MenuItem/MenuItem";
 
 
 

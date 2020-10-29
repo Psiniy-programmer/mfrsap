@@ -25,14 +25,16 @@ class App extends Component {
 
     render() {
         return <div className={'App'}>
+            <div className="content">
+                <Route exact path={`/`} render={routerProps => <>
+                    <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
+                    <Search/>
+                </>}/>
+                <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
+                <SettignsRoutes/>
+                <FavoritesRoutes/>
+            </div>
             <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/>
-            <Route exact path={`/`} render={routerProps => <>
-                <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
-                <Search/>
-            </>}/>
-            <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
-            <SettignsRoutes/>
-            <FavoritesRoutes/>
         </div>
     }
 }

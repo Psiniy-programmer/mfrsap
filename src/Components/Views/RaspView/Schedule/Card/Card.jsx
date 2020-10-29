@@ -6,13 +6,11 @@ import EmptyCard from "../EmptyCard/EmptyCard";
 class Card extends Component {
     render() {
         const {pairtime, pair, weekIsOdd} = this.props.rasp;
-        // если занятий нет
         if (!pair.length) {
             return <div className={'schedule-item schedule-item__Single'}>
                 <EmptyCard/>
             </div>
         }
-        // Для двойных занятиий
         if (this.props.isDouble) return (
             <div className={'schedule-item schedule-item__Double'}>
                 <div className={'schedule-item__numerator'}>

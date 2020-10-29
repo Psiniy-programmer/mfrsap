@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-gap: 10px
+    gap: 10px
 }
 
 .SearchButtons a {
@@ -12,13 +12,9 @@
     align-content: center;
     background-color: #429C97;
     text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    color: #FFFFFF;
     border-radius: 4px;
     padding: 2px 0;
     cursor: pointer;
-    text-decoration: none;
 }
 
 .SearchButtons a:last-child {
