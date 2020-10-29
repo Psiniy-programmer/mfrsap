@@ -9,11 +9,16 @@ html {
     --red: #C15555;
     --items--gap: 10px;
     --carousel--gap: 8px;
+
+    --current--theme--rasp--txt: var(--rasp--text-light--theme);
+    --current--theme--menu--txt: var(--menu--txt--light--theme);
+    --current--theme--bg: var(--bg--light--theme);
 }
 
 body {
     font-family: Roboto;
     margin: 0 10px 65px;
+    background-color: var(--current--theme--bg);
 }
 
 a {
@@ -25,12 +30,30 @@ p, h1, h2 {
     padding: 0;
 }
 
+@media (prefers-color-scheme: dark) {
+    body {
+        --current--theme--menu--txt: var(--txt--dark--theme);
+        --current--theme--bg: var(--bg--dark--theme);
+    }
+}
+
+.LIGHT_THEME{
+    --current--theme--rasp--txt: var(--rasp--text-light--theme);
+    --current--theme--menu--txt: var(--menu--txt--light--theme);
+    --current--theme--bg: var(--bg--light--theme);
+}
+
+.DARK_THEME {
+    --current--theme--menu--txt: var(--txt--dark--theme);
+    --current--theme--bg: var(--bg--dark--theme);
+}
+
 .textColor {
-    color: var(--menu--txt--light--theme);
+    color: var(--current--theme--menu--txt);
 }
 
 .raspTextColor {
-    color: var(--rasp--text-light--theme);
+    color: var(--current--theme--rasp--txt);
 }
 
 .text-bold--large {

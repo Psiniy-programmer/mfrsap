@@ -65,4 +65,6 @@ const translateFullGroupNameToEng = (word) => {
 
 const generateUniqKey = (prefix, index) => `${prefix}_${new Date().getTime() + index}`
 
-export {changeLangEngToRus, changeLangRusToEng, findFacultyName, translateFullGroupNameToEng, translateFullGroupNameToRus, generateUniqKey}
+const removeClasses = DOM => DOM.classList.forEach(item => DOM.classList.remove(item));
+
+export {changeLangEngToRus, changeLangRusToEng, findFacultyName, translateFullGroupNameToEng, translateFullGroupNameToRus, generateUniqKey, removeClasses}

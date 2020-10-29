@@ -24,7 +24,7 @@ class App extends Component {
     }
 
     render() {
-        return <div className={'App'}>
+        return <div className={`App`}>
             <div className="content">
                 <Route exact path={`/`} render={routerProps => <>
                     <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
