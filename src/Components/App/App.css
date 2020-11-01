@@ -30,6 +30,13 @@ p, h1, h2 {
     padding: 0;
 }
 
+@media (prefers-color-scheme: light) {
+    body {
+        --current--theme--menu--txt: var(--rasp--text-light--theme);
+        --current--theme--bg: var(--bg--light--theme);
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         --current--theme--menu--txt: var(--txt--dark--theme);
