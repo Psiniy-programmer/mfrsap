@@ -29,7 +29,7 @@ class SearchView extends Component {
         return (
             <div className={'Search'}>
                 <input
-                    className={'SearchInput'}
+                    className={'SearchInput text-medium--small textColor'}
                     placeholder={'Поиск'}
                     value={this.props.findInput}
                     ref={(input) => {
