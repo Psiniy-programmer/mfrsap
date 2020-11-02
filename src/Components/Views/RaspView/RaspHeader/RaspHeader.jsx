@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import star from './Icons/star.svg';
-// import star_active from './Icons/star_active.svg'
+import star_active from './Icons/star_active.svg'
 import './style.css';
 
 const localStorage = window.localStorage;
@@ -10,7 +10,7 @@ class RaspHeader extends Component {
         super(props);
 
         this.state = {
-            isFavorite: false
+            isFavorite: localStorage.getItem(this.props.match.params.rasp) !== null
         }
     }
 
@@ -33,14 +33,11 @@ class RaspHeader extends Component {
     }
 
     addRemoveToFavorites() {
-        let string = this.getHeaderTittle()
-        if (string.props !== undefined) {
-            if (localStorage.getItem(string.props.children) !== null)
-                localStorage.removeItem(string.props.children)
-            else
-                localStorage.setItem(string.props.children, '1');
-        }
-        this.setState({'1':1})
+        const currentRaspHeader = this.props.match.params.rasp;
+        let local = localStorage.getItem(currentRaspHeader),
+            checkFavorite = local === null;
+        checkFavorite ? localStorage.setItem(currentRaspHeader, '') : localStorage.removeItem(currentRaspHeader);
+        this.setState({isFavorite: checkFavorite});
     }
 
     render() {
@@ -49,7 +46,7 @@ class RaspHeader extends Component {
                 <img
                     onClick={() => this.addRemoveToFavorites()}
                     className={'Header_Logo'}
-                    src={star}
+                    src={this.state.isFavorite ? star_active : star}
                     alt="error"
                 />
                 <div className={'Header_Text'}>

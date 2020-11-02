@@ -3,6 +3,11 @@ import './style.css';
 import satellite from './img/satellite.svg';
 
 class FavoritesView extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
     render() {
         return (
             <div className={'favorites'}>
