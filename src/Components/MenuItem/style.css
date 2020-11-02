@@ -1,7 +1,7 @@
 .MenuItem {
     display: grid;
     grid-template-rows: 1fr;
-    background-color: #429C97;
+    background-color: var(--green);
     border-radius: 4px;
     cursor: pointer;
     padding: 16px 0 16px 20px;

@@ -49,7 +49,7 @@ class AppHeader extends Component {
                 <h1 className={'SearchTittle text-bold--large textColor'}>
                     Расписание МФ МГТУ
                 </h1>
-                <p className={'SearchDescription text-regular--medium textColor'}>
+                <p className={'SearchDescription text-medium--small textColor'}>
                     {this.dynamicDescription()}
                 </p>
             </div>

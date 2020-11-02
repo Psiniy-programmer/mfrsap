@@ -13,6 +13,7 @@ import Search from "../Views/SearchView/SearchView";
 import SearchRoutes from "../Routes/SearchRoutes";
 import SettignsRoutes from "../Routes/SettignsRoutes";
 import FavoritesRoutes from "../Routes/FavoritesRoutes";
+import {removeClasses} from "../../helpers/helpers";
 
 class App extends Component {
 
@@ -23,7 +24,14 @@ class App extends Component {
         this.props.fetchAuditoryData('https://mf.bmstu.ru/rasp/test/?type=4');
     }
 
+    getThemeClass() {
+        const root = document.getElementById('body');
+        removeClasses(root);
+        root.classList.add(this.props.currentTheme);
+    }
+
     render() {
+        this.getThemeClass()
         return <div className={`App`}>
             <div className="content">
                 <Route exact path={`/`} render={routerProps => <>
@@ -42,6 +50,7 @@ class App extends Component {
 // Прокидываем из нашего store нужные нам состояния //
 const mapStateToProps = state => {
     return {
+        currentTheme : state.theme,
         groupsList: state.groupsList,
         facultyList: state.facultyList,
         teachersList: state.teachersList,

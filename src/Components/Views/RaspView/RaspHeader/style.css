@@ -1,6 +1,6 @@
 .RaspHeader {
     display: grid;
-    background-color: #FFFFFF;
+    background-color: var(--current--theme--bg);
     grid-template-columns: 41px 1fr;
 }
 
