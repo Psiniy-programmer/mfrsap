@@ -6,3 +6,17 @@
 .emptyFavorites__text_info {
     margin-bottom: 10px;
 }
+
+.favorites__completed {
+    display: grid;
+    gap: 20px
+}
+
+.FavoriteList__item {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--green);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 16px 16px 16px 20px;
+}

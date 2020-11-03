@@ -7,7 +7,6 @@ import './style.css';
 class DepartmentList extends Component {
     getFacultyList() {
         const { match, facultyList, groupsList } = this.props;
-        console.log(match)
         let list = [],
             str = match.params.faculty,
             curID;

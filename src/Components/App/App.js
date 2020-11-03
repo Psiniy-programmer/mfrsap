@@ -14,6 +14,7 @@ import SearchRoutes from "../Routes/SearchRoutes";
 import SettignsRoutes from "../Routes/SettignsRoutes";
 import FavoritesRoutes from "../Routes/FavoritesRoutes";
 import {removeClasses} from "../../helpers/helpers";
+import {addToFavorite, syncStorages} from "../../actions/favoriteStorage";
 
 class App extends Component {
 
@@ -22,6 +23,17 @@ class App extends Component {
         this.props.fetchFacultyData('https://mf.bmstu.ru/rasp/test/?type=6');
         this.props.fetchTeachersData('https://mf.bmstu.ru/rasp/test/?type=2');
         this.props.fetchAuditoryData('https://mf.bmstu.ru/rasp/test/?type=4');
+        this.syncStorages()
+    }
+
+    syncStorages() {
+        for (let i = 0; i < localStorage.length; i++) {
+            let info = {
+                name: localStorage.key(i),
+                type: localStorage.getItem(localStorage.key(i))
+            }
+            this.props.addToFavorite(info)
+        }
     }
 
     getThemeClass() {
@@ -72,6 +84,9 @@ const mapDispatchToProps = dispatch => {
         },
         fetchAuditoryData: url => {
             dispatch(fetchAuditoryData(url))
+        },
+        addToFavorite: item => {
+            dispatch(addToFavorite(item))
         }
     };
 }

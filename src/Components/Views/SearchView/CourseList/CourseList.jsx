@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 class CourseList extends Component {
     render() {
         const { match } = this.props;
-        console.log(match)
         return (
             <div className={'CourseList'}>
                 <Link className={`Link`} to={`${match.url}/I`}><MenuItem text={'I курс'}/></Link>

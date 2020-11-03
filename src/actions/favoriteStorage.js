@@ -43,7 +43,7 @@ const removeTeacherItem = item => {
 const addToFavorite = item => {
     const {type, name} = item;
     return (dispatch) => {
-        localStorage.setItem(name, '');
+        localStorage.setItem(name, type);
         switch (type) {
             case 'aud' :
                 return dispatch(addAudItem(name))

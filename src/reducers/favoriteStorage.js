@@ -24,16 +24,16 @@ export default function favoriteStorage(state = initialState, action) {
             return state = temp;
         case 'REMOVE_AUD_ITEM' :
             return {
-                auditoryies: state.auditoryies.filter(auditory => auditory !== action.item),
-                ...state
+                ...state,
+                auditoryies: state.auditoryies.filter(auditory => auditory !== action.item)
             }
         case 'ADD_TEACHER_ITEM' :
-            temp.auditoryies.push(action.item);
+            temp.teachers.push(action.item);
             return state = temp;
         case 'REMOVE_TEACHER_ITEM' :
             return {
-                teachers: state.teachers.filter(teacher => teacher !== action.item),
-                ...state
+                ...state,
+                teachers: state.teachers.filter(teacher => teacher !== action.item)
             }
         default :
             return state
