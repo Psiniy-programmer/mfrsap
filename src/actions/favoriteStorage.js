@@ -48,16 +48,18 @@ const removeTeacherItem = item => {
 }
 
 const addToFavorite = item => {
+    const {type, name} = item;
     return (dispatch) => {
-        switch (checkTypeOfItem(item)) {
+        localStorage.setItem(name, '');
+        switch (type) {
             case 'aud' :
-                return dispatch(addAudItem(item))
+                return dispatch(addAudItem(name))
             case 'group' :
-                return dispatch(addGroupItem(item))
+                return dispatch(addGroupItem(name))
             case 'teacher' :
-                return dispatch(addTeacherItem(item))
+                return dispatch(addTeacherItem(name))
             case 'error' :
-                return throw new Error('undefined item!')
+                return console.log('error')
             default:
                 break;
         }
@@ -65,20 +67,22 @@ const addToFavorite = item => {
 }
 
 const removeFromFavorite = item => {
+    const {type, name} = item;
     return (dispatch) => {
-        switch (checkTypeOfItem(item)) {
+        localStorage.removeItem(name);
+        switch (type) {
             case 'aud' :
-                return dispatch(removeAudItem(item))
+                return dispatch(removeAudItem(name))
             case 'group' :
-                return dispatch(removeGroupItem(item))
+                return dispatch(removeGroupItem(name))
             case 'teacher' :
-                return dispatch(removeTeacherItem(item))
+                return dispatch(removeTeacherItem(name))
             case 'error' :
-                return throw new Error('undefined item!')
+                return console.log('error')
             default:
                 break;
         }
     }
 }
 
-export default {addToFavorite, removeFromFavorite}
+export {addToFavorite, removeFromFavorite}

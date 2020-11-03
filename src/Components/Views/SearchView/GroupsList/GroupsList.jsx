@@ -105,7 +105,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToState = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {}
 }
 
@@ -113,4 +113,4 @@ GroupsList.propTypes = {
     groupsList: PropTypes.array
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(GroupsList)
+export default connect(mapStateToProps, mapDispatchToProps)(GroupsList)

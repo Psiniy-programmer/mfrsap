@@ -54,7 +54,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToState = dispatch => {
+const mapDispatchToProps = dispatch => {
     return { // Метод реализующий поиск по приложухе //
         onFindItem: name => {
             dispatch({type: 'FIND_ITEM', payload: name})
@@ -62,4 +62,4 @@ const mapDispatchToState = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(SearchView);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchView);

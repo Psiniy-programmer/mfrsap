@@ -62,7 +62,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToState = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {
         fetchGroupRasp: url => {
             dispatch(fetchGroupRaspData(url))
@@ -70,4 +70,4 @@ const mapDispatchToState = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(Schedule)
+export default connect(mapStateToProps, mapDispatchToProps)(Schedule)

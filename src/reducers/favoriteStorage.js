@@ -8,12 +8,12 @@ export default function favoriteStorage(state = initialState, action) {
     switch (action.type) {
         case 'ADD_GROUP_ITEM' :
             return {
-                groups : this.groups.push(action.item),
+                groups : state.groups.push(action.item),
                 ...state
             };
         case 'REMOVE_GROUP_ITEM' :
             return {
-                // deleting code
+                groups: state.groups.filter(group => group !== action.item),
                 ...state
             }
         case 'ADD_AUD_ITEM' :
@@ -23,7 +23,7 @@ export default function favoriteStorage(state = initialState, action) {
             };
         case 'REMOVE_AUD_ITEM' :
             return {
-                // deleting code
+                auditoryies: this.auditoryies.filter(auditory => auditory !== action.item),
                 ...state
             }
         case 'ADD_TEACHER_ITEM' :
@@ -33,7 +33,7 @@ export default function favoriteStorage(state = initialState, action) {
             }
         case 'REMOVE_TEACHER_ITEM' :
             return {
-                // deleting code
+                teachers: this.teachers.filter(teacher => teacher !== action.item),
                 ...state
             }
         default :

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import star from './Icons/star.svg';
-import star_active from './Icons/star_active.svg'
+import star_active from './Icons/star_active.svg';
 import './style.css';
+import {addToFavorite, removeFromFavorite} from '../../../../actions/favoriteStorage.js';
 
 const localStorage = window.localStorage;
 class RaspHeader extends Component {
@@ -32,19 +33,26 @@ class RaspHeader extends Component {
         return this.props.weekIsOdd ? <>Числитель</> : <>Знаменатель</>
     }
 
-    addRemoveToFavorites() {
-        const currentRaspHeader = this.props.match.params.rasp;
-        let local = localStorage.getItem(currentRaspHeader),
+    toggleFavorites() {
+        const {data} = this.props.raspData;
+        const currentRaspType = Object.keys(data)[1];
+        const objInfo = {
+            type: currentRaspType,
+            name: data[currentRaspType]
+        };
+        let local = localStorage.getItem(objInfo.name),
             checkFavorite = local === null;
-        checkFavorite ? localStorage.setItem(currentRaspHeader, '') : localStorage.removeItem(currentRaspHeader);
+        console.error(checkFavorite, local)
+        checkFavorite ? this.props.addToFavorite(objInfo) : this.props.removeFromFavorite(objInfo);
         this.setState({isFavorite: checkFavorite});
     }
 
     render() {
+        console.log(this.props.raspData)
         return (
             <div className={'RaspHeader textColor'}>
                 <img
-                    onClick={() => this.addRemoveToFavorites()}
+                    onClick={() => this.toggleFavorites()}
                     className={'Header_Logo'}
                     src={this.state.isFavorite ? star_active : star}
                     alt="error"
@@ -60,12 +68,20 @@ class RaspHeader extends Component {
 
 const mapStateToProps = state => {
     return {
+        raspData: state.raspData,
         groupsList: state.groupsList
     }
 }
 
-const mapDispatchToState = dispatch => {
-    return {}
+const mapDispatchToProps = dispatch => {
+    return {
+        addToFavorite: item => {
+            dispatch(addToFavorite(item))
+        },
+        removeFromFavorite: item => {
+            dispatch(removeFromFavorite(item))
+        }
+    }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(RaspHeader)
+export default connect(mapStateToProps, mapDispatchToProps)(RaspHeader)
