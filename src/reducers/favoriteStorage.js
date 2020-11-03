@@ -5,35 +5,34 @@ const initialState = {
 };
 
 export default function favoriteStorage(state = initialState, action) {
+    let temp = {
+        groups:state.groups,
+        teachers: state.teachers,
+        auditoryies: state.auditoryies
+    }
     switch (action.type) {
         case 'ADD_GROUP_ITEM' :
-            return {
-                groups : state.groups.push(action.item),
-                ...state
-            };
+            temp.groups.push(action.item);
+            return state = temp;
         case 'REMOVE_GROUP_ITEM' :
             return {
-                groups: state.groups.filter(group => group !== action.item),
-                ...state
+                ...state,
+                groups: state.groups.filter((group,index) => group !== action.item && state.groups.indexOf(group) === index)
             }
         case 'ADD_AUD_ITEM' :
-            return {
-                auditoryies: this.auditoryies.push(action.item),
-                ...state
-            };
+            temp.auditoryies.push(action.item);
+            return state = temp;
         case 'REMOVE_AUD_ITEM' :
             return {
-                auditoryies: this.auditoryies.filter(auditory => auditory !== action.item),
+                auditoryies: state.auditoryies.filter(auditory => auditory !== action.item),
                 ...state
             }
         case 'ADD_TEACHER_ITEM' :
-            return {
-                teachers: this.teachers.push(action.item),
-                ...state
-            }
+            temp.auditoryies.push(action.item);
+            return state = temp;
         case 'REMOVE_TEACHER_ITEM' :
             return {
-                teachers: this.teachers.filter(teacher => teacher !== action.item),
+                teachers: state.teachers.filter(teacher => teacher !== action.item),
                 ...state
             }
         default :

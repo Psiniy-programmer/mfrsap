@@ -1,10 +1,3 @@
-const checkTypeOfItem = item => {
-    if (item.aud !== undefined) return 'aud';
-    if (item.group !== undefined) return 'group';
-    if (item.teacher !== undefined) return 'teacher';
-    return 'error';
-}
-
 const addGroupItem = item => {
     return {
         type: 'ADD_GROUP_ITEM',
