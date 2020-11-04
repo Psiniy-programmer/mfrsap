@@ -3,8 +3,9 @@ import './style.css';
 import {connect} from "react-redux";
 import Header from "./RaspHeader/RaspHeader";
 import DaysCarousel from "./DaysCarousel/DaysCarousel";
-import {fetchGroupRaspData} from "../../../actions/raspData";
+import {fetchRaspData} from "../../../actions/raspData";
 import Schedule from "./Schedule/Schedule";
+import {findType} from "../../../helpers/helpers";
 
 const date = new Date();
 const daysInYear = {
@@ -28,17 +29,27 @@ class Rasp extends Component {
 
         this.state = {
             currentDayIndex: date.getDay() - 1,
-            isOdd: true
+            isOdd: true,
+            type: {
+                name: '',
+                type: ''
+            }
         }
         this.dayIndexUpdate = this.dayIndexUpdate.bind(this);
     }
 
-    dayIndexUpdate(index) {
-        return this.setState({currentDayIndex: index});
+    componentDidMount() {
+        const {rasp} = this.props.match.params;
+
+        this.weekIsOdd()
+        const id = rasp.match(/\d+/g)[0];
+        const type = findType(rasp);
+        this.setState({type: type})
+        this.props.fetchRaspData(`https://mf.bmstu.ru/rasp/test/?type=${type.type}&${type.name}id=${id}`);
     }
 
-    componentDidMount() {
-        this.weekIsOdd()
+    dayIndexUpdate(index) {
+        return this.setState({currentDayIndex: index});
     }
 
     weekIsOdd() {
@@ -62,6 +73,7 @@ class Rasp extends Component {
                 <Header
                     weekIsOdd={this.state.isOdd}
                     match={this.props.match}
+                    type={this.state.type.name}
                 />
                 <DaysCarousel
                     currentDayIndex={this.state.currentDayIndex}
@@ -79,14 +91,15 @@ class Rasp extends Component {
 
 const mapStateToProps = state => {
     return {
+        raspData: state.raspData,
         groupsList: state.groupsList
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchGroupRasp: url => {
-            dispatch(fetchGroupRaspData(url))
+        fetchRaspData: url => {
+            dispatch(fetchRaspData(url))
         }
     }
 }

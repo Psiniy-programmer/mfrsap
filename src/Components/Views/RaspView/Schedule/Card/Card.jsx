@@ -11,6 +11,7 @@ class Card extends Component {
                 <EmptyCard/>
             </div>
         }
+
         if (this.props.isDouble) return (
             <div className={'schedule-item schedule-item__Double'}>
                 <div className={'schedule-item__numerator'}>
@@ -23,7 +24,7 @@ class Card extends Component {
                         rightInfo={pair[0].aud}
                     />
                 </div>
-                <div className="splitter"></div>
+                <div className="splitter"/>
                 <div className={'schedule-item__denominator'}>
                     <Context
                         opacity={!!weekIsOdd}

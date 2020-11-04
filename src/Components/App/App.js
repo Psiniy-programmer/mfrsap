@@ -14,7 +14,7 @@ import SearchRoutes from "../Routes/SearchRoutes";
 import SettignsRoutes from "../Routes/SettignsRoutes";
 import FavoritesRoutes from "../Routes/FavoritesRoutes";
 import {removeClasses} from "../../helpers/helpers";
-import {addToFavorite, syncStorages} from "../../actions/favoriteStorage";
+import {addToFavorite} from "../../actions/favoriteStorage";
 
 class App extends Component {
 

@@ -5,9 +5,8 @@ import star_active from './Icons/star_active.svg';
 import './style.css';
 import {addToFavorite, removeFromFavorite} from '../../../../actions/favoriteStorage.js';
 
-const localStorage = window.localStorage;
-
 class RaspHeader extends Component {
+
     getHeaderWeek() {
         return this.props.weekIsOdd ? <>Числитель</> : <>Знаменатель</>
     }
@@ -27,7 +26,7 @@ class RaspHeader extends Component {
 
     render() {
         const {data} = this.props.raspData;
-        const type = Object.keys(data)[1];
+        const {type} = this.props;
         return (
             <div className={'RaspHeader textColor'}>
                 <img
@@ -48,8 +47,7 @@ class RaspHeader extends Component {
 const mapStateToProps = state => {
     return {
         favoriteStorage: state.favoriteStorage,
-        raspData: state.raspData,
-        groupsList: state.groupsList
+        raspData: state.raspData
     }
 }
 

@@ -26,7 +26,7 @@ class DepartmentList extends Component {
             if (!list.includes(str) && str.length !== 0) list.push(str);
         })
         return list.map((item, index) => {
-            str = changeLangRusToEng(item);
+            str = (changeLangRusToEng(item).toUpperCase());
             return (
                 <Link key={generateUniqKey('depart_', index)} to={`${match.url}/${str}`}>
                     <MenuItem text={item} />

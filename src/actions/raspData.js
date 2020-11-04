@@ -18,7 +18,7 @@ function fetchRaspDataError(error) {
     }
 }
 
-export function fetchGroupRaspData(url) {
+export function fetchRaspData(url) {
     return (dispatch) => {
         dispatch(fetchRaspDataLoading())
         fetch(url)
