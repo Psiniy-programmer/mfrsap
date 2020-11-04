@@ -42,7 +42,6 @@ class GroupsList extends Component {
         // находим нужные нам группы по семестру
         // eslint-disable-next-line 
         tempList.map(item => {
-            console.error(item)
             link = `${match.url}/groupid=${item.groupid}`;
             // Получаем цифру семестра у группы
             semNumber = item.groupname.match(/\d+/g)[1];

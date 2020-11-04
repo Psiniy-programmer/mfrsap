@@ -68,21 +68,24 @@ class Rasp extends Component {
     }
 
     render() {
+        const {isOdd, type, currentDayIndex} = this.state;
+        const {match} = this.props;
         return (
             <div className={'RaspView'}>
                 <Header
-                    weekIsOdd={this.state.isOdd}
-                    match={this.props.match}
-                    type={this.state.type.name}
+                    weekIsOdd={isOdd}
+                    match={match}
+                    type={type.name}
                 />
                 <DaysCarousel
-                    currentDayIndex={this.state.currentDayIndex}
+                    currentDayIndex={currentDayIndex}
                     updateDays={this.dayIndexUpdate}
                 />
                 <Schedule
-                    weekIsOdd={this.state.isOdd}
-                    currentDayIndex={this.state.currentDayIndex}
-                    match={this.props.match}
+                    weekIsOdd={isOdd}
+                    currentDayIndex={currentDayIndex}
+                    match={match}
+                    type={type.name}
                 />
             </div>
         );

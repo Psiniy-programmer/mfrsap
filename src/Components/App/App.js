@@ -6,7 +6,7 @@ import { fetchGroupsData } from '../../actions/groupsList.js';
 import { fetchFacultyData } from '../../actions/facultyList.js';
 import { fetchTeachersData } from '../../actions/teachersList.js';
 import { fetchAuditoryData } from '../../actions/auditoryList.js';
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import SearchPage from "./Header/AppHeader";
 import Search from "../Views/SearchView/SearchView";
@@ -15,6 +15,8 @@ import SettignsRoutes from "../Routes/SettignsRoutes";
 import FavoritesRoutes from "../Routes/FavoritesRoutes";
 import {removeClasses} from "../../helpers/helpers";
 import {addToFavorite} from "../../actions/favoriteStorage";
+import KekComponent from "../KekComponent/KekComponent";
+import Rasp from "../Views/RaspView/Rasp";
 
 class App extends Component {
 
@@ -51,6 +53,7 @@ class App extends Component {
                     <Search/>
                 </>}/>
                 <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
+                <Route exact path={'/list/:rasp'} render={routerProps => <Rasp {...routerProps}/>}/>
                 <SettignsRoutes/>
                 <FavoritesRoutes/>
             </div>

@@ -6,7 +6,7 @@ import Card from './Card/Card'
 import MenuItem from "../../../MenuItem/MenuItem";
 
 class Schedule extends Component {
-    getCommonRasp(curDay, cardType) {
+    getCommonRasp(curDay) {
         let resList = [],
             isDouble = false;
         const {pairList} = curDay;
@@ -18,7 +18,7 @@ class Schedule extends Component {
                 key={generateUniqKey('Card_', index)}
                 weekIsOdd={this.props.weekIsOdd}
                 rasp={item}
-                type={cardType}
+                type={this.props.type}
                 isDouble={isDouble}/>);
             isDouble = false;
         });
@@ -26,8 +26,7 @@ class Schedule extends Component {
     }
 
     getRasp(curDay) {
-        const {day} = this.props.raspData.data,
-            cardType = Object.keys(this.props.raspData.data)[1];
+        const {day} = this.props.raspData.data;
         let isEmpty = true;
         if (!day[curDay].special_day) {
             // eslint-disable-next-line
@@ -39,7 +38,7 @@ class Schedule extends Component {
             text={'Занятия по особому расписанию'}/>
         return isEmpty ? <MenuItem
             subclass={'text-bold--large RaspHeader-item'}
-            text={'Занятий нет'}/> : this.getCommonRasp(day[curDay], cardType);
+            text={'Занятий нет'}/> : this.getCommonRasp(day[curDay]);
     }
 
     render() {
@@ -52,7 +51,7 @@ class Schedule extends Component {
                 </div>
             );
         }
-        else return 'still loading'
+        else return <div/>
     }
 }
 

@@ -24,8 +24,8 @@ class Context extends Component {
                     {underSubject !== '' ? <p className={'context__underSubject text-regular--small '}>{underSubject}</p> : ''}
                     {leftInfo !== null ? <p className={'context-under text-regular--small '}>{leftInfo}</p> : ''}
                 </div>
-                <div className="context__rightInfo">
-                    <p className={'text-regular--small'}>{rightInfo}</p>
+                <div className={rightInfo === null ? 'empty' : 'context__rightInfo'}>
+                    <p className={`text-regular--small`}>{rightInfo}</p>
                 </div>
             </div>
             </>

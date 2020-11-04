@@ -42,7 +42,7 @@ class SearchView extends Component {
                     Или выберите группу из списка
                 </p>
                 {this.getView()}
-                <Link to={'/rasp'}>ssss</Link>
+                <Link to={'/list/teacherid=1299'}>ssss</Link>
             </div>
         );
     }
