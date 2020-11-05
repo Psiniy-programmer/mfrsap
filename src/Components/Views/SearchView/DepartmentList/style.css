@@ -1,5 +1,5 @@
 .DepartmentList {
     display: grid;
     gap: var(--items--gap);
-    margin-bottom: 55px;
+    margin-bottom: 3.438em;
 }

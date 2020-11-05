@@ -4,25 +4,33 @@
     grid-template-columns: 41px 1fr;
 }
 
+.header__text_title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .Header_Logo {
-    padding: 12px 10px;
+    padding: 0.75em 0.625em;
     cursor: pointer;
 }
 
 .Header_Text {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    align-items: center;
+    align-content: center;
+    grid-template-columns: 1fr 0.1fr;
+
 }
 
-.shift-text {
-    padding-bottom: 10px;
-}
+/*.shift-text {*/
+/*    padding-bottom: 10px;*/
+/*}*/
 
-.RaspHeader h1 {
-    margin: 11px 0 11px 5px;
+.RaspHeader h2 {
+    margin: 0.61111em 0 0.61111em 0.278em;
 }
 
 .RaspHeader p {
-    margin: 11px 0;
+    margin: 0.75em 0;
 }

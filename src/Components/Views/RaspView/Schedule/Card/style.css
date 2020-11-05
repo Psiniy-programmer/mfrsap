@@ -2,13 +2,8 @@
     background-color: #429C97;
     max-width: 100%;
     display: grid;
-    margin-bottom: 10px;
+    margin-bottom: 0.625em;
     border-radius: 4px;
-}
-
-.schedule-item__numerator {
-    /*border-bottom: 1px dashed #FFFFFF;*/
-    /*opacity: 0.5;*/
 }
 
 .splitter {
@@ -16,5 +11,5 @@
     height: 1px;
     border-bottom: 1px dashed #FFFFFF;
     opacity: 0.5;
-    margin-bottom: 16px;
+    margin-bottom: 1em;
 }
