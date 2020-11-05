@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {changeLangEngToRus} from "../../../../helpers/helpers";
 import MenuItem from "../../../MenuItem/MenuItem";
 import {Link} from "react-router-dom";
-import PropTypes from 'prop-types';
 import './style.css';
 
 class GroupsList extends Component {

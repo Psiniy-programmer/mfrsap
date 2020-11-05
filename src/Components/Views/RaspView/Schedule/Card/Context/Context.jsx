@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './style.css'
-// import timer_icon from './icons/timer-icon.svg';
+// import dark_clock_icon from './icons/dark-clock-icon.svg';
 import clock_icon from './icons/clock-icon.svg';
+import {connect} from "react-redux";
 
 class Context extends Component {
     getTimer() {
@@ -34,4 +35,14 @@ class Context extends Component {
     }
 }
 
-export default Context;
+const mapStateToProps = state => {
+    return {
+        currentTheme: state.theme
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Context)

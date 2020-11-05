@@ -21,27 +21,33 @@ class FavoritesView extends Component {
                 <img className={'satellite'} src={satellite} alt="imgError"/>
                 <div className={'emptyFavorites'}>
                     <p className={'emptyFavorites__text_info text-regular--small textColor'}>Здесь пока ничего нет.</p>
-                    <p className={'emptyFavorites__text_helper text-regular--small textColor'}>Чтобы добавить группу, преподавателя или аудиторию в избранное, нажмите на звёздочку в левом верхнем углу расписания.</p>
+                    <p className={'emptyFavorites__text_helper text-regular--small textColor'}>Чтобы добавить группу,
+                        преподавателя или аудиторию в избранное, нажмите на звёздочку в левом верхнем углу
+                        расписания.</p>
                 </div>
             </div>
         );
     }
-    render() {
-       const {groups, teachers, auditoryies} = this.props.favoriteStorage;
 
-       if (this.favoriteStorageIsEmpty())
-           return this.emptyView()
+    render() {
+        const {groups, teachers, auditoryies} = this.props.favoriteStorage;
+        const { groupsList, teachersList, auditoryList} = this.props;
+
+        if (this.favoriteStorageIsEmpty()) return this.emptyView()
         else return <div className={'favorites__completed'}>
-           <FavoriteList data={groups} title={'Группы'}/>
-           <FavoriteList data={teachers} title={'Преподаватели'}/>
-           <FavoriteList data={auditoryies} title={'Аудитории'}/>
+            <FavoriteList list={groupsList} data={groups} title={'Группы'}/>
+            <FavoriteList list={teachersList} data={teachers} title={'Преподаватели'}/>
+            <FavoriteList list={auditoryList} data={auditoryies} title={'Аудитории'}/>
         </div>
     }
 }
 
 const mapStateToProps = state => {
     return {
-        favoriteStorage: state.favoriteStorage
+        favoriteStorage: state.favoriteStorage,
+        groupsList: state.groupsList.data,
+        teachersList: state.teachersList.data,
+        auditoryList: state.auditoryList.data
     }
 }
 

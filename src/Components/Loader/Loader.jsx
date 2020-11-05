@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 
-class KekComponent extends Component {
+class Loader extends Component {
     render() {
-        console.log(this.props.match)
         return (
             <div>
-                kek
+                still loading
             </div>
         );
     }
 }
 
-export default KekComponent;
+export default Loader;

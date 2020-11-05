@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import './style.css'
 import SearchList from "./SearchList/SearchList";
-import groupsList from "../../../reducers/groupsList";
 
 class SearchView extends Component {
     findItem() {
@@ -13,17 +12,22 @@ class SearchView extends Component {
     getView() {
         const {groupsList, teachersList, auditoryList} = this.props;
         if (this.props.findInput.length === 0) {
-            return <div className={'SearchButtons'}>
-                <Link to={`/search/K`}>
-                    <span className={'raspTextColor'}>К</span>
-                </Link>
-                <Link to={`/search/LT`}>
-                    <span className={'raspTextColor'}>ЛТ</span>
-                </Link>
-                <Link to={`/search/Aspirant`}>
-                    <span className={'raspTextColor'}>Аспирантура</span>
-                </Link>
-            </div>
+            return <>
+                <p className={'SearchDescription text-regular--medium textColor'}>
+                    Или выберите группу из списка
+                </p>
+                <div className={'SearchButtons'}>
+                    <Link to={`/search/K`}>
+                        <span className={'raspTextColor'}>К</span>
+                    </Link>
+                    <Link to={`/search/LT`}>
+                        <span className={'raspTextColor'}>ЛТ</span>
+                    </Link>
+                    <Link to={`/search/Aspirant`}>
+                        <span className={'raspTextColor'}>Аспирантура</span>
+                    </Link>
+                </div>
+            </>
         } else {
             return <div className={'Search__result'}>
                 <SearchList title={'Группы'} data={groupsList}/>
@@ -46,11 +50,7 @@ class SearchView extends Component {
                     onChange={this.findItem.bind(this)}
                     type={'text'}
                 />
-                <p className={'SearchDescription text-regular--medium textColor'}>
-                    Или выберите группу из списка
-                </p>
                 {this.getView()}
-                <Link to={'/list/teacherid=1299'}>ssss</Link>
             </div>
         );
     }
@@ -60,10 +60,10 @@ const mapStateToProps = state => {
     return {
         facultyList: state.facultyList,
         findInput: state.filterItems,
-        groupsList : state.groupsList.data.map(groupElem => {
+        groupsList: state.groupsList.data.map(groupElem => {
             let counter = 0;
             for (let i = 0; i < state.filterItems.length; i++) {
-                if ( groupElem.groupname[i] === state.filterItems[i].toUpperCase() ) {
+                if (groupElem.groupname[i] === state.filterItems[i].toUpperCase()) {
                     counter++;
                 } else if (state.filterItems[i] === ' ' && groupElem.groupname[i] === '-') {
                     counter++;
@@ -72,12 +72,14 @@ const mapStateToProps = state => {
             return counter === state.filterItems.length ? groupElem : undefined;
         }),
         // Динамический поиск по преподам //
-        teachersList : state.teachersList.data.map(teacherElem => {
+        teachersList: state.teachersList.data.map(teacherElem => {
             if (teacherElem.teacher.toLowerCase().includes(state.filterItems.toLowerCase())) return teacherElem;
+            else return null;
         }),
         // Динамический поиск по аудиториям //
-        auditoryList : state.auditoryList.data.map(auditoryElem => {
+        auditoryList: state.auditoryList.data.map(auditoryElem => {
             if (auditoryElem.aud.includes(state.filterItems)) return auditoryElem;
+            else return null;
         })
     }
 }

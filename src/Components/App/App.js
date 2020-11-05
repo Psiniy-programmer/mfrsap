@@ -6,7 +6,7 @@ import { fetchGroupsData } from '../../actions/groupsList.js';
 import { fetchFacultyData } from '../../actions/facultyList.js';
 import { fetchTeachersData } from '../../actions/teachersList.js';
 import { fetchAuditoryData } from '../../actions/auditoryList.js';
-import {Route, Switch} from "react-router-dom";
+import {Route} from "react-router-dom";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import SearchPage from "./Header/AppHeader";
 import Search from "../Views/SearchView/SearchView";
@@ -15,8 +15,8 @@ import SettignsRoutes from "../Routes/SettignsRoutes";
 import FavoritesRoutes from "../Routes/FavoritesRoutes";
 import {removeClasses} from "../../helpers/helpers";
 import {addToFavorite} from "../../actions/favoriteStorage";
-import KekComponent from "../KekComponent/KekComponent";
 import Rasp from "../Views/RaspView/Rasp";
+import Loader from "../Loader/Loader";
 
 class App extends Component {
 
@@ -44,21 +44,32 @@ class App extends Component {
         root.classList.add(this.props.currentTheme);
     }
 
+    infoIsFetched() {
+        const {groupsList, facultyList, teachersList, auditoryList} = this.props;
+        if (groupsList.loading !== false) return false
+        if (facultyList.loading !== false) return false
+        if (teachersList.loading !== false) return false
+        if (auditoryList.loading !== false) return false
+        return true;
+    }
+
     render() {
         this.getThemeClass()
-        return <div className={`App`}>
-            <div className="content">
-                <Route exact path={`/`} render={routerProps => <>
-                    <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
-                    <Search/>
-                </>}/>
-                <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
-                <Route exact path={'/list/:rasp'} render={routerProps => <Rasp {...routerProps}/>}/>
-                <SettignsRoutes/>
-                <FavoritesRoutes/>
+        if (this.infoIsFetched()) {
+            return <div className={`App`}>
+                <div className="content">
+                    <Route exact path={`/`} render={routerProps => <>
+                        <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
+                        <Search/>
+                    </>}/>
+                    <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
+                    <Route exact path={'/list/:rasp'} render={routerProps => <Rasp {...routerProps}/>}/>
+                    <SettignsRoutes/>
+                    <FavoritesRoutes/>
+                </div>
+                <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/>
             </div>
-            <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/>
-        </div>
+        } else return <Loader/>
     }
 }
 

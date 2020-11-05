@@ -1,7 +1,7 @@
 .context {
     margin: 0 0.625em 1em 0.625em;
     display: grid;
-    grid-template-columns: 1.2fr 0.397fr;
+    grid-template-columns: 1.2fr 0.5fr;
 }
 
 .empty {

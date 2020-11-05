@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {
     changeLangEngToRus,
     findFacultyName,
-    translateFullGroupNameToRus
 } from '../../../helpers/helpers.js'
 
 class AppHeader extends Component {
@@ -27,19 +26,6 @@ class AppHeader extends Component {
                 return 'Избранное'
             default :
                 break;
-        }
-    }
-
-    dynamicHeader() {
-        const { match } = this.props;
-        // Если мы находимся в состоянии щелканья кнопок и не добрались до расписания группы то заголовок стандартный
-        if (match.path !== '/:faculty/:department/:course/:rasp') return <>Расписание МФ МГТУ</>
-        else { // Если в адресе расписания есть эти ключевые слова то возвращаем соотв. заголовоки (имя препода\номер аудитории)
-            if ((match.params.rasp).match('auditoryid=')) return <>Auditory</>
-            else if ((match.params.rasp).match('teacherid=')) return <>teacher</>
-            else { // иначе переводим имя группы из ссылки на русский и выдаем
-                return <>{ translateFullGroupNameToRus(match.params.rasp) }</>
-            }
         }
     }
 
