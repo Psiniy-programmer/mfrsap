@@ -1,0 +1,4 @@
+.SearchList {
+    display: grid;
+    gap: var(--items--gap);
+}

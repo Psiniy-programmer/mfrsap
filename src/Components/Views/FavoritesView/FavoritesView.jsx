@@ -28,6 +28,7 @@ class FavoritesView extends Component {
     }
     render() {
        const {groups, teachers, auditoryies} = this.props.favoriteStorage;
+
        if (this.favoriteStorageIsEmpty())
            return this.emptyView()
         else return <div className={'favorites__completed'}>

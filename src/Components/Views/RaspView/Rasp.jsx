@@ -5,7 +5,7 @@ import Header from "./RaspHeader/RaspHeader";
 import DaysCarousel from "./DaysCarousel/DaysCarousel";
 import {fetchRaspData} from "../../../actions/raspData";
 import Schedule from "./Schedule/Schedule";
-import {findType} from "../../../helpers/helpers";
+import {findRequestType} from "../../../helpers/helpers";
 
 const date = new Date();
 const daysInYear = {
@@ -43,7 +43,7 @@ class Rasp extends Component {
 
         this.weekIsOdd()
         const id = rasp.match(/\d+/g)[0];
-        const type = findType(rasp);
+        const type = findRequestType(rasp);
         this.setState({type: type})
         this.props.fetchRaspData(`https://mf.bmstu.ru/rasp/test/?type=${type.type}&${type.name}id=${id}`);
     }

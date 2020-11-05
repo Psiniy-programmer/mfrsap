@@ -18,18 +18,20 @@ class FavoriteList extends Component {
                 <p className={' text-medium--small raspTextColor'}>{item}</p>
                 <img onClick={() => this.props.removeFromFavorites(info)} src={remove} alt="error"/>
             </div>
-            list.push(temp);
+            return list.push(temp);
         })
         return list;
     }
 
     render() {
-        return (
-            <div className={'FavoriteList'}>
-                <p className={'textColor text-regular--medium'}>{this.props.title}</p>
-                {this.createList()}
-            </div>
-        );
+        if (this.props.data.length !== 0) {
+            return (
+                <div className={'FavoriteList'}>
+                    <p className={'textColor text-regular--medium'}>{this.props.title}</p>
+                    {this.createList()}
+                </div>
+            );
+        } else return null;
     }
 }
 

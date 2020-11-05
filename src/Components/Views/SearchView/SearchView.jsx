@@ -2,12 +2,16 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import './style.css'
+import SearchList from "./SearchList/SearchList";
+import groupsList from "../../../reducers/groupsList";
+
 class SearchView extends Component {
     findItem() {
         this.props.onFindItem(this.nameInput.value);
     }
 
     getView() {
+        const {groupsList, teachersList, auditoryList} = this.props;
         if (this.props.findInput.length === 0) {
             return <div className={'SearchButtons'}>
                 <Link to={`/search/K`}>
@@ -21,7 +25,11 @@ class SearchView extends Component {
                 </Link>
             </div>
         } else {
-            return <span>return list</span>
+            return <div className={'Search__result'}>
+                <SearchList title={'Группы'} data={groupsList}/>
+                <SearchList title={'Преподователи'} data={teachersList}/>
+                <SearchList title={'Аудитории'} data={auditoryList}/>
+            </div>
         }
     }
 
@@ -52,6 +60,25 @@ const mapStateToProps = state => {
     return {
         facultyList: state.facultyList,
         findInput: state.filterItems,
+        groupsList : state.groupsList.data.map(groupElem => {
+            let counter = 0;
+            for (let i = 0; i < state.filterItems.length; i++) {
+                if ( groupElem.groupname[i] === state.filterItems[i].toUpperCase() ) {
+                    counter++;
+                } else if (state.filterItems[i] === ' ' && groupElem.groupname[i] === '-') {
+                    counter++;
+                }
+            }
+            return counter === state.filterItems.length ? groupElem : undefined;
+        }),
+        // Динамический поиск по преподам //
+        teachersList : state.teachersList.data.map(teacherElem => {
+            if (teacherElem.teacher.toLowerCase().includes(state.filterItems.toLowerCase())) return teacherElem;
+        }),
+        // Динамический поиск по аудиториям //
+        auditoryList : state.auditoryList.data.map(auditoryElem => {
+            if (auditoryElem.aud.includes(state.filterItems)) return auditoryElem;
+        })
     }
 }
 

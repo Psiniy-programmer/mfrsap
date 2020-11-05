@@ -104,7 +104,7 @@ const generateUniqKey = (prefix, index) => `${prefix}_${new Date().getTime() + i
 
 const removeClasses = DOM => DOM.classList.forEach(item => DOM.classList.remove(item));
 
-const findType = param => {
+const findRequestType = param => {
     const NAMES = ['group', 'aud', 'teacher'];
     let type = {},
         regResult
@@ -132,5 +132,5 @@ export {
     translateFullGroupNameToRus,
     generateUniqKey,
     removeClasses,
-    findType
+    findRequestType
 }
