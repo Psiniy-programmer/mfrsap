@@ -1,0 +1,23 @@
+.emptyCard {
+    display: grid;
+    gap: 12px;
+    grid-template-rows: 1fr;
+    background-color: var(--green);
+    border-radius: 4px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 0;
+}
+
+.emptyCard__timer {
+    display: flex;
+    padding-top: 16px;
+}
+
+.timer__img {
+    margin-right: 0.572em;
+}
+
+.emptyCard__text {
+    padding-bottom: 16px;
+}

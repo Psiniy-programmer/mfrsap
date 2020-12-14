@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './style.css'
-// import dark_clock_icon from './icons/dark-clock-icon.svg';
 import clock_icon from './icons/clock-icon.svg';
 import {connect} from "react-redux";
 

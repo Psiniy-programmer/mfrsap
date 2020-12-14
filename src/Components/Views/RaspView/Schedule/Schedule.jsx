@@ -19,7 +19,9 @@ class Schedule extends Component {
                 weekIsOdd={this.props.weekIsOdd}
                 rasp={item}
                 type={this.props.type}
-                isDouble={isDouble}/>);
+                isDouble={isDouble}
+                index={index}
+            />);
             isDouble = false;
         });
         return resList;

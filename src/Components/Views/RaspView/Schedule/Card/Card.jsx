@@ -6,15 +6,14 @@ import EmptyCard from "../EmptyCard/EmptyCard";
 class Card extends Component {
     render() {
         const {pairtime, pair, weekIsOdd} = this.props.rasp;
+        const {index} = this.props
         const {type} = this.props;
         const info = [{},{}];
-
         if (!pair.length) {
             return <div className={'schedule-item schedule-item__Single'}>
-                <EmptyCard/>
+                <EmptyCard index={index}/>
             </div>
         }
-
         switch (type) {
             case 'group' :
                 for (let i = 0; i < pair.length; i++) {
