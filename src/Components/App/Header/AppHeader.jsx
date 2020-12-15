@@ -29,10 +29,15 @@ class AppHeader extends Component {
         }
     }
 
+    componentDidMount() {
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+
     render() {
+        console.log(window.innerHeight)
         return (
             <div className={'AppHeader'}>
-                <h1 className={'SearchTittle text-bold--large textColor'}>
+                <h1 className={'SearchTittle text-bold--header text-bold--large textColor '}>
                     Расписание МФ МГТУ
                 </h1>
                 <p className={'SearchDescription text-medium--small textColor'}>

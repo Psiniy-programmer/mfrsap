@@ -17,15 +17,20 @@ import {removeClasses} from "../../helpers/helpers";
 import {addToFavorite} from "../../actions/favoriteStorage";
 import Rasp from "../Views/RaspView/Rasp";
 import Loader from "../Loader/Loader";
+import {resizeWindow} from "../../actions/resizeWindow";
 
 class App extends Component {
-
     componentDidMount() {
+        window.addEventListener('resize', this.props.resizeWindow)
         this.props.fetchDataGroups('https://mf.bmstu.ru/rasp/test/?type=0');
         this.props.fetchFacultyData('https://mf.bmstu.ru/rasp/test/?type=6');
         this.props.fetchTeachersData('https://mf.bmstu.ru/rasp/test/?type=2');
         this.props.fetchAuditoryData('https://mf.bmstu.ru/rasp/test/?type=4');
-        this.syncStorages()
+        this.syncStorages();
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.props.resizeWindow);
     }
 
     syncStorages() {
@@ -49,11 +54,12 @@ class App extends Component {
         if (groupsList.loading !== false) return false
         if (facultyList.loading !== false) return false
         if (teachersList.loading !== false) return false
-        if (auditoryList.loading !== false) return false
-        return true;
+        return auditoryList.loading === false;
+
     }
 
     render() {
+        console.log(this.props.windowSizes)
         this.getThemeClass()
         if (this.infoIsFetched()) {
             return <div className={`App`}>
@@ -80,7 +86,8 @@ const mapStateToProps = state => {
         groupsList: state.groupsList,
         facultyList: state.facultyList,
         teachersList: state.teachersList,
-        auditoryList: state.auditoryList
+        auditoryList: state.auditoryList,
+        windowSizes: state.windowSizes
     }
 };
 
@@ -101,6 +108,9 @@ const mapDispatchToProps = dispatch => {
         },
         addToFavorite: item => {
             dispatch(addToFavorite(item))
+        },
+        resizeWindow: () => {
+            dispatch(resizeWindow())
         }
     };
 }

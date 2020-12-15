@@ -15,11 +15,123 @@ html {
     --current--theme--bg: var(--bg--light--theme);
 }
 
-body {
-    font-family: Roboto;
-    margin: 0 0.625em 4.063em;
-    background-color: var(--current--theme--bg);
+/*Десктопы*/
+@media only screen and (min-width: 1224px) {
+    body {
+        background-color: #1ea7fd;
+    }
+
+    .text-bold--large {
+        /* R-bold-18 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 120%;
+    }
+
+    .text-bold--header {
+        /* R-bold-30 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 120%;
+    }
+
+    .text-regular--small {
+        /* R-regular-16 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 150%;
+    }
+
+    .text-regular--medium {
+        /* R-regular-16 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 130%;
+    }
+
+    .text-medium--medium {
+        /* R-medium-16 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+    }
+
+    .text-medium--small {
+        /* R-medium-14 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 130%;
+    }
 }
+
+/*Мобилки*/
+@media only screen and (min-width: 320px) and (max-width: 1224px) {
+    body {
+        font-family: Roboto;
+        margin: 0 0.625em 4.063em;
+        background-color: var(--current--theme--bg);
+    }
+
+    .text-bold--header {}
+
+    .text-bold--large {
+        /* R-bold-18 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 120%;
+    }
+
+    .text-regular--small {
+        /* R-regular-14 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 130%;
+    }
+
+    .text-regular--medium {
+        /* R-regular-16 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 130%;
+    }
+
+    .text-medium--medium {
+        /* R-medium-16 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+    }
+
+    .text-medium--small {
+        /* R-medium-14 */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 130%;
+    }
+}
+
 
 a {
     text-decoration: none;
@@ -44,7 +156,7 @@ p, h1, h2 {
     }
 }
 
-.LIGHT_THEME{
+.LIGHT_THEME {
     --current--theme--rasp--txt: var(--rasp--text-light--theme);
     --current--theme--menu--txt: var(--menu--txt--light--theme);
     --current--theme--bg: var(--bg--light--theme);
@@ -61,48 +173,4 @@ p, h1, h2 {
 
 .raspTextColor {
     color: var(--current--theme--bg);
-}
-
-.text-bold--large {
-    /* R-bold-18 */
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 120%;
-}
-
-.text-regular--small {
-    /* R-regular-14 */
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 130%;
-}
-
-.text-regular--medium {
-    /* R-regular-16 */
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 130%;
-}
-
-.text-medium--medium {
-    /* R-medium-16 */
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-}
-.text-medium--small {
-/* R-medium-14 */
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 130%;
 }
