@@ -5,8 +5,7 @@
 
 .SearchButtons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(3, 145px);
     gap: var(--items--gap)
 }
 
@@ -22,9 +21,9 @@
     cursor: pointer;
 }
 
-.SearchButtons a:last-child {
-    grid-column-start: 1;
-    grid-column-end: 3;
+.SearchHelper {
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .SearchInput {
@@ -35,4 +34,23 @@
     border-radius: 4px;
     padding: 1.143em 1.143em 1.143em 1.429em;
     background-color: var(--current--theme--bg);
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1224px) {
+    .SearchHelper {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .SearchButtons a:last-child {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .SearchButtons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: var(--items--gap)
+    }
 }

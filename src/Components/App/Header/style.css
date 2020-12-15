@@ -1,25 +1,49 @@
 .SearchDescription {
-    margin: 10px 0;
-}
-
-.SearchDescription {
-    margin: 10px 0;
+    margin-bottom: 20px;
 }
 
 .SearchInput {
     display: grid;
     grid-template-rows: 1fr;
-    margin-bottom: 10px;
+    margin-bottom: 2.8572em;
 }
 
 .SearchPage input[type=text] {
-    width:100%;
-    /*padding: 16px -10px 16px 20px;*/
+    width: 100%;
     border: 1px #429C97 solid;
     border-radius: 4px;
 }
 
 .SearchTittle {
+    display: flex;
     margin: 0;
-    padding: 11px 0;
+}
+
+.SearchTittle img {
+    margin-right: 0.625em;
+}
+
+.TittleType {
+    margin-top: 3.3334em;
+    margin-bottom: 1.667em;
+}
+
+/*Мобилы*/
+@media only screen and (min-width: 320px) and (max-width: 1224px) {
+    .SearchTittle img {
+        display: none;
+    }
+
+    .TittleType {
+        display: none;
+    }
+
+    .SearchDescription {
+        margin-bottom: 10px;
+        margin-top: 20px
+    }
+
+    .SearchInput {
+        margin-bottom: 0.715em;
+    }
 }

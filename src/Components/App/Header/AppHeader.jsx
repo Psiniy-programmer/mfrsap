@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import {
     changeLangEngToRus,
     findFacultyName,
-} from '../../../helpers/helpers.js'
+} from '../../../helpers/helpers.js';
+import bmstu_logo from './icons/bmstu-logo.svg';
 
 class AppHeader extends Component {
     // Динамичное подставление нужного описания (текст под заголовком)
@@ -29,18 +30,15 @@ class AppHeader extends Component {
         }
     }
 
-    componentDidMount() {
-        window.addEventListener('resize', this.updateWindowDimensions);
-    }
-
     render() {
-        console.log(window.innerHeight)
         return (
-            <div className={'AppHeader'}>
-                <h1 className={'SearchTittle text-bold--header text-bold--large textColor '}>
-                    Расписание МФ МГТУ
-                </h1>
-                <p className={'SearchDescription text-medium--small textColor'}>
+            <div className={'AppHeader textColor'}>
+                <div className={'SearchTittle'}>
+                    <img src={bmstu_logo} alt="error"/>
+                    <h1 className={'text-bold--header text-bold--large '}>Расписание МФ МГТУ</h1>
+                </div>
+                <h2 className={'TittleType'}>Поиск</h2>
+                <p className={'SearchDescription  text-medium--small '}>
                     {this.dynamicDescription()}
                 </p>
             </div>

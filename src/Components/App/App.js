@@ -59,22 +59,24 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.props.windowSizes)
         this.getThemeClass()
         if (this.infoIsFetched()) {
-            return <div className={`App`}>
-                <div className="content">
-                    <Route exact path={`/`} render={routerProps => <>
-                        <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
-                        <Search/>
-                    </>}/>
-                    <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
-                    <Route exact path={'/list/:rasp'} render={routerProps => <Rasp {...routerProps}/>}/>
-                    <SettignsRoutes/>
-                    <FavoritesRoutes/>
+            return <>
+                <div className={`App`}>
+                    <div className="content">
+                        <Route exact path={`/`} render={routerProps => <>
+                            <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
+                            <Search/>
+                        </>}/>
+                        <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
+                        <Route exact path={'/list/:rasp'} render={routerProps => <Rasp {...routerProps}/>}/>
+                        <SettignsRoutes/>
+                        <FavoritesRoutes/>
+                    </div>
+                    <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/>
+                    <p className={'Copyright textColor text-regular--medium'}>2020 © Мытищинский филиал МГТУ им. Н. Э. Баумана</p>
                 </div>
-                <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/>
-            </div>
+            </>
         } else return <Loader/>
     }
 }

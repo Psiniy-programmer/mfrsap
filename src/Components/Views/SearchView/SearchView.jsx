@@ -13,7 +13,7 @@ class SearchView extends Component {
         const {groupsList, teachersList, auditoryList} = this.props;
         if (this.props.findInput.length === 0) {
             return <>
-                <p className={'SearchDescription text-regular--medium textColor'}>
+                <p className={'SearchHelper text-regular--medium textColor'}>
                     Или выберите группу из списка
                 </p>
                 <div className={'SearchButtons'}>

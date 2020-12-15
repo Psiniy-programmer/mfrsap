@@ -18,7 +18,26 @@ html {
 /*Десктопы*/
 @media only screen and (min-width: 1224px) {
     body {
-        background-color: #1ea7fd;
+        font-family: Roboto;
+        background-color: var(--current--theme--bg);
+        margin: 40px 155px 20px 165px;
+    }
+    .App {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .Copyright {
+        
+        width: 100%;
+        position: fixed;
+        bottom: 10px;
+        left: 155px;
+        z-index: 2;
+    }
+
+    .content {
+        max-width: 455px;
     }
 
     .text-bold--large {
@@ -80,7 +99,7 @@ html {
 @media only screen and (min-width: 320px) and (max-width: 1224px) {
     body {
         font-family: Roboto;
-        margin: 0 0.625em 4.063em;
+        margin: 0.6879em 0.625em 4.063em;
         background-color: var(--current--theme--bg);
     }
 
@@ -131,7 +150,6 @@ html {
         line-height: 130%;
     }
 }
-
 
 a {
     text-decoration: none;
