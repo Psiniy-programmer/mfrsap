@@ -8,16 +8,18 @@ import { fetchTeachersData } from '../../actions/teachersList.js';
 import { fetchAuditoryData } from '../../actions/auditoryList.js';
 import {Route} from "react-router-dom";
 import NavigationBar from "../NavigationBar/NavigationBar";
-import SearchPage from "./Header/AppHeader";
+import AppHeader from "./Header/AppHeader";
 import Search from "../Views/SearchView/SearchView";
 import SearchRoutes from "../Routes/SearchRoutes";
-import SettignsRoutes from "../Routes/SettignsRoutes";
+import SettingsRoutes from "../Routes/SettignsRoutes";
 import FavoritesRoutes from "../Routes/FavoritesRoutes";
 import {removeClasses} from "../../helpers/helpers";
 import {addToFavorite} from "../../actions/favoriteStorage";
 import Rasp from "../Views/RaspView/Rasp";
 import Loader from "../Loader/Loader";
 import {resizeWindow} from "../../actions/resizeWindow";
+import Footer from "./Footer/Footer";
+import Base from "./Base/Base";
 
 class App extends Component {
     componentDidMount() {
@@ -50,31 +52,36 @@ class App extends Component {
     }
 
     infoIsFetched() {
-        const {groupsList, facultyList, teachersList, auditoryList} = this.props;
+        const {groupsList, facultyList, teachersList, auditoryList} = this.props
         if (groupsList.loading !== false) return false
         if (facultyList.loading !== false) return false
         if (teachersList.loading !== false) return false
-        return auditoryList.loading === false;
+        return auditoryList.loading === false
 
     }
 
     render() {
+        const {windowSizes} = this.props
         this.getThemeClass()
         if (this.infoIsFetched()) {
             return <>
                 <div className={`App`}>
                     <div className="content">
                         <Route exact path={`/`} render={routerProps => <>
-                            <SearchPage {...routerProps} description={`Начните вводить группу, преподавателя или аудиторию`}/>
-                            <Search/>
+                            <AppHeader/>
+                            <div className="content_info">
+                                <Base {...routerProps}/>
+                                <Search/>
+                            </div>
                         </>}/>
                         <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
                         <Route exact path={'/list/:rasp'} render={routerProps => <Rasp {...routerProps}/>}/>
-                        <SettignsRoutes/>
+                        <SettingsRoutes/>
                         <FavoritesRoutes/>
                     </div>
-                    <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/>
-                    <p className={'Copyright textColor text-regular--medium'}>2020 © Мытищинский филиал МГТУ им. Н. Э. Баумана</p>
+                    {windowSizes.width < 1228 ?
+                        <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : <></>}
+                    <Footer/>
                 </div>
             </>
         } else return <Loader/>

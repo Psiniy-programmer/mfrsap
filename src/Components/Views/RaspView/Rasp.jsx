@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import './style.css';
 import {connect} from "react-redux";
-import Header from "./RaspHeader/RaspHeader";
+import RaspHeader from "./RaspHeader/RaspHeader";
 import DaysCarousel from "./DaysCarousel/DaysCarousel";
 import {fetchRaspData} from "../../../actions/raspData";
 import Schedule from "./Schedule/Schedule";
 import {findRequestType} from "../../../helpers/helpers";
+import AppHeader from "../../App/Header/AppHeader";
 
 const date = new Date();
 const daysInYear = {
@@ -67,33 +68,40 @@ class Rasp extends Component {
         return countWeeks % 2 === 1 ? this.setState({isOdd: true}) : this.setState({isOdd: false});
     }
 
+    getHeader() {
+        const {windowSize} = this.props;
+        if (windowSize.width > 1224)
+            return <AppHeader/>
+    }
+
+
     render() {
         const {isOdd, type, currentDayIndex} = this.state;
         const {match} = this.props;
-        return (
-            <div className={'RaspView'}>
-                <Header
-                    weekIsOdd={isOdd}
-                    match={match}
-                    type={type.name}
-                />
-                <DaysCarousel
-                    currentDayIndex={currentDayIndex}
-                    updateDays={this.dayIndexUpdate}
-                />
-                <Schedule
-                    weekIsOdd={isOdd}
-                    currentDayIndex={currentDayIndex}
-                    match={match}
-                    type={type.name}
-                />
-            </div>
-        );
+        return <div className={'RaspView'}>
+            {this.getHeader()}
+            <RaspHeader
+                weekIsOdd={isOdd}
+                match={match}
+                type={type.name}
+            />
+            <DaysCarousel
+                currentDayIndex={currentDayIndex}
+                updateDays={this.dayIndexUpdate}
+            />
+            <Schedule
+                weekIsOdd={isOdd}
+                currentDayIndex={currentDayIndex}
+                match={match}
+                type={type.name}
+            />
+        </div>
     }
 }
 
 const mapStateToProps = state => {
     return {
+        windowSize: state.windowSizes,
         raspData: state.raspData,
         groupsList: state.groupsList
     }

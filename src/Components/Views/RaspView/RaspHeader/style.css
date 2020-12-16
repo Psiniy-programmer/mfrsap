@@ -10,7 +10,7 @@
     text-overflow: ellipsis;
 }
 
-.Header_Logo {
+.favorites_Logo {
     padding: 0.75em 0.625em;
     cursor: pointer;
 }
@@ -20,12 +20,7 @@
     align-items: center;
     align-content: center;
     grid-template-columns: 1fr 0.1fr;
-
 }
-
-/*.shift-text {*/
-/*    padding-bottom: 10px;*/
-/*}*/
 
 .RaspHeader h2 {
     margin: 0.61111em 0 0.61111em 0.278em;
@@ -33,4 +28,37 @@
 
 .RaspHeader p {
     margin: 0.75em 0;
+}
+
+@media only screen and (min-width: 1224px) {
+    .RaspHeader {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .RaspHeader_date, .RaspHeader_favorites, .RaspHeader_PDF {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .date_calendar {
+        width: 20px;
+        height: 20px;
+    }
+
+    .favorites_Logo {
+        width: 21px;
+        height: 20px;
+    }
+
+    .PDF_icon {
+        width: 16px;
+        height: 20px;
+    }
+
+    .RaspHeader_favorites, .RaspHeader_PDF {
+        cursor: pointer;
+    }
 }

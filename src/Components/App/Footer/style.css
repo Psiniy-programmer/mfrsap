@@ -1,0 +1,13 @@
+@media only screen and (min-width: 1224px) {
+    .Footer {
+        margin-top: 40px;
+        padding-bottom: 20px;
+        align-self: end;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1224px) {
+    .Footer {
+        display: none;
+    }
+}

@@ -1,0 +1,11 @@
+.SearchInput {
+    display: grid;
+    grid-template-rows: 1fr;
+    margin-bottom: 2.8572em;
+}
+
+.SearchPage input[type=text] {
+    width: 100%;
+    border: 1px #429C97 solid;
+    border-radius: 4px;
+}

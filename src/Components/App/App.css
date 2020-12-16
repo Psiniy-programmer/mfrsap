@@ -1,4 +1,5 @@
 html {
+    height: 100%;
     --bg--dark--theme: #09201E;
     --bg--light--theme: #FFFFFF;
     --menu--txt--light--theme: #133533;
@@ -21,22 +22,20 @@ html {
         font-family: Roboto;
         background-color: var(--current--theme--bg);
         margin: 40px 155px 20px 165px;
+        height: 93%;
     }
     .App {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
     }
 
-    .Copyright {
-        
-        width: 100%;
-        position: fixed;
-        bottom: 10px;
-        left: 155px;
-        z-index: 2;
+    .NavigationBar {
+        justify-self: end;
     }
 
-    .content {
+    #root,.App {
+        height: 100%;
+    }
+    .content_info {
         max-width: 455px;
     }
 

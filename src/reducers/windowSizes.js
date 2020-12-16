@@ -6,7 +6,6 @@ const initialState = {
 }
 
 export default function windowSizes(state = initialState, action) {
-    console.log('s')
     switch (action.type) {
         case ActionsConst.CHANGE_WINDOW_SIZES :
             return {

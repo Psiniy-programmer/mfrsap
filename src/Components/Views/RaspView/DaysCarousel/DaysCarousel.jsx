@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import './style.css';
 import {generateUniqKey} from "../../../../helpers/helpers";
+import {connect} from "react-redux";
+import './style.css';
 
 let daysData = [
     {
@@ -81,15 +82,33 @@ class DaysCarousel extends Component {
         return resArr;
     }
 
-    render() {
-        return (
-            <div className={'scroller-container'}>
-                <div className={'DaysCarousel'}>
-                    {this.getDayList()}
-                </div>
+    getMobileView() {
+        return <div className={'scroller-container'}>
+            <div className={'DaysCarousel'}>
+                {this.getDayList()}
             </div>
-        )
+        </div>
+    }
+
+    getDesktopView() {
+        return <div className={'DaysCarousel'}>
+            {this.getDayList()}
+        </div>
+    }
+
+    render() {
+        const {windowSizes} = this.props
+        return windowSizes.width > 1224 ? this.getDesktopView() : this.getMobileView()
+    }
+}
+const mapStateToProps = state => {
+    return {
+        windowSizes: state.windowSizes,
     }
 }
 
-export default DaysCarousel;
+const mapDispatchToProps = dispatch => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps())(DaysCarousel);

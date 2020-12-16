@@ -1,22 +1,11 @@
-.SearchDescription {
-    margin-bottom: 20px;
-}
-
-.SearchInput {
-    display: grid;
-    grid-template-rows: 1fr;
-    margin-bottom: 2.8572em;
-}
-
-.SearchPage input[type=text] {
-    width: 100%;
-    border: 1px #429C97 solid;
-    border-radius: 4px;
-}
-
 .SearchTittle {
     display: flex;
     margin: 0;
+    cursor:pointer;
+}
+
+.SearchTittle_text {
+    width: 100%
 }
 
 .SearchTittle img {
@@ -24,8 +13,13 @@
 }
 
 .TittleType {
-    margin-top: 3.3334em;
-    margin-bottom: 1.667em;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.AppHeader {
+    display: flex;
+    justify-content: space-between;
 }
 
 /*Мобилы*/

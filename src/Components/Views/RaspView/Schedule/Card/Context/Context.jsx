@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './style.css'
 import clock_icon from './icons/clock-icon.svg';
 import {connect} from "react-redux";
+import './style.css'
 
 class Context extends Component {
     getTimer() {
@@ -21,16 +21,15 @@ class Context extends Component {
             <div className={`context ${opacity ? 'context_unactive' : 'context_active'} raspTextColor`}>
                 <div className="context__leftInfo">
                     <h2 className={'context__subject text-bold--large '}>{subject}</h2>
-                    {underSubject !== '' ? <p className={'context__underSubject text-regular--small '}>{underSubject}</p> : ''}
+                    {underSubject !== '' ?
+                        <p className={'context__underSubject text-regular--small '}>{underSubject}</p> : ''}
                     {leftInfo !== null ? <p className={'context-under text-regular--small '}>{leftInfo}</p> : ''}
                 </div>
                 <div className={rightInfo === null ? 'empty' : 'context__rightInfo'}>
                     <p className={`text-regular--small`}>{rightInfo}</p>
                 </div>
             </div>
-            </>
-
-
+        </>
     }
 }
 

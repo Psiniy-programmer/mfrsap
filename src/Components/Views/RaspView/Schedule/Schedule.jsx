@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import './style.css'
 import {generateUniqKey} from "../../../../helpers/helpers";
 import {connect} from "react-redux";
 import Card from './Card/Card'
 import MenuItem from "../../../MenuItem/MenuItem";
+import './style.css'
 
 class Schedule extends Component {
     getCommonRasp(curDay) {

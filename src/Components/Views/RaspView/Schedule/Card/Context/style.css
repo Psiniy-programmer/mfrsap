@@ -39,3 +39,15 @@
 .context-under {
     margin-top: 0.4285em;
 }
+
+@media only screen and (min-width: 1224px) {
+    .context {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+    .context__timer {
+        margin: 24px 0;
+        height: 21px;
+    }
+}

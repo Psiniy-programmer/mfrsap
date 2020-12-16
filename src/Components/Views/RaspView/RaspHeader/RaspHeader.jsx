@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import star from './Icons/star.svg';
 import star_active from './Icons/star_active.svg';
-import './style.css';
+import calendar_dark from './Icons/Calendar-icon.svg';
+import PDF_icon from './Icons/PDF_dark.svg'
 import {addToFavorite, removeFromFavorite} from '../../../../actions/favoriteStorage.js';
+import './style.css';
 
 class RaspHeader extends Component {
 
     getHeaderWeek() {
-        return this.props.weekIsOdd ? <>Числитель</> : <>Знаменатель</>
+        return this.props.weekIsOdd ? 'Числитель' : 'Знаменатель'
     }
 
     toggleFavorites() {
@@ -24,28 +26,73 @@ class RaspHeader extends Component {
         this.setState({isFavorite: checkFavorite});
     }
 
-    render() {
+    getMobileView() {
         const {data} = this.props.raspData;
         const {type} = this.props;
-        return (
-            <div className={'RaspHeader textColor'}>
+        return <div className={'RaspHeader textColor'}>
+            <img
+                onClick={() => this.toggleFavorites()}
+                className={'Header_Logo'}
+                src={localStorage.getItem(data[type]) !== null ? star_active : star}
+                alt="error"
+            />
+            <div className={'Header_Text'}>
+                <h2 className={'header__text_title shift-text text-bold--large'}>{data[type]}</h2>
+                <p className={'text-regular--medium'}>{this.getHeaderWeek()}</p>
+            </div>
+        </div>
+    }
+
+    getDesktopView() {
+        const {data} = this.props.raspData;
+        const {type} = this.props;
+        const date = new Date()
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        };
+        let dateText = date.toLocaleDateString("ru", options)
+
+        dateText = dateText.substring(0, dateText.length - 3) // удаляем лишние буквы из года
+        dateText += ` - ${this.getHeaderWeek()}`
+
+        return <div className={'RaspHeader textColor'}>
+            <div className="RaspHeader_date">
                 <img
-                    onClick={() => this.toggleFavorites()}
-                    className={'Header_Logo'}
+                    className={'date_calendar'}
+                    src={calendar_dark}
+                    alt="error"/>
+                <p>{dateText}</p>
+            </div>
+            <div onClick={() => this.toggleFavorites()} className="RaspHeader_favorites">
+                <img
+                    className={'favorites_Logo'}
                     src={localStorage.getItem(data[type]) !== null ? star_active : star}
                     alt="error"
                 />
-                <div className={'Header_Text'}>
-                    <h2 className={'header__text_title shift-text text-bold--large'}>{data[type]}</h2>
-                    <p className={'text-regular--medium'}>{this.getHeaderWeek()}</p>
-                </div>
+                <p>Добавить в избранное</p>
             </div>
-        );
+            <div onClick={() => alert("В разработке")} className="RaspHeader_PDF">
+                <img
+                    className={'PDF_icon'}
+                    src={PDF_icon}
+                    alt="error"/>
+                <p>PDF-версия для печати</p>
+            </div>
+        </div>
+    }
+
+    render() {
+        const {windowSizes} = this.props;
+        return windowSizes.width > 1224 ?
+            this.getDesktopView() : this.getMobileView()
     }
 }
 
 const mapStateToProps = state => {
     return {
+        windowSizes: state.windowSizes,
         favoriteStorage: state.favoriteStorage,
         raspData: state.raspData
     }
