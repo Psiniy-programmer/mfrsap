@@ -2,7 +2,6 @@
     background-color: #429C97;
     max-width: 100%;
     display: grid;
-    grid-template-columns: 255px 1fr;
     margin-bottom: 0.625em;
     border-radius: 4px;
 }
