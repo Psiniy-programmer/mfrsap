@@ -1,3 +1,5 @@
+import Consts from "./consts";
+
 const changeLangEngToRus = (word) => {
     let str;
     switch (word[0].toLowerCase()) {
@@ -124,6 +126,10 @@ const findRequestType = param => {
     return type;
 }
 
+const getTextColorFromWidth = (width) => {
+    return width < Consts.DESKTOP_MIN_WIDTH ? 'raspTextColor' : 'textColor'
+}
+
 export {
     changeLangEngToRus,
     changeLangRusToEng,
@@ -132,5 +138,6 @@ export {
     translateFullGroupNameToRus,
     generateUniqKey,
     removeClasses,
-    findRequestType
+    findRequestType,
+    getTextColorFromWidth
 }

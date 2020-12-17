@@ -1,4 +1,4 @@
-import ActionsConst from '../helpers/actionsConst'
+import ActionsConst from '../helpers/consts'
 
 const initialState = {
     height: window.innerHeight,

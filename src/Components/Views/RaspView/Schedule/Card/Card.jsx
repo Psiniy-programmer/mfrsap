@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import './style.css';
-import Context from "./Context/Context";
 import EmptyCard from "../EmptyCard/EmptyCard";
+import Single from "./Context/Single/Single";
+import Double from "./Context/Double/Double";
 
 class Card extends Component {
     render() {
         const {pairtime, pair, weekIsOdd} = this.props.rasp;
         const {index} = this.props
         const {type} = this.props;
-        const info = [{},{}];
+        const info = [{}, {}];
         if (!pair.length) {
             return <div className={'schedule-item schedule-item__Single'}>
                 <EmptyCard index={index}/>
@@ -36,44 +37,23 @@ class Card extends Component {
                     info[i].rightInfo = !pair[i].subgroup ? null : `${pair[i].subgroup} подгруппа`;
                 }
                 break;
-            default: break;
+            default:
+                break;
         }
 
-        if (this.props.isDouble) return (
-            <div className={'schedule-item schedule-item__Double'}>
-                <div className={'schedule-item__numerator'}>
-                    <Context
-                        opacity={!weekIsOdd}
-                        timer={pairtime}
-                        subject={pair[0].subject}
-                        underSubject={info[0].underSubject}
-                        leftInfo={info[0].leftInfo}
-                        rightInfo={info[0].rightInfo}
-                    />
-                </div>
-                <div className="splitter"/>
-                <div className={'schedule-item__denominator'}>
-                    <Context
-                        opacity={!!weekIsOdd}
-                        subject={pair[1].subject}
-                        underSubject={info[1].underSubject}
-                        leftInfo={info[1].leftInfo}
-                        rightInfo={info[1].rightInfo}
-                    />
-                </div>
-            </div>
-        )
-        else return (
-            <div className={'schedule-item schedule-item__Single'}>
-                <Context
-                    timer={pairtime}
-                    subject={pair[0].subject}
-                    underSubject={info[0].underSubject}
-                    leftInfo={info[0].leftInfo}
-                    rightInfo={info[0].rightInfo}
-                />
-            </div>
-        )
+        return this.props.isDouble ? <Double
+            data={pair}
+            info={info}
+            opacity={weekIsOdd}
+            timer={pairtime}
+        /> : <Single
+            timer={pairtime}
+            opacity={!!weekIsOdd}
+            subject={pair[0].subject}
+            underSubject={info[0].underSubject}
+            leftInfo={info[0].leftInfo}
+            rightInfo={info[0].rightInfo}
+        />
     }
 }
 

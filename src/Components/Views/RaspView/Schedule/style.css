@@ -2,3 +2,19 @@
     margin-top: 10px;
     max-height: 100%
 }
+.schedule-item__Single {
+    background-color: var(--green);
+    max-width: 100%;
+    display: grid;
+    margin-bottom: 0.625em;
+    border-radius: 4px;
+}
+
+@media only screen and (min-width: 1224px) {
+    .schedule-item {
+        grid-template-columns: 255px 1fr;
+        align-content: center;
+        background-color: unset;
+        border: 5px solid #1ea7fd;
+    }
+}

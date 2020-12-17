@@ -5,7 +5,11 @@
     flex-direction: row;
     justify-content: center;
 }
-
+@media only screen and (min-width: 1224px) {
+    .NavigationBar a:last-child {
+        padding-right: 0;
+    }
+}
 .NavigationBar a {
     padding: 0.75em 2.188em;
 }
@@ -20,3 +24,5 @@
         z-index: 2;
     }
 }
+
+
