@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import clock_icon from '../Card/Context/icons/clock-icon.svg';
+import clock_icon from '../Card/Context/Timer/icons/clock-icon.svg';
 import {getTime} from "../../../../../helpers/timers";
 import './style.css'
 

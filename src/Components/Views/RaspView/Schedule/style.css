@@ -10,7 +10,7 @@
     max-width: 100%;
     display: grid;
     margin-bottom: 0.625em;
-    border-radius: 4px;
+
 }
 
 @media only screen and (min-width: 1224px) {
@@ -29,5 +29,15 @@
     .schedule-item__Double {
         display: grid;
         grid-template-columns: 255px 1fr;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 1224px)  {
+    .schedule-item {
+        padding-top: 10px;
+        border-radius: 4px;
+    }
+    .Schedule {
+        display: grid;
+        grid-gap: 10px
     }
 }

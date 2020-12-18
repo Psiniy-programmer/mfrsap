@@ -3,7 +3,7 @@ const DARK_THEME = 'DARK_THEME';
 const SYSTEM_THEME = 'SYSTEM_THEME';
 
 let themeFromStorage = localStorage.getItem('theme');
-const initialState = themeFromStorage === null ? LIGHT_THEME : themeFromStorage;
+const initialState = themeFromStorage === null ? SYSTEM_THEME : themeFromStorage;
 
 function theme(state = initialState, action) {
     switch (action.type) {

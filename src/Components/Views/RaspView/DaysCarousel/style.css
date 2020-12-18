@@ -15,6 +15,17 @@
         padding-bottom: 20px;
         margin-bottom: -20px;
     }
+
+    .DayItem {
+        width: 50px;
+        height: 50px;
+        color: var(--green);
+        border: 1px solid var(--green);
+        border-radius: 25px;
+        display: grid;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 @media only screen and (min-width: 1224px) {
@@ -33,6 +44,7 @@
         text-align: center;
         cursor: pointer;
     }
+
     .DaysCarousel {
         display: flex;
         gap: 12px;

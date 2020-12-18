@@ -1,4 +1,6 @@
 .RaspView {
     display: grid;
     grid-gap: var(--items--gap);
+    background-image: url("../../App/images/bg-decorative_vertical.svg"),  url("../../App/images/bg-decorative_horizontal.svg");
+    background-repeat: no-repeat;
 }

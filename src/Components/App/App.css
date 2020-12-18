@@ -23,7 +23,11 @@ html {
         background-color: var(--current--theme--bg);
         margin: 40px 155px 20px 165px;
         height: 93%;
+        background-image: url("./images/bg-decorative_vertical.svg"),  url("./images/bg-decorative_horizontal.svg"), url("./images/bg-decorative_horizontal.svg"), url("./images/bg-decorative_horizontal.svg");
+        background-position: top left, bottom right, top 220px right 220px, top 662px right 410px;
+        background-repeat: no-repeat;
     }
+
     .App {
         display: grid;
     }
@@ -32,9 +36,10 @@ html {
         justify-self: end;
     }
 
-    #root,.App {
+    #root, .App {
         height: 100%;
     }
+
     .content_info {
         max-width: 455px;
     }
@@ -102,7 +107,8 @@ html {
         background-color: var(--current--theme--bg);
     }
 
-    .text-bold--header {}
+    .text-bold--header {
+    }
 
     .text-bold--large {
         /* R-bold-18 */

@@ -62,8 +62,6 @@ class App extends Component {
 
     render() {
         const {windowSizes} = this.props
-        const isDark = matchMedia('(prefers-color-scheme: dark)')
-        console.warn(isDark)
         this.getThemeClass()
         if (this.infoIsFetched()) {
             return <>
