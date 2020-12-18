@@ -2,6 +2,7 @@
     .scroller-container {
         width: 100%;
         overflow: hidden;
+        margin-bottom: 10px;
     }
 
     .DaysCarousel {
@@ -35,6 +36,7 @@
     .DaysCarousel {
         display: flex;
         gap: 12px;
+        margin-bottom: 30px;
     }
 
     .DayItem {

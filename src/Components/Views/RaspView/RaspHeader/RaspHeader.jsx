@@ -57,30 +57,35 @@ class RaspHeader extends Component {
         dateText = dateText.substring(0, dateText.length - 3) // удаляем лишние буквы из года
         dateText += ` - ${this.getHeaderWeek()}`
 
-        return <div className={'RaspHeader textColor'}>
-            <div className="RaspHeader_date">
-                <img
-                    className={'date_calendar'}
-                    src={calendar_dark}
-                    alt="error"/>
-                <p>{dateText}</p>
+        return <>
+            <div className={'Header_Text'}>
+                <h2 className={'header__text_title text-bold--header textColor'}>{data[type]}</h2>
             </div>
-            <div onClick={() => this.toggleFavorites()} className="RaspHeader_favorites">
-                <img
-                    className={'favorites_Logo'}
-                    src={localStorage.getItem(data[type]) !== null ? star_active : star}
-                    alt="error"
-                />
-                <p>Добавить в избранное</p>
+            <div className={'RaspHeader textColor'}>
+                <div className="RaspHeader_date">
+                    <img
+                        className={'date_calendar'}
+                        src={calendar_dark}
+                        alt="error"/>
+                    <p>{dateText}</p>
+                </div>
+                <div onClick={() => this.toggleFavorites()} className="RaspHeader_favorites">
+                    <img
+                        className={'favorites_Logo'}
+                        src={localStorage.getItem(data[type]) !== null ? star_active : star}
+                        alt="error"
+                    />
+                    <p>Добавить в избранное</p>
+                </div>
+                <div onClick={() => alert("В разработке")} className="RaspHeader_PDF">
+                    <img
+                        className={'PDF_icon'}
+                        src={PDF_icon}
+                        alt="error"/>
+                    <p>PDF-версия для печати</p>
+                </div>
             </div>
-            <div onClick={() => alert("В разработке")} className="RaspHeader_PDF">
-                <img
-                    className={'PDF_icon'}
-                    src={PDF_icon}
-                    alt="error"/>
-                <p>PDF-версия для печати</p>
-            </div>
-        </div>
+        </>
     }
 
     render() {

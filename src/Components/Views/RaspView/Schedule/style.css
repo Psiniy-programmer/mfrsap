@@ -1,9 +1,12 @@
 .Schedule {
-    margin-top: 10px;
     max-height: 100%
 }
-.schedule-item__Single {
+
+.schedule-item {
     background-color: var(--green);
+}
+
+.schedule-item__Single {
     max-width: 100%;
     display: grid;
     margin-bottom: 0.625em;
@@ -15,6 +18,16 @@
         grid-template-columns: 255px 1fr;
         align-content: center;
         background-color: unset;
-        border: 5px solid #1ea7fd;
+        padding: 24px 0;
+        border-bottom: 1px dashed var(--gray);
+    }
+
+    .schedule-item:last-child {
+        border-bottom: unset;
+    }
+
+    .schedule-item__Double {
+        display: grid;
+        grid-template-columns: 255px 1fr;
     }
 }

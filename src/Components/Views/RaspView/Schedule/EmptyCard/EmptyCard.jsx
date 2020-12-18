@@ -6,7 +6,7 @@ import './style.css'
 class EmptyCard extends Component {
     render() {
         return (
-            <div className={'emptyCard raspTextColor'}>
+            <div className={'emptyCard textColor'}>
                 <div className="emptyCard__timer text-regular--small">
                     <img className={'timer__img'} src={clock_icon} alt="timer"/>
                     <p className={'timer__text'}>{getTime(this.props.index)}</p>

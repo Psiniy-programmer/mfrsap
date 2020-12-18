@@ -14,10 +14,19 @@ class Single extends Component {
             underSubject,
             leftInfo,
             rightInfo,
-            timer
+            timer,
+            isEmpty
         } = this.props;
 
-        return <div className={'schedule-item schedule-item__Single'}>
+        if (isEmpty) return <div className={'schedule-item schedule-item__Single'}>
+            <Timer timer={timer}/>
+            <div className="context context__leftInfo">
+                <h2 className={'context__subject text-bold--large textColor'}>
+                    Занятий нет
+                </h2>
+            </div>
+        </div>
+        else return <div className={'schedule-item schedule-item__Single'}>
             <Timer timer={timer}/>
             <div className={`context ${this.isOpacity()} textColor`}>
                 <div className="context__leftInfo">

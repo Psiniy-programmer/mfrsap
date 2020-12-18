@@ -4,9 +4,20 @@
     grid-template-rows: 1fr;
     background-color: var(--green);
     border-radius: 4px;
-    cursor: pointer;
     padding-left: 10px;
     padding-right: 0;
+}
+
+@media only screen and (min-width: 1224px) {
+    .emptyCard {
+        grid-template-rows: unset;
+        grid-template-columns: 255px 100%;
+        background-color: unset;
+    }
+
+    .emptyCard__text {
+        padding-bottom: unset;
+    }
 }
 
 .emptyCard__timer {
@@ -16,6 +27,8 @@
 
 .timer__img {
     margin-right: 0.572em;
+    width: 16px;
+    height: 16px;
 }
 
 .emptyCard__text {
