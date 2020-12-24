@@ -3,26 +3,29 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import './style.css'
 import SearchList from "./SearchList/SearchList";
+import {changeLangRusToEng, generateUniqKey} from "../../../helpers/helpers";
 
 class SearchView extends Component {
 
     getView() {
-        const {groupsList, teachersList, auditoryList} = this.props;
-        if (this.props.findInput.length === 0) {
+        const {findInput, groupsList, teachersList, auditoryList, facultyList} = this.props;
+        const facList = []
+        if (findInput.length === 0) {
+            facultyList.data.map((item, index) => {
+                let fac = <Link key={generateUniqKey('facultyItem', index)}
+                                to={`/search/${changeLangRusToEng(item.facultyname)}`}>
+                    <span className={'raspTextColor'}>
+                        {item.facultyname}
+                    </span>
+                </Link>
+                facList.push(fac)
+            })
             return <>
                 <p className={'SearchHelper text-regular--medium textColor'}>
                     Или выберите группу из списка
                 </p>
                 <div className={'SearchButtons'}>
-                    <Link to={`/search/K`}>
-                        <span className={'raspTextColor'}>К</span>
-                    </Link>
-                    <Link to={`/search/LT`}>
-                        <span className={'raspTextColor'}>ЛТ</span>
-                    </Link>
-                    <Link to={`/search/Aspirant`}>
-                        <span className={'raspTextColor'}>Аспирантура</span>
-                    </Link>
+                    {facList}
                 </div>
             </>
         } else {

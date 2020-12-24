@@ -32,6 +32,8 @@ class FavoriteList extends Component {
                 break;
         }
         link = `${properties.id}=`;
+        // debugger
+        console.log(list)
         list.map(elem => {
             return item.name === elem[properties.name] ? link += elem[properties.id] : null
         });
@@ -41,6 +43,7 @@ class FavoriteList extends Component {
     createList() {
         const {data} = this.props;
         const list = [];
+        console.log(data)
         data.map((item, index) => {
             let info = {
                 type: localStorage.getItem(item),
@@ -48,8 +51,8 @@ class FavoriteList extends Component {
             }
             let link = this.findLink(info);
             let temp = <Link key={generateUniqKey('favItem_', index)} to={`/list/${link}`}>
-                <div  className={'FavoriteList__item FavoriteList__item'}>
-                    <p className={' text-medium--small raspTextColor'}>{item}</p>
+                <div className={'FavoriteList__item FavoriteList__item'}>
+                    <p className={'text-medium--small raspTextColor'}>{item}</p>
                     <img onClick={() => this.props.removeFromFavorites(info)} src={remove} alt="error"/>
                 </div>
             </Link>

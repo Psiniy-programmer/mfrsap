@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import clock_icon from '../Card/Context/Timer/icons/clock-icon.svg';
-import {getTime} from "../../../../../helpers/timers";
+import {getTime} from "../../../../../helpers/helpData";
 import './style.css'
 
 class EmptyCard extends Component {

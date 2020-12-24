@@ -64,7 +64,7 @@ class App extends Component {
         const {windowSizes} = this.props
         this.getThemeClass()
         if (this.infoIsFetched()) {
-            return <>
+            return <div id={'App_wrapper'}>
                 <div className={`App`}>
                     <div className="content">
                         <Route exact path={`/`} render={routerProps => <>
@@ -83,7 +83,7 @@ class App extends Component {
                         <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : <></>}
                     <Footer/>
                 </div>
-            </>
+            </div>
         } else return <Loader/>
     }
 }

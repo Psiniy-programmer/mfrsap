@@ -7,6 +7,7 @@ import {fetchRaspData} from "../../../actions/raspData";
 import Schedule from "./Schedule/Schedule";
 import {findRequestType} from "../../../helpers/helpers";
 import AppHeader from "../../App/Header/AppHeader";
+import Consts from "../../../helpers/consts"
 
 const date = new Date();
 const daysInYear = {
@@ -70,7 +71,7 @@ class Rasp extends Component {
 
     getHeader() {
         const {windowSize} = this.props;
-        if (windowSize.width > 1224)
+        if (windowSize.width > Consts.DESKTOP_MIN_WIDTH)
             return <AppHeader/>
     }
 

@@ -1,34 +1,9 @@
 import React, {Component} from 'react';
+import './style.css';
 import {generateUniqKey} from "../../../../helpers/helpers";
 import {connect} from "react-redux";
-import './style.css';
-
-let daysData = [
-    {
-        'rus': 'ПН',
-        'eng': 'monday'
-    },
-    {
-        'rus': 'ВТ',
-        'eng': 'tuesday'
-    },
-    {
-        'rus': 'СР',
-        'eng': 'wednesday'
-    },
-    {
-        'rus': 'ЧТ',
-        'eng': 'thursday'
-    },
-    {
-        'rus': 'ПТ',
-        'eng': 'friday'
-    },
-    {
-        'rus': 'СБ',
-        'eng': 'saturday'
-    }
-]
+import {desktopMobileData, mobileDaysData} from "../../../../helpers/helpData";
+import Consts from "../../../../helpers/consts"
 
 class DaysCarousel extends Component {
     constructor(props) {
@@ -70,6 +45,7 @@ class DaysCarousel extends Component {
 
     getDayList() {
         let resArr = [];
+        const daysData = this.props.windowSizes.width > Consts.DESKTOP_MIN_WIDTH ? desktopMobileData : mobileDaysData
         daysData.map((item, index) =>
             resArr.push(
                 <div
@@ -98,9 +74,10 @@ class DaysCarousel extends Component {
 
     render() {
         const {windowSizes} = this.props
-        return windowSizes.width > 1224 ? this.getDesktopView() : this.getMobileView()
+        return windowSizes.width > Consts.DESKTOP_MIN_WIDTH ? this.getDesktopView() : this.getMobileView()
     }
 }
+
 const mapStateToProps = state => {
     return {
         windowSizes: state.windowSizes,

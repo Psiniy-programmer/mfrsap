@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import './style.css';
 import {connect} from "react-redux";
 import star from './Icons/star.svg';
 import star_active from './Icons/star_active.svg';
 import calendar_dark from './Icons/Calendar-icon.svg';
 import PDF_icon from './Icons/PDF_dark.svg'
 import {addToFavorite, removeFromFavorite} from '../../../../actions/favoriteStorage.js';
-import './style.css';
+import Consts from "../../../../helpers/consts"
 
 class RaspHeader extends Component {
 
@@ -90,7 +91,7 @@ class RaspHeader extends Component {
 
     render() {
         const {windowSizes} = this.props;
-        return windowSizes.width > 1224 ?
+        return windowSizes.width > Consts.DESKTOP_MIN_WIDTH ?
             this.getDesktopView() : this.getMobileView()
     }
 }
