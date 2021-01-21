@@ -3,6 +3,7 @@ import './style.css'
 import {changeLangEngToRus, findFacultyName} from "../../../helpers/helpers";
 import {connect} from 'react-redux';
 import SearchInput from "../../SearchInput/SearchInput";
+import SearchResult from "../../Views/SearchView/SearchResult/SearchResult";
 
 class Base extends Component {
     // Динамичное подставление нужного описания (текст под заголовком)
@@ -27,9 +28,7 @@ class Base extends Component {
 
     getDescription() {
         const {match} = this.props;
-        console.log(match.path)
         if (match.path !== '/settings' && match.path !== '/favorites') {
-            console.log('s')
             return <>
                 {this.getSearch()}
                 <div className={'SearchDescription'}>
@@ -66,12 +65,18 @@ class Base extends Component {
         }
     }
 
+    getSearchResult() {
+        if (this.props.findInput.length > 0) return <SearchResult/>
+
+    }
+
 
     render() {
         return (
             <div className={'Base textColor'}>
                 <h2 className={'TittleType'}>{this.getTittle()}</h2>
                 {this.props.match.path !== '/' ? this.getDescription() : this.getSearch()}
+                {this.getSearchResult()}
             </div>
         );
     }
@@ -86,7 +91,8 @@ const mapStateToProps = state => {
         groupsList: state.groupsList,
         facultyList: state.facultyList,
         teachersList: state.teachersList,
-        auditoryList: state.auditoryList
+        auditoryList: state.auditoryList,
+        findInput: state.filterItems
     }
 };
 

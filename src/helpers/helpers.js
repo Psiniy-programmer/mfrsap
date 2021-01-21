@@ -130,6 +130,10 @@ const getTextColorFromWidth = (width) => {
     return width < Consts.DESKTOP_MIN_WIDTH ? 'raspTextColor' : 'textColor'
 }
 
+const finderIsEmpty = state => {
+    return state.length > 0 ? 'hide' : ''
+}
+
 export {
     changeLangEngToRus,
     changeLangRusToEng,
@@ -139,5 +143,6 @@ export {
     generateUniqKey,
     removeClasses,
     findRequestType,
-    getTextColorFromWidth
+    getTextColorFromWidth,
+    finderIsEmpty
 }

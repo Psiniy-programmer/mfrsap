@@ -5,7 +5,6 @@ import DepartmentList from "../Views/SearchView/DepartmentList/DepartmentList";
 import CourseList from "../Views/SearchView/CourseList/CourseList";
 import RaspList from "../Views/SearchView/GroupsList/GroupsList";
 import RaspItem from "../Views/RaspView/Rasp";
-import SearchInput from "../SearchInput/SearchInput";
 import Base from "../App/Base/Base";
 
 class SearchRoutes extends Component {

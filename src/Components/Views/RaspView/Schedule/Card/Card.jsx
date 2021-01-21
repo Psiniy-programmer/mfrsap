@@ -18,7 +18,6 @@ class Card extends Component {
                     info[i].underSubject = pair[i].teacher;
                     info[i].leftInfo = !pair[i].subgroup ? null : `${pair[i].subgroup} подгруппа`;
                     info[i].rightInfo = pair[i].aud;
-                    info[i].week = pair[i].week;
                 }
                 break;
             case 'teacher' :
@@ -26,7 +25,6 @@ class Card extends Component {
                     info[i].underSubject = pair[i].group;
                     info[i].leftInfo = !pair[i].subgroup ? null : `${pair[i].subgroup} подгруппа`;
                     info[i].rightInfo = pair[i].aud;
-                    info[i].week = pair[i].week;
                 }
                 break;
             case 'aud' :
@@ -46,6 +44,7 @@ class Card extends Component {
             info={info}
             opacity={weekIsOdd}
             timer={pairtime}
+
         /> : <Single
             timer={pairtime}
             opacity={!!weekIsOdd}

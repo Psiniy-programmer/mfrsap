@@ -1,0 +1,4 @@
+.SearchResult {
+    display: grid;
+    grid-gap: calc(var(--items--gap) * 2);
+}

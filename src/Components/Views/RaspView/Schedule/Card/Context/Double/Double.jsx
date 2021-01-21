@@ -15,7 +15,8 @@ class Double extends Component {
                     <h2 className={'context__subject text-bold--large '}>{data.subject}</h2>
                     {info.underSubject !== '' ?
                         <p className={'context__underSubject text-regular--small '}>
-                            {info.underSubject}
+                            {info.underSubject.constructor == Array ?
+                                info.underSubject.join(', ') : info.underSubject}
                         </p> : null}
                     {info.leftInfo !== null ?
                         <p className={'context-under text-regular--small '}>{info.leftInfo}</p> : null}
@@ -28,14 +29,21 @@ class Double extends Component {
     }
 
     getEmpty(opacity) {
-        return <p className={`text-bold--large textColor ${this.isOpacity(!opacity)}`}>Занятия нет</p>
+        return <p className={`context text-bold--large textColor ${this.isOpacity(!opacity)}`}>Занятия нет</p>
     }
 
-    // checkRasp(info) {
-    //     if (Object.keys(info[1]).length === 0) {
-    //
-    //     }
-    // }
+    checkRasp(info, data, opacity) {
+        let res
+        if (Object.keys(info[1]).length === 0) {
+            if (data[0].week === 2)
+                res = this.getRasp(info[0], data[0], opacity)
+            else
+                this.getEmpty(opacity)
+        } else {
+            res = this.getRasp(info[1], data[1], opacity)
+        }
+        return res
+    }
 
     render() {
         const {
@@ -44,21 +52,16 @@ class Double extends Component {
             info,
             timer,
         } = this.props;
-        // if (Object.keys(info[1]).length === 0 && info[1].constructor === Object)
         return (
             <div className={'schedule-item schedule-item__Double'}>
                 <Timer timer={timer}/>
                 <div className="Double__info">
                     <div className={'schedule-item__numerator'}>
-                        {info[0].week === 1 ? this.getRasp(info[0], data[0], !opacity) : this.getEmpty(opacity)}
+                        {data[0].week === 1 ? this.getRasp(info[0], data[0], !opacity) : this.getEmpty(!opacity)}
                     </div>
                     <div className="splitter"/>
                     <div className={'schedule-item__denominator'}>
-                        {console.log(info)}
-                        {/*{console.log(info[1])}*/}
-                        {console.log(Object.keys(info[1]).length !== 0)}
-                        {Object.keys(info[1]).length === 0
-                            ? this.getRasp(info[0], data[0], opacity) : this.getEmpty(opacity)}
+                        {this.checkRasp(info, data, opacity)}
                     </div>
                 </div>
             </div>
