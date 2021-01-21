@@ -4,6 +4,7 @@ import {Link, Route} from "react-router-dom";
 import NavigationBar from "../../NavigationBar/NavigationBar";
 import {connect} from "react-redux";
 import './style.css';
+import Consts from "../../../helpers/consts"
 
 class AppHeader extends Component {
     render() {
@@ -13,7 +14,7 @@ class AppHeader extends Component {
                 <img src={bmstu_logo} alt="error"/>
                 <h1 className={'SearchTittle_text text-bold--header text-bold--large '}>Расписание МФ МГТУ</h1>
             </div>
-            {windowSizes.width > 1228 ?
+            {windowSizes.width > Consts.DESKTOP_MIN_WIDTH ?
                 <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : <></>}
         </Link>
 

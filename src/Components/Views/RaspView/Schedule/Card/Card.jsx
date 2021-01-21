@@ -8,6 +8,7 @@ class Card extends Component {
         const {pairtime, pair, weekIsOdd} = this.props.rasp;
         const {type} = this.props;
         const info = [{}, {}];
+
         if (!pair.length) {
             return <Single isEmpty={true} timer={pairtime}/>
         }
@@ -17,6 +18,7 @@ class Card extends Component {
                     info[i].underSubject = pair[i].teacher;
                     info[i].leftInfo = !pair[i].subgroup ? null : `${pair[i].subgroup} подгруппа`;
                     info[i].rightInfo = pair[i].aud;
+                    info[i].week = pair[i].week;
                 }
                 break;
             case 'teacher' :
@@ -24,6 +26,7 @@ class Card extends Component {
                     info[i].underSubject = pair[i].group;
                     info[i].leftInfo = !pair[i].subgroup ? null : `${pair[i].subgroup} подгруппа`;
                     info[i].rightInfo = pair[i].aud;
+                    info[i].week = pair[i].week;
                 }
                 break;
             case 'aud' :
@@ -31,6 +34,7 @@ class Card extends Component {
                     info[i].underSubject = pair[i].teacher;
                     info[i].leftInfo = pair[i].group;
                     info[i].rightInfo = !pair[i].subgroup ? null : `${pair[i].subgroup} подгруппа`;
+                    info[i].week = pair[i].week;
                 }
                 break;
             default:

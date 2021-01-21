@@ -9,9 +9,8 @@ class Schedule extends Component {
         let resList = [],
             isDouble = false;
         const {pairList} = curDay;
-        // eslint-disable-next-line
         pairList.map((item, index) => {
-            if (item.pair.length === 2) isDouble = true;
+            if (item.pair[0] !== undefined && item.pair[0].week !== 0) isDouble = true;
             // Если расписание пары двойное(по неделям), то выдаем
             resList.push(<Card
                 key={generateUniqKey('Card_', index)}
@@ -21,7 +20,7 @@ class Schedule extends Component {
                 isDouble={isDouble}
                 index={index}
             />);
-            isDouble = false;
+            return isDouble = false;
         });
         return resList;
     }

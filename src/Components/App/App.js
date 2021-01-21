@@ -20,14 +20,15 @@ import Loader from "../Loader/Loader";
 import {resizeWindow} from "../../actions/resizeWindow";
 import Footer from "./Footer/Footer";
 import Base from "./Base/Base";
+import Consts from "../../helpers/consts"
 
 class App extends Component {
     componentDidMount() {
         window.addEventListener('resize', this.props.resizeWindow)
-        this.props.fetchDataGroups('https://mf.bmstu.ru/rasp/test/?type=0');
-        this.props.fetchFacultyData('https://mf.bmstu.ru/rasp/test/?type=6');
-        this.props.fetchTeachersData('https://mf.bmstu.ru/rasp/test/?type=2');
-        this.props.fetchAuditoryData('https://mf.bmstu.ru/rasp/test/?type=4');
+        this.props.fetchDataGroups('https://mf.bmstu.ru/rasp/api/group/list');
+        this.props.fetchFacultyData('https://mf.bmstu.ru/rasp/api/faculty/list');
+        this.props.fetchTeachersData('https://mf.bmstu.ru/rasp/api/teacher/list');
+        this.props.fetchAuditoryData('https://mf.bmstu.ru/rasp/api/aud/list');
         this.syncStorages();
     }
 
@@ -79,7 +80,7 @@ class App extends Component {
                         <SettingsRoutes/>
                         <FavoritesRoutes/>
                     </div>
-                    {windowSizes.width < 1228 ?
+                    {windowSizes.width < Consts.DESKTOP_MIN_WIDTH ?
                         <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : <></>}
                     <Footer/>
                 </div>

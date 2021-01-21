@@ -47,7 +47,7 @@ class Rasp extends Component {
         const id = rasp.match(/\d+/g)[0];
         const type = findRequestType(rasp);
         this.setState({type: type})
-        this.props.fetchRaspData(`https://mf.bmstu.ru/rasp/test/?type=${type.type}&${type.name}id=${id}`);
+        this.props.fetchRaspData(`https://mf.bmstu.ru/rasp/api/${type.name}?id=${id}`);
     }
 
     dayIndexUpdate(index) {
@@ -58,7 +58,7 @@ class Rasp extends Component {
         let currentNumber = date.getDate(),
             currentMonth = date.getMonth(),
             countWeeks = 1; // 1 т.к начинаем с 1 недели
-        while (currentNumber > 7 || currentMonth !== 8) {
+        while (currentNumber > 7 && currentMonth !== 8) {
             currentNumber -= 7;
             if (currentMonth > 8 && currentNumber < 7) {
                 currentNumber += daysInYear[currentMonth];
