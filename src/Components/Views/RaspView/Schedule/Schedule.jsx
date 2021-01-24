@@ -28,6 +28,7 @@ class Schedule extends Component {
     getRasp(curDay) {
         const {day} = this.props.raspData.data;
         let isEmpty = true;
+
         if (!day[curDay].special_day) {
             // eslint-disable-next-line
             day[curDay].pairList.map(item => {

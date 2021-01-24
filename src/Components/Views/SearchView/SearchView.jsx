@@ -2,14 +2,12 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import './style.css'
-import SearchList from "./SearchList/SearchList";
 import {changeLangRusToEng, finderIsEmpty, generateUniqKey} from "../../../helpers/helpers";
-import SearchResult from "./SearchResult/SearchResult";
 
 class SearchView extends Component {
 
     getView() {
-        const {findInput, facultyList} = this.props;
+        const {facultyList} = this.props;
         const facList = []
 
 
@@ -38,7 +36,7 @@ class SearchView extends Component {
 
     render() {
         return (
-            <div className={`Search ${finderIsEmpty(this.props.findInput) ? 'hide' : ''}`}>
+            <div className={`Search ${finderIsEmpty(this.props.findInput) ? 'SearchHide' : ''}`}>
                 {this.getView()}
             </div>
         );

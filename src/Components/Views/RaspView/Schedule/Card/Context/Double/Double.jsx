@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Timer from "../Timer/Timer";
 import '../style.css'
-import EmptyCard from "../../../EmptyCard/EmptyCard";
 
 class Double extends Component {
     isOpacity(opacity) {
@@ -10,12 +9,12 @@ class Double extends Component {
 
     getRasp(info, data, opacity) {
         return <>
-            <div className={`context ${this.isOpacity(!opacity)} textColor`}>
+            <div className={`${info.rightInfo === null ? 'context_aud' : 'context'} ${this.isOpacity(!opacity)} textColor`}>
                 <div className="context__leftInfo">
                     <h2 className={'context__subject text-bold--large '}>{data.subject}</h2>
-                    {info.underSubject !== '' ?
+                    {info.underSubject !== '' && info.underSubject !== undefined?
                         <p className={'context__underSubject text-regular--small '}>
-                            {info.underSubject.constructor == Array ?
+                            {info.underSubject.constructor === Array ?
                                 info.underSubject.join(', ') : info.underSubject}
                         </p> : null}
                     {info.leftInfo !== null ?

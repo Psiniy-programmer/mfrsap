@@ -7,6 +7,7 @@ import calendar_dark from './Icons/Calendar-icon.svg';
 import PDF_icon from './Icons/PDF_dark.svg'
 import {addToFavorite, removeFromFavorite} from '../../../../actions/favoriteStorage.js';
 import Consts from "../../../../helpers/consts"
+import {getRaspType} from "../../../../helpers/helpers";
 
 class RaspHeader extends Component {
 
@@ -16,7 +17,7 @@ class RaspHeader extends Component {
 
     toggleFavorites() {
         const {data} = this.props.raspData;
-        const currentRaspType = Object.keys(data)[1];
+        const currentRaspType = getRaspType(data)
         const objInfo = {
             type: currentRaspType,
             name: data[currentRaspType]

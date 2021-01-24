@@ -134,6 +134,19 @@ const finderIsEmpty = state => {
     return state.length > 0 ? true : false
 }
 
+const getRaspType = data => {
+    let keys = Object.keys(data)
+    let types = ['aud', 'teacher', 'group']
+    let res
+
+    keys.map(item => {
+        types.map(type => {
+            if (type === item) return res = type
+        })
+    })
+    return res
+}
+
 export {
     changeLangEngToRus,
     changeLangRusToEng,
@@ -144,5 +157,6 @@ export {
     removeClasses,
     findRequestType,
     getTextColorFromWidth,
-    finderIsEmpty
+    finderIsEmpty,
+    getRaspType
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './style.css'
-import {changeLangEngToRus, findFacultyName} from "../../../helpers/helpers";
+import {changeLangEngToRus, finderIsEmpty, findFacultyName} from "../../../helpers/helpers";
 import {connect} from 'react-redux';
 import SearchInput from "../../SearchInput/SearchInput";
 import SearchResult from "../../Views/SearchView/SearchResult/SearchResult";
@@ -27,11 +27,11 @@ class Base extends Component {
     }
 
     getDescription() {
-        const {match} = this.props;
+        const {match, findInput} = this.props;
         if (match.path !== '/settings' && match.path !== '/favorites') {
             return <>
                 {this.getSearch()}
-                <div className={'SearchDescription'}>
+                <div className={`SearchDescription ${finderIsEmpty(findInput) ? 'SearchDescription__hide' : null}`}>
                     <p className={'SearchDescription__text  text-medium--small '}>
                         {this.dynamicDescription()}
                     </p>

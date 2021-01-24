@@ -28,14 +28,17 @@ class Single extends Component {
         </div>
         else return <div className={'schedule-item schedule-item__Single'}>
             <Timer timer={timer}/>
-            <div className={`context ${this.isOpacity()} textColor`}>
+            <div className={`${rightInfo === null ? 'context_aud' : 'context'} ${this.isOpacity()} textColor`}>
                 <div className="context__leftInfo">
                     <h2 className={'context__subject text-bold--large '}>{subject}</h2>
-                    {underSubject !== '' ?
+                    {underSubject.length !== 0 ?
                         <p className={'context__underSubject text-regular--small '}>
                             {underSubject}
                         </p> : null}
-                    {leftInfo !== null ? <p className={'context-under text-regular--small '}>{leftInfo}</p> : ''}
+                    {leftInfo !== null && leftInfo !== undefined ? <p className={'context-under text-regular--small '}>
+                        {leftInfo.constructor === Array ?
+                            leftInfo.join(', ') : leftInfo}
+                    </p> : ''}
                 </div>
                 <div className={rightInfo === null ? 'empty' : 'context__rightInfo'}>
                     <p className={`text-regular--small`}>{rightInfo}</p>

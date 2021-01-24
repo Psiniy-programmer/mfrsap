@@ -2,3 +2,7 @@
     display: grid;
     gap: var(--items--gap)
 }
+
+.FavoriteList_item__context {
+    padding: 16px 16px 16px 20px;
+}

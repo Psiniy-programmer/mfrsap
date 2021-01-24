@@ -1,6 +1,6 @@
 .SearchButtons {
     display: grid;
-    grid-template-columns: repeat(3, 145px);
+    grid-template-columns: repeat(2, 145px);
     gap: var(--items--gap)
 }
 
@@ -37,15 +37,14 @@
         margin-bottom: 10px;
     }
 
-    .SearchButtons a:last-child {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-
     .SearchButtons {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         gap: var(--items--gap)
     }
+}
+
+.SearchHide {
+    display: none;
 }

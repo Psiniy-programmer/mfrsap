@@ -17,6 +17,10 @@ html {
     --current--theme--bg: var(--bg--light--theme);
 }
 
+.fullWidth {
+    width: 100%;
+}
+
 /*Десктопы*/
 @media only screen and (min-width: 1224px) {
     body {

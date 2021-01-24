@@ -43,7 +43,7 @@ class DepartmentList extends Component {
 
     render() {
         return (
-            <div className={`DepartmentList ${finderIsEmpty(this.props.findInput) ? 'DepartmentList__hide' : ''}`}>
+            <div className={`DepartmentList ${finderIsEmpty(this.props.findInput) ? 'DepartmentList__hide' : null}`}>
                 {this.getFacultyList()}
             </div>
         );

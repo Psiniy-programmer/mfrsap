@@ -3,6 +3,10 @@
     grid-template-columns: 1.2fr 0.5fr;
 }
 
+.context_aud {
+    display: grid;
+}
+
 @media only screen and (min-width: 1224px) {
     .context {
         padding: 1em 0;
@@ -24,30 +28,34 @@
         padding-top: 1em;
         align-items: start;
     }
+
     .context__timer img {
         padding: 4px 0;
     }
-}
-
-@media only screen and (min-width: 320px) and (max-width: 1224px) {
-    .context {
-        padding: 0 0.625em 1em 0.625em;
-    }
 
     .context__underSubject {
-        margin-top: 0.4285em;
-    }
-
-    .context__rightInfo {
-        align-items: end;
-    }
-
-    .context__timer {
-        margin: 0.625em 0.625em 0.75em 0.625em;
-        display: flex;
-        align-items: center;
+        text-align: right;
     }
 }
+
+.context {
+    padding: 0 0.625em 1em 0.625em;
+}
+
+.context__underSubject {
+    margin-top: 0.4285em;
+}
+
+.context__rightInfo {
+    align-items: end;
+}
+
+.context__timer {
+    margin: 0.625em 0.625em 0.75em 0.625em;
+    display: flex;
+    align-items: center;
+}
+
 
 .empty {
     display: none;

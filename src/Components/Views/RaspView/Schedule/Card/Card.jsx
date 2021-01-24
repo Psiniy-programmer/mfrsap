@@ -32,7 +32,6 @@ class Card extends Component {
                     info[i].underSubject = pair[i].teacher;
                     info[i].leftInfo = pair[i].group;
                     info[i].rightInfo = !pair[i].subgroup ? null : `${pair[i].subgroup} подгруппа`;
-                    info[i].week = pair[i].week;
                 }
                 break;
             default:
@@ -44,7 +43,6 @@ class Card extends Component {
             info={info}
             opacity={weekIsOdd}
             timer={pairtime}
-
         /> : <Single
             timer={pairtime}
             opacity={!!weekIsOdd}

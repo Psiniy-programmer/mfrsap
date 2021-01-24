@@ -29,7 +29,7 @@ class SearchList extends Component {
         data.map((item, index) => {
             if (item !== undefined && item !== null) {
                 let temp = <Link key={generateUniqKey('SearchItem_', index)} to={`/list/${type.id}=${item[type.id]}`}>
-                    <div className={'FavoriteList__item FavoriteList__item'}>
+                    <div className={'SearchList_item'}>
                         <p className={' text-medium--small raspTextColor'}>{item[type.name]}</p>
                     </div>
                 </Link>
