@@ -2,20 +2,24 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import MenuItem from "../../../MenuItem/MenuItem";
 import {Link} from "react-router-dom";
-import {changeLangEngToRus, changeLangRusToEng, generateUniqKey} from "../../../../helpers/helpers";
+import {changeLangEngToRus, changeLangRusToEng, finderIsEmpty, generateUniqKey} from "../../../../helpers/helpers";
 import './style.css';
+
 class DepartmentList extends Component {
     getFacultyList() {
-        const { match, facultyList, groupsList } = this.props;
+        const {match, facultyList, groupsList} = this.props;
         let list = [],
             str = match.params.faculty,
             curID;
         str = changeLangEngToRus(str);
         // eslint-disable-next-line
-        facultyList.data.map(item => {if (str === item.facultyname) return curID = item.facultyid})
+        facultyList.data.map(item => {
+            if (str === item.facultyname) return curID = item.facultyid
+        })
         // eslint-disable-next-line
         groupsList.data.map(item => {
             str = '';
+
             if (item.facultyid === curID) {
                 for (let symbol = 0; symbol < item.groupname.length; symbol++) {
                     if (item.groupname[symbol] !== '-') {
@@ -23,13 +27,15 @@ class DepartmentList extends Component {
                     } else break;
                 }
             }
+
             if (!list.includes(str) && str.length !== 0) list.push(str);
         })
+
         return list.map((item, index) => {
             str = (changeLangRusToEng(item).toUpperCase());
             return (
                 <Link key={generateUniqKey('depart_', index)} to={`${match.url}/${str}`}>
-                    <MenuItem text={item} />
+                    <MenuItem text={item}/>
                 </Link>
             )
         })
@@ -37,7 +43,7 @@ class DepartmentList extends Component {
 
     render() {
         return (
-            <div className={`DepartmentList`}>
+            <div className={`DepartmentList ${finderIsEmpty(this.props.findInput) ? 'DepartmentList__hide' : ''}`}>
                 {this.getFacultyList()}
             </div>
         );
@@ -46,6 +52,7 @@ class DepartmentList extends Component {
 
 const mapStateToProps = state => {
     return {
+        findInput: state.filterItems,
         facultyList: state.facultyList,
         groupsList: state.groupsList,
     }

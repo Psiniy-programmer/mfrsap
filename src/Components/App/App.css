@@ -17,10 +17,6 @@ html {
     --current--theme--bg: var(--bg--light--theme);
 }
 
-.hide {
-    display: none;
-}
-
 /*Десктопы*/
 @media only screen and (min-width: 1224px) {
     body {

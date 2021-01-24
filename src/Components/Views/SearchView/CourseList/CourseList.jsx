@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import './style.css'
+import {connect} from "react-redux";
 import MenuItem from "../../../MenuItem/MenuItem";
 import {Link} from "react-router-dom";
+import {finderIsEmpty} from "../../../../helpers/helpers";
 
 class CourseList extends Component {
     render() {
-        const { match } = this.props;
+        const { match, findInput } = this.props;
         return (
-            <div className={'CourseList'}>
+            <div className={`CourseList ${finderIsEmpty(findInput) ? 'CourseListHide' : ''}`}>
                 <Link className={`Link`} to={`${match.url}/I`}><MenuItem text={'I курс'}/></Link>
                 <Link className={`Link`} to={`${match.url}/II`}><MenuItem text={'II курс'}/></Link>
                 <Link className={`Link`} to={`${match.url}/III`}><MenuItem text={'III курс'}/></Link>
@@ -20,4 +22,14 @@ class CourseList extends Component {
     }
 }
 
-export default CourseList
+const mapStateToProps = state => {
+    return {
+        findInput: state.filterItems
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseList)

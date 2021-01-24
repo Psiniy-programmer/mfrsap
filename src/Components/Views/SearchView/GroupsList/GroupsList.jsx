@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {changeLangEngToRus} from "../../../../helpers/helpers";
+import {changeLangEngToRus, finderIsEmpty} from "../../../../helpers/helpers";
 import MenuItem from "../../../MenuItem/MenuItem";
 import {Link} from "react-router-dom";
 import './style.css';
@@ -76,7 +76,7 @@ class GroupsList extends Component {
 
     render() {
         return (
-            <div className={`GroupsList`}>
+            <div className={`GroupsList ${finderIsEmpty(this.props.findInput) ? 'GroupsList__hide' : ''}`}>
                 {this.getRaspList()}
             </div>
         );
@@ -85,6 +85,7 @@ class GroupsList extends Component {
 
 const mapStateToProps = state => {
     return {
+        findInput: state.filterItems,
         groupsList: state.groupsList
     }
 }

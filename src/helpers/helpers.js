@@ -131,7 +131,7 @@ const getTextColorFromWidth = (width) => {
 }
 
 const finderIsEmpty = state => {
-    return state.length > 0 ? 'hide' : ''
+    return state.length > 0 ? true : false
 }
 
 export {

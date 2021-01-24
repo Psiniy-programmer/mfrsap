@@ -38,7 +38,7 @@ class SearchView extends Component {
 
     render() {
         return (
-            <div className={`Search ${finderIsEmpty(this.props.findInput)}`}>
+            <div className={`Search ${finderIsEmpty(this.props.findInput) ? 'hide' : ''}`}>
                 {this.getView()}
             </div>
         );

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import SearchList from "../SearchList/SearchList";
-import {finderNotEmpty} from "../../../../helpers/helpers";
 
 class SearchResult extends Component {
     render() {
-        const {groupsList, teachersList, auditoryList, findInput} = this.props
+        const {groupsList, teachersList, auditoryList} = this.props
         console.log('groups : ', groupsList)
         console.log('teacher : ', teachersList)
         console.log('aud : ', auditoryList)
