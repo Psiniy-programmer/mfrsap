@@ -3,20 +3,20 @@ import bmstu_logo from './icons/bmstu-logo.svg';
 import {Link, Route} from "react-router-dom";
 import NavigationBar from "../../NavigationBar/NavigationBar";
 import {connect} from "react-redux";
-import './style.css';
 import Consts from "../../../helpers/consts"
+import './style.css';
 
 class AppHeader extends Component {
     render() {
         const {windowSizes} = this.props;
-        return <Link to="/" className={'AppHeader textColor'}>
+        return <header className={'AppHeader textColor'}>
             <div className={'SearchTittle'}>
                 <img src={bmstu_logo} alt="error"/>
-                <h1 className={'SearchTittle_text text-bold--header text-bold--large '}>Расписание МФ МГТУ</h1>
+                <Link className={'textColor SearchTittle_text'} to="/"><h1 className={'text-bold--header text-bold--large'}>Расписание МФ МГТУ</h1></Link>
             </div>
             {windowSizes.width > Consts.DESKTOP_MIN_WIDTH ?
-                <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : <></>}
-        </Link>
+                <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : null}
+        </header>
 
     }
 }

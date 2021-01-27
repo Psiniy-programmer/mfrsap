@@ -2,6 +2,7 @@
     display: grid;
     margin-top: var(--items--gap);
     gap: var(--items--gap);
+    width: 455px;
 }
 
 .ThemeChanger__changer {
@@ -10,6 +11,7 @@
     align-items: center;
     grid-template-columns: 1fr 0.1fr;
     padding: 16px 20px;
+    background-color: var(--green);
 }
 
 .ThemeChanger__input {
@@ -19,14 +21,8 @@
     appearance: none;
 }
 
-.ThemeChanger__checkbox {
-    width: 1.42em;
-    height: 1.42em;
-    background: url("img/Vector.svg");
-}
-
 .ThemeChanger__input:checked + .ThemeChanger__checkbox {
-    background: url("img/Vector2.svg");
-    width: 1.42em;
-    height: 1.42em;
+    background: var(--theme--icon);
+    width: 25px;
+    height: 20px;
 }

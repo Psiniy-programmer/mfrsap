@@ -17,8 +17,11 @@ class Double extends Component {
                             {info.underSubject.constructor === Array ?
                                 info.underSubject.join(', ') : info.underSubject}
                         </p> : null}
-                    {info.leftInfo !== null ?
-                        <p className={'context-under text-regular--small '}>{info.leftInfo}</p> : null}
+                    {info.leftInfo !== null && info.leftInfo !== undefined ?
+                        <p className={'context-under text-regular--small '}>
+                            {info.leftInfo.constructor === Array ?
+                                info.leftInfo.join(', ') : info.leftInfo}
+                        </p> : null}
                 </div>
                 <div className={info === null ? 'empty' : 'context__rightInfo'}>
                     <p className={`text-regular--small`}>{info.rightInfo}</p>

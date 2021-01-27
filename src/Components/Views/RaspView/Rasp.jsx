@@ -6,8 +6,6 @@ import DaysCarousel from "./DaysCarousel/DaysCarousel";
 import {fetchRaspData} from "../../../actions/raspData";
 import Schedule from "./Schedule/Schedule";
 import {findRequestType} from "../../../helpers/helpers";
-import AppHeader from "../../App/Header/AppHeader";
-import Consts from "../../../helpers/consts"
 
 const date = new Date();
 const daysInYear = {
@@ -69,18 +67,10 @@ class Rasp extends Component {
         return countWeeks % 2 === 1 ? this.setState({isOdd: true}) : this.setState({isOdd: false});
     }
 
-    getHeader() {
-        const {windowSize} = this.props;
-        if (windowSize.width > Consts.DESKTOP_MIN_WIDTH)
-            return <AppHeader/>
-    }
-
-
     render() {
         const {isOdd, type, currentDayIndex} = this.state;
         const {match} = this.props;
         return <div className={'RaspView'}>
-            {this.getHeader()}
             <RaspHeader
                 weekIsOdd={isOdd}
                 match={match}

@@ -5,6 +5,7 @@
 
 .context_aud {
     display: grid;
+    padding: 0 0.625em 1em 0.625em;
 }
 
 @media only screen and (min-width: 1224px) {
@@ -18,17 +19,11 @@
         grid-template-columns: 400px auto;
     }
 
-    .context__rightInfo {
-        align-items: start;
-    }
-
     .context__timer {
         display: grid;
         grid-template-columns: auto 1fr;
-        padding-top: 1em;
         align-items: start;
     }
-
     .context__timer img {
         padding: 4px 0;
     }
@@ -36,26 +31,24 @@
     .context__underSubject {
         text-align: right;
     }
+
+    .context__subject {
+        margin-bottom: unset;
+    }
+
+    .context__rightInfo {
+        align-items: unset;
+    }
 }
 
 .context {
     padding: 0 0.625em 1em 0.625em;
 }
 
-.context__underSubject {
-    margin-top: 0.4285em;
-}
-
-.context__rightInfo {
-    align-items: end;
-}
-
 .context__timer {
-    margin: 0.625em 0.625em 0.75em 0.625em;
+    margin: 0 0.625em 0.75em 0.625em;
     display: flex;
-    align-items: center;
 }
-
 
 .empty {
     display: none;
@@ -66,9 +59,12 @@
     justify-items: end;
 }
 
+.context__rightInfo {
+    align-items: end;
+}
 
 .context__timer img {
-    margin-right: 0.5em;
+    margin-right: 8px;
     width: 16px;
     height: 16px;
 }
@@ -82,6 +78,6 @@
     opacity: 0.5;
 }
 
-.context-under {
-    margin-top: 0.4285em;
+.context__subject {
+    margin-bottom: 6px;
 }

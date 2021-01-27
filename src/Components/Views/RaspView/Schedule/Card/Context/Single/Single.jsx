@@ -31,14 +31,14 @@ class Single extends Component {
             <div className={`${rightInfo === null ? 'context_aud' : 'context'} ${this.isOpacity()} textColor`}>
                 <div className="context__leftInfo">
                     <h2 className={'context__subject text-bold--large '}>{subject}</h2>
-                    {underSubject.length !== 0 ?
+                    {underSubject !== undefined && underSubject.length !== 0 ?
                         <p className={'context__underSubject text-regular--small '}>
                             {underSubject}
                         </p> : null}
                     {leftInfo !== null && leftInfo !== undefined ? <p className={'context-under text-regular--small '}>
                         {leftInfo.constructor === Array ?
                             leftInfo.join(', ') : leftInfo}
-                    </p> : ''}
+                    </p> : null}
                 </div>
                 <div className={rightInfo === null ? 'empty' : 'context__rightInfo'}>
                     <p className={`text-regular--small`}>{rightInfo}</p>

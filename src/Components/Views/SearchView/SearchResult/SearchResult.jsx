@@ -5,9 +5,6 @@ import SearchList from "../SearchList/SearchList";
 class SearchResult extends Component {
     render() {
         const {groupsList, teachersList, auditoryList} = this.props
-        console.log('groups : ', groupsList)
-        console.log('teacher : ', teachersList)
-        console.log('aud : ', auditoryList)
 
         return (
             <div className={`SearchResult`}>

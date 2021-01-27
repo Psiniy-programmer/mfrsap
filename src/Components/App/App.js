@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 
-import { fetchGroupsData } from '../../actions/groupsList.js';
-import { fetchFacultyData } from '../../actions/facultyList.js';
-import { fetchTeachersData } from '../../actions/teachersList.js';
-import { fetchAuditoryData } from '../../actions/auditoryList.js';
+import {fetchGroupsData} from '../../actions/groupsList.js';
+import {fetchFacultyData} from '../../actions/facultyList.js';
+import {fetchTeachersData} from '../../actions/teachersList.js';
+import {fetchAuditoryData} from '../../actions/auditoryList.js';
 import {Route} from "react-router-dom";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import AppHeader from "./Header/AppHeader";
@@ -65,25 +65,23 @@ class App extends Component {
         const {windowSizes} = this.props
         this.getThemeClass()
         if (this.infoIsFetched()) {
-            return <div id={'App_wrapper'}>
-                <div className={`App`}>
-                    <div className="content">
-                        <Route exact path={`/`} render={routerProps => <>
-                            <AppHeader/>
-                            <div className="content_info">
-                                <Base {...routerProps}/>
-                                <Search/>
-                            </div>
-                        </>}/>
-                        <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
-                        <Route exact path={'/list/:rasp'} render={routerProps => <Rasp {...routerProps}/>}/>
-                        <SettingsRoutes/>
-                        <FavoritesRoutes/>
-                    </div>
-                    {windowSizes.width < Consts.DESKTOP_MIN_WIDTH ?
-                        <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : <></>}
-                    <Footer/>
+            return <div className={`App`}>
+                <div className="content">
+                    <AppHeader/>
+                    <Route exact path={`/`} render={routerProps => <>
+                        <div className="content_info">
+                            <Base {...routerProps}/>
+                            <Search/>
+                        </div>
+                    </>}/>
+                    <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
+                    <Route exact path={'/list/:rasp'} render={routerProps => <Rasp {...routerProps}/>}/>
+                    <SettingsRoutes/>
+                    <FavoritesRoutes/>
                 </div>
+                {windowSizes.width < Consts.DESKTOP_MIN_WIDTH ?
+                    <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : <></>}
+                <Footer/>
             </div>
         } else return <Loader/>
     }
@@ -92,7 +90,7 @@ class App extends Component {
 // Прокидываем из нашего store нужные нам состояния //
 const mapStateToProps = state => {
     return {
-        currentTheme : state.theme,
+        currentTheme: state.theme,
         groupsList: state.groupsList,
         facultyList: state.facultyList,
         teachersList: state.teachersList,

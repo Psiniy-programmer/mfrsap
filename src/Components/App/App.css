@@ -1,20 +1,21 @@
 html {
-    /*height: 100vh;*/
-    /*height: 100%;*/
     --bg--dark--theme: #09201E;
     --bg--light--theme: #FFFFFF;
     --menu--txt--light--theme: #133533;
     --rasp--text-light--theme: #FFFFFF;
     --txt--dark--theme: #CDCDCD;
+    --theme--light--icon: url("img/done_light.svg");
+    --theme--dark--icon: url("img/done_dark.svg");
     --gray: #7C8786;
     --green: #429C97;
     --red: #C15555;
     --items--gap: 10px;
     --carousel--gap: 8px;
-
+    /*По умолчанию начинаем со светлой темы*/
     --current--theme--rasp--txt: var(--rasp--text-light--theme);
     --current--theme--menu--txt: var(--bg--light--theme);
     --current--theme--bg: var(--bg--light--theme);
+    --theme--icon: var(--theme--light--icon);
 }
 
 .fullWidth {
@@ -24,29 +25,28 @@ html {
 /*Десктопы*/
 @media only screen and (min-width: 1224px) {
     body {
+        height: 100vmin;
+        margin: unset;
         font-family: Roboto;
         background-color: var(--current--theme--bg);
+        background-image: url("img/bg-decorative_vertical.svg"), url("img/bg-decorative_horizontal.svg");
+        background-position: top left, bottom right;
+        background-repeat: no-repeat;
+
+        /*background-image: url("./img/bg-decorative_horizontal.svg"), url("./img/bg-decorative_horizontal.svg");*/
+        /*background-position: top 220px right 220px, top 662px right 410px;*/
+        /*background-repeat: no-repeat;*/
     }
 
     .App {
         display: grid;
         z-index: 100;
         height: 95vh;
-        margin: 40px 155px 0 165px;
-    }
-
-    #App_wrapper {
-        background-image: url("./images/bg-decorative_vertical.svg"),  url("./images/bg-decorative_horizontal.svg"), url("./images/bg-decorative_horizontal.svg"), url("./images/bg-decorative_horizontal.svg");
-        background-position: top left, bottom right, top 220px right 220px, top 662px right 410px;
-        background-repeat: no-repeat;
+        padding: 40px 155px 0 165px;
     }
 
     .NavigationBar {
         justify-self: end;
-    }
-
-    #root, .App {
-        /*height: 100%;*/
     }
 
     .content_info {
@@ -112,8 +112,9 @@ html {
 @media only screen and (min-width: 320px) and (max-width: 1224px) {
     body {
         font-family: Roboto;
-        margin: 0.6879em 0.625em 4.063em;
+        margin: 11px 10px 65px;
         background-color: var(--current--theme--bg);
+        width: auto;
     }
 
     .text-bold--header {
@@ -178,6 +179,7 @@ p, h1, h2 {
     body {
         --current--theme--menu--txt: var(--menu--txt--light--theme);
         --current--theme--bg: var(--bg--light--theme);
+        --theme--icon: var(--theme--light--icon);
     }
 }
 
@@ -185,6 +187,7 @@ p, h1, h2 {
     body {
         --current--theme--menu--txt: var(--bg--light--theme);
         --current--theme--bg: var(--bg--dark--theme);
+        --theme--icon: var(--theme--dark--icon);
     }
 }
 
@@ -192,11 +195,13 @@ p, h1, h2 {
     --current--theme--rasp--txt: var(--rasp--text-light--theme);
     --current--theme--menu--txt: var(--menu--txt--light--theme);
     --current--theme--bg: var(--bg--light--theme);
+    --theme--icon: var(--theme--light--icon);
 }
 
 .DARK_THEME {
     --current--theme--menu--txt: var(--txt--dark--theme);
     --current--theme--bg: var(--bg--dark--theme);
+    --theme--icon: var(--theme--dark--icon);
 }
 
 .textColor {

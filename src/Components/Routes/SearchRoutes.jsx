@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Route, Switch} from "react-router-dom";
-import AppHeader from "../App/Header/AppHeader";
 import DepartmentList from "../Views/SearchView/DepartmentList/DepartmentList";
 import CourseList from "../Views/SearchView/CourseList/CourseList";
 import RaspList from "../Views/SearchView/GroupsList/GroupsList";
@@ -12,7 +11,6 @@ class SearchRoutes extends Component {
         return (
             <Switch>
                 <Route exact path={`/search/:faculty`} render={routerProps => <>
-                    <AppHeader/>
                     <div className="content_info">
                         <Base {...routerProps}/>
                         <DepartmentList {...routerProps}/>
@@ -20,7 +18,6 @@ class SearchRoutes extends Component {
                 </>}
                 />
                 <Route exact path={`/search/:faculty/:department`} render={routerProps => <>
-                    <AppHeader {...routerProps}/>
                     <div className="content_info">
                         <Base {...routerProps}/>
                         <CourseList {...routerProps}/>
@@ -28,7 +25,6 @@ class SearchRoutes extends Component {
                 </>}
                 />
                 <Route exact path={`/search/:faculty/:department/:course`} render={routerProps => <>
-                    <AppHeader {...routerProps}/>
                     <div className="content_info">
                         <Base {...routerProps}/>
                         <RaspList {...routerProps}/>

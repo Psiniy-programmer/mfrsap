@@ -28,7 +28,7 @@ class Base extends Component {
 
     getDescription() {
         const {match, findInput} = this.props;
-        if (match.path !== '/settings' && match.path !== '/favorites') {
+        if (!match.path.includes('/settings') && match.path !== '/favorites') {
             return <>
                 {this.getSearch()}
                 <div className={`SearchDescription ${finderIsEmpty(findInput) ? 'SearchDescription__hide' : null}`}>
@@ -60,6 +60,8 @@ class Base extends Component {
                 return 'Настройки'
             case '/favorites':
                 return 'Избранное'
+            case '/settings/theme':
+                return 'Смена темы'
             default:
                 return 'Поиск'
         }
@@ -67,7 +69,6 @@ class Base extends Component {
 
     getSearchResult() {
         if (this.props.findInput.length > 0) return <SearchResult/>
-
     }
 
 
