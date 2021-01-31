@@ -17,7 +17,7 @@ class ThemeChanger extends Component {
 
     render() {
         return <>
-            <h2 className={'text-bold--header'}>Сменить тему</h2>
+            <h2 className={'text-bold--header textColor'}>Сменить тему</h2>
             <div className={'ThemeChanger raspTextColor text-regular--small'}>
                 <label onClick={() => this.props.changeTheme(LIGHT_THEME)} className="ThemeChanger__changer ">
                         Светлая

@@ -42,7 +42,7 @@ class FavoritesView extends Component {
 
     render() {
         return <>
-            <h2 className={'text-bold--header'}>Избранное</h2>
+            <h2 className={'text-bold--header textColor'}>Избранное</h2>
             {this.favoriteStorageIsEmpty() ? this.emptyView() : this.resultView()}
         </>
     }

@@ -64,7 +64,7 @@
     }
 
     .Header_Text {
-        padding-bottom: 20px;
+        padding-bottom: 10px;
     }
 }
 @media only screen and (min-width: 320px) and (max-width: 1224px) {

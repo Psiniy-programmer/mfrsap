@@ -39,7 +39,7 @@ class RaspHeader extends Component {
                 alt="error"
             />
             <div className={'Header_Text'}>
-                <h2 className={'header__text_title shift-text text-bold--large'}>{data[type]}</h2>
+                <h3 className={'header__text_title shift-text text-bold--large'}>{data[type]}</h3>
                 <p className={'text-regular--medium'}>{this.getHeaderWeek()}</p>
             </div>
         </div>
@@ -61,7 +61,7 @@ class RaspHeader extends Component {
 
         return <>
             <div className={'Header_Text'}>
-                <h2 className={'header__text_title text-bold--header textColor'}>{data[type]}</h2>
+                <h3 className={'header__text_title text-bold--header textColor'}>{data[type]}</h3>
             </div>
             <div className={'RaspHeader textColor'}>
                 <div className="RaspHeader_date">

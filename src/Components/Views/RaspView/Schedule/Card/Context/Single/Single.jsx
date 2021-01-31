@@ -30,7 +30,7 @@ class Single extends Component {
             <Timer timer={timer}/>
             <div className={`${rightInfo === null ? 'context_aud' : 'context'} ${this.isOpacity()} textColor`}>
                 <div className="context__leftInfo">
-                    <h2 className={'context__subject text-bold--large '}>{subject}</h2>
+                    <h4 className={'context__subject text-bold--large '}>{subject}</h4>
                     {underSubject !== undefined && underSubject.length !== 0 ?
                         <p className={'context__underSubject text-regular--small '}>
                             {underSubject}

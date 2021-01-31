@@ -11,7 +11,7 @@ class Double extends Component {
         return <>
             <div className={`${info.rightInfo === null ? 'context_aud' : 'context'} ${this.isOpacity(!opacity)} textColor`}>
                 <div className="context__leftInfo">
-                    <h2 className={'context__subject text-bold--large '}>{data.subject}</h2>
+                    <h4 className={'context__subject text-bold--large '}>{data.subject}</h4>
                     {info.underSubject !== '' && info.underSubject !== undefined?
                         <p className={'context__underSubject text-regular--small '}>
                             {info.underSubject.constructor === Array ?

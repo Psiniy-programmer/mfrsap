@@ -72,10 +72,6 @@ class Base extends Component {
     }
 }
 
-const mapDispatchToProps = () => {
-    return {}
-}
-
 const mapStateToProps = state => {
     return {
         groupsList: state.groupsList,
@@ -87,4 +83,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Base);
+export default connect(mapStateToProps)(Base);

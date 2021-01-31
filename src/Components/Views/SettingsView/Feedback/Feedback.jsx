@@ -21,7 +21,7 @@ class Feedback extends Component {
 
     render() {
         return <div className={'feedback'}>
-            <h2 className={'text-bold--header'}>Обратная связь</h2>
+            <h2 className={'text-bold--header textColor'}>Обратная связь</h2>
             <form method={'post'} name={'feedback_form'} className={'feedback__form'}>
                 <input
                     onChange={this.saveEmail.bind(this)}
