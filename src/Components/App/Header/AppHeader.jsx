@@ -12,7 +12,9 @@ class AppHeader extends Component {
         return <header className={'AppHeader textColor'}>
             <div className={'SearchTittle'}>
                 <img src={bmstu_logo} alt="error"/>
-                <Link className={'textColor SearchTittle_text'} to="/"><h1 className={'text-bold--header text-bold--large'}>Расписание МФ МГТУ</h1></Link>
+                <Link className={'textColor SearchTittle_text'} to="/">
+                    <h1 className={'text-bold--header text-bold--large'}>Расписание МФ МГТУ</h1>
+                </Link>
             </div>
             {windowSizes.width > Consts.DESKTOP_MIN_WIDTH ?
                 <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : null}

@@ -1,11 +1,20 @@
-.SearchInput {
-    display: grid;
-    grid-template-rows: 1fr;
-    margin-bottom: 2.8572em;
+.Input {
+    border: 1px solid var(--gray);
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    box-shadow: inset 0 2px 0 rgba(124, 135, 134, 0.3);
+    border-radius: 4px;
+    padding: 16px 16px 16px 20px;
+    background-color: var(--current--theme--bg);
 }
 
-.SearchPage input[type=text] {
-    width: 100%;
-    border: 1px #429C97 solid;
-    border-radius: 4px;
+.Input__search {
+    margin-bottom: 40px;
+}
+
+.Input__message {
+    height: 200px;
+    max-width: 455px;
+    resize: none;
 }

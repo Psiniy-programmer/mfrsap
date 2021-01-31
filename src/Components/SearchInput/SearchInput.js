@@ -10,7 +10,7 @@ class SearchInput extends Component {
     render() {
         return (
             <input
-                className={'SearchInput text-medium--small textColor'}
+                className={'Input Input__search text-medium--small textColor'}
                 placeholder={'Поиск'}
                 value={this.props.findInput}
                 ref={(input) => {

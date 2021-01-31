@@ -21,6 +21,7 @@ import {resizeWindow} from "../../actions/resizeWindow";
 import Footer from "./Footer/Footer";
 import Base from "./Base/Base";
 import Consts from "../../helpers/consts"
+import HomeRoutes from "../Routes/HomeRoutes";
 
 class App extends Component {
     componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component {
         this.props.fetchTeachersData('https://mf.bmstu.ru/rasp/api/teacher/list');
         this.props.fetchAuditoryData('https://mf.bmstu.ru/rasp/api/aud/list');
         this.syncStorages();
+        this.getThemeClass()
     }
 
     componentWillUnmount() {
@@ -58,26 +60,19 @@ class App extends Component {
         if (facultyList.loading !== false) return false
         if (teachersList.loading !== false) return false
         return auditoryList.loading === false
-
     }
 
     render() {
         const {windowSizes} = this.props
-        this.getThemeClass()
+
         if (this.infoIsFetched()) {
             return <div className={`App`}>
                 <div className="content">
-                    <AppHeader/>
-                    <Route exact path={`/`} render={routerProps => <>
-                        <div className="content_info">
-                            <Base {...routerProps}/>
-                            <Search/>
-                        </div>
-                    </>}/>
+                    <Route exact path={'/'} render={routerProps => <HomeRoutes {...routerProps}/>}/>
                     <Route path={'/search'} render={routerProps => <SearchRoutes {...routerProps}/>}/>
                     <Route exact path={'/list/:rasp'} render={routerProps => <Rasp {...routerProps}/>}/>
-                    <SettingsRoutes/>
                     <FavoritesRoutes/>
+                    <SettingsRoutes/>
                 </div>
                 {windowSizes.width < Consts.DESKTOP_MIN_WIDTH ?
                     <Route path={'/'} render={routerProps => <NavigationBar {...routerProps}/>}/> : <></>}

@@ -1,0 +1,21 @@
+.feedback__form {
+    display: grid;
+    gap: 16px;
+}
+
+@media only screen and (min-width: 1224px) {
+    .feedback {
+        width: 455px;
+    }
+}
+
+.feedback__submit {
+    display: grid;
+    grid-template-rows: 1fr;
+    background-color: var(--green);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 17px 20px 17px 20px;
+    outline: none;
+    border: none;
+}

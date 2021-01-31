@@ -29,16 +29,22 @@ class FavoritesView extends Component {
         );
     }
 
-    render() {
+    resultView() {
         const {groups, teachers, auditoryies} = this.props.favoriteStorage;
         const { groupsList, teachersList, auditoryList} = this.props;
 
-        if (this.favoriteStorageIsEmpty()) return this.emptyView()
-        else return <div className={'favorites__completed'}>
+        return <div className={'favorites__completed'}>
             <FavoriteList list={groupsList} data={groups} title={'Группы'}/>
             <FavoriteList list={teachersList} data={teachers} title={'Преподаватели'}/>
             <FavoriteList list={auditoryList} data={auditoryies} title={'Аудитории'}/>
         </div>
+    }
+
+    render() {
+        return <>
+            <h2 className={'text-bold--header'}>Избранное</h2>
+            {this.favoriteStorageIsEmpty() ? this.emptyView() : this.resultView()}
+        </>
     }
 }
 

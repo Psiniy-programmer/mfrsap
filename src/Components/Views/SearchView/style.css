@@ -17,23 +17,11 @@
 }
 
 .SearchHelper {
-    margin-top: 40px;
     margin-bottom: 20px;
-}
-
-.SearchInput {
-    border: 1px solid var(--gray);
-    box-sizing: border-box;
-    width: 100%;
-    box-shadow: inset 0 2px 0 rgba(124, 135, 134, 0.3);
-    border-radius: 4px;
-    padding: 1.143em 1.143em 1.143em 1.429em;
-    background-color: var(--current--theme--bg);
 }
 
 @media only screen and (min-width: 320px) and (max-width: 1224px) {
     .SearchHelper {
-        margin-top: 20px;
         margin-bottom: 10px;
     }
 

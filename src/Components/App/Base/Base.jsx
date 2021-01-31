@@ -4,6 +4,7 @@ import {changeLangEngToRus, finderIsEmpty, findFacultyName} from "../../../helpe
 import {connect} from 'react-redux';
 import SearchInput from "../../SearchInput/SearchInput";
 import SearchResult from "../../Views/SearchView/SearchResult/SearchResult";
+import Consts from '../../../helpers/consts'
 
 class Base extends Component {
     // Динамичное подставление нужного описания (текст под заголовком)
@@ -26,13 +27,14 @@ class Base extends Component {
         }
     }
 
-    getDescription() {
+    getDescription(getSearch = true) {
         const {match, findInput} = this.props;
+
         if (!match.path.includes('/settings') && match.path !== '/favorites') {
             return <>
-                {this.getSearch()}
+                {getSearch ? this.getSearch() : null}
                 <div className={`SearchDescription ${finderIsEmpty(findInput) ? 'SearchDescription__hide' : null}`}>
-                    <p className={'SearchDescription__text  text-medium--small '}>
+                    <p className={'SearchDescription__text  text-regular--medium '}>
                         {this.dynamicDescription()}
                     </p>
                     <p onClick={() => window.history.back()}
@@ -53,33 +55,20 @@ class Base extends Component {
         </>
     }
 
-    getTittle() {
-        const {match} = this.props;
-        switch (match.path) {
-            case '/settings':
-                return 'Настройки'
-            case '/favorites':
-                return 'Избранное'
-            case '/settings/theme':
-                return 'Смена темы'
-            default:
-                return 'Поиск'
-        }
-    }
-
     getSearchResult() {
         if (this.props.findInput.length > 0) return <SearchResult/>
     }
 
-
     render() {
-        return (
-            <div className={'Base textColor'}>
-                <h2 className={'TittleType'}>{this.getTittle()}</h2>
-                {this.props.match.path !== '/' ? this.getDescription() : this.getSearch()}
+        const {match, windowSizes} = this.props;
+
+        if (windowSizes.width > Consts.DESKTOP_MIN_WIDTH) {
+            return <div className={'Base textColor'}>
+                <h2 className={'TittleType'}>Поиск</h2>
+                {match.path !== '/' ? this.getDescription() : this.getSearch()}
                 {this.getSearchResult()}
             </div>
-        );
+        } else return match.path === '/' ? this.getSearch() : this.getDescription(false)
     }
 }
 
@@ -93,7 +82,8 @@ const mapStateToProps = state => {
         facultyList: state.facultyList,
         teachersList: state.teachersList,
         auditoryList: state.auditoryList,
-        findInput: state.filterItems
+        findInput: state.filterItems,
+        windowSizes: state.windowSizes
     }
 };
 

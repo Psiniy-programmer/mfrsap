@@ -16,7 +16,8 @@ class ThemeChanger extends Component {
     }
 
     render() {
-        return (
+        return <>
+            <h2 className={'text-bold--header'}>Сменить тему</h2>
             <div className={'ThemeChanger raspTextColor text-regular--small'}>
                 <label onClick={() => this.props.changeTheme(LIGHT_THEME)} className="ThemeChanger__changer ">
                         Светлая
@@ -34,7 +35,7 @@ class ThemeChanger extends Component {
                         <span className={'ThemeChanger__checkbox'}/>
                 </label>
             </div>
-        );
+        </>
     }
 }
 const mapStateToProps = state => {

@@ -70,7 +70,6 @@ class FavoriteList extends Component {
         if (this.props.data.length !== 0) {
             return (
                 <div className={'FavoriteList'}>
-                    <p className={'textColor text-regular--medium'}>{this.props.title}</p>
                     {this.createList()}
                 </div>
             );
