@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import './App.css';
-
 import {fetchGroupsData} from '../../actions/groupsList.js';
 import {fetchFacultyData} from '../../actions/facultyList.js';
 import {fetchTeachersData} from '../../actions/teachersList.js';
 import {fetchAuditoryData} from '../../actions/auditoryList.js';
 import {Route} from "react-router-dom";
 import NavigationBar from "../NavigationBar/NavigationBar";
-import AppHeader from "./Header/AppHeader";
-import Search from "../Views/SearchView/SearchView";
 import SearchRoutes from "../Routes/SearchRoutes";
 import SettingsRoutes from "../Routes/SettignsRoutes";
 import FavoritesRoutes from "../Routes/FavoritesRoutes";
@@ -19,9 +15,9 @@ import Rasp from "../Views/RaspView/Rasp";
 import Loader from "../Loader/Loader";
 import {resizeWindow} from "../../actions/resizeWindow";
 import Footer from "./Footer/Footer";
-import Base from "./Base/Base";
 import Consts from "../../helpers/consts"
 import HomeRoutes from "../Routes/HomeRoutes";
+import './App.css';
 
 class App extends Component {
     componentDidMount() {
@@ -63,7 +59,7 @@ class App extends Component {
     }
 
     render() {
-        const {windowSizes} = this.props
+        const {windowSizes} = this.props;
 
         if (this.infoIsFetched()) {
             return <div className={`App`}>

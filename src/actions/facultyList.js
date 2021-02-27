@@ -1,19 +1,25 @@
+import {
+  FACULTY_DATA_FETCH_LOADING,
+  FACULTY_DATA_FETCH_OK,
+  FACULTY_DATA_FETCH_ERROR,
+} from "../reducers/facultyList";
+
 function fetchFacultyDataSuccess(facultyList) {
     return {
-        type: 'FACULTY_DATA_FETCH_OK',
+        type: FACULTY_DATA_FETCH_OK,
         facultyList
     }
 }
 
 function fetchFacultyDataLoading() {
     return {
-        type : 'FACULTY_DATA_FETCH_LOADING'
+        type : FACULTY_DATA_FETCH_LOADING
     }
 }
 
 function fetchFacultyDataError(error) {
     return {
-        type : 'RASP_DATA_FETCH_ERROR',
+        type : FACULTY_DATA_FETCH_ERROR,
         error
     }
 }

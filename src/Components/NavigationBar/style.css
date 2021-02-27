@@ -14,7 +14,7 @@
     padding: 0.75em 2.188em;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 1224px) {
+@media only screen and (max-width: 1224px) {
     .NavigationBar {
         border-top: 1px solid #429C97;
         width: 100%;

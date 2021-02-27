@@ -1,8 +1,10 @@
-import ActionsConst from '../helpers/consts'
+import {
+    CHANGE_WINDOW_SIZES
+} from '../reducers/windowSizes';
 
 const update = () => {
     return {
-        type: ActionsConst.CHANGE_WINDOW_SIZES
+        type: CHANGE_WINDOW_SIZES
     }
 }
 

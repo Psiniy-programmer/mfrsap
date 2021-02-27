@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './style.css'
 import {connect} from "react-redux";
+import './style.css'
 
 class SearchInput extends Component {
     findItem() {

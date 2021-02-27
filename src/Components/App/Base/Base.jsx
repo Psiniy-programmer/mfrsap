@@ -33,7 +33,7 @@ class Base extends Component {
         if (!match.path.includes('/settings') && match.path !== '/favorites') {
             return <>
                 {getSearch ? this.getSearch() : null}
-                <div className={`SearchDescription ${finderIsEmpty(findInput) ? 'SearchDescription__hide' : null}`}>
+                <div className={`SearchDescription ${finderIsEmpty(findInput) ? 'SearchDescription__hide' : null} textColor`}>
                     <p className={'SearchDescription__text  text-regular--medium '}>
                         {this.dynamicDescription()}
                     </p>
@@ -48,7 +48,7 @@ class Base extends Component {
 
     getSearch() {
         return <>
-            <p className={'SearchHelper text-medium--small'}>
+            <p className={'SearchHelper text-medium--small textColor'}>
                 Начните вводить группу, преподавателя или аудиторию
             </p>
             <SearchInput/>

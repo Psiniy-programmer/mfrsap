@@ -1,41 +1,50 @@
+import {
+    ADD_AUD_ITEM,
+    ADD_GROUP_ITEM,
+    ADD_TEACHER_ITEM,
+    REMOVE_AUD_ITEM,
+    REMOVE_GROUP_ITEM,
+    REMOVE_TEACHER_ITEM
+} from '../reducers/favoriteStorage';
+
 const addGroupItem = item => {
     return {
-        type: 'ADD_GROUP_ITEM',
+        type: ADD_GROUP_ITEM,
         item
     }
 }
 
 const removeGroupItem = item => {
     return {
-        type: 'REMOVE_GROUP_ITEM',
+        type: REMOVE_GROUP_ITEM,
         item
     }
 }
 
 const addAudItem = item => {
     return {
-        type: 'ADD_AUD_ITEM',
+        type: ADD_AUD_ITEM,
         item
     }
 }
 
 const removeAudItem = item => {
     return {
-        type: 'REMOVE_AUD_ITEM',
+        type: REMOVE_AUD_ITEM,
         item
     }
 }
 
 const addTeacherItem = item => {
     return {
-        type: 'ADD_TEACHER_ITEM',
+        type: ADD_TEACHER_ITEM,
         item
     }
 }
 
 const removeTeacherItem = item => {
     return {
-        type: 'REMOVE_TEACHER_ITEM',
+        type: REMOVE_TEACHER_ITEM,
         item
     }
 }

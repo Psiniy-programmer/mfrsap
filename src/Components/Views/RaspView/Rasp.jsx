@@ -30,7 +30,7 @@ class Rasp extends Component {
         super(props);
 
         this.state = {
-            currentDayIndex: date.getDay(),
+            currentDayIndex: date.getDay() - 1,
             isOdd: true,
             type: {
                 name: '',

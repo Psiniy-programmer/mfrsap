@@ -1,19 +1,25 @@
+import {
+    RASP_DATA_FETCH_ERROR,
+    RASP_DATA_FETCH_LOADING,
+    RASP_DATA_FETCH_OK
+} from '../reducers/raspData';
+
 function fetchRaspDataSuccess(raspData) {
     return {
-        type: 'RASP_DATA_FETCH_OK',
+        type: RASP_DATA_FETCH_OK,
         raspData
     }
 }
 
 function fetchRaspDataLoading() {
     return {
-        type : 'RASP_DATA_FETCH_LOADING'
+        type : RASP_DATA_FETCH_LOADING
     }
 }
 
 function fetchRaspDataError(error) {
     return {
-        type : 'RASP_DATA_FETCH_ERROR',
+        type : RASP_DATA_FETCH_ERROR,
         error
     }
 }

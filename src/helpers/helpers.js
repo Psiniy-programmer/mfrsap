@@ -142,7 +142,9 @@ const getRaspType = data => {
     keys.map(item => {
         types.map(type => {
             if (type === item) return res = type
+            return null;
         })
+        return null;
     })
     return res
 }

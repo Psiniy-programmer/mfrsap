@@ -1,19 +1,25 @@
+import {
+    TEACHERS_DATA_FETCH_ERROR,
+    TEACHERS_DATA_FETCH_LOADING,
+    TEACHERS_DATA_FETCH_OK
+} from '../reducers/teachersList';
+
 function fetchTeachersDataSuccess(teachersList) {
     return {
-        type: 'TEACHERS_DATA_FETCH_OK',
+        type: TEACHERS_DATA_FETCH_OK,
         teachersList
     }
 }
 
 function fetchTeachersDataLoading() {
     return {
-        type: 'TEACHERS_DATA_FETCH_LOADING'
+        type: TEACHERS_DATA_FETCH_LOADING
     }
 }
 
 function fetchTeachersDataError(error) {
     return {
-        type : 'TEACHERS_DATA_FETCH_ERROR',
+        type : TEACHERS_DATA_FETCH_ERROR,
         error
     }
 }

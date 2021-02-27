@@ -49,6 +49,7 @@ class SearchList extends Component {
     }
 
     render() {
+        
         if (!this.listIsEmpty()) {
             return (
                 <div className={'SearchList'}>

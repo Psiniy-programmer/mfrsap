@@ -5,7 +5,7 @@ const SYSTEM_THEME = 'SYSTEM_THEME';
 let themeFromStorage = localStorage.getItem('theme');
 const initialState = themeFromStorage === null ? SYSTEM_THEME : themeFromStorage;
 
-function theme(state = initialState, action) {
+export default function theme(state = initialState, action) {
     switch (action.type) {
         case LIGHT_THEME :
             return LIGHT_THEME;
@@ -18,5 +18,4 @@ function theme(state = initialState, action) {
     }
 }
 
-export  {LIGHT_THEME, DARK_THEME, SYSTEM_THEME}
-export default theme;
+export  {LIGHT_THEME, DARK_THEME, SYSTEM_THEME};

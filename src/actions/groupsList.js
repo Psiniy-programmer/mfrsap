@@ -1,19 +1,25 @@
+import {
+    GROUPS_DATA_FETCH_ERROR,
+    GROUPS_DATA_FETCH_LOADING,
+    GROUPS_DATA_FETCH_OK
+} from '../reducers/groupsList';
+
 function fetchGroupsDataSuccess(groupsList) {
     return {
-        type: 'GROUPS_DATA_FETCH_OK',
+        type: GROUPS_DATA_FETCH_OK,
         groupsList
     }
 }
 
 function fetchGroupsDataLoading() {
     return {
-        type: 'GROUPS_DATA_FETCH_LOADING'
+        type: GROUPS_DATA_FETCH_LOADING
     }
 }
 
 function fetchGroupsDataError(error) {
     return {
-        type: 'GROUPS_DATA_FETCH_ERROR',
+        type: GROUPS_DATA_FETCH_ERROR,
         error
     }
 }
