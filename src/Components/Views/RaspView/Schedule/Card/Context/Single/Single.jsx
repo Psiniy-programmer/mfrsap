@@ -21,14 +21,14 @@ class Single extends Component {
         if (isEmpty) return <div className={'schedule-item schedule-item__Single'}>
             <Timer timer={timer}/>
             <div className="context context__leftInfo">
-                <h2 className={'context__subject text-bold--large textColor'}>
+                <h2 className={'context__subject text-bold--large scheduleColor'}>
                     Занятий нет
                 </h2>
             </div>
         </div>
         else return <div className={'schedule-item schedule-item__Single'}>
             <Timer timer={timer}/>
-            <div className={`${rightInfo === null ? 'context_aud' : 'context'} ${this.isOpacity()} textColor`}>
+            <div className={`${rightInfo === null ? 'context_aud' : 'context'} ${this.isOpacity()} scheduleColor`}>
                 <div className="context__leftInfo">
                     <h4 className={'context__subject text-bold--large '}>{subject}</h4>
                     {underSubject !== undefined && underSubject.length !== 0 ?

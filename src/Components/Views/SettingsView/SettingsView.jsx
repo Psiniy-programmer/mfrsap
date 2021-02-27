@@ -11,7 +11,7 @@ class SettingsView extends Component {
                 <Link to={'/favorites'}><MenuItem text={'Редактировать избранное'}/></Link>
                 <Link to={'/settings/theme'}><MenuItem text={'Сменить тему'}/></Link>
                 <Link to={'/settings/feedback'}><MenuItem text={`Обратная связь`}/></Link>
-                <MenuItem text={'Инструкция по установке из браузера'}/>
+                <Link to={'/settings/manual'}><MenuItem text={'Инструкция по установке из браузера'}/></Link>
                 <Link to={'/settings/developers'}><MenuItem text={'Информация о разработчиках'}/></Link>
             </div>
         </>

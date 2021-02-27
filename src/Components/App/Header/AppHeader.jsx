@@ -29,9 +29,4 @@ const mapStateToProps = state => {
     }
 };
 
-// Исползьуем наше actions для прокидывания данных в наш store //
-const mapDispatchToProps = dispatch => {
-    return {}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppHeader);
+export default connect(mapStateToProps)(AppHeader);

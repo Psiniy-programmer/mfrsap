@@ -90,8 +90,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(GroupsList)
+export default connect(mapStateToProps)(GroupsList);

@@ -7,7 +7,7 @@ class SettingsItem extends Component {
         if (radio) {
             return <div className={'SettingsItem SettingsItem__radio text-medium--small'}>
                 <p>{text}</p>
-                <label className={'toggle'} htmlFor="myToggle">
+                <label className={'toggle raspTextColor'} htmlFor="myToggle">
                     <input className={'toggle__input'} type="checkbox" id={'myToggle'}/>
                     <div className="toggle__fill"/>
                 </label>

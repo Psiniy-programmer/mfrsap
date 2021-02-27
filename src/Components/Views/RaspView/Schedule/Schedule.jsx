@@ -58,8 +58,5 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {}
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Schedule)
+export default connect(mapStateToProps)(Schedule);

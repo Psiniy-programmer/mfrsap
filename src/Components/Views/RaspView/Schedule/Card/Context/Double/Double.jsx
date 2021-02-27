@@ -9,7 +9,7 @@ class Double extends Component {
 
     getRasp(info, data, opacity) {
         return <>
-            <div className={`${info.rightInfo === null ? 'context_aud' : 'context'} ${this.isOpacity(!opacity)} textColor`}>
+            <div className={`${info.rightInfo === null ? 'context_aud' : 'context'} ${this.isOpacity(!opacity)} scheduleColor`}>
                 <div className="context__leftInfo">
                     <h4 className={'context__subject text-bold--large '}>{data.subject}</h4>
                     {info.underSubject !== '' && info.underSubject !== undefined?
@@ -31,7 +31,7 @@ class Double extends Component {
     }
 
     getEmpty(opacity) {
-        return <p className={`context text-bold--large textColor ${this.isOpacity(!opacity)}`}>Занятия нет</p>
+        return <p className={`context text-bold--large scheduleColor ${this.isOpacity(!opacity)}`}>Занятия нет</p>
     }
 
     checkRasp(info, data, opacity) {

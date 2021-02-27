@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import './style.css';
 import {connect} from 'react-redux';
 import {changeTheme} from "../../../../actions/theme";
 import {LIGHT_THEME, DARK_THEME, SYSTEM_THEME} from "../../../../reducers/theme";
+import './style.css';
 
 class ThemeChanger extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ class ThemeChanger extends Component {
         return <>
             <h2 className={'text-bold--header textColor'}>Сменить тему</h2>
             <div className={'ThemeChanger raspTextColor text-regular--small'}>
-                <label onClick={() => this.props.changeTheme(LIGHT_THEME)} className="ThemeChanger__changer ">
+                <label onClick={() => this.props.changeTheme(LIGHT_THEME)} className="ThemeChanger__changer">
                         Светлая
                         <input defaultChecked={this.state.LIGHT_THEME} className={'ThemeChanger__input'} id={'light'} name={'radio-group'} type={'radio'}/>
                         <span className={'ThemeChanger__checkbox'}/>

@@ -11,6 +11,7 @@
     grid-template-columns: 1fr 0.1fr;
     padding: 16px 20px;
     background-color: var(--green);
+    cursor: pointer;
 }
 
 .ThemeChanger__input {

@@ -22,7 +22,7 @@ class Timer extends Component {
     }
 
     render() {
-        return <div className={`context__timer textColor`}>
+        return <div className={`context__timer scheduleColor`}>
             <img src={this.getTimerIcon()} alt="clockErrorIcon"/>
             <p className={'text-regular--small'}>{this.props.timer}</p>
         </div>
