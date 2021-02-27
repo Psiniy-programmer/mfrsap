@@ -7,7 +7,8 @@ import auditoryList from './auditoryList.js';
 import raspData from './raspData.js';
 import theme from './theme.js';
 import favoriteStorage from './favoriteStorage.js';
-import windowSizes from "./windowSizes";
+import windowSizes from "./windowSizes.js";
+import appTimer from './appTimer.js';
 
 export default combineReducers({
     groupsList,
@@ -18,5 +19,6 @@ export default combineReducers({
     filterItems,
     theme,
     favoriteStorage,
-    windowSizes
+    windowSizes,
+    appTimer
 });

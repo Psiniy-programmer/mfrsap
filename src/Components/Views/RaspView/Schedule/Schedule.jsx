@@ -12,7 +12,8 @@ class Schedule extends Component {
         pairList.map((item, index) => {
             if (item.pair[0] !== undefined && item.pair[0].week !== 0) isDouble = true;
             // Если расписание пары двойное(по неделям), то выдаем
-            resList.push(<Card
+            resList.push(
+            <Card
                 key={generateUniqKey('Card_', index)}
                 weekIsOdd={this.props.weekIsOdd}
                 rasp={item}

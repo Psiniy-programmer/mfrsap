@@ -4,6 +4,10 @@ import Single from "./Context/Single/Single";
 import Double from "./Context/Double/Double";
 
 class Card extends Component {
+    checkTimer() {
+        const {pairtime} = this.props.raps;
+    }
+
     render() {
         const {pairtime, pair, weekIsOdd} = this.props.rasp;
         const {type} = this.props;
