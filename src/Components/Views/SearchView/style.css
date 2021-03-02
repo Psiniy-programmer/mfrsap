@@ -1,11 +1,12 @@
 .SearchButtons {
-    display: grid;
-    grid-template-columns: repeat(2, 145px);
+    display: flex;
+    flex-wrap: nowrap;
     gap: var(--items--gap)
 }
 
 .SearchButtons a {
     display: grid;
+    width: 50%;
     height: 50px;
     align-items: center;
     align-content: center;

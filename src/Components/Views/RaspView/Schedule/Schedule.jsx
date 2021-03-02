@@ -1,63 +1,64 @@
-import React, {Component} from 'react';
-import {generateUniqKey} from "../../../../helpers/helpers";
-import {connect} from "react-redux";
-import Card from './Card/Card'
-import './style.css'
+import React, { Component } from "react";
+import { generateUniqKey } from "../../../../helpers/helpers";
+import { connect } from "react-redux";
+import Card from "./Card/Card";
+import RaspItem from "../../../RaspItem/RaspItem";
+import "./style.css";
 
 class Schedule extends Component {
-    getCommonRasp(curDay) {
-        let resList = [],
-            isDouble = false;
-        const {pairList} = curDay;
-        pairList.map((item, index) => {
-            if (item.pair[0] !== undefined && item.pair[0].week !== 0) isDouble = true;
-            // Если расписание пары двойное(по неделям), то выдаем
-            resList.push(
-            <Card
-                key={generateUniqKey('Card_', index)}
-                weekIsOdd={this.props.weekIsOdd}
-                rasp={item}
-                type={this.props.type}
-                isDouble={isDouble}
-                index={index}
-            />);
-            return isDouble = false;
-        });
-        return resList;
-    }
+  getCommonRasp(curDay) {
+    let resList = [];
+    let isDouble = false;
+    const { pairList } = curDay;
 
-    getRasp(curDay) {
-        const {day} = this.props.raspData.data;
-        let isEmpty = true;
-        if (!day[curDay].special_day) {
-            // eslint-disable-next-line
-            day[curDay].pairList.map(item => {
-                if (item.pair.length !== 0) isEmpty = false;
-            })
-        } else return <p className={'textColor text-bold--large'}>Занятия по особому расписанию</p>
-        return isEmpty ?
-            <p className={'textColor text-bold--large'}>Занятий нет</p> : this.getCommonRasp(day[curDay]);
-    }
+    pairList.map((item, index) => {
+      if (item.pair.length > 0 && item.pair[0].week !== 0) isDouble = true;
+      resList.push(
+        <Card
+          key={generateUniqKey("Card_", index)}
+          rasp={item}
+          type={this.props.type}
+          isDouble={isDouble}
+        />
+      );
+      return (isDouble = false);
+    });
+    return resList;
+  }
 
-    render() {
-        const {loading} = this.props.raspData;
-        const {currentDayIndex} = this.props;
-        if (loading === false) {
-            return (
-                <div className={'Schedule'}>
-                    {this.getRasp(currentDayIndex)}
-                </div>
-            );
-        }
-        else return <div/>
-    }
+  getRasp(curDay) {
+    const { day } = this.props.raspData.data;
+    let isEmpty = true;
+
+    if (!day[curDay].special_day) {
+      day[curDay].pairList.map((item) => {
+        if (item.pair.length !== 0) isEmpty = false;
+        return null;
+      });
+    } else return <RaspItem text="Занятия по особому расписанию" />;
+
+    return isEmpty ? (
+      <RaspItem text="Занятий нет" />
+    ) : (
+      this.getCommonRasp(day[curDay])
+    );
+  }
+
+  render() {
+    const { loading } = this.props.raspData;
+    const { dayIndex } = this.props.appTimer;
+
+    if (loading === false) {
+      return <div className={"Schedule"}>{this.getRasp(dayIndex)}</div>;
+    } else return <div />;
+  }
 }
 
-const mapStateToProps = state => {
-    return {
-        raspData: state.raspData,
-    }
-}
-
+const mapStateToProps = (state) => {
+  return {
+    appTimer: state.appTimer,
+    raspData: state.raspData,
+  };
+};
 
 export default connect(mapStateToProps)(Schedule);

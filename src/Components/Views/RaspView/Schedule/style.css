@@ -1,43 +1,51 @@
 .Schedule {
-    max-height: 100%
+  max-height: 100%;
 }
 
 .schedule-item {
-    background-color: var(--green);
+  background-color: var(--green);
 }
 
 .schedule-item__Single {
-    max-width: 100%;
-    display: grid;
-    margin-bottom: 0.625em;
+  max-width: 100%;
+  display: grid;
+  margin-bottom: 0.625em;
 }
 
 @media only screen and (min-width: 1224px) {
-    .schedule-item {
-        grid-template-columns: 255px 1fr;
-        align-content: center;
-        background-color: unset;
-        padding: 24px 0;
-        border-bottom: 1px dashed var(--gray);
-    }
+  .schedule-item {
+    grid-template-columns: 255px 1fr;
+    align-content: center;
+    background-color: unset;
+    padding: 24px 0;
+    border-bottom: 1px dashed var(--gray);
+  }
 
-    .schedule-item:last-child {
-        border-bottom: unset;
-    }
+  .schedule-item:last-child {
+    border-bottom: unset;
+  }
 
-    .schedule-item__Double {
-        display: grid;
-        grid-template-columns: 255px 1fr;
-    }
+  .schedule-item__Double {
+    display: grid;
+    grid-template-columns: 255px 1fr;
+  }
+
+  .soon {
+    color: var(--red);
+  }
 }
 
-@media only screen and (max-width: 1224px)  {
-    .schedule-item {
-        padding-top: 10px;
-        border-radius: 4px;
-    }
-    .Schedule {
-        display: grid;
-        grid-gap: 10px
-    }
+@media only screen and (max-width: 1224px) {
+  .schedule-item {
+    padding-top: 10px;
+    border-radius: 4px;
+  }
+  .Schedule {
+    display: grid;
+    grid-gap: 10px;
+  }
+
+  .soon {
+    background-color: var(--red);
+  }
 }

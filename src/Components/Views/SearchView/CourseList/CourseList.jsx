@@ -16,7 +16,7 @@ class CourseList extends Component {
                 <Link className={`Link`} to={`${match.url}/IV`}><MenuItem text={'IV курс'}/></Link>
                 <Link className={`Link`} to={`${match.url}/V`}><MenuItem text={'V курс'}/></Link>
                 <Link className={`Link`} to={`${match.url}/VI`}><MenuItem text={'I курс магистратура'}/></Link>
-                <Link className={`Link`} to={`${match.url}/VII`}><MenuItem text={'I курс магистратура'}/></Link>
+                <Link className={`Link`} to={`${match.url}/VII`}><MenuItem text={'II курс магистратура'}/></Link>
             </div>
         );
     }

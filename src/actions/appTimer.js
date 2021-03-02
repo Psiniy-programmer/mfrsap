@@ -1,6 +1,5 @@
 import {
     GET_DAY_INDEX,
-    GET_DIFFERENCE,
     UPDATE_TIME,
     WEEK_IS_ODD,
     UPDATE_DAY_INDEX
@@ -9,13 +8,6 @@ import {
 function updateTime() {
     return {
         type: UPDATE_TIME
-    }
-}
-
-function getDiff(pairTime) {
-    return {
-        type: GET_DIFFERENCE,
-        pairTime
     }
 }
 
@@ -38,4 +30,4 @@ function updateDayIndex(index) {
     }
 }
 
-export {updateTime, getDiff, getDayIndex, weekIsOdd, updateDayIndex};
+export {updateTime, getDayIndex, weekIsOdd, updateDayIndex};

@@ -11,6 +11,7 @@ const initialState = {
 export default function raspData(state = initialState, action) {
     switch (action.type) {
         case RASP_DATA_FETCH_LOADING :
+            state = initialState;
             return {
                 ...state,
                 loading: true

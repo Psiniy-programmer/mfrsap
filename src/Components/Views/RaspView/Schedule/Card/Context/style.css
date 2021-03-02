@@ -1,83 +1,93 @@
 .context {
-    display: grid;
-    grid-template-columns: 1.2fr 0.5fr;
+  display: grid;
+  grid-template-columns: 1.2fr 0.5fr;
 }
 
 .context_aud {
-    display: grid;
-    padding: 0 0.625em 1em 0.625em;
+  display: grid;
+  padding: 0 0.625em 1em 0.625em;
 }
 
 @media only screen and (min-width: 1224px) {
-    .context {
-        padding: 1em 0;
-    }
+  .context {
+    padding: 1em 0;
+  }
 
-    .context__leftInfo {
-        display: grid;
-        grid-template-rows: repeat(1, 1fr);
-        grid-template-columns: 400px auto;
-    }
+  .context__leftInfo {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: 400px auto;
+  }
 
-    .context__timer {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-items: start;
-    }
-    .context__timer img {
-        padding: 4px 0;
-    }
+  .context__timer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+  }
+  .context__timer_svg {
+    padding: 4px 0;
+  }
 
-    .context__underSubject {
-        text-align: right;
-    }
+  .context__underSubject {
+    text-align: right;
+  }
 
-    .context__subject {
-        margin-bottom: unset;
-    }
+  .context__subject {
+    margin-bottom: unset;
+  }
 
-    .context__rightInfo {
-        align-items: unset;
-    }
+  .context__rightInfo {
+    display: grid;
+    justify-items: end;
+    align-items: start;
+  }
+
+  .diff__timer {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .diff_timer_pair,
+  .diff__timer_dif {
+    display: flex;
+  }
 }
 
 .context {
-    padding: 0 0.625em 1em 0.625em;
+  padding: 0 0.625em 1em 0.625em;
 }
 
 .context__timer {
-    margin: 0 0.625em 0.75em 0.625em;
-    display: flex;
+  margin: 0 0.625em 0.75em 0.625em;
+  display: flex;
 }
 
 .empty {
-    display: none;
+  display: none;
 }
 
 .context__rightInfo {
-    display: grid;
-    justify-items: end;
+  display: grid;
+  justify-items: end;
+  align-items: start;
 }
 
-.context__rightInfo {
-    align-items: end;
-}
-
-.context__timer img {
-    margin-right: 8px;
-    width: 16px;
-    height: 16px;
+.context__timer_svg {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
 }
 
 .context__lastStr {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .context_unactive {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .context__subject {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
