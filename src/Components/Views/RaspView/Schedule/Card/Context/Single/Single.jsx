@@ -37,7 +37,7 @@ class Single extends Component {
       );
     else {
       return (
-        <div className={`schedule-item schedule-item__Single `}>
+        <div className={`schedule-item schedule-item__Single ${soonClass}`}>
           <Timer soon={soonClass} diff={diff} timer={timer} />
           <div
             className={`${

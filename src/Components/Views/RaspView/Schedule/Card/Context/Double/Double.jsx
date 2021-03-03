@@ -69,12 +69,12 @@ class Double extends Component {
   render() {
     const { soon, diff, opacity, data, info, timer } = this.props;
     const soonClass = soon ? "soon" : "";
-    console.error(info);
+
     return (
       <div
         className={`${soonClass} schedule-item schedule-item__Double`}
       >
-        <Timer soon={soonClass} timer={timer} />
+        <Timer diff={diff} soon={soon} timer={timer} />
         <div className="Double__info">
           <div className={"schedule-item__numerator"}>
             {data[0].week === 1

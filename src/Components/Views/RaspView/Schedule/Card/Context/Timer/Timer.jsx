@@ -6,23 +6,32 @@ import {
   LIGHT_THEME,
   SYSTEM_THEME,
 } from "../../../../../../../reducers/theme";
+import Consts from "../../../../../../../helpers/consts";
 
 const red = "#c15555",
   black = "#09201e",
   white = "#ffffff";
 
 class Timer extends Component {
-  getDiffTimerSvg() {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      color: white,
+    };
+  }
+
+  getDiffTimerSvg(color) {
     return (
       <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
         <path
           d="M6.04565 5.55095H7.26941V11.1019H6.04565V5.55095Z"
-          fill={red}
+          fill={color}
         />
-        <path d="M4.82178 0H8.49306V1.23355H4.82178V0Z" fill={red} />
+        <path d="M4.82178 0H8.49306V1.23355H4.82178V0Z" fill={color} />
         <path
           d="M14 4.3174L13.1311 3.44775L11.7544 4.83549C10.6274 3.52363 9.04239 2.69987 7.32857 2.53536C5.61476 2.37086 3.90395 2.87825 2.5516 3.95211C1.19926 5.02598 0.309357 6.58376 0.0667976 8.30179C-0.175762 10.0198 0.24767 11.766 1.24912 13.1775C2.25056 14.589 3.75302 15.5574 5.44433 15.8814C7.13563 16.2053 8.88574 15.86 10.331 14.9171C11.7763 13.9743 12.8057 12.5064 13.2052 10.8184C13.6047 9.13043 13.3437 7.3522 12.4764 5.85317L14 4.3174ZM6.65744 14.8025C5.56828 14.8025 4.50357 14.477 3.59796 13.867C2.69235 13.2571 1.98652 12.3902 1.56971 11.3758C1.15291 10.3615 1.04385 9.24543 1.25634 8.16865C1.46882 7.09187 1.99331 6.10278 2.76346 5.32647C3.53362 4.55015 4.51486 4.02147 5.5831 3.80729C6.65133 3.5931 7.75859 3.70303 8.76485 4.12317C9.77111 4.54331 10.6312 5.25479 11.2363 6.16764C11.8414 7.08049 12.1644 8.15371 12.1644 9.25159C12.1644 10.7238 11.5842 12.1357 10.5514 13.1767C9.51867 14.2177 8.11797 14.8025 6.65744 14.8025Z"
-          fill={red}
+          fill={color}
         />
       </svg>
     );
@@ -48,10 +57,11 @@ class Timer extends Component {
   }
 
   getTimerIcon() {
-    const { currentTheme, soon } = this.props;
-
-    if (soon) {
-      return this.getTimerSvg(red);
+    const { currentTheme, soon, windowSizes } = this.props;
+    const sizes = windowSizes.width > Consts.DESKTOP_MIN_WIDTH;
+    console.log(sizes, soon)
+    if (soon === '' && sizes) {
+      return this.setState({ color: red });
     }
 
     let color = "";
@@ -63,26 +73,31 @@ class Timer extends Component {
           : black;
         break;
       case LIGHT_THEME:
-        color = black;
+        color = sizes ? black : white;
         break;
       case DARK_THEME:
-        color = white;
+        color = sizes ? white : black;
         break;
       default:
         break;
     }
 
-    return this.getTimerSvg(color);
+    console.error(color);
+    this.setState({ color: color });
+  }
+
+  componentDidMount() {
+    this.getTimerIcon();
   }
 
   render() {
-    const { soon, diff, timer } = this.props;
-    console.warn(timer, diff);
+    const { soon, diff, timer, windowSizes } = this.props;
+    const { color } = this.state;
 
     if (diff === null || diff === undefined) {
       return (
         <div className={`context__timer scheduleColor`}>
-          <div className="context__timer_svg">{this.getTimerIcon()}</div>
+          <div className="context__timer_svg">{this.getTimerSvg(color)}</div>
           <p className={`text-regular--small ${soon}`}>{timer}</p>
         </div>
       );
@@ -90,11 +105,11 @@ class Timer extends Component {
       return (
         <div className={`diff__timer scheduleColor`}>
           <div className="diff_timer_pair">
-            <div className="context__timer_svg">{this.getTimerIcon()}</div>
+            <div className="context__timer_svg">{this.getTimerSvg(color)}</div>
             <p className={`text-regular--small ${soon}`}>{timer}</p>
           </div>
           <div className="diff__timer_dif">
-            <div className="context__timer_svg">{this.getDiffTimerSvg()}</div>
+            <div className="context__timer_svg">{this.getDiffTimerSvg(color)}</div>
             <p className={`text-regular--small ${soon}`}>{diff} мин.</p>
           </div>
         </div>
@@ -106,6 +121,7 @@ class Timer extends Component {
 const mapStateToProps = (state) => {
   return {
     currentTheme: state.theme,
+    windowSizes: state.windowSizes,
   };
 };
 

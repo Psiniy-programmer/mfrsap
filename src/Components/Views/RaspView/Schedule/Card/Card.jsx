@@ -26,8 +26,7 @@ class Card extends Component {
     const curTime = 470;
     const nextPair = t[0] * 60 + t[1];
     const diffTime = Math.abs(nextPair - curTime);
-    console.log(diffTime)  
-    
+
     if (diffTime <= 60) {
       this.setState({ diff: diffTime, soon: true });
     }
@@ -39,6 +38,7 @@ class Card extends Component {
     const { isOdd } = this.props.appTimer;
     const { type, isDouble } = this.props;
     const info = [{}, {}];
+    console.log(this.state)
 
     if (!pair.length) {
       return <Single isEmpty={true} timer={pairtime} />;
