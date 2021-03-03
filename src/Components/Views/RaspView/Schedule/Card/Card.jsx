@@ -38,7 +38,6 @@ class Card extends Component {
     const { isOdd } = this.props.appTimer;
     const { type, isDouble } = this.props;
     const info = [{}, {}];
-    console.log(this.state)
 
     if (!pair.length) {
       return <Single isEmpty={true} timer={pairtime} />;
@@ -75,7 +74,7 @@ class Card extends Component {
       default:
         break;
     }
-
+    
     return isDouble ? (
       <Double
         soon={soon}

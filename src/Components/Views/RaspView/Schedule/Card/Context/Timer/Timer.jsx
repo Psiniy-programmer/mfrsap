@@ -13,14 +13,6 @@ const red = "#c15555",
   white = "#ffffff";
 
 class Timer extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      color: white,
-    };
-  }
-
   getDiffTimerSvg(color) {
     return (
       <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -59,9 +51,9 @@ class Timer extends Component {
   getTimerIcon() {
     const { currentTheme, soon, windowSizes } = this.props;
     const sizes = windowSizes.width > Consts.DESKTOP_MIN_WIDTH;
-    console.log(sizes, soon)
-    if (soon === '' && sizes) {
-      return this.setState({ color: red });
+
+    if (soon && sizes) {
+      return red;
     }
 
     let color = "";
@@ -82,35 +74,33 @@ class Timer extends Component {
         break;
     }
 
-    console.error(color);
-    this.setState({ color: color });
-  }
-
-  componentDidMount() {
-    this.getTimerIcon();
+    return color;
   }
 
   render() {
     const { soon, diff, timer, windowSizes } = this.props;
-    const { color } = this.state;
+    const soonClass = soon ? "soon" : "";
+    const iconsColor = this.getTimerIcon();
 
     if (diff === null || diff === undefined) {
       return (
         <div className={`context__timer scheduleColor`}>
-          <div className="context__timer_svg">{this.getTimerSvg(color)}</div>
-          <p className={`text-regular--small ${soon}`}>{timer}</p>
+          <div className="context__timer_svg">{this.getTimerSvg(iconsColor)}</div>
+          <p className={`text-regular--small ${soonClass}`}>{timer}</p>
         </div>
       );
     } else {
       return (
         <div className={`diff__timer scheduleColor`}>
           <div className="diff_timer_pair">
-            <div className="context__timer_svg">{this.getTimerSvg(color)}</div>
-            <p className={`text-regular--small ${soon}`}>{timer}</p>
+            <div className="context__timer_svg">{this.getTimerSvg(iconsColor)}</div>
+            <p className={`text-regular--small ${soonClass}`}>{timer}</p>
           </div>
           <div className="diff__timer_dif">
-            <div className="context__timer_svg">{this.getDiffTimerSvg(color)}</div>
-            <p className={`text-regular--small ${soon}`}>{diff} мин.</p>
+            <div className="context__timer_svg">
+              {this.getDiffTimerSvg(iconsColor)}
+            </div>
+            <p className={`text-regular--small ${soonClass}`}>{diff} мин.</p>
           </div>
         </div>
       );
