@@ -1,11 +1,3 @@
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../../fonts/Roboto-Black.ttf") format("ttf");
-}
-
 html {
   --bg--dark--theme: #09201e;
   --bg--light--theme: #ffffff;
@@ -50,14 +42,14 @@ h2 {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto-Medium", sans-serif;
   margin: 11px 10px 65px;
   background-color: var(--current--theme--bg);
   width: auto;
 }
 
 .text-bold--header {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -66,7 +58,7 @@ body {
 
 .text-bold--large {
   /* R-bold-18 */
-  font-family: "Roboto", sans-serif;
+  font-family: "RobotoBold", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -75,7 +67,7 @@ body {
 
 .text-regular--small {
   /* R-regular-14 */
-  font-family: "Roboto", sans-serif;
+  font-family: "RobotoRegular", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -84,7 +76,7 @@ body {
 
 .text-regular--medium {
   /* R-regular-16 */
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto-Regular", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -93,7 +85,7 @@ body {
 
 .text-medium--medium {
   /* R-medium-16 */
-  font-family: "Roboto", sans-serif;
+  font-family: "RobotoMedium", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -102,7 +94,7 @@ body {
 
 .text-medium--small {
   /* R-medium-14 */
-  font-family: "Roboto", sans-serif;
+  font-family: "RobotoMedium", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -145,7 +137,7 @@ body {
   body {
     height: 100vmin;
     margin: unset;
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif;/ */
     background-color: var(--current--theme--bg);
     background-image: url("img/bg-decorative_vertical.svg"),
       url("img/bg-decorative_horizontal.svg"),
@@ -175,7 +167,7 @@ body {
 
   .text-bold--large {
     /* R-bold-18 */
-    font-family: "Roboto", sans-serif;
+    font-family: "RobotoBold", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -184,7 +176,7 @@ body {
 
   .text-bold--header {
     /* R-bold-30 */
-    font-family: "Roboto", sans-serif;
+    font-family: "RobotoBold", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
@@ -193,7 +185,7 @@ body {
 
   .text-regular--small {
     /* R-regular-16 */
-    font-family: "Roboto", sans-serif;
+    font-family: "RobotoRegular", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -202,7 +194,7 @@ body {
 
   .text-regular--medium {
     /* R-regular-16 */
-    font-family: "Roboto", sans-serif;
+    font-family: "RobotoRegular", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -211,7 +203,7 @@ body {
 
   .text-medium--medium {
     /* R-medium-16 */
-    font-family: "Roboto", sans-serif;
+    font-family: "RobotoMedium", sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -220,7 +212,7 @@ body {
 
   .text-medium--small {
     /* R-medium-14 */
-    font-family: "Roboto", sans-serif;
+    font-family: "RobotoMedium", monospace;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;

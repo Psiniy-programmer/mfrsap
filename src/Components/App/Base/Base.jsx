@@ -82,7 +82,7 @@ class Base extends Component {
     if (windowSizes.width > Consts.DESKTOP_MIN_WIDTH) {
       return (
         <div className={"Base textColor"}>
-          <h2 className={"TittleType"}>Поиск</h2>
+          <h2 className={"TittleType text-bold--header"}>Поиск</h2>
           <Notification />
           {match.path !== "/" ? this.getDescription() : this.getSearch()}
           {this.getSearchResult()}

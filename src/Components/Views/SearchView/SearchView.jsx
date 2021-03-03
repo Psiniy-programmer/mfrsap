@@ -19,7 +19,7 @@ class SearchView extends Component {
           key={generateUniqKey("facultyItem", index)}
           to={`/search/${changeLangRusToEng(item.facultyname)}`}
         >
-          <span className={"raspTextColor"}>{item.facultyname}</span>
+          <span className={""}>{item.facultyname}</span>
         </Link>
       );
       return facList.push(fac);
@@ -30,7 +30,7 @@ class SearchView extends Component {
         <p className={`SearchHelper text-regular--medium textColor`}>
           Или выберите группу из списка
         </p>
-        <div className={"SearchButtons"}>{facList}</div>
+        <div className={"SearchButtons raspTextColor text-medium--medium"}>{facList}</div>
       </>
     );
   }
