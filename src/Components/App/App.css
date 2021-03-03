@@ -139,7 +139,7 @@ body {
 /*Десктопы*/
 @media only screen and (min-width: 1224px) {
   h2 {
-    margin-bottom: 40px;
+    margin: unset;
   }
 
   body {

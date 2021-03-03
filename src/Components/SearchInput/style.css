@@ -9,10 +9,6 @@
     background-color: var(--current--theme--bg);
 }
 
-.Input__search {
-    margin-bottom: 40px;
-}
-
 .Input__message {
     height: 200px;
     max-width: 455px;

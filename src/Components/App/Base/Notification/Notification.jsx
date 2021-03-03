@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchNotifyData } from "../../../../actions/notification";
+import "./style.css";
 
 class Notification extends Component {
   componentDidMount() {
@@ -9,9 +10,19 @@ class Notification extends Component {
 
   render() {
     const { data } = this.props.notification;
-    console.log(data);
-    
-    return <div>notify</div>;
+
+    if (data.length === 0) {
+      return <></>;
+    } else {
+      return (
+        <div className="notification text-medium--medium">
+          <p className="notification__date">{data[0].date}</p>
+          <p className="notification__text text-regular--medium">
+            {data[0].text}
+          </p>
+        </div>
+      );
+    }
   }
 }
 

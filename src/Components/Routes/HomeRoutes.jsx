@@ -3,7 +3,6 @@ import AppHeader from "../App/Header/AppHeader";
 import Base from "../App/Base/Base";
 import Search from "../Views/SearchView/SearchView";
 import { Route } from "react-router-dom";
-import Notification from "../Views/SearchView/Notification/Notification";
 
 class HomeRoutes extends Component {
   render() {
@@ -15,7 +14,6 @@ class HomeRoutes extends Component {
           <>
             <AppHeader />
             <div className="content_info">
-              <Notification />
               <Base {...routerProps} />
               <Search />
             </div>
