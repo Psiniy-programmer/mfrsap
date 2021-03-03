@@ -1,8 +1,12 @@
-import React, {Component} from 'react';
-import {Link} from "react-router-dom";
-import {connect} from "react-redux";
-import './style.css'
-import {changeLangRusToEng, finderIsEmpty, generateUniqKey} from "../../../helpers/helpers";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import "./style.css";
+import {
+  changeLangRusToEng,
+  finderIsEmpty,
+  generateUniqKey,
+} from "../../../helpers/helpers";
 
 class SearchView extends Component {
   getView() {
@@ -18,7 +22,7 @@ class SearchView extends Component {
           <span className={"raspTextColor"}>{item.facultyname}</span>
         </Link>
       );
-       return facList.push(fac);
+      return facList.push(fac);
     });
 
     return (
@@ -44,11 +48,11 @@ class SearchView extends Component {
   }
 }
 
-const mapStateToProps = state => {
-    return {
-        facultyList: state.facultyList,
-        findInput: state.filterItems,
-    }
-}
+const mapStateToProps = (state) => {
+  return {
+    facultyList: state.facultyList,
+    findInput: state.filterItems,
+  };
+};
 
 export default connect(mapStateToProps)(SearchView);

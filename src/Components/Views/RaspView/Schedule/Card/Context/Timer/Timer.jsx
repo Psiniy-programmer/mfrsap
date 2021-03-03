@@ -61,8 +61,8 @@ class Timer extends Component {
     switch (currentTheme) {
       case SYSTEM_THEME:
         color = matchMedia("(prefers-color-scheme: dark)").matches
-          ? white
-          : black;
+          ? black
+          : white;
         break;
       case LIGHT_THEME:
         color = sizes ? black : white;
@@ -78,7 +78,7 @@ class Timer extends Component {
   }
 
   render() {
-    const { soon, diff, timer, windowSizes } = this.props;
+    const { soon, diff, timer } = this.props;
     const soonClass = soon ? "soon" : "";
     const iconsColor = this.getTimerIcon();
 

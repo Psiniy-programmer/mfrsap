@@ -14,7 +14,7 @@ import { getRaspType } from "../../../../helpers/helpers";
 
 class RaspHeader extends Component {
   getHeaderWeek() {
-    return this.props.weekIsOdd ? "Числитель" : "Знаменатель";
+    return this.props.weekIsOdd ? "числитель" : "знаменатель";
   }
 
   toggleFavorites() {
@@ -66,7 +66,7 @@ class RaspHeader extends Component {
     let dateText = date.toLocaleDateString("ru", options);
 
     dateText = dateText.substring(0, dateText.length - 3); // удаляем лишние буквы из года
-    dateText += ` - ${this.getHeaderWeek()}`;
+    dateText += ` — ${this.getHeaderWeek()}`;
     
     return (
       <>

@@ -16,7 +16,7 @@ class Card extends Component {
 
   componentDidMount() {
     const { pairtime } = this.props.rasp;
-    const { date } = this.props.appTimer;
+    // const { date } = this.props.appTimer;
     const t = pairtime
       .split("—")[0]
       .split(":")
