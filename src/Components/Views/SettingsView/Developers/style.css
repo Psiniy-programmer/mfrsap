@@ -1,5 +1,11 @@
 .developers__items {
-    display: grid;
-    gap: 10px;
-    padding-top: 10px;
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+@media only screen and (min-width: 1224px) {
+  .developers__items {
+    margin-top: 40px;
+  }
 }
