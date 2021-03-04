@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import { connect } from "react-redux";
-import MenuItem from "../../../MenuItem/MenuItem";
-import { Link } from "react-router-dom";
-import { changeLangEngToRus, finderIsEmpty } from "../../../../helpers/helpers";
+import { changeLangEngToRus, finderIsEmpty, mergeObjects } from "../../../../helpers/helpers";
 import CourseListType from "./CourseListType/CourseListType";
 
 class CourseList extends Component {
@@ -29,6 +27,7 @@ class CourseList extends Component {
     const { params } = this.props.match;
     const fac = changeLangEngToRus(params.faculty);
     const department = changeLangEngToRus(params.department);
+    const nextState = {};
 
     for (let type in data[fac]) {
       let temp = {};
@@ -47,9 +46,21 @@ class CourseList extends Component {
             temp[groupCourse].push(group.groupname);
           }
         }
+        return group;
       });
-      this.setState({ [type.toString()]: temp });
+
+      nextState[type.toString()] = temp;
     }
+
+    if (
+      nextState["С"] !== undefined &&
+      Object.keys(nextState["С"]).length !== 0
+    ) {
+      mergeObjects(nextState["С"], nextState["Б"]);
+      nextState["Б"].merged = true;
+    }
+
+    this.setState(nextState);
   }
 
   componentDidMount() {
@@ -58,14 +69,19 @@ class CourseList extends Component {
 
   getCourseList() {
     const res = [];
-
     for (let key in this.state) {
-
-      if (Object.keys(this.state[key]).length !== 0) {
-        res.push(<CourseListType key={key} data={this.state[key]} courseType={key}/>);
+      if (Object.keys(this.state[key]).length !== 0 && key !== "С") {
+        res.push(
+          <CourseListType
+            url={this.props.match.url}
+            key={key}
+            data={this.state[key]}
+            courseType={key}
+          />
+        );
       }
     }
-    
+
     return res;
   }
 

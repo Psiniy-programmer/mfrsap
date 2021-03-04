@@ -159,20 +159,37 @@ const getRaspType = (data) => {
 
 const switchNumber = (numb) => {
   switch (numb) {
-    case '1':
+    case "1":
       return "I";
-    case '2':
+    case "2":
       return "II";
-    case '3':
+    case "3":
       return "III";
-    case '4':
+    case "4":
       return "IV";
-    case '5':
+    case "5":
       return "V";
+    case "6":
+      return "VI";
+    case "7":
+      return "VII";
     default:
       break;
   }
 };
+
+const mergeObjects = (source, target) => {
+  if (source === undefined) {
+    return;
+  }
+
+  for (let key in source) {
+    if (target[key] !== undefined) {
+      target[key] = source[key].concat(target[key]);
+    }
+  }
+  return target;
+}
 
 export {
   changeLangEngToRus,
@@ -186,5 +203,6 @@ export {
   getTextColorFromWidth,
   finderIsEmpty,
   getRaspType,
-  switchNumber
+  switchNumber,
+  mergeObjects
 };
