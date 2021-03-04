@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import "./style.css";
 import { connect } from "react-redux";
-import { changeLangEngToRus, finderIsEmpty, mergeObjects } from "../../../../helpers/helpers";
+import {
+  changeLangEngToRus,
+  finderIsEmpty,
+  mergeObjects,
+} from "../../../../helpers/helpers";
 import CourseListType from "./CourseListType/CourseListType";
+import setNewGroupsList from "../../../../actions/newGroupsList";
 
 class CourseList extends Component {
   constructor(props) {
@@ -95,13 +100,6 @@ class CourseList extends Component {
         }`}
       >
         {this.getCourseList()}
-        {/* <Link className={`Link`} to={`${match.url}/I`}><MenuItem text={'I курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/II`}><MenuItem text={'II курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/III`}><MenuItem text={'III курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/IV`}><MenuItem text={'IV курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/V`}><MenuItem text={'V курс'}/></Link>
-                <Link className={`Link`} to={`${match.url}/VI`}><MenuItem text={'I курс магистратура'}/></Link>
-                <Link className={`Link`} to={`${match.url}/VII`}><MenuItem text={'II курс магистратура'}/></Link> */}
       </div>
     );
   }
@@ -114,4 +112,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(CourseList);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setList: (payload) => {
+      dispatch(setNewGroupsList(payload));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseList);

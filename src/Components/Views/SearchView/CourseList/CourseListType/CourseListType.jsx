@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import MenuItem from "../../../../MenuItem/MenuItem";
+import { connect } from "react-redux";
 import { switchNumber } from "../../../../../helpers/helpers";
 import Consts from "../../../../../helpers/consts";
-import "./style.css";
 import { Link } from "react-router-dom";
+import "./style.css";
+import setNewGroupsList from "../../../../../actions/newGroupsList";
 
 class CourseListType extends Component {
   parseData() {
-    const { data, url } = this.props;
+    const { data, url, setList } = this.props;
     const res = [];
 
     for (let course in data) {
@@ -17,7 +19,12 @@ class CourseListType extends Component {
       let courseNumber = switchNumber(course);
       let text = courseNumber + " курс";
       res.push(
-        <Link key={text} className="Link" to={`${url}/${courseNumber}`}>
+        <Link
+          onClick={() => setList(data[course])}
+          key={text}
+          className="Link"
+          to={`${url}/${courseNumber}`}
+        >
           <MenuItem text={text} />
         </Link>
       );
@@ -48,4 +55,16 @@ class CourseListType extends Component {
   }
 }
 
-export default CourseListType;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setList: (payload) => {
+      dispatch(setNewGroupsList(payload));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseListType);
