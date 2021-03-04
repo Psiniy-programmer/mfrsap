@@ -31,7 +31,7 @@ export function fetchNotifyData() {
     dispatch(fetchNotifyDataLoading());
     fetch(URL)
       .then((response) => response.json())
-      .catch((error) => fetchNotifyDataError(error))
+      .catch((error) => dispatch(fetchNotifyDataError(error)))
       .then((notification) => dispatch(fetchNotifyDataSuccess(notification)));
   };
 }

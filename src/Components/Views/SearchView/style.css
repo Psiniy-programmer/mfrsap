@@ -22,8 +22,16 @@
     margin-bottom: 20px;
 }
 
+.SearchHelper__list {
+    margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 1224px) {
     .SearchHelper {
+        margin-bottom: 10px;
+    }
+
+    .SearchHelper__list {
         margin-bottom: 10px;
     }
 

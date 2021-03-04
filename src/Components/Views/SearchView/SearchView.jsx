@@ -27,7 +27,7 @@ class SearchView extends Component {
 
     return (
       <>
-        <p className={`SearchHelper text-regular--medium textColor`}>
+        <p className={`SearchHelper__list text-regular--medium textColor`}>
           Или выберите группу из списка
         </p>
         <div className={"SearchButtons raspTextColor text-medium--medium"}>{facList}</div>

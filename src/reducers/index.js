@@ -10,6 +10,7 @@ import favoriteStorage from './favoriteStorage.js';
 import windowSizes from "./windowSizes.js";
 import appTimer from './appTimer.js';
 import notification from './notification.js';
+import altList from './altList.js';
 
 export default combineReducers({
     groupsList,
@@ -22,5 +23,6 @@ export default combineReducers({
     favoriteStorage,
     windowSizes,
     appTimer,
-    notification
+    notification,
+    altList
 });
