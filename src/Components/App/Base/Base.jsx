@@ -83,7 +83,7 @@ class Base extends Component {
       return (
         <div className={"Base textColor"}>
           <h2 className={"TittleType text-bold--header"}>Поиск</h2>
-          <Notification />
+          <Notification hide={match.path !== "/" ? 'hide' : ' '} />
           {match.path !== "/" ? this.getDescription() : this.getSearch()}
           {this.getSearchResult()}
         </div>

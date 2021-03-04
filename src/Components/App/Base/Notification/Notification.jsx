@@ -10,12 +10,13 @@ class Notification extends Component {
 
   render() {
     const { data } = this.props.notification;
-
+    const {hide} = this.props;
+    console.log(hide)
     if (data.length === 0) {
       return <></>;
     } else {
       return (
-        <div className="notification text-medium--medium">
+        <div className={`notification text-medium--medium ${hide}`}>
           <p className="notification__date">{data[0].date}</p>
           <p className="notification__text text-regular--medium">
             {data[0].text}
