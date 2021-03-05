@@ -2,30 +2,32 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import MenuItem from "../../../MenuItem/MenuItem";
 import "./style.css";
+import {Link} from 'react-router-dom';
 
 class NewGroupsList extends Component {
   getList() {
-    const { groupsList } = this.props;
-    console.log(groupsList)
+    const { oldList, groupsList, match } = this.props;
+
     if (groupsList.length === 0) {
         return 'Список пуст'
     }
+
     return groupsList.map((group) => {
-      return <MenuItem key={group} text={group} />;
+      return <Link to={`${match.url}/groupid=${oldList.data[group].groupid}`}><MenuItem key={group} text={group} /></Link>;
     });
   }
 
   render() {
-    console.log(this.props.groupsList);
 
     return <div className="NewGroupsList">
         {this.getList()}
-        </div>;
+    </div>;
   }
 }
 
 const mapStateToProps = (state) => {
   return {
+    oldList: state.groupsList,
     groupsList: state.newGroupsList,
   };
 };

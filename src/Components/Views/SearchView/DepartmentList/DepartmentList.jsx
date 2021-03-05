@@ -6,33 +6,28 @@ import {changeLangEngToRus, changeLangRusToEng, finderIsEmpty, generateUniqKey} 
 import './style.css';
 
 class DepartmentList extends Component {
-    getFacultyList() {
-        const {match, facultyList, groupsList} = this.props;
-        let list = [],
-            str = match.params.faculty,
-            curID;
-        str = changeLangEngToRus(str);
-        // eslint-disable-next-line
+    setFacList() {
+        const {facultyList, groupsList, match} = this.props;
+        const curFac = changeLangEngToRus(match.params.faculty);
+        const resList = new Set();
+        let curID;
+
         facultyList.data.map(item => {
-            if (str === item.facultyname) return curID = item.facultyid
+            if (curFac === item.facultyname) return curID = item.facultyid;
+            return null;
         })
-        // eslint-disable-next-line
-        groupsList.data.map(item => {
-            str = '';
 
-            if (item.facultyid === curID) {
-                for (let symbol = 0; symbol < item.groupname.length; symbol++) {
-                    if (item.groupname[symbol] !== '-') {
-                        str += item.groupname[symbol];
-                    } else break;
-                }
+        for (let group in groupsList.data) {
+
+            if (groupsList.data[group].facultyid === curID) {
+                let split = group.split('-')[0];
+                resList.add(split);
             }
+        }
 
-            if (!list.includes(str) && str.length !== 0) list.push(str);
-        })
+        return [...resList].map((item, index) => {
+            let str = changeLangRusToEng(item).toUpperCase();
 
-        return list.map((item, index) => {
-            str = (changeLangRusToEng(item).toUpperCase());
             return (
                 <Link key={generateUniqKey('depart_', index)} to={`${match.url}/${str}`}>
                     <MenuItem text={item}/>
@@ -44,7 +39,8 @@ class DepartmentList extends Component {
     render() {
         return (
             <div className={`DepartmentList ${finderIsEmpty(this.props.findInput) ? 'DepartmentList__hide' : null}`}>
-                {this.getFacultyList()}
+                {/*{this.getFacultyList()}*/}
+                {this.setFacList()}
             </div>
         );
     }

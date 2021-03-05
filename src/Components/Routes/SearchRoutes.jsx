@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import DepartmentList from "../Views/SearchView/DepartmentList/DepartmentList";
 import CourseList from "../Views/SearchView/CourseList/CourseList";
-import RaspList from "../Views/SearchView/GroupsList/GroupsList";
 import RaspItem from "../Views/RaspView/Rasp";
 import Base from "../App/Base/Base";
 import AppHeader from "../App/Header/AppHeader";
@@ -46,8 +45,7 @@ class SearchRoutes extends Component {
               <AppHeader />
               <div className="content_info">
                 <Base {...routerProps} />
-                <NewGroupsList />
-                {/* <RaspList {...routerProps}/> */}
+                <NewGroupsList {...routerProps}/>
               </div>
             </>
           )}
