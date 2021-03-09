@@ -11,7 +11,10 @@ class ExportFav extends Component {
             </h2>
             <div className="Export__content">
               <ExportButton />
-              <p className="textColor">Скопируйте код и затем вставьте его в форму на странице избранного на новом устройстве.</p>
+              <p className="textColor text-regular--smal">
+                Скопируйте код и затем вставьте его в форму на странице
+                избранного на новом устройстве.
+              </p>
             </div>
           </div>
         );

@@ -1,4 +1,8 @@
-
+.Export__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 @media only screen and (min-width: 1224px) {
     .Export {
@@ -6,6 +10,7 @@
     }
 
     .Export__content {
+        gap: 16px;
         margin-top: 40px;
     }
   }
