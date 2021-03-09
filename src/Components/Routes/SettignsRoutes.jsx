@@ -5,6 +5,7 @@ import ThemeChanger from "../Views/SettingsView/ThemeChanger/ThemeChanger";
 import AppHeader from "../App/Header/AppHeader";
 import Feedback from "../Views/SettingsView/Feedback/Feedback";
 import Developers from "../Views/SettingsView/Developers/Developers";
+import ExportFav from '../Views/SettingsView/ExportFav/ExportFav';
 
 class SettignsRoutes extends Component {
     render() {
@@ -25,6 +26,10 @@ class SettignsRoutes extends Component {
                 <Route exact path={'/settings/developers'} render={routerProps => <>
                     <AppHeader/>
                     <Developers/>
+                </>}/>
+                <Route exact path={'/settings/export'} render={routerProps => <>
+                    <AppHeader/>
+                    <ExportFav/>
                 </>}/>
             </Switch>
         );

@@ -11,7 +11,7 @@ class Notification extends Component {
   render() {
     const { data } = this.props.notification;
     const {hide} = this.props;
-    console.log(hide)
+
     if (data.length === 0) {
       return <></>;
     } else {

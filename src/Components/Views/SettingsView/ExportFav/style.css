@@ -1,0 +1,12 @@
+
+
+@media only screen and (min-width: 1224px) {
+    .Export {
+        max-width: 455px;
+    }
+
+    .Export__content {
+        margin-top: 40px;
+    }
+  }
+  

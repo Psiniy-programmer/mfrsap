@@ -16,6 +16,7 @@ class CourseListType extends Component {
       if (course === "merged") {
         continue;
       }
+
       let courseNumber = switchNumber(course);
       let text = courseNumber + " курс";
       res.push(

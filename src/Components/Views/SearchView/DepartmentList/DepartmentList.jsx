@@ -7,25 +7,38 @@ import './style.css';
 
 class DepartmentList extends Component {
     setFacList() {
-        const {facultyList, groupsList, match} = this.props;
+        const {facultyList, altList, match} = this.props;
+
         const curFac = changeLangEngToRus(match.params.faculty);
-        const resList = new Set();
-        let curID;
+        let resList = new Set();
+        let curID = 0;
 
         facultyList.data.map(item => {
             if (curFac === item.facultyname) return curID = item.facultyid;
             return null;
         })
 
-        for (let group in groupsList.data) {
+        for (let types in altList.data) {
+            for (let form in altList.data[types]) {
+                // eslint-disable-next-line
+                altList.data[types][form].map((item) => {
+                    if (item.facultyid === curID) {
+                        let split = item.groupname.split('-')[0];
+                        resList.add(split);
+                    }
+                    return null;
+                });
 
-            if (groupsList.data[group].facultyid === curID) {
-                let split = group.split('-')[0];
-                resList.add(split);
             }
         }
 
-        return [...resList].map((item, index) => {
+        if (curID === 51) {
+            resList = [...resList].sort();
+        } else {
+            resList = [...resList];
+        }
+
+        return resList.map((item, index) => {
             let str = changeLangRusToEng(item).toUpperCase();
 
             return (
@@ -39,7 +52,6 @@ class DepartmentList extends Component {
     render() {
         return (
             <div className={`DepartmentList ${finderIsEmpty(this.props.findInput) ? 'DepartmentList__hide' : null}`}>
-                {/*{this.getFacultyList()}*/}
                 {this.setFacList()}
             </div>
         );
@@ -48,9 +60,9 @@ class DepartmentList extends Component {
 
 const mapStateToProps = state => {
     return {
+        altList: state.altList,
         findInput: state.filterItems,
-        facultyList: state.facultyList,
-        groupsList: state.groupsList,
+        facultyList: state.facultyList
     }
 };
 

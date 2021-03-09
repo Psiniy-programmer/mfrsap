@@ -7,7 +7,6 @@ import {
   mergeObjects,
 } from "../../../../helpers/helpers";
 import CourseListType from "./CourseListType/CourseListType";
-import setNewGroupsList from "../../../../actions/newGroupsList";
 
 class CourseList extends Component {
   constructor(props) {
@@ -16,15 +15,25 @@ class CourseList extends Component {
     this.state = {};
   }
 
+  normalizeObject(obj) {
+    return {
+      "Б" : obj["Б"],
+      "М" : obj["М"],
+      "А" : obj["А"],
+      "С" : obj["С"]
+    }
+  }
+
   setGroups(group, obj) {
     let groupSem = group.groupname.split("-")[1][0];
     let groupCourse = Math.floor(groupSem / 2) + 1;
-
+    let test = {};
     if (obj[groupCourse] === undefined) {
       obj[groupCourse] = [];
     } else {
-      obj[groupCourse].push(group.groupname);
-    }
+             obj[groupCourse].push(group.groupname);
+             test[groupCourse] = {};
+           }
   }
 
   sortGroupsByCourse() {
@@ -32,12 +41,13 @@ class CourseList extends Component {
     const { params } = this.props.match;
     const fac = changeLangEngToRus(params.faculty);
     const department = changeLangEngToRus(params.department);
-    const nextState = {};
+    let nextState = {};
 
     for (let type in data[fac]) {
       let temp = {};
 
       data[fac][type].map((group) => {
+
         let split = group.groupname.split("-");
 
         if (split[0] === department) {
@@ -46,9 +56,9 @@ class CourseList extends Component {
 
           if (temp[groupCourse] === undefined) {
             temp[groupCourse] = [];
-            temp[groupCourse].push(group.groupname);
+            temp[groupCourse].push(group);
           } else {
-            temp[groupCourse].push(group.groupname);
+            temp[groupCourse].push(group);
           }
         }
         return group;
@@ -56,7 +66,7 @@ class CourseList extends Component {
 
       nextState[type.toString()] = temp;
     }
-
+      
     if (
       nextState["С"] !== undefined &&
       Object.keys(nextState["С"]).length !== 0
@@ -64,6 +74,8 @@ class CourseList extends Component {
       mergeObjects(nextState["С"], nextState["Б"]);
       nextState["Б"].merged = true;
     }
+    
+    nextState = this.normalizeObject(nextState);
 
     this.setState(nextState);
   }
@@ -74,8 +86,13 @@ class CourseList extends Component {
 
   getCourseList() {
     const res = [];
+
     for (let key in this.state) {
-      if (Object.keys(this.state[key]).length !== 0 && key !== "С") {
+      if (
+        this.state[key] !== undefined &&
+        Object.keys(this.state[key]).length !== 0 &&
+        key !== "С"
+      ) {
         res.push(
           <CourseListType
             url={this.props.match.url}
@@ -112,12 +129,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setList: (payload) => {
-      dispatch(setNewGroupsList(payload));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CourseList);
+export default connect(mapStateToProps)(CourseList);

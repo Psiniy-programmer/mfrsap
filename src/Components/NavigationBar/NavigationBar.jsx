@@ -5,8 +5,9 @@ import searchLogo from './Icons/Search-icon.svg';
 import settingsLogo_active from './Icons/Settings-icon_active.svg';
 import starLogo_active from './Icons/Star-icon_actve.svg';
 import searchLogo_active from './Icons/Search-icon_active.svg';
-import './style.css';
+import mapLogo from './Icons/Map.svg';
 import {Link} from "react-router-dom";
+import './style.css';
 
 class NavigationBar extends Component {
     render() {
@@ -29,6 +30,14 @@ class NavigationBar extends Component {
                         />
                     </span>
                 </Link>
+                <a href='https://map.msfu.ru/' target="_blank">
+                    <span >
+                        <img
+                            src={mapLogo}
+                            alt="starLogo trouble"
+                        />
+                    </span>
+                </a>
                 <Link to={`/settings`}>
                     <span >
                         <img

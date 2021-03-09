@@ -1,19 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import MenuItem from "../../../MenuItem/MenuItem";
-import "./style.css";
 import {Link} from 'react-router-dom';
+import "./style.css";
 
 class NewGroupsList extends Component {
   getList() {
-    const { oldList, groupsList, match } = this.props;
+    const { groupsList, match } = this.props;
 
     if (groupsList.length === 0) {
         return 'Список пуст'
     }
-
+    
     return groupsList.map((group) => {
-      return <Link to={`${match.url}/groupid=${oldList.data[group].groupid}`}><MenuItem key={group} text={group} /></Link>;
+      return (
+        <Link
+          key={group.groupname}
+          to={`${match.url}/groupid=${group.groupid}`}
+        >
+          <MenuItem text={group.groupname} />
+        </Link>
+      );
     });
   }
 
@@ -27,7 +34,6 @@ class NewGroupsList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    oldList: state.groupsList,
     groupsList: state.newGroupsList,
   };
 };
