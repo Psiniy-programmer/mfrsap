@@ -7,11 +7,11 @@ class SearchResult extends Component {
     render() {
         const {groupsList, teachersList, auditoryList} = this.props
         return (
-            <div className={`SearchResult`}>
-                <SearchList title={'Группы'} data={groupsList}/>
-                <SearchList title={'Преподователи'} data={teachersList}/>
-                <SearchList title={'Аудитории'} data={auditoryList}/>
-            </div>
+          <div className={`SearchResult`}>
+            <SearchList title={"Группы"} data={groupsList} />
+            <SearchList title={"Преподователи"} data={teachersList} />
+            <SearchList title={"Аудитории"} data={auditoryList} />
+          </div>
         );
     }
 }
@@ -20,9 +20,19 @@ const mapStateToProps = state => {
     return {
         facultyList: state.facultyList,
         findInput: state.filterItems,
-        groupsList: state.groupsList.data.map(groupElem => {
-            if (groupElem.groupname.toLowerCase().includes(state.filterItems.toLowerCase())) return groupElem;
-            else return null;
+        groupsList: Object.keys(state.altList.data).map((key) => {
+            return Object.keys(state.altList.data[key]).map((keyz) => {
+                return state.altList.data[key][keyz].map((group) => {
+                    if (
+                      group.groupname
+                        .toLowerCase()
+                        .includes(state.filterItems.toLowerCase())
+                    ) {
+                      return group;
+                    } else return null;
+                    });
+                })
+        
         }),
         // Динамический поиск по преподам //
         teachersList: state.teachersList.data.map(teacherElem => {

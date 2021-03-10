@@ -51,7 +51,7 @@ class FavoritesView extends Component {
 const mapStateToProps = state => {
     return {
         favoriteStorage: state.favoriteStorage,
-        groupsList: state.groupsList.data,
+        groupsList: state.altList.data,
         teachersList: state.teachersList.data,
         auditoryList: state.auditoryList.data
     }

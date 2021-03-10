@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import React, {Component} from 'react';
 import './style.css';
 import {generateUniqKey} from "../../../../helpers/helpers";
@@ -8,14 +9,11 @@ class SearchList extends Component {
         const {data, title} = this.props;
         const list = [];
         let type = {
-            name: '',
-            id: ''
+          name: "",
+          id: "",
         };
+
         switch (title) {
-            case 'Группы' :
-                type.name = 'groupname';
-                type.id = 'groupid';
-                break;
             case 'Преподователи' :
                 type.name = 'teacher';
                 type.id = 'teacherid';
@@ -26,26 +24,63 @@ class SearchList extends Component {
                 break;
             default: break;
         }
-        data.map((item, index) => {
-            if (item !== undefined && item !== null) {
-                let temp = <Link key={generateUniqKey('SearchItem_', index)} to={`/list/${type.id}=${item[type.id]}`}>
-                    <div className={'SearchList_item'}>
-                        <p className={' text-medium--small raspTextColor'}>{item[type.name]}</p>
-                    </div>
-                </Link>
-                return list.push(temp);
+        
+        if (title === 'Группы') {
+            for (let key in data) {
+                for (let type in data[key]) {
+                    data[key][type].map((item) => {
+                        if (item !== undefined && item !== null) {
+                            let temp = <Link key={generateUniqKey('SearchItem_', item.groupname)} to={`/list/groupid=${item.groupid}`}>
+                                <div className={'SearchList_item'}>
+                                    <p className={' text-medium--small raspTextColor'}>{item.groupname}</p>
+                                </div>
+                            </Link>
+                            return list.push(temp);
+                        }
+                        return null
+                    })
+                }
             }
-            return null
-        })
+        } else {
+            data.map((item, index) => {
+                if (item !== undefined && item !== null) {
+                    let temp = <Link key={generateUniqKey('SearchItem_', index)} to={`/list/${type.id}=${item[type.id]}`}>
+                        <div className={'SearchList_item'}>
+                            <p className={' text-medium--small raspTextColor'}>{item[type.name]}</p>
+                        </div>
+                    </Link>
+                    return list.push(temp);
+                }
+                return null
+            })
+        }
+
         return list
     }
 
     listIsEmpty() {
-        const {data} = this.props;
+        const {data, title} = this.props;
+        
+        if (data === undefined) {
+            return true
+        }
+    
         let undefItemsCounter = 0;
-        data.map(item => item === undefined || item === null ? undefItemsCounter++ : null);
+        if (title === 'Группы') {
+            let length = 0;
+            for (let key in data) {
+                for (let type in data[key]) {
+                    length += data[key][type].length;
+                    data[key][type].map(item => item === undefined || item === null ? undefItemsCounter++ : null);
+                }
+            }
+            return undefItemsCounter === length;
 
-        return undefItemsCounter === data.length;
+        } else {
+            data.map(item => item === undefined || item === null ? undefItemsCounter++ : null);
+           return undefItemsCounter === data.length;
+        }
+    
     }
 
     render() {

@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import React, {Component} from 'react';
 import {generateUniqKey} from "../../../../helpers/helpers";
 import remove from '../img/remove.svg';
@@ -21,7 +22,7 @@ class FavoriteList extends Component {
                 properties.id = 'groupid';
                 break;
             case 'teacher' :
-                properties.name = 'teacher';
+                properties.name = "teacher";
                 properties.id = 'teacherid';
                 break;
             case 'aud' :
@@ -32,15 +33,28 @@ class FavoriteList extends Component {
                 break;
         }
         link = `${properties.id}=`;
-
-        list.map(elem => {
-            return item.name === elem[properties.name] ? link += elem[properties.id] : null
-        });
+        
+        if (item.type === 'group') {
+            for (let key in list) {
+                for (let type in list[key]) {
+                    list[key][type].map(elem => {
+                        return item.name === elem[properties.name] ? link += elem[properties.id] : null;
+                    })
+                }
+            }
+        } else {
+            list.map(elem => {
+                return item.name === elem[properties.name] ? link += elem[properties.id] : null
+            });
+        }
+        
         return link;
     }
 
     createList() {
         const {data} = this.props;
+        console.warn(data)
+        
         const list = [];
 
         data.map((item, index) => {
@@ -48,6 +62,7 @@ class FavoriteList extends Component {
                 type: localStorage.getItem(item),
                 name: item
             }
+
             let link = this.findLink(info);
             let temp = <div className={'FavoriteList_item'}>
                 <Link className={'fullWidth'} key={generateUniqKey('favItem_', index)} to={`/list/${link}`}>
