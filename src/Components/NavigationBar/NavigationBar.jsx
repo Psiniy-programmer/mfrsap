@@ -30,7 +30,7 @@ class NavigationBar extends Component {
                         />
                     </span>
                 </Link>
-                <a href='https://map.msfu.ru/' target="_blank">
+                <a href='https://map.msfu.ru/' target="_blank" rel="noopener noreferrer">
                     <span >
                         <img
                             src={mapLogo}

@@ -22,7 +22,7 @@ export default class ExportButton extends Component {
     }
 
     copyHandleClick() {
-        navigator.clipboard.writeText(this.state.generated)
+      navigator.clipboard.writeText(this.state.generated)
     }
 
     render() {

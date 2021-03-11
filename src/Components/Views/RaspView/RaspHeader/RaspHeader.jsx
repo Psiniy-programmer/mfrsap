@@ -24,8 +24,9 @@ class RaspHeader extends Component {
       type: currentRaspType,
       name: data[currentRaspType],
     };
-    let local = localStorage.getItem(objInfo.name),
-      checkFavorite = local === null;
+
+    let local = localStorage.getItem(objInfo.name);
+    let checkFavorite = local === null;
     checkFavorite
       ? this.props.addToFavorite(objInfo)
       : this.props.removeFromFavorite(objInfo);
@@ -63,6 +64,7 @@ class RaspHeader extends Component {
       month: "long",
       day: "numeric",
     };
+    const storageItem = localStorage.getItem(data[type]);
     let dateText = date.toLocaleDateString("ru", options);
 
     dateText = dateText.substring(0, dateText.length - 3); // удаляем лишние буквы из года
@@ -86,12 +88,14 @@ class RaspHeader extends Component {
           >
             <img
               className={"favorites_Logo"}
-              src={
-                localStorage.getItem(data[type]) !== null ? star_active : star
-              }
+              src={storageItem !== null ? star_active : star}
               alt="error"
             />
-            <p>Добавить в избранное</p>
+            <p>
+              {storageItem === null
+                ? "Добавить в избранное"
+                : "Удалить из избранного"}
+            </p>
           </div>
           <div onClick={() => alert("В разработке")} className="RaspHeader_PDF">
             <img className={"PDF_icon"} src={PDF_icon} alt="error" />

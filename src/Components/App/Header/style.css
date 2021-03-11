@@ -12,37 +12,41 @@
     margin-right: 0.625em;
 }
 
-.TittleType {
-    /* margin-bottom: 40px; */
-}
-
 .AppHeader {
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
 }
 
+.SearchTittle img {
+    display: none;
+}
+
+.TittleType {
+    display: none;
+}
+
+.SearchDescription {
+    margin-bottom: 10px;
+}
+
+.SearchInput {
+    margin-bottom: 0.715em;
+}
+
 @media only screen and (min-width: 1224px) {
     .AppHeader {
         margin-bottom: 60px;
     }
-}
 
-/*Мобилы*/
-@media only screen and (max-width: 1224px) {
     .SearchTittle img {
-        display: none;
+        display: unset;
     }
-
+    
     .TittleType {
-        display: none;
-    }
-
-    .SearchDescription {
-        margin-bottom: 10px;
-    }
-
-    .SearchInput {
-        margin-bottom: 0.715em;
+        display: unset;
     }
 }
+
+
+    

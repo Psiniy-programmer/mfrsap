@@ -46,12 +46,13 @@ class Double extends Component {
     );
   }
 
-  getEmpty(opacity) {
+  getEmpty(opacity, soonClass) {
+    let color = soonClass.length > 0 ? soonClass : 'scheduleColor';
+
+    
     return (
       <p
-        className={`context text-bold--large scheduleColor ${this.isOpacity(
-          !opacity
-        )}`}
+        className={`context text-bold--large ${color} ${this.isOpacity(!opacity)}`}
       >
         Занятия нет
       </p>
@@ -64,7 +65,7 @@ class Double extends Component {
     if (Object.keys(info[1]).length === 0) {
       if (data[0].week === 2)
         res = this.getRasp(info[0], data[0], opacity, soonClass);
-      else res = this.getEmpty(opacity);
+      else res = this.getEmpty(opacity, soonClass);
     } else {
       res = this.getRasp(info[1], data[1], opacity, soonClass);
     }

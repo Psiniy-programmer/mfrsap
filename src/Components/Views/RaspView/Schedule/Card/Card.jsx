@@ -16,17 +16,16 @@ class Card extends Component {
 
   componentDidMount() {
     const { pairtime } = this.props.rasp;
-    // const { date } = this.props.appTimer;
+     const { date } = this.props.appTimer;
     const t = pairtime
       .split("—")[0]
       .split(":")
       .map((i) => Number(i));
 
-    //const curTime = date.getHours() * 60 + date.getMinutes();
-    const curTime = 470;
+    const curTime = date.getHours() * 60 + date.getMinutes();
     const nextPair = t[0] * 60 + t[1];
     const diffTime = Math.abs(nextPair - curTime);
-
+    
     if (diffTime <= 60) {
       this.setState({ diff: diffTime, soon: true });
     }

@@ -10,11 +10,17 @@
 }
 
 .Input__search {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .Input__message {
     height: 200px;
     max-width: 455px;
     resize: none;
+}
+
+@media only screen and (min-width: 1224px) {
+    .Input__search {
+        margin-bottom: 40px;
+    }
 }
