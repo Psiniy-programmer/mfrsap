@@ -32,8 +32,10 @@ class DepartmentList extends Component {
             }
         }
 
-        if (curID === 51) {
-            resList = [...resList].sort();
+        if (curID === 50) {
+            resList = [...resList].sort((a,b) => {
+                return (parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/)));
+            })
         } else {
             resList = [...resList];
         }

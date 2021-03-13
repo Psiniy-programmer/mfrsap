@@ -64,7 +64,7 @@ class Base extends Component {
   getSearch() {
     return (
       <>
-        <p className={"SearchHelper text-medium--small textColor"}>
+        <p className={"SearchHelper text-regular--medium textColor"}>
           Начните вводить группу, преподавателя или аудиторию
         </p>
         <SearchInput />
@@ -89,10 +89,13 @@ class Base extends Component {
         </div>
       );
     } else {
-      return <>
-        {match.path === "/" ? this.getSearch() : this.getDescription(false)}
-        {this.getSearchResult()}
-      </>
+      return (
+        <>
+          <Notification hide={match.path !== "/" ? "hide" : " "} />
+          {match.path === "/" ? this.getSearch() : this.getDescription(false)}
+          {this.getSearchResult()}
+        </>
+      );
     }
       //return 
   }

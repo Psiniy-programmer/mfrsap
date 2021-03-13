@@ -1,10 +1,5 @@
-.satellite {
-    margin-top: 0.625em;
-    margin-bottom: 1.25em;
-}
-
 .emptyFavorites__text_info {
-    margin-bottom: 0.715em;
+    margin-bottom: 20px;
 }
 
 .favorites__completed {
@@ -20,8 +15,27 @@
     cursor: pointer;
 }
 
+.satellite {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 @media only screen and (min-width: 1224px) {
     .favorites__completed {
         margin-top: 40px;
+    }
+
+    .favorites__empty {
+        margin-top: 40px;
+        max-width: 455px;
+    }
+
+    .satellite {
+        width: 150px;
+        height: 150px;
+        margin-top: unset;
+        margin-bottom: 40px;
     }
 }

@@ -1,8 +1,10 @@
 /* eslint-disable no-loop-func */
 import React, {Component} from 'react';
-import './style.css';
 import {generateUniqKey} from "../../../../helpers/helpers";
 import {Link} from "react-router-dom";
+import { connect } from 'react-redux';
+import Consts from "../../../../helpers/consts";
+import './style.css';
 
 class SearchList extends Component {
     createList() {
@@ -59,7 +61,7 @@ class SearchList extends Component {
     }
 
     listIsEmpty() {
-        const {data, title} = this.props;
+        const {data, title, windowSizes} = this.props;
         
         if (data === undefined) {
             return true
@@ -84,11 +86,15 @@ class SearchList extends Component {
     }
 
     render() {
-        
+        const textStyle =
+          this.props.windowSizes.width > Consts.DESKTOP_MIN_WIDTH
+            ? "text-bold--large"
+            : "text-regular--medium";
+
         if (!this.listIsEmpty()) {
             return (
                 <div className={'SearchList'}>
-                    <p className={'textColor text-regular--medium'}>{this.props.title}</p>
+                    <p className={`textColor ${textStyle}`}>{this.props.title}</p>
                     {this.createList()}
                 </div>
             );
@@ -96,4 +102,10 @@ class SearchList extends Component {
     }
 }
 
-export default SearchList;
+const mapStateToProps = state => {
+    return {
+        windowSizes: state.windowSizes
+    }
+}
+
+export default connect(mapStateToProps)(SearchList);

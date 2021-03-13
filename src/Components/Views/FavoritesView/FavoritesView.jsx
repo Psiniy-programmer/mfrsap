@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import FavoriteList from "./FavoriteList/FavoriteList";
 
 class FavoritesView extends Component {
-
     favoriteStorageIsEmpty() {
         const {favoriteStorage} = this.props;
         let isEmpty = true;
@@ -17,15 +16,26 @@ class FavoritesView extends Component {
 
     emptyView() {
         return (
-            <div className={'favorites__empty'}>
-                <img className={'satellite'} src={satellite} alt="imgError"/>
-                <div className={'emptyFavorites'}>
-                    <p className={'emptyFavorites__text_info text-regular--small textColor'}>Здесь пока ничего нет.</p>
-                    <p className={'emptyFavorites__text_helper text-regular--small textColor'}>Чтобы добавить группу,
-                        преподавателя или аудиторию в избранное, нажмите на звёздочку в левом верхнем углу
-                        расписания.</p>
-                </div>
+          <div className={"favorites__empty"}>
+            <img className={"satellite"} src={satellite} alt="imgError" />
+            <div className={"emptyFavorites"}>
+              <p
+                className={
+                  "emptyFavorites__text_info text-regular--small textColor"
+                }
+              >
+                Здесь пока ничего нет.
+              </p>
+              <p
+                className={
+                  "emptyFavorites__text_helper text-regular--small textColor"
+                }
+              >
+                Выберите группу, преподавателя или аудиторию на странице поиска,
+                чтобы добавить их в избранное.
+              </p>
             </div>
+          </div>
         );
     }
 

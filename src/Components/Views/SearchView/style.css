@@ -13,7 +13,6 @@
     background-color: #429C97;
     text-align: center;
     border-radius: 4px;
-    padding: 2px 0;
     cursor: pointer;
 }
 
@@ -29,9 +28,11 @@
 @media only screen and (max-width: 1224px) {
     .SearchHelper {
         margin-bottom: 10px;
+        margin-top: 20px;
     }
 
     .SearchHelper__list {
+        margin-top: 10px;
         margin-bottom: 10px;
     }
 

@@ -5,7 +5,11 @@
 }
 
 .SearchTittle_text {
-    width: 100%
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
 }
 
 .SearchTittle img {

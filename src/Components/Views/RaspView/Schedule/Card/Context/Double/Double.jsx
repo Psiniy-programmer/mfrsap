@@ -47,7 +47,7 @@ class Double extends Component {
   }
 
   getEmpty(opacity, soonClass) {
-    let color = soonClass.length > 0 ? soonClass : 'scheduleColor';
+    let color = (!soonClass && soonClass !== undefined && soonClass.length > 0)  ? soonClass : 'scheduleColor';
 
     
     return (

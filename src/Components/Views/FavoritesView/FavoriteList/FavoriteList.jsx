@@ -64,8 +64,8 @@ class FavoriteList extends Component {
             }
 
             let link = this.findLink(info);
-            let temp = <div className={'FavoriteList_item'}>
-                <Link className={'fullWidth'} key={generateUniqKey('favItem_', index)} to={`/list/${link}`}>
+            let temp = <div key={generateUniqKey('favItem_', item)} className={'FavoriteList_item'}>
+                <Link className={'fullWidth'}  to={`/list/${link}`}>
                     <p className={'FavoriteList_item__context text-medium--small raspTextColor'}>
                         {item}
                     </p>

@@ -1,14 +1,53 @@
 import React, {Component} from 'react';
+import { createForm } from 'final-form';
 import './style.css'
+
+const onSubmit = async val => {
+    alert(val);
+}
 
 class Feedback extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
+        
+        const initialState = {
             email : '',
             message : ''
-        }
+        };
+        let inConstructor = true;
+        this.form = createForm({ onSubmit })
+
+        // subscribe to form changes
+    this.unsubscribe = this.form.subscribe(
+        formState => {
+          // cannot call setState in constructor, but need to on subsequent notifications
+          if (inConstructor) {
+            initialState.formState = formState
+          } else {
+            this.setState({ formState })
+          }
+        },
+        { active: true, pristine: true, submitting: true, values: true }
+      )
+  
+      // register fields
+      this.unsubscribeFields = ['email', 'message'].map(fieldName =>
+        this.form.registerField(
+          fieldName,
+          fieldState => {
+            // cannot call setState in constructor, but need to on subsequent notifications
+            if (inConstructor) {
+              initialState[fieldName] = fieldState
+            } else {
+              this.setState({ [fieldName]: fieldState })
+            }
+          },
+          { value: true }
+        )
+      )
+    
+      this.state = initialState
+      inConstructor = false
     }
 
     saveEmail() {
