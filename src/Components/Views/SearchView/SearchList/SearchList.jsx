@@ -61,7 +61,7 @@ class SearchList extends Component {
     }
 
     listIsEmpty() {
-        const {data, title, windowSizes} = this.props;
+        const {data, title} = this.props;
         
         if (data === undefined) {
             return true
