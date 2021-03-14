@@ -2,6 +2,7 @@
     height: 45px;
     background-color: var(--current--theme--bg);
     display: flex;
+    gap: 40px;
     flex-direction: row;
     justify-content: center;
 }
@@ -11,7 +12,7 @@
     }
 }
 .NavigationBar a {
-    padding: 0.75em 2.188em;
+    padding: 10px;
 }
 
 @media only screen and (max-width: 1224px) {
