@@ -3,7 +3,7 @@ import { createForm } from 'final-form';
 import './style.css'
 
 const onSubmit = async val => {
-    alert(val);
+    alert(JSON.stringify(val, 0, 2));
 }
 
 class Feedback extends Component {
@@ -17,10 +17,8 @@ class Feedback extends Component {
         let inConstructor = true;
         this.form = createForm({ onSubmit })
 
-        // subscribe to form changes
     this.unsubscribe = this.form.subscribe(
         formState => {
-          // cannot call setState in constructor, but need to on subsequent notifications
           if (inConstructor) {
             initialState.formState = formState
           } else {
@@ -29,13 +27,11 @@ class Feedback extends Component {
         },
         { active: true, pristine: true, submitting: true, values: true }
       )
-  
-      // register fields
+
       this.unsubscribeFields = ['email', 'message'].map(fieldName =>
         this.form.registerField(
           fieldName,
           fieldState => {
-            // cannot call setState in constructor, but need to on subsequent notifications
             if (inConstructor) {
               initialState[fieldName] = fieldState
             } else {
@@ -50,24 +46,26 @@ class Feedback extends Component {
       inConstructor = false
     }
 
-    saveEmail() {
-        this.setState({email : this.emailInput.value})
+    componentWillUnmount() {
+      this.unsubscribe();
+      this.unsubscribeFields.forEach(unsubscribe => unsubscribe())
     }
 
-    saveMessage() {
-        this.setState({message : this.messageInput.value})
+    handleSumbit = (event) => {
+      event.preventDefault();
+      this.form.submit();
     }
 
     render() {
+      const {formState, email, message} = this.state;
+
         return <div className={'feedback'}>
             <h2 className={'text-bold--header textColor'}>Обратная связь</h2>
-            <form method={'post'} name={'feedback_form'} className={'feedback__form'}>
+            <form onSubmit={this.handleSumbit} method={'post'} name={'feedback_form'} className={'feedback__form'}>
                 <input
-                    onChange={this.saveEmail.bind(this)}
-                    value={this.state.email}
-                    ref={(input) => {
-                        this.emailInput = input
-                    }}
+                    onChange={(event) => email.change(event.target.value)}
+                    value={email.value || ''}
+                    onBlur={message.blur()}
                     className={'Input text-medium--medium textColor'}
                     placeholder={'Ваш email'}
                     type={'email'}
@@ -75,11 +73,9 @@ class Feedback extends Component {
                 />
 
                 <textarea
-                    onChange={this.saveMessage.bind(this)}
-                    value={this.state.message}
-                    ref={(input) => {
-                        this.messageInput = input
-                    }}
+                    onChange={(event) => message.change(event.target.value)}
+                    value={message.value || ''}
+                    onBlur={message.blur()}
                     className={'Input Input__message text-medium--medium textColor'}
                     placeholder={'Ваше сообщение'}
                     required={true}
@@ -87,7 +83,9 @@ class Feedback extends Component {
 
                 <button
                     className={'feedback__submit text-medium--medium raspTextColor'}
-                    type={"submit"}>
+                    type={"submit"}
+                    disabled={formState.submitting}
+                >
                     Отправить
                 </button>
             </form>
