@@ -6,3 +6,7 @@
 .FavoriteList_item__context {
     padding: 16px 16px 16px 20px;
 }
+
+.FavoriteList_item {
+    max-width: 455px;
+}

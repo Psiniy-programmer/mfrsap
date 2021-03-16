@@ -8,6 +8,16 @@
   padding: 0 0.625em 1em 0.625em;
 }
 
+.context_aud .context__leftInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.context_aud .context__leftInfo .context__underSubject,
+.context_aud .context__leftInfo .context-under {
+  text-align: end;
+}
+
 .context {
   padding: 0 0.625em 1em 0.625em;
 }
@@ -58,10 +68,18 @@
 }
 
 @media only screen and (min-width: 1224px) {
+  .underSubject__double {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  /* .context {
+    /* display: unset; */
+  /* }  */
+
   .context__leftInfo {
     display: grid;
     grid-template-rows: repeat(1, 1fr);
-    grid-template-columns: 400px auto;
+    grid-template-columns: 1fr 0.5fr 0.5fr
   }
 
   .context__timer {

@@ -24,9 +24,9 @@ class Card extends Component {
 
     const curTime = date.getHours() * 60 + date.getMinutes();
     const nextPair = t[0] * 60 + t[1];
-    const diffTime = Math.abs(nextPair - curTime);
+    const diffTime = nextPair - curTime;
     
-    if (diffTime <= 60) {
+    if (diffTime > 0 && diffTime <= 60) {
       this.setState({ diff: diffTime, soon: true });
     }
   }
@@ -76,6 +76,7 @@ class Card extends Component {
     
     return isDouble ? (
       <Double
+        type={type}
         soon={soon}
         diff={diff}
         data={pair}
@@ -85,6 +86,7 @@ class Card extends Component {
       />
     ) : (
       <Single
+        type={type}
         soon={soon}
         diff={diff}
         timer={pairtime}

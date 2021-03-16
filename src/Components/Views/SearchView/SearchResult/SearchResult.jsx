@@ -6,7 +6,6 @@ import './style.css';
 class SearchResult extends Component {
     render() {
         const {groupsList, teachersList, auditoryList} = this.props
-        console.log('render')
         return (
           <div className={`SearchResult`}>
             <SearchList title={"Группы"} data={groupsList} />

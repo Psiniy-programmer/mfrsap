@@ -65,7 +65,23 @@ class RaspHeader extends Component {
       day: "numeric",
     };
     const storageItem = localStorage.getItem(data[type]);
+    let raspHeader = '';
     let dateText = date.toLocaleDateString("ru", options);
+
+    switch(type) {
+      case 'aud': 
+        raspHeader = 'Аудитория ';
+        break;
+      case 'group':
+        raspHeader = 'Группа ';
+        break;
+      default:  
+        break;
+    }
+    
+    if (data[type] !== undefined) {
+      raspHeader += data[type];
+    }
 
     dateText = dateText.substring(0, dateText.length - 3); // удаляем лишние буквы из года
     dateText += ` — ${this.getHeaderWeek()}`;
@@ -74,7 +90,7 @@ class RaspHeader extends Component {
       <>
         <div className={"Header_Text"}>
           <h3 className={"header__text_title text-bold--header textColor"}>
-            {data[type]}
+            {raspHeader}
           </h3>
         </div>
         <div className={"RaspHeader textColor"}>

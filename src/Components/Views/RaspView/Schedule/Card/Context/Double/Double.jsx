@@ -7,7 +7,46 @@ class Double extends Component {
     return opacity ? "context_unactive" : "context_active";
   }
 
+  getAudInfo(info, data, opacity, soonClass) {
+
+    return (
+      <>
+        <div
+          className={`${
+            "context_aud"
+          } ${this.isOpacity(!opacity)} scheduleColor`}
+        >
+          <div className="context__leftInfo">
+            <h4 className={`context__subject text-bold--large ${soonClass}`}>
+              {data.subject}
+            </h4>
+            {info.underSubject !== "" && info.underSubject !== undefined ? (
+              <div
+                className={`context__underSubject text-regular--small ${info.rightInfo !== null ? "underSubject__double" : ''} ${soonClass}`}
+              >
+                <p>
+                {info.underSubject.constructor === Array
+                  ? info.underSubject.join(", ")
+                  : info.underSubject}</p>
+                <p>{info.rightInfo !== null ? info.rightInfo : ''}</p>
+              </div>
+            ) : null}
+            {info.leftInfo !== null && info.leftInfo !== undefined ? (
+              <p className={`context-under text-regular--small ${soonClass}`}>
+                {info.leftInfo.constructor === Array
+                  ? info.leftInfo.join(", ")
+                  : info.leftInfo}
+              </p>
+            ) : null}
+          </div>
+        </div>
+      </>
+    );
+  }
+
   getRasp(info, data, opacity, soonClass) {
+    const { type } = this.props;
+    if (type === 'aud') return this.getAudInfo(info, data, opacity, soonClass);
     return (
       <>
         <div
@@ -47,12 +86,16 @@ class Double extends Component {
   }
 
   getEmpty(opacity, soonClass) {
-    let color = (!soonClass && soonClass !== undefined && soonClass.length > 0)  ? soonClass : 'scheduleColor';
+    let color =
+      !soonClass && soonClass !== undefined && soonClass.length > 0
+        ? soonClass
+        : "scheduleColor";
 
-    
     return (
       <p
-        className={`context text-bold--large ${color} ${this.isOpacity(!opacity)}`}
+        className={`context text-bold--large ${color} ${this.isOpacity(
+          !opacity
+        )}`}
       >
         Занятия нет
       </p>

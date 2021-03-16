@@ -60,9 +60,15 @@ class Timer extends Component {
 
     switch (currentTheme) {
       case SYSTEM_THEME:
-        color = matchMedia("(prefers-color-scheme: dark)").matches
+        if (sizes) {
+          color = matchMedia("(prefers-color-scheme: dark)").matches
           ? white
           : black;
+        } else {
+          color = matchMedia("(prefers-color-scheme: dark)").matches
+          ? black
+          : white;
+        }
         break;
       case LIGHT_THEME:
         color = sizes ? black : white;
