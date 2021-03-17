@@ -8,17 +8,60 @@ class Single extends Component {
     return opacity ? "context_unactive" : "context_active";
   }
 
-  render() {
-    const {
+  getTeacherInfo(soonClass) {
+    return;
+  }
+
+  getGroupInfo(soonClass) {
+    return <></>
+  }
+
+  getAudInfo(soonClass) {
+    const { 
       soon,
       diff,
+      timer,
       subject,
       underSubject,
       leftInfo,
       rightInfo,
-      timer,
-      isEmpty,
     } = this.props;
+
+    return (
+      <div className={`schedule-item schedule-item__Single ${soonClass}`}>
+        <Timer soon={soon} diff={diff} timer={timer} />
+        <div
+          className={`context_aud scheduleColor`}
+        >
+          <div className="context__leftInfo">
+            <h4 className={`context__subject text-bold--large ${soonClass}`}>
+              {subject}
+            </h4>
+            {underSubject !== undefined && underSubject.length !== 0 ? (
+              <p
+                className={`context__underSubject text-regular--small ${soonClass}`}
+              >
+                {underSubject}
+              </p>
+            ) : null}
+            <div className={`${rightInfo !== null ?  'leftInfo__double' : ''}`}>
+              {leftInfo !== null && leftInfo !== undefined ? (
+                <p className={`context-under text-regular--small ${soonClass}`}>
+                  {leftInfo.constructor === Array
+                    ? leftInfo.join(", ")
+                    : leftInfo}
+                </p>
+              ) : null}
+              <p className={`text-regular--small ${soonClass}`}>{rightInfo}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    const { soon, timer, isEmpty, type } = this.props;
 
     const soonClass = soon ? "soon" : "";
 
@@ -36,41 +79,18 @@ class Single extends Component {
         </div>
       );
     else {
-      return (
-        <div className={`schedule-item schedule-item__Single ${soonClass}`}>
-          <Timer soon={soon} diff={diff} timer={timer} />
-          <div
-            className={`${
-              rightInfo === null ? "context_aud" : "context"
-            } scheduleColor`}
-          >
-            <div className="context__leftInfo">
-              <h4 className={`context__subject text-bold--large ${soonClass}`}>
-                {subject}
-              </h4>
-              {underSubject !== undefined && underSubject.length !== 0 ? (
-                <p
-                  className={`context__underSubject text-regular--small ${soonClass}`}
-                >
-                  {underSubject}
-                </p>
-              ) : null}
-              {leftInfo !== null && leftInfo !== undefined ? (
-                <p className={`context-under text-regular--small ${soonClass}`}>
-                  {leftInfo.constructor === Array
-                    ? leftInfo.join(", ")
-                    : leftInfo}
-                </p>
-              ) : null}
-            </div>
-            <div
-              className={rightInfo === null ? "empty" : "context__rightInfo"}
-            >
-              <p className={`text-regular--small ${soonClass}`}>{rightInfo}</p>
-            </div>
-          </div>
-        </div>
-      );
+      console.error(type);
+
+      switch (type) {
+        case "aud":
+          return this.getAudInfo(soon);
+        case "group":
+          return this.getGroupInfo(soon);
+        case "teacher":
+          return this.getTeacherInfo(soon);
+        default:
+          break;
+      }
     }
   }
 }

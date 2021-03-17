@@ -8,15 +8,7 @@
   padding: 0 0.625em 1em 0.625em;
 }
 
-.context_aud .context__leftInfo {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
 
-.context_aud .context__leftInfo .context__underSubject,
-.context_aud .context__leftInfo .context-under {
-  text-align: end;
-}
 
 .context {
   padding: 0 0.625em 1em 0.625em;
@@ -52,8 +44,13 @@
   opacity: 0.5;
 }
 
-.context__subject {
+.context__subject, .context__underSubject {
   margin-bottom: 6px;
+}
+
+.subject__single {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .diff__timer {
@@ -67,19 +64,42 @@
   display: flex;
 }
 
+  .underSubject__double, .leftInfo__double, .subject__double {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dopInfo {
+    text-align: end;
+  }
+
 @media only screen and (min-width: 1224px) {
-  .underSubject__double {
+  .context_aud .context__leftInfo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dopInfo {
+    text-align: unset;
+  }
+  
+  .context_aud .context__leftInfo .context-under {
+    text-align: end;
+  }
+
+
+  .underSubject__double, .leftInfo__double, .subject__double {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: unset;
+    text-align: end;
   }
-  /* .context {
-    /* display: unset; */
-  /* }  */
 
   .context__leftInfo {
     display: grid;
     grid-template-rows: repeat(1, 1fr);
-    grid-template-columns: 1fr 0.5fr 0.5fr
+    grid-template-columns: 1fr 0.5fr 0.5fr;
+    gap:30px;
   }
 
   .context__timer {
@@ -96,7 +116,9 @@
   }
 
   .context__subject {
+    text-align: start;
     margin-bottom: unset;
+    min-width: 445px;
   }
 
   .context__rightInfo {

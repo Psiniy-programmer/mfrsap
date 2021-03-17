@@ -7,30 +7,58 @@ class Double extends Component {
     return opacity ? "context_unactive" : "context_active";
   }
 
-  getAudInfo(info, data, opacity, soonClass) {
-
+  getGroupInfo(info, data, opacity, soonClass) {
     return (
-      <>
-        <div
-          className={`${
-            "context_aud"
-          } ${this.isOpacity(!opacity)} scheduleColor`}
-        >
-          <div className="context__leftInfo">
-            <h4 className={`context__subject text-bold--large ${soonClass}`}>
-              {data.subject}
-            </h4>
+      <div
+        className={`${"context_aud"} ${this.isOpacity(!opacity)} scheduleColor`}
+      >
+        <div className="context__leftInfo">
+          <h4 className={`context__subject text-bold--large ${soonClass} ${info.leftInfo !== null ? 'subject__double' : 'subject__single'}`}>
+            {data.subject}
+            {info.leftInfo !== null ? <p className="dopInfo">{info.leftInfo}</p> : ""}
+          </h4>
             {info.underSubject !== "" && info.underSubject !== undefined ? (
-              <div
-                className={`context__underSubject text-regular--small ${info.rightInfo !== null ? "underSubject__double" : ''} ${soonClass}`}
+              <p
+                className={`context__underSubject text-regular--small ${soonClass}`}
               >
-                <p>
                 {info.underSubject.constructor === Array
                   ? info.underSubject.join(", ")
-                  : info.underSubject}</p>
-                <p>{info.rightInfo !== null ? info.rightInfo : ''}</p>
-              </div>
+                  : info.underSubject}
+              </p>
             ) : null}
+          {info.rightInfo !== null && info.rightInfo !== undefined ? (
+            <p className={`context-under text-regular--small ${soonClass}`}>
+              {info.rightInfo.constructor === Array
+                ? info.rightInfo.join(", ")
+                : info.rightInfo}
+            </p>
+          ) : null}
+        </div>
+      </div>
+    );
+  }
+
+  getAudInfo(info, data, opacity, soonClass) {
+    return (
+      <div
+        className={`${"context_aud"} ${this.isOpacity(!opacity)} scheduleColor`}
+      >
+        <div className="context__leftInfo">
+          <h4 className={`context__subject text-bold--large ${soonClass}`}>
+            {data.subject}
+          </h4>
+          {info.underSubject !== "" && info.underSubject !== undefined ? (
+            <p
+              className={`context__underSubject text-regular--small ${soonClass}`}
+            >
+              {info.underSubject.constructor === Array
+                ? info.underSubject.join(", ")
+                : info.underSubject}
+            </p>
+          ) : null}
+          <div
+            className={`${info.rightInfo !== null ? "leftInfo__double" : ""}`}
+          >
             {info.leftInfo !== null && info.leftInfo !== undefined ? (
               <p className={`context-under text-regular--small ${soonClass}`}>
                 {info.leftInfo.constructor === Array
@@ -38,15 +66,24 @@ class Double extends Component {
                   : info.leftInfo}
               </p>
             ) : null}
+            {info.rightInfo !== null ? <p className="dopInfo">{info.rightInfo}</p> : ""}
           </div>
         </div>
-      </>
+      </div>
     );
   }
 
   getRasp(info, data, opacity, soonClass) {
     const { type } = this.props;
-    if (type === 'aud') return this.getAudInfo(info, data, opacity, soonClass);
+    switch (type) {
+      case 'aud':
+        return this.getAudInfo(info, data, opacity, soonClass);
+      case 'group':
+        return this.getGroupInfo(info, data, opacity, soonClass);
+      default:
+        break;
+    }
+    if (type === "aud") return this.getAudInfo(info, data, opacity, soonClass);
     return (
       <>
         <div
