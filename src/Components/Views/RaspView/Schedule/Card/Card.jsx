@@ -41,7 +41,7 @@ class Card extends Component {
     if (!pair.length) {
       return <Single isEmpty={true} timer={pairtime} />;
     }
-    console.error(this.props.rasp);
+    // console.error(this.props.rasp);
     switch (type) {
       case "group":
         for (let i = 0; i < pair.length; i++) {
@@ -74,29 +74,30 @@ class Card extends Component {
         break;
     }
     
-    return isDouble ? (
-      <Double
-        type={type}
-        soon={soon}
-        diff={diff}
-        data={pair}
-        info={info}
-        opacity={!isOdd}
-        timer={pairtime}
-      />
-    ) : (
-      <Single
-        type={type}
-        soon={soon}
-        diff={diff}
-        timer={pairtime}
-        opacity={!!isOdd}
-        subject={pair[0].subject}
-        underSubject={info[0].underSubject}
-        leftInfo={info[0].leftInfo}
-        rightInfo={info[0].rightInfo}
-      />
-    );
+    return <div>kek</div>
+    // return isDouble ? (
+    //   <Double
+    //     type={type}
+    //     soon={soon}
+    //     diff={diff}
+    //     data={pair}
+    //     info={info}
+    //     opacity={!isOdd}
+    //     timer={pairtime}
+    //   />
+    // ) : (
+    //   <Single
+    //     type={type}
+    //     soon={soon}
+    //     diff={diff}
+    //     timer={pairtime}
+    //     opacity={!!isOdd}
+    //     subject={pair[0].subject}
+    //     underSubject={info[0].underSubject}
+    //     leftInfo={info[0].leftInfo}
+    //     rightInfo={info[0].rightInfo}
+    //   />
+    // );
   }
 }
 

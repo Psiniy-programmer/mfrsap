@@ -79,7 +79,7 @@ class Single extends Component {
         </div>
       );
     else {
-      console.error(type);
+      // console.error(type);
 
       switch (type) {
         case "aud":
