@@ -1,18 +1,15 @@
 import React, { Component } from "react";
-import { generateUniqKey } from "../../../../helpers/helpers";
 import { connect } from "react-redux";
-import Card from "./Card/Card";
 import RaspItem from "../../../RaspItem/RaspItem";
 import "./style.css";
 import Group from "./Types/Group/Group";
 
 class Schedule extends Component {
   
-
   getCommonRasp(curDay) {
     const { pairList } = curDay;
     const { type } = this.props;
-    
+
     switch(type) {
       case 'group':
         return <Group pairList={pairList} />

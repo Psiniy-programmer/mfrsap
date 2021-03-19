@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style.css";
 import { connect } from "react-redux";
 import {
   DARK_THEME,
@@ -7,6 +6,7 @@ import {
   SYSTEM_THEME,
 } from "../../../../../../../reducers/theme";
 import Consts from "../../../../../../../helpers/consts";
+import "./style.css";
 
 const red = "#c15555",
   black = "#09201e",

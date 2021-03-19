@@ -1,3 +1,27 @@
-.kekekeke {
-    color: red;
+.rasp {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.rasp__item {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--green);
+}
+
+.pair__item_teacher {
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+.rasp__item_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rasp__item_aud {
+    display: flex;
+    align-items: end;
 }

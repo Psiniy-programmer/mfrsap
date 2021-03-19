@@ -1,36 +1,35 @@
 .emptyCard {
-    display: grid;
-    gap: 12px;
-    grid-template-rows: 1fr;
-    background-color: var(--green);
-    border-radius: 4px;
-    padding-left: 10px;
-    padding-right: 0;
-}
-
-@media only screen and (min-width: 1224px) {
-    .emptyCard {
-        grid-template-rows: unset;
-        grid-template-columns: 255px 100%;
-        background-color: unset;
-    }
-
-    .emptyCard__text {
-        padding-bottom: unset;
-    }
-}
-
-.emptyCard__timer {
-    display: flex;
-    padding-top: 16px;
-}
-
-.timer__img {
-    margin-right: 0.572em;
-    width: 16px;
-    height: 16px;
+  display: grid;
+  grid-template-rows: 1fr;
+  background-color: var(--green);
+  border-radius: 4px;
+  padding-right: 0;
 }
 
 .emptyCard__text {
-    padding-bottom: 16px;
+  padding-top: 12px;
+  padding-bottom: 6px;
+}
+
+@media only screen and (min-width: 1224px) {
+  .emptyCard {
+    grid-template-rows: unset;
+    grid-template-columns: 255px 100%;
+    background-color: unset;
+  }
+
+  .emptyCard__text {
+    padding-bottom: unset;
+  }
+}
+
+.emptyCard__timer {
+  display: flex;
+  padding-top: 16px;
+}
+
+.timer__img {
+  margin-right: 0.572em;
+  width: 16px;
+  height: 16px;
 }

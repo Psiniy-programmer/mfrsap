@@ -1,0 +1,29 @@
+.context__timer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.context__timer p,
+.diff_timer_pair p,
+.diff__timer_dif p {
+  display: flex;
+  align-items: center;
+}
+
+.context__timer_svg,
+.diff__timer_svg {
+  display: flex;
+  align-items: center;
+}
+
+.diff_timer_pair,
+.diff__timer_dif {
+  display: flex;
+  gap: 8px;
+}
+
+.diff__timer {
+  display: flex;
+  justify-content: space-between;
+}
