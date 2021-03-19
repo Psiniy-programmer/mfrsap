@@ -2,6 +2,7 @@
   display: flex;
   gap: 8px;
   align-items: center;
+  margin-bottom: 12px;
 }
 
 .context__timer p,
@@ -23,7 +24,33 @@
   gap: 8px;
 }
 
+.context__timer_info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .diff__timer {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+@media only screen and (min-width: 1224px) {
+  .context__timer,
+  .diff__timer {
+    min-width: 255px;
+    align-items: flex-start;
+  }
+
+  .context__timer_info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .diff__timer {
+    flex-direction: column;
+    gap: 6px;
+  }
 }

@@ -191,6 +191,43 @@ const mergeObjects = (source, target) => {
   return target;
 }
 
+const checkItem = (item) => {
+  return item !== undefined && item.length !== 0;
+}
+
+const getTimer = (cur, date) => {
+  const { pairtime } = cur;
+  // const { date } = this.props.appTimer;
+  const t = pairtime
+    .split("—")[0]
+    .split(":")
+    .map((i) => Number(i));
+  let res = { diff: null, soon: false, timer: pairtime };
+
+  const curTime = date.getHours() * 60 + date.getMinutes();
+  const nextPair = t[0] * 60 + t[1];
+  const diffTime = nextPair - curTime;
+  // const diffTime = 40;
+
+  if (diffTime > 0 && diffTime <= 60) {
+    res.diff = diffTime;
+    res.soon = true;
+  }
+
+  return res;
+}
+
+const checkIsDouble = (cur) => {
+  const { pair } = cur;
+  let isDouble = false;
+
+  if (pair.length > 1) {
+    isDouble = true;
+  }
+
+  return isDouble;
+}
+
 export {
   changeLangEngToRus,
   changeLangRusToEng,
@@ -204,5 +241,8 @@ export {
   finderIsEmpty,
   getRaspType,
   switchNumber,
-  mergeObjects
+  mergeObjects,
+  checkItem,
+  getTimer,
+  checkIsDouble
 };

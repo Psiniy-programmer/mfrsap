@@ -128,8 +128,18 @@ body {
   }
 }
 
+.content {
+  max-width: 455px;
+  margin: 0 auto;
+}
+
 /*Десктопы*/
 @media only screen and (min-width: 1224px) {
+  .content {
+    max-width: unset;
+    margin: unset;
+  }
+  
   h2 {
     margin: unset;
   }
@@ -145,7 +155,8 @@ body {
       url("img/bg-decorative_horizontal.svg"),
       url("img/bg-decorative_horizontal.svg"),
       url("img/bg-decorative_horizontal.svg");
-    background-position: top left, bottom right, top 68.5% right 36%, top 28% right 19.2%;
+    background-position: top left, bottom right, top 68.5% right 36%,
+      top 28% right 19.2%;
     background-repeat: no-repeat;
   }
 
@@ -162,6 +173,7 @@ body {
   .NavigationBar {
     justify-self: end;
   }
+
 
   .content_info {
     max-width: 455px;

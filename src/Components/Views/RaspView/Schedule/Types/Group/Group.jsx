@@ -1,96 +1,124 @@
 import React, { Component } from "react";
 import Timer from "../../Card/Context/Timer/Timer";
 import { connect } from "react-redux";
-import "./style.modules.css";
 import EmptyCard from "../../EmptyCard/EmptyCard";
+import {
+  checkItem,
+  getTimer,
+  checkIsDouble,
+} from "../../../../../../helpers/helpers";
+import "./style.modules.css";
 
 class Group extends Component {
-  checkItem(item) {
-    console.log(item);
-    return item !== undefined && item.length !== 0;
-  }
+  getKek(item, index) {
+    const arr = [];
+    const temp = [];
 
-  getTimer(cur) {
-    const { pairtime } = cur;
-    const { date } = this.props.appTimer;
-    const t = pairtime
-      .split("—")[0]
-      .split(":")
-      .map((i) => Number(i));
-    let res = { diff: null, soon: false, timer: pairtime };
-
-    const curTime = date.getHours() * 60 + date.getMinutes();
-    const nextPair = t[0] * 60 + t[1];
-    const diffTime = nextPair - curTime;
-    // const diffTime = 40;
-
-    if (diffTime > 0 && diffTime <= 60) {
-      res.diff = diffTime;
-      res.soon = true;
+    if (item[index] === undefined) {
+      return <EmptyCard/>
     }
 
-    return <Timer soon={res.soon} diff={res.diff} timer={res.timer} />;
-  }
+    const aud = checkItem(item[index].aud) ? (
+      <p className="text-regular--small">{item[index].aud}</p>
+    ) : (
+      <p>----</p>
+    );
 
-  checkIsDouble(cur) {
-    const { pair } = cur;
-    let isDouble = false;
-
-    if (pair.length > 1) {
-      isDouble = true;
+    if (checkItem(item[index].subject)) {
+      temp.push(
+        <h4
+          key={item[index].subject}
+          className="pair__item_subject text-bold--large"
+        >
+          {item[index].subject}
+        </h4>
+      );
     }
 
-    return isDouble;
+    if (checkItem(item[index].subgroup)) {
+      temp.push(
+        <p
+          className="pair__item_subgroup text-regular--small"
+          key={item[index].subgroup}
+        >
+          {item[index].subgroup + " подгруппа"}
+        </p>
+      );
+    }
+
+    if (checkItem(item[index].teacher)) {
+      arr.push(
+        <p
+          className="pair__item_teacher text-regular--small"
+          key={item[index].teacher}
+        >
+          {item[index].teacher}
+        </p>
+      );
+    }
+
+    arr.push(<div className="item__main">{temp}</div>);
+
+    return (
+      <>
+        <div className="rasp__item_main">{arr}</div>
+        <p className="rasp__item_aud">{aud}</p>
+      </>
+    );
   }
 
   getRasp() {
     const { pairList } = this.props;
     const res = [];
 
-    pairList.forEach((item, index) => {
-      if (this.checkIsDouble(item)) {
-        return res.push(
-          "double"
-          // <div className={"rasp__item"}>{this.getPair(item)}</div>
-        );
+    pairList.forEach((item) => {
+      if (checkIsDouble(item)) {
+        return res.push(this.getDoublePair(item));
       } else {
-        return res.push(this.getSinglePair(item, index));
+        return res.push(this.getSinglePair(item));
       }
     });
     return res;
   }
 
-  getSinglePair(item, pairIndex) {
+  getSinglePair(item) {
     const { pair } = item;
+    const diff = getTimer(item, this.props.appTimer.date);
+    const timer = (
+      <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
+    );
 
-    if (pair[0] === undefined || pair[0].length === 0) {
-      return <EmptyCard index={pairIndex}>{this.getTimer(item)}</EmptyCard>;
-    }
-
-    const res = [];
-    const timer = this.getTimer(item);
-    const aud = this.checkItem(pair[0].aud) ? pair[0].aud : <p>----</p>;
-
-    if (this.checkItem(pair[0].subject)) {
-      res.push(<h4 className="pair__item_teacher">{pair[0].subject}</h4>);
-    }
-
-    if (this.checkItem(pair[0].teacher)) {
-      res.push(<p>{pair[0].teacher}</p>);
-    }
-
-    if (this.checkItem(pair[0].subgroup)) {
-      res.push(<p>{pair[0].subgroup}</p>);
-    }
-
-    console.error(pair);
+    const res = this.getKek(pair, 0);
 
     return (
-      <div className={"rasp__item"}>
+      <div key={diff.timer} className={`rasp__item ${diff.soon ? "soon" : ""}`}>
         {timer}
-        <div className="rasp__item_info">
-          <div className="rasp__item_main">{res}</div>
-          <p className="rasp__item_aud">{aud}</p>
+        <div className={`rasp__item_info ${diff.soon ? 'soon' : 'scheduleColor'}`}>{res}</div>
+      </div>
+    );
+  }
+
+  getDoublePair(item, pairIndex) {
+    const { pair } = item;
+    const diff = getTimer(item, this.props.appTimer.date);
+    const timer = (
+      <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
+    );
+
+    if (!checkItem(pair[0])) {
+      return <EmptyCard index={pairIndex}>{timer}</EmptyCard>;
+    }
+
+    const num = this.getKek(pair, 0);
+    const denum = this.getKek(pair, 1);
+
+    return (
+      <div className={`rasp__item scheduleColor `}>
+        {timer}
+        <div className="rasp__item_double">
+          <div className="rasp__item_info">{num}</div>
+          <div className="splitter" />
+          <div className="rasp__item_info">{denum}</div>
         </div>
       </div>
     );

@@ -7,7 +7,6 @@
 }
 
 .emptyCard__text {
-  padding-top: 12px;
   padding-bottom: 6px;
 }
 
@@ -16,6 +15,7 @@
     grid-template-rows: unset;
     grid-template-columns: 255px 100%;
     background-color: unset;
+    padding: unset;
   }
 
   .emptyCard__text {

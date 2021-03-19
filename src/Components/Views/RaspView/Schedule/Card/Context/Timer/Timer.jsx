@@ -91,8 +91,10 @@ class Timer extends Component {
     if (diff === null || diff === undefined) {
       return (
         <div className={`context__timer scheduleColor`}>
-          <div className="context__timer_svg">{this.getTimerSvg(iconsColor)}</div>
-          <p className={`text-regular--small ${soonClass}`}>{timer}</p>
+          <div className="context__timer_info">
+            <div className="context__timer_svg">{this.getTimerSvg(iconsColor)}</div>
+            <p className={`text-regular--small ${soonClass}`}>{timer}</p>
+          </div>
         </div>
       );
     } else {
