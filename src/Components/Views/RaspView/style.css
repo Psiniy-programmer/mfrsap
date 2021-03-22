@@ -1,5 +1,4 @@
 .RaspView {
     display: grid;
-    grid-gap: var(--items--gap);
     background: var(--current--theme--bg);
 }

@@ -38,7 +38,14 @@
     margin-bottom: 0.715em;
 }
 
+.SearchTittle__title {
+    margin-top: 11px;
+}
+
 @media only screen and (min-width: 1224px) {
+    .SearchTittle__title {
+        margin-top: unset;
+    }
     .AppHeader {
         margin-bottom: 60px;
     }

@@ -43,7 +43,7 @@ h2 {
 
 body {
   font-family: "Roboto-Medium", sans-serif;
-  margin: 11px 10px 65px;
+  margin: 0 10px 65px;
   background-color: var(--current--theme--bg);
   width: auto;
 }

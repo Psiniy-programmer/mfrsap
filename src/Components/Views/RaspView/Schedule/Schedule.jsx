@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import RaspItem from "../../../RaspItem/RaspItem";
 import "./style.css";
 import Group from "./Types/Group/Group";
+import Teacher from "./Types/Teacher/Teacher";
 
 class Schedule extends Component {
   
@@ -12,7 +13,9 @@ class Schedule extends Component {
 
     switch(type) {
       case 'group':
-        return <Group pairList={pairList} />
+        return <Group pairList={pairList} />;
+      case 'teacher':
+        return <Teacher pairList={pairList}/>;
       default:
         break;
     }
@@ -21,10 +24,8 @@ class Schedule extends Component {
   getRasp(curDay) {
     const { day } = this.props.raspData.data;
     let isEmpty = true;
-
-    console.error(day[curDay].special_day);
-
-    if (!day[curDay].special_day) {
+    console.log(day);
+    if (day !== undefined && !day[curDay].special_day) {
       day[curDay].pairList.map((item) => {
         if (item.pair.length !== 0) isEmpty = false;
         return null;

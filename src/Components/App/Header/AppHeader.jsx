@@ -13,7 +13,7 @@ class AppHeader extends Component {
             <div onClick={this.props.clearInput} className={'SearchTittle'}>
                 <img src={bmstu_logo} alt="error"/>
                 <Link className={'textColor SearchTittle_text'} to="/">
-                    <h1 className={'text-bold--large'}>Расписание МФ МГТУ</h1>
+                    <h1 className={'SearchTittle__title text-bold--large'}>Расписание МФ МГТУ</h1>
                 </Link>
             </div>
             {windowSizes.width > Consts.DESKTOP_MIN_WIDTH ?

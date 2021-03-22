@@ -51,7 +51,13 @@ class Rasp extends Component {
     const { type } = this.state;
     const { match, updateDayIndex } = this.props;
     const { isOdd, dayIndex } = this.props.appTimer;
-    
+
+    for (let k in this.props.raspData.data.day) {
+      if (this.props.raspData.data.day[k].special_day) {
+        console.log("KEKEKEK")
+      }
+    }
+
     return (
       <div className={"RaspView"}>
         {this.getHeader()}
@@ -68,7 +74,6 @@ const mapStateToProps = (state) => {
     appTimer: state.appTimer,
     windowSize: state.windowSizes,
     raspData: state.raspData,
-    groupsList: state.groupsList,
   };
 };
 

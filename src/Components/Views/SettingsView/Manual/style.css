@@ -1,0 +1,13 @@
+.manual--text {
+    margin-top: 10px;
+}
+
+@media only screen and (min-width: 1224px) {
+    .manual {
+        width: 455px;
+    }
+
+    .manual--text {
+        margin-top: 40px;
+    }
+}

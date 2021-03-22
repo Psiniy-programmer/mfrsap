@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style.css";
 import { connect } from "react-redux";
 import star from "./Icons/star.svg";
 import star_active from "./Icons/star_active.svg";
@@ -11,6 +10,7 @@ import {
 } from "../../../../actions/favoriteStorage.js";
 import Consts from "../../../../helpers/consts";
 import { getRaspType } from "../../../../helpers/helpers";
+import "./style.css";
 
 class RaspHeader extends Component {
   getHeaderWeek() {

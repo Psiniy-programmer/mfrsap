@@ -16,13 +16,16 @@ class SettingsView extends Component {
 
     switch(currentTheme) {
         case LIGHT_THEME:
-            themeText = 'светлая'
+            themeText = 'светлая';
             break;
         case DARK_THEME:
             themeText = 'тёмная';
             break;
+        case SYSTEM_THEME:
+            themeText = 'как на устройстве';
+            break;
         default:
-            themeText = 'как на устройстве'
+            themeText = 'как на устройстве';
             break;
     }
     return (

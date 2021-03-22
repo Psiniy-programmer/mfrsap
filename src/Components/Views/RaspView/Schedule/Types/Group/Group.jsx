@@ -13,9 +13,8 @@ class Group extends Component {
   getContext(item, index) {
     const arr = [];
     const temp = [];
-    // console.log(item[index], Object.keys(item[index]))
-  
-    if (Object.keys(item[index]).length === 0) {
+
+    if (item.length === 0 || Object.keys(item[index]).length === 0) {
       return <EmptyCard/>
     }
 
@@ -58,12 +57,12 @@ class Group extends Component {
       );
     }
 
-    arr.push(<div className="item__main">{temp}</div>);
+    arr.push(<div key={'temp'} className="item__main">{temp}</div>);
 
     return (
       <>
         <div className="rasp__item_main">{arr}</div>
-        <p className="rasp__item_aud">{aud}</p>
+        <div className="rasp__item_aud">{aud}</div>
       </>
     );
   }
@@ -113,7 +112,7 @@ class Group extends Component {
     const denum = this.getContext(pair, 1);
 
     return (
-      <div className={`rasp__item scheduleColor `}>
+      <div key={item.pairnumber} className={`rasp__item scheduleColor `}>
         {timer}
         <div className="rasp__item_double">
           <div className="rasp__item_info">{num}</div>

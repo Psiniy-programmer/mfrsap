@@ -11,7 +11,6 @@
 }
 
 .favorites_Logo {
-    padding-right: 8px;
     cursor: pointer;
 }
 
@@ -30,12 +29,23 @@
     margin: 0.75em 0;
 }
 
+.Header_Logo {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.RaspHeader {
+    margin-bottom: 10px;
+    align-content: center;
+    align-items: center;
+}
+
 @media only screen and (min-width: 1224px) {
     .RaspHeader {
         display: flex;
         align-items: center;
         gap: 40px;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
 
     .RaspHeader_date, .RaspHeader_favorites, .RaspHeader_PDF {
@@ -64,17 +74,6 @@
     }
 
     .Header_Text {
-        padding-bottom: 10px;
-    }
-}
-@media only screen and (max-width: 1224px) {
-    .Header_Logo {
-        display: grid;
-        align-items: center;
-        justify-content: center;
-    }
-    .RaspHeader {
-        align-content: center;
-        align-items: center;
+        margin-bottom: 40px;
     }
 }
