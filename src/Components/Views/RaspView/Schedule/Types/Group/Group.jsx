@@ -10,11 +10,12 @@ import {
 import "./style.modules.css";
 
 class Group extends Component {
-  getKek(item, index) {
+  getContext(item, index) {
     const arr = [];
     const temp = [];
-
-    if (item[index] === undefined) {
+    // console.log(item[index], Object.keys(item[index]))
+  
+    if (Object.keys(item[index]).length === 0) {
       return <EmptyCard/>
     }
 
@@ -87,8 +88,7 @@ class Group extends Component {
     const timer = (
       <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
     );
-
-    const res = this.getKek(pair, 0);
+    const res = this.getContext(pair, 0);
 
     return (
       <div key={diff.timer} className={`rasp__item ${diff.soon ? "soon" : ""}`}>
@@ -109,8 +109,8 @@ class Group extends Component {
       return <EmptyCard index={pairIndex}>{timer}</EmptyCard>;
     }
 
-    const num = this.getKek(pair, 0);
-    const denum = this.getKek(pair, 1);
+    const num = this.getContext(pair, 0);
+    const denum = this.getContext(pair, 1);
 
     return (
       <div className={`rasp__item scheduleColor `}>

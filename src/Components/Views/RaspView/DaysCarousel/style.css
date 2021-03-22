@@ -65,5 +65,5 @@
 
 .DayItem_active {
     background-color: #429C97;
-    color: #FFFFFF;
+    color: var(--current--theme--bg);
 }

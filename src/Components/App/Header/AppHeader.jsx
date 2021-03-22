@@ -10,7 +10,7 @@ class AppHeader extends Component {
     render() {
         const {windowSizes} = this.props;
         return <header className={'AppHeader textColor'}>
-            <div className={'SearchTittle'}>
+            <div onClick={this.props.clearInput} className={'SearchTittle'}>
                 <img src={bmstu_logo} alt="error"/>
                 <Link className={'textColor SearchTittle_text'} to="/">
                     <h1 className={'text-bold--large'}>Расписание МФ МГТУ</h1>
@@ -29,4 +29,12 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps)(AppHeader);
+const mapDispatchToProps = dispatch => {
+    return {
+        clearInput: () => {
+            dispatch({type: "CLEAR_INPUT"})
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppHeader);

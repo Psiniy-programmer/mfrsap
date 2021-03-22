@@ -18,14 +18,14 @@ class ThemeChanger extends Component {
     render() {
         return <>
             <h2 className={'text-bold--header textColor'}>Сменить тему</h2>
-            <div className={'ThemeChanger raspTextColor text-regular--small'}>
+            <div className={'ThemeChanger raspTextColor text-medium--small'}>
                 <label onClick={() => this.props.changeTheme(LIGHT_THEME)} className="ThemeChanger__changer">
-                        Светлая
+                        Светлая тема
                         <input defaultChecked={this.state.LIGHT_THEME} className={'ThemeChanger__input'} id={'light'} name={'radio-group'} type={'radio'}/>
                         <span className={'ThemeChanger__checkbox'}/>
                 </label>
                 <label onClick={() => this.props.changeTheme(DARK_THEME)} className="ThemeChanger__changer">
-                        Тёмная
+                        Тёмная тема
                         <input defaultChecked={this.state.DARK_THEME} className={'ThemeChanger__input'} id={'dark'} name={'radio-group'} type={'radio'}/>
                         <span className={'ThemeChanger__checkbox'}/>
                 </label>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style.css";
 import { generateUniqKey } from "../../../../helpers/helpers";
 import { connect } from "react-redux";
 import {
@@ -7,6 +6,7 @@ import {
   mobileDaysData,
 } from "../../../../helpers/helpData";
 import Consts from "../../../../helpers/consts";
+import "./style.css";
 
 class DaysCarousel extends Component {
   constructor(props) {
