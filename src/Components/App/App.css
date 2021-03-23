@@ -139,7 +139,7 @@ body {
     max-width: unset;
     margin: unset;
   }
-  
+
   h2 {
     margin: unset;
   }
@@ -173,7 +173,6 @@ body {
   .NavigationBar {
     justify-self: end;
   }
-
 
   .content_info {
     max-width: 455px;
@@ -247,8 +246,10 @@ body {
     }
   }
 
-  .raspTextColor,
   .scheduleColor {
+    color: var(--current--theme--menu--txt);
+  }
+  .raspTextColor {
     color: var(--current--theme--bg);
   }
 }
