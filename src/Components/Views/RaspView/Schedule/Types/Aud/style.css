@@ -1,0 +1,53 @@
+.aud_rasp__item_aud {
+  display: flex;
+  align-items: end;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.aud_rasp__item_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.aud_pair__item_subject {
+    margin-bottom: 6px;
+}
+
+.aud_pair__item_teacher {
+    margin-bottom: 6px;
+}
+
+.aud_pair__item_subgroup {
+    margin-top: 6px;
+}
+
+@media only screen and (min-width: 1224px) {
+  .aud_rasp__item_info {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    justify-content: unset;
+  }
+
+  .aud_rasp__item_aud {
+    flex-direction: column;
+  }
+
+  .aud_pair__item_subject {
+    width: 455px;
+    margin-bottom: unset;
+  }
+
+  .aud_pair__item_teacher {
+    width: 160px;
+    margin-bottom: unset;
+  }
+
+  .aud_rasp__item_aud {
+    width: 160px;
+    margin-top: unset;
+  }
+}

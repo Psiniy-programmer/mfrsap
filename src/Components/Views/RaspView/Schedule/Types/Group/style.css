@@ -1,0 +1,26 @@
+.pair__item_teacher {
+  margin-bottom: 6px;
+}
+
+@media only screen and (min-width: 1224px) {
+  .pair__item_teacher {
+    margin-bottom: unset;
+  }
+
+  .pair__item_subject {
+    order: 1;
+  }
+
+  .pair__item_subgroup {
+    order: 2;
+  }
+
+  .pair__item_teacher {
+    order: 3;
+    margin-bottom: unset;
+  }
+
+  .item__main {
+    min-width: 455px;
+  }
+}

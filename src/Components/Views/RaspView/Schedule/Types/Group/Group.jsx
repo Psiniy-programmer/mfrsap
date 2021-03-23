@@ -7,19 +7,20 @@ import {
   getTimer,
   checkIsDouble,
 } from "../../../../../../helpers/helpers";
-import "./style.modules.css";
+import {checkOnArr} from "../../../../../../helpers/helpers";
+import "./style.css";
 
 class Group extends Component {
-  getContext(item, index) {
+  getContext(item, index, soon) {
     const arr = [];
     const temp = [];
 
     if (item.length === 0 || Object.keys(item[index]).length === 0) {
-      return <EmptyCard/>
+      return <EmptyCard soon={soon}/>
     }
 
     const aud = checkItem(item[index].aud) ? (
-      <p className="text-regular--small">{item[index].aud}</p>
+      <p className="text-regular--small">{checkOnArr(item[index].aud)}</p>
     ) : (
       <p>----</p>
     );
@@ -87,7 +88,7 @@ class Group extends Component {
     const timer = (
       <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
     );
-    const res = this.getContext(pair, 0);
+    const res = this.getContext(pair, 0, diff.soon);
 
     return (
       <div key={diff.timer} className={`rasp__item ${diff.soon ? "soon" : ""}`}>
@@ -105,11 +106,11 @@ class Group extends Component {
     );
 
     if (!checkItem(pair[0])) {
-      return <EmptyCard index={pairIndex}>{timer}</EmptyCard>;
+      return <EmptyCard index={pairIndex} soon={diff.soon}>{timer}</EmptyCard>;
     }
 
-    const num = this.getContext(pair, 0);
-    const denum = this.getContext(pair, 1);
+    const num = this.getContext(pair, 0, diff.soon);
+    const denum = this.getContext(pair, 1, diff.soon);
 
     return (
       <div key={item.pairnumber} className={`rasp__item scheduleColor `}>

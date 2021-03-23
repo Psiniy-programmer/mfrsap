@@ -228,6 +228,14 @@ const checkIsDouble = (cur) => {
   return isDouble;
 }
 
+const checkOnArr = (item) => {
+  if (Array.isArray(item)) {
+    return item.join(", ");
+  } else {
+    return item;
+  }
+}
+
 export {
   changeLangEngToRus,
   changeLangRusToEng,
@@ -244,5 +252,6 @@ export {
   mergeObjects,
   checkItem,
   getTimer,
-  checkIsDouble
+  checkIsDouble,
+  checkOnArr
 };

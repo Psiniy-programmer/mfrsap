@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import RaspItem from "../../../RaspItem/RaspItem";
 import "./style.css";
+import Aud from "./Types/Aud/Aud";
 import Group from "./Types/Group/Group";
 import Teacher from "./Types/Teacher/Teacher";
 
@@ -16,6 +17,8 @@ class Schedule extends Component {
         return <Group pairList={pairList} />;
       case 'teacher':
         return <Teacher pairList={pairList}/>;
+      case 'aud':
+        return <Aud pairList={pairList}/>;  
       default:
         break;
     }
@@ -24,7 +27,9 @@ class Schedule extends Component {
   getRasp(curDay) {
     const { day } = this.props.raspData.data;
     let isEmpty = true;
-    console.log(day);
+
+    console.log(day)
+
     if (day !== undefined && !day[curDay].special_day) {
       day[curDay].pairList.map((item) => {
         if (item.pair.length !== 0) isEmpty = false;
@@ -45,7 +50,7 @@ class Schedule extends Component {
 
     if (loading === false) {
       return <div className={"Schedule"}>{this.getRasp(dayIndex)}</div>;
-    } else return <div />;
+    } else return <div/>;
   }
 }
 

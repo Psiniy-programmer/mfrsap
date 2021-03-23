@@ -1,0 +1,29 @@
+.teacher_pair__item_subject {
+  margin-bottom: 6px;
+}
+
+.teacher_pair__item_group {
+  margin-bottom: 6px;
+}
+
+@media only screen and (min-width: 1224px) {
+  .teacher_pair__item_subject {
+    margin-bottom: unset;
+  }
+
+  .teacher_pair__item_group {
+    margin-bottom: unset;
+  }
+
+  .teacher_item__main {
+    width: 160px;
+  }
+
+  .teacher_pair__item_subject {
+    width: 455px;
+  }
+
+  .soon {
+    background-color: unset;
+  }
+}

@@ -6,6 +6,10 @@
   padding-right: 0;
 }
 
+.emptyCard__red {
+  background-color: var(--red);
+}
+
 .emptyCard__text {
   padding-bottom: 6px;
 }
