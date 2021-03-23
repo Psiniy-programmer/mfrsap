@@ -7,16 +7,18 @@ import {
   getTimer,
   checkIsDouble,
 } from "../../../../../../helpers/helpers";
-import {checkOnArr} from "../../../../../../helpers/helpers";
+import { checkOnArr } from "../../../../../../helpers/helpers";
+import Consts from "../../../../../../helpers/consts";
 import "./style.css";
 
 class Group extends Component {
   getContext(item, index, soon) {
+    const { width } = this.props.windowSizes;
     const arr = [];
     const temp = [];
 
     if (item.length === 0 || Object.keys(item[index]).length === 0) {
-      return <EmptyCard soon={soon}/>
+      return <EmptyCard soon={soon} />;
     }
 
     const aud = checkItem(item[index].aud) ? (
@@ -26,7 +28,7 @@ class Group extends Component {
     );
 
     if (checkItem(item[index].subject)) {
-      temp.push(
+      let elem = (
         <h4
           key={item[index].subject}
           className="pair__item_subject text-bold--large"
@@ -34,10 +36,16 @@ class Group extends Component {
           {item[index].subject}
         </h4>
       );
+
+      if (width <= Consts.DESKTOP_MIN_WIDTH) {
+        arr.push(elem);
+      } else {
+        temp.push(elem);
+      }
     }
 
     if (checkItem(item[index].subgroup)) {
-      temp.push(
+      let elem = (
         <p
           className="pair__item_subgroup text-regular--small"
           key={item[index].subgroup}
@@ -45,6 +53,13 @@ class Group extends Component {
           {item[index].subgroup + " подгруппа"}
         </p>
       );
+
+      if (width <= Consts.DESKTOP_MIN_WIDTH) {
+        console.log("S")
+        arr.push(elem);
+      } else {
+        temp.push(elem);
+      }
     }
 
     if (checkItem(item[index].teacher)) {
@@ -58,8 +73,15 @@ class Group extends Component {
       );
     }
 
-    arr.push(<div key={'temp'} className="item__main">{temp}</div>);
-
+    if (temp.length > 0) {
+      console.log("SSAs")
+      arr.push(
+        <div key={"temp"} className="item__main">
+          {temp}
+        </div>
+      );
+    }
+    
     return (
       <>
         <div className="rasp__item_main">{arr}</div>
@@ -93,7 +115,11 @@ class Group extends Component {
     return (
       <div key={diff.timer} className={`rasp__item ${diff.soon ? "soon" : ""}`}>
         {timer}
-        <div className={`rasp__item_info ${diff.soon ? 'soon' : 'scheduleColor'}`}>{res}</div>
+        <div
+          className={`rasp__item_info ${diff.soon ? "soon" : "scheduleColor"}`}
+        >
+          {res}
+        </div>
       </div>
     );
   }
@@ -106,7 +132,11 @@ class Group extends Component {
     );
 
     if (!checkItem(pair[0])) {
-      return <EmptyCard index={pairIndex} soon={diff.soon}>{timer}</EmptyCard>;
+      return (
+        <EmptyCard index={pairIndex} soon={diff.soon}>
+          {timer}
+        </EmptyCard>
+      );
     }
 
     const num = this.getContext(pair, 0, diff.soon);
@@ -132,6 +162,7 @@ class Group extends Component {
 const mapStateToProps = (state) => {
   return {
     appTimer: state.appTimer,
+    windowSizes: state.windowSizes,
   };
 };
 

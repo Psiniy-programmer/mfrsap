@@ -127,13 +127,8 @@
   .rasp__item_aud {
     justify-content: end;
     align-items: start;
-    min-width: 160px;
-  }
-
-  .rasp__item_aud {
-    justify-content: end;
-    align-items: start;
-    min-width: 160px;
+    width: 160px;
+    text-align: end;
   }
 
   .soon {

@@ -113,7 +113,7 @@ class Aud extends Component {
         const denum = this.getContext(pair, 1, diff.soon);
     
         return (
-          <div key={item.pairnumber} className={`rasp__item scheduleColor `}>
+          <div key={item.pairnumber} className={`rasp__item ${diff.soon ? 'soon' : 'scheduleColor'} `}>
             {timer}
             <div className="rasp__item_double">
               <div className="aud_rasp__item_info">{num}</div>

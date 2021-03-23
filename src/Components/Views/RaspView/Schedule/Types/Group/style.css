@@ -1,4 +1,14 @@
+.pair__item_subject {
+  order: 1;
+  margin-bottom: 6px;
+}
+
+.pair__item_subgroup {
+  order: 3;
+}
+
 .pair__item_teacher {
+  order: 2;
   margin-bottom: 6px;
 }
 
@@ -18,6 +28,8 @@
   .pair__item_teacher {
     order: 3;
     margin-bottom: unset;
+    width: 160px;
+    text-align: start;
   }
 
   .item__main {

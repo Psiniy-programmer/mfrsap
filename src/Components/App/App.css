@@ -107,11 +107,6 @@ body {
   --theme--icon: var(--theme--dark--icon);
 }
 
-.raspTextColor,
-.scheduleColor {
-  color: var(--current--theme--bg);
-}
-
 @media (prefers-color-scheme: light) {
   body {
     --current--theme--menu--txt: var(--menu--txt--light--theme);
@@ -122,10 +117,15 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    --current--theme--menu--txt: var(menu--txt--dark--theme);
+    --current--theme--menu--txt: var(--text--dark--theme);
     --current--theme--bg: var(--bg--dark--theme);
     --theme--icon: var(--theme--dark--icon);
   }
+}
+
+.raspTextColor,
+.scheduleColor {
+  color: var(--current--theme--bg);
 }
 
 .content {
@@ -247,11 +247,8 @@ body {
     }
   }
 
+  .raspTextColor,
   .scheduleColor {
-    color: var(--current--theme--menu--txt);
-  }
-
-  .raspTextColor {
     color: var(--current--theme--bg);
   }
 }

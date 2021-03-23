@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style.css";
 import {
   changeLangEngToRus,
   finderIsEmpty,
@@ -10,6 +9,8 @@ import SearchInput from "../../SearchInput/SearchInput";
 import SearchResult from "../../Views/SearchView/SearchResult/SearchResult";
 import Consts from "../../../helpers/consts";
 import Notification from "./Notification/Notification";
+import arrow from "./arrow.svg";
+import "./style.css";
 
 class Base extends Component {
   // Динамичное подставление нужного описания (текст под заголовком)
@@ -22,7 +23,7 @@ class Base extends Component {
       case "/search/:faculty/:department":
         return "Кафедра " + changeLangEngToRus(match.params.department);
       case "/search/:faculty/:department/:course":
-        return `Кафедра ${changeLangEngToRus(match.params.department)} - ${
+        return `Кафедра ${changeLangEngToRus(match.params.department)} — ${
           match.params.course
         } курс`;
       case "/settings":
@@ -49,12 +50,13 @@ class Base extends Component {
             <p className={"SearchDescription__text  text-regular--medium "}>
               {this.dynamicDescription()}
             </p>
-            <p
+            <div
               onClick={() => window.history.back()}
               className={"SearchDescription__backtrace text-regular--medium"}
             >
-              {"< Назад"}
-            </p>
+              <img src={arrow} alt="<"/>
+              <p>Назад</p>
+            </div>
           </div>
         </>
       );

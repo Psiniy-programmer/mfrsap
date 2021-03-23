@@ -49,5 +49,6 @@
   .aud_rasp__item_aud {
     width: 160px;
     margin-top: unset;
+    text-align: end;
   }
 }
