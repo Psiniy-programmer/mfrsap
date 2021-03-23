@@ -49,7 +49,7 @@ class DepartmentList extends Component {
 
     render() {
         return (
-            <div className={`DepartmentList ${finderIsEmpty(this.props.findInput) ? 'DepartmentList__hide' : null}`}>
+            <div className={`DepartmentList ${finderIsEmpty(this.props.findInput) ? 'DepartmentList__hide' : ''}`}>
                 {this.setFacList()}
             </div>
         );

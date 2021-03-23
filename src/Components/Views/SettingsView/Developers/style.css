@@ -1,7 +1,12 @@
+.Input__message,
+textarea {
+  margin: 0;
+}
+
 .developers__items {
   display: grid;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 @media only screen and (min-width: 1224px) {

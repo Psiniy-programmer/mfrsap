@@ -4,12 +4,12 @@
 }
 
 .pair__item_subgroup {
+  margin-top: 6px;
   order: 3;
 }
 
 .pair__item_teacher {
   order: 2;
-  margin-bottom: 6px;
 }
 
 @media only screen and (min-width: 1224px) {

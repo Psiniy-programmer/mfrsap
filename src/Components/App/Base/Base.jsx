@@ -11,6 +11,7 @@ import Consts from "../../../helpers/consts";
 import Notification from "./Notification/Notification";
 import arrow from "./arrow.svg";
 import "./style.css";
+import consts from "../../../helpers/consts";
 
 class Base extends Component {
   // Динамичное подставление нужного описания (текст под заголовком)
@@ -54,7 +55,7 @@ class Base extends Component {
               onClick={() => window.history.back()}
               className={"SearchDescription__backtrace text-regular--medium"}
             >
-              <img src={arrow} alt="<"/>
+              <img src={arrow} alt="<" />
               <p>Назад</p>
             </div>
           </div>
@@ -64,9 +65,11 @@ class Base extends Component {
   }
 
   getSearch() {
+    const isMobile = this.props.windowSizes.width > consts.DESKTOP_MIN_WIDTH;
+
     return (
       <>
-        <p className={"SearchHelper text-regular--medium textColor"}>
+        <p className={`SearchHelper textColor ${isMobile ? 'text-regular--medium' : 'text-regular--small'}`}>
           Начните вводить группу, преподавателя или аудиторию
         </p>
         <SearchInput />
@@ -99,7 +102,7 @@ class Base extends Component {
         </>
       );
     }
-      //return 
+    //return
   }
 }
 

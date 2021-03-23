@@ -6,12 +6,13 @@ import Consts from "../../../../../helpers/consts";
 import { Link } from "react-router-dom";
 import "./style.css";
 import setNewGroupsList from "../../../../../actions/newGroupsList";
+import consts from "../../../../../helpers/consts";
 
 class CourseListType extends Component {
   parseData() {
     const { data, url, setList } = this.props;
     const res = [];
-
+  
     for (let course in data) {
       if (course === "merged") {
         continue;
@@ -34,7 +35,9 @@ class CourseListType extends Component {
   }
 
   getType() {
-    const { courseType, data } = this.props;
+    const { courseType, data, windowWidth } = this.props;
+    const isMobile = windowWidth > consts.DESKTOP_MIN_WIDTH;
+
     let text = "";
 
     if (data.merged !== undefined && data.merged) {
@@ -43,7 +46,7 @@ class CourseListType extends Component {
       text = Consts.PREFIX[courseType];
     }
 
-    return <p className="textColor">{text}</p>;
+    return <p className={`CoruseType__header textColor ${isMobile ? 'text-bold--large' : 'text-regular--medium'}`}>{text}</p>;
   }
 
   render() {
@@ -57,7 +60,9 @@ class CourseListType extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    windowWidth: state.windowSizes.width
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {

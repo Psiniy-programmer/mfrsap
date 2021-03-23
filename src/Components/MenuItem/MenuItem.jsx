@@ -1,18 +1,29 @@
-import React, {Component} from 'react';
-import './style.css'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import consts from "../../helpers/consts";
+import "./style.css";
 
 class MenuItem extends Component {
   render() {
+    const { windowWidth, subclass, text } = this.props;
+    const isMobile = windowWidth > consts.DESKTOP_MIN_WIDTH;
+
     return (
       <p
-        className={`MenuItem ${
-          this.props.subclass !== undefined ? this.props.subclass : ""
-        } text-medium--small raspTextColor`}
+        className={`MenuItem ${subclass !== undefined ? subclass : ""} ${
+          isMobile ? "text-medium--medium" : "text-medium--small"
+        } raspTextColor`}
       >
-        {this.props.text}
+        {text}
       </p>
     );
   }
 }
 
-export default MenuItem;
+const mapStateToProps = (state) => {
+  return {
+    windowWidth: state.windowSizes.width,
+  };
+};
+
+export default connect(mapStateToProps)(MenuItem);

@@ -7,11 +7,13 @@ import {
   finderIsEmpty,
   generateUniqKey,
 } from "../../../helpers/helpers";
+import consts from "../../../helpers/consts";
 
 class SearchView extends Component {
   getView() {
-    const { facultyList } = this.props;
+    const { facultyList, windowWidth } = this.props;
     const facList = [];
+    const isMobile = windowWidth > consts.DESKTOP_MIN_WIDTH;
 
     facultyList.data.map((item, index) => {
       let fac = (
@@ -19,7 +21,7 @@ class SearchView extends Component {
           key={generateUniqKey("facultyItem", index)}
           to={`/search/${changeLangRusToEng(item.facultyname)}`}
         >
-          <span className={""}>{item.facultyname}</span>
+          <span className="text-medium--medium">{item.facultyname}</span>
         </Link>
       );
       return facList.push(fac);
@@ -27,10 +29,10 @@ class SearchView extends Component {
 
     return (
       <>
-        <p className={`SearchHelper__list text-regular--medium textColor`}>
+        <p className={`SearchHelper__list textColor ${isMobile ? 'text-regular--medium' : 'text-regular--small'}`}>
           Или выберите группу из списка
         </p>
-        <div className={"SearchButtons raspTextColor text-medium--medium"}>{facList}</div>
+        <div className={"SearchButtons raspTextColor"}>{facList}</div>
       </>
     );
   }
@@ -52,6 +54,7 @@ const mapStateToProps = (state) => {
   return {
     facultyList: state.facultyList,
     findInput: state.filterItems,
+    windowWidth: state.windowSizes.width
   };
 };
 

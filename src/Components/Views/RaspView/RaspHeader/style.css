@@ -33,6 +33,7 @@
     display: grid;
     align-items: center;
     justify-content: center;
+    padding: 10px 10.5px;
 }
 .RaspHeader {
     margin-bottom: 10px;
@@ -75,5 +76,9 @@
 
     .Header_Text {
         margin-bottom: 40px;
+    }
+
+    .Header_Logo {
+        padding: unset;
     }
 }

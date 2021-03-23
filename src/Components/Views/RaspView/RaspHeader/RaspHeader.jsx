@@ -11,10 +11,17 @@ import {
 import Consts from "../../../../helpers/consts";
 import { getRaspType } from "../../../../helpers/helpers";
 import "./style.css";
+import consts from "../../../../helpers/consts";
 
 class RaspHeader extends Component {
   getHeaderWeek() {
-    return this.props.weekIsOdd ? "числитель" : "знаменатель";
+    const {windowSizes, weekIsOdd} = this.props;
+
+    if (windowSizes.width < consts.DESKTOP_MIN_WIDTH) {
+      return weekIsOdd ? "Числитель" : "Знаменатель";
+    } else {
+      return  weekIsOdd ? "числитель" : "знаменатель";
+    }
   }
 
   toggleFavorites() {

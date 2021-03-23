@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {changeTheme} from "../../../../actions/theme";
+import consts from '../../../../helpers/consts';
 import {LIGHT_THEME, DARK_THEME, SYSTEM_THEME} from "../../../../reducers/theme";
 import './style.css';
 
@@ -16,9 +17,12 @@ class ThemeChanger extends Component {
     }
 
     render() {
+        const {windowWidth} = this.props;
+        const isMobile = windowWidth < consts.DESKTOP_MIN_WIDTH;
+
         return <>
             <h2 className={'text-bold--header textColor'}>Сменить тему</h2>
-            <div className={'ThemeChanger raspTextColor text-medium--small'}>
+            <div className={`ThemeChanger raspTextColor ${isMobile ? 'text-medium--small' : 'text-medium--medium' }`}>
                 <label onClick={() => this.props.changeTheme(LIGHT_THEME)} className="ThemeChanger__changer">
                         Светлая тема
                         <input defaultChecked={this.state.LIGHT_THEME} className={'ThemeChanger__input'} id={'light'} name={'radio-group'} type={'radio'}/>
@@ -40,7 +44,8 @@ class ThemeChanger extends Component {
 }
 const mapStateToProps = state => {
     return {
-        currentTheme: state.theme
+        currentTheme: state.theme,
+        windowWidth: state.windowSizes.width
     }
 };
 

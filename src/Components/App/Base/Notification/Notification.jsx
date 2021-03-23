@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchNotifyData } from "../../../../actions/notification";
+import Consts from "../../../../helpers/consts";
 import "./style.css";
 
 class Notification extends Component {
@@ -10,15 +11,27 @@ class Notification extends Component {
 
   render() {
     const { data } = this.props.notification;
-    const { hide } = this.props;
-
+    const { hide, windowWidth } = this.props;
+    const isMobile = windowWidth < Consts.DESKTOP_MIN_WIDTH;
+   
     if (data.length === 0) {
       return <></>;
     } else {
       return (
-        <a href={data[0].link} target="_blank" rel="noopener noreferrer" className={`notification text-medium--medium ${hide}`}>
-          <p className="notification__date">{data[0].date}</p>
-          <p className="notification__text text-regular--medium">
+        <a
+          href={data[0].link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`notification ${hide}`}
+        >
+          <p
+            className={`notification__date ${
+              isMobile ? "text-medium-small" : "text-medium--medium"
+            }`}
+          >
+            {data[0].date}
+          </p>
+          <p className={`notification__text ${isMobile ? 'text-regular--small' : 'text-regular--medium'}`}>
             {data[0].text}
           </p>
         </a>
@@ -30,6 +43,7 @@ class Notification extends Component {
 const mapStateToProps = (state) => {
   return {
     notification: state.notification,
+    windowWidth: state.windowSizes.width,
   };
 };
 

@@ -1,7 +1,7 @@
 .SearchDescription {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .SearchDescription__backtrace {

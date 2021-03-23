@@ -52,7 +52,7 @@ class CourseList extends Component {
 
         if (split[0] === department) {
           let groupSem = split[1][0];
-          let groupCourse = Math.floor(groupSem / 2) + 1;
+          let groupCourse = Math.floor(groupSem / 2);
 
           if (temp[groupCourse] === undefined) {
             temp[groupCourse] = [];

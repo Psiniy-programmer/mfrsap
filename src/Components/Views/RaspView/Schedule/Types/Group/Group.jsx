@@ -55,7 +55,6 @@ class Group extends Component {
       );
 
       if (width <= Consts.DESKTOP_MIN_WIDTH) {
-        console.log("S")
         arr.push(elem);
       } else {
         temp.push(elem);
@@ -74,7 +73,6 @@ class Group extends Component {
     }
 
     if (temp.length > 0) {
-      console.log("SSAs")
       arr.push(
         <div key={"temp"} className="item__main">
           {temp}
@@ -143,7 +141,7 @@ class Group extends Component {
     const denum = this.getContext(pair, 1, diff.soon);
 
     return (
-      <div key={item.pairnumber} className={`rasp__item scheduleColor `}>
+      <div key={item.pairnumber} className={`rasp__item ${diff.soon ? 'soon' : 'scheduleColor'} `}>
         {timer}
         <div className="rasp__item_double">
           <div className="rasp__item_info">{num}</div>
