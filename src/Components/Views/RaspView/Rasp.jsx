@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 import { connect } from "react-redux";
 import RaspHeader from "./RaspHeader/RaspHeader";
@@ -13,8 +13,9 @@ import {
   updateDayIndex,
   weekIsOdd,
 } from "../../../actions/appTimer";
+import { PureComponent } from "react";
 
-class Rasp extends Component {
+class Rasp extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -51,12 +52,6 @@ class Rasp extends Component {
     const { type } = this.state;
     const { match, updateDayIndex } = this.props;
     const { isOdd, dayIndex } = this.props.appTimer;
-
-    for (let k in this.props.raspData.data.day) {
-      if (this.props.raspData.data.day[k].special_day) {
-        console.log("KEKEKEK")
-      }
-    }
 
     return (
       <div className={"RaspView"}>

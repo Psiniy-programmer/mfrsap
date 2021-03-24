@@ -28,8 +28,6 @@ class Schedule extends Component {
     const { day } = this.props.raspData.data;
     let isEmpty = true;
 
-    console.log(day)
-
     if (day !== undefined && !day[curDay].special_day) {
       day[curDay].pairList.map((item) => {
         if (item.pair.length !== 0) isEmpty = false;

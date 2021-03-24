@@ -93,7 +93,7 @@ class Aud extends Component {
         return (
           <div key={diff.timer} className={`rasp__item ${diff.soon ? "soon" : ""}`}>
             {timer}
-            <div className={`aud_rasp__item_info ${diff.soon ? 'soon' : 'scheduleColor'}`}>{res}</div>
+            <div className={`aud_rasp__item_info ${diff.soon ? 'soon' : ''} scheduleColor`}>{res}</div>
           </div>
         );
       }

@@ -21,15 +21,25 @@ class DaysCarousel extends Component {
     };
   }
 
-  componentDidMount() {
+  updTime() {
     const { currentDayIndex } = this.props;
     let stateIndex = 0;
-    if (currentDayIndex === -1) stateIndex = 1; // Если вскр, то перекидываем на пн
+    if (currentDayIndex=== -1) stateIndex = 1; // Если вскр, то перекидываем на пн
     for (let key in this.state) {
       stateIndex === currentDayIndex
         ? this.setState({ [key]: true })
         : this.setState({ [key]: false });
       stateIndex++;
+    }
+  }
+
+  componentDidMount() {
+    this.updTime()
+  }
+
+  componentDidUpdate(prev) {
+    if (prev.appTimer.dayIndex !== this.props.appTimer.dayIndex) {
+      this.updTime();
     }
   }
 
@@ -88,7 +98,8 @@ class DaysCarousel extends Component {
   }
 
   render() {
-    const { windowSizes } = this.props;
+    const { windowSizes} = this.props;
+
     return windowSizes.width > Consts.DESKTOP_MIN_WIDTH
       ? this.getDesktopView()
       : this.getMobileView();
@@ -98,6 +109,7 @@ class DaysCarousel extends Component {
 const mapStateToProps = (state) => {
   return {
     windowSizes: state.windowSizes,
+    appTimer: state.appTimer
   };
 };
 

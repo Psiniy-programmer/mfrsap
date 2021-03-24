@@ -114,7 +114,7 @@ class Group extends Component {
       <div key={diff.timer} className={`rasp__item ${diff.soon ? "soon" : ""}`}>
         {timer}
         <div
-          className={`rasp__item_info ${diff.soon ? "soon" : "scheduleColor"}`}
+          className={`rasp__item_info ${diff.soon ? "soon" : ""} scheduleColor`}
         >
           {res}
         </div>

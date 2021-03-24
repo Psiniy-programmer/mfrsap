@@ -14,7 +14,6 @@ class Teacher extends Component {
   getContext(item, index, soon) {
     const arr = [];
     const temp = [];
-    console.log(item);
 
     if (item.length === 0 || Object.keys(item[index]).length === 0) {
       return <EmptyCard soon={soon} />;
@@ -85,7 +84,7 @@ class Teacher extends Component {
       <div key={diff.timer} className={`rasp__item ${diff.soon ? "soon" : ""}`}>
         {timer}
         <div
-          className={`rasp__item_info ${diff.soon ? "soon" : "scheduleColor"}`}
+          className={`rasp__item_info ${diff.soon ? "soon" : ""} scheduleColor`}
         >
           {res}
         </div>
