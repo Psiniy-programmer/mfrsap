@@ -16,14 +16,28 @@
 
 @media only screen and (min-width: 1224px) {
   .emptyCard {
+    display: flex;
+    width: 455px;
     grid-template-rows: unset;
-    grid-template-columns: 255px 100%;
+    grid-template-columns: unset;
     background-color: unset;
     padding: unset;
   }
 
   .emptyCard__text {
     padding-bottom: unset;
+  }
+
+  .hyphen {
+    width: 160px;
+  }
+
+  .hyphen_start {
+    text-align: start;
+  }
+  
+  .hyphen_end {
+    text-align: end;
   }
 }
 
