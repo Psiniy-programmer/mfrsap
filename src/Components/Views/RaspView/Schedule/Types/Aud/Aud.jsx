@@ -101,6 +101,7 @@ class Aud extends Component {
       getDoublePair(item, pairIndex) {
         const { pair } = item;
         const diff = getTimer(item, this.props.appTimer.date);
+        const opacity = this.props.appTimer.isOdd;
         const timer = (
           <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
         );
@@ -116,9 +117,9 @@ class Aud extends Component {
           <div key={item.pairnumber} className={`rasp__item ${diff.soon ? 'soon' : 'scheduleColor'} `}>
             {timer}
             <div className="rasp__item_double">
-              <div className="aud_rasp__item_info">{num}</div>
+              <div className={`aud_rasp__item_info ${opacity ? '' : 'opacity'}`}>{num}</div>
               <div className="splitter" />
-              <div className="aud_rasp__item_info">{denum}</div>
+              <div className={`aud_rasp__item_info ${opacity ? 'opacity' : ''}`}>{denum}</div>
             </div>
           </div>
         );
