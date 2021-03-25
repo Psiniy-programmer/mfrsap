@@ -10,7 +10,7 @@ class SearchInput extends Component {
     render() {
         return (
             <input
-                className={'Input Input__search text-medium--small textColor'}
+                className={`Input Input__search textColor ${this.props.isMobile ? 'text-medium--small' : 'text-medium--medium'}`}
                 placeholder={'Поиск'}
                 value={this.props.findInput}
                 ref={(input) => {
@@ -25,6 +25,7 @@ class SearchInput extends Component {
 
 const mapStateToProps = state => {
     return {
+        isMobile: state.windowSizes.isMobile,
         findInput: state.filterItems
     }
 }

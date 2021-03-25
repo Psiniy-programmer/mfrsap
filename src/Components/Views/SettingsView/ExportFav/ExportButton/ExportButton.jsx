@@ -1,50 +1,64 @@
-import React, { Component } from 'react';
-import './style.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PopUp from "../../../../PopUp/PopUp";
+import "./style.css";
 
 const key = "GENERATED";
 
-export default class ExportButton extends Component {
-    constructor(props) {
-        super(props);
+class ExportButton extends Component {
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            generated: localStorage.getItem(key)
-        }
+    this.state = {
+      generated: localStorage.getItem(key),
+      copyAction: false,
+    };
 
-        this.setHandleClick = this.setHandleClick.bind(this);
-        this.copyHandleClick = this.copyHandleClick.bind(this);
+    this.setHandleClick = this.setHandleClick.bind(this);
+    this.copyHandleClick = this.copyHandleClick.bind(this);
+  }
+
+  setHandleClick() {
+    const code = "DKLAD7#ARJL^JLR9393#";
+    localStorage.setItem(key, code);
+    this.setState({ generated: code });
+  }
+
+  render() {
+    const { generated } = this.state;
+    const { isMobile, func } = this.props;
+
+    if (generated === null) {
+      return (
+        <div
+          onClick={this.setHandleClick}
+          className={`ExportButton ${
+            isMobile ? "text-medium--small" : "text-medium--medium"
+          } raspTextColor`}
+        >
+          Сгенерировать код
+        </div>
+      );
+    } else {
+      return (
+        <input
+          onClick={func}
+          className={`Input textColor ${
+            isMobile ? "text-medium--small" : "text-medium--medium"
+          }`}
+          type="text"
+          placeholder="Код"
+          value={generated}
+        />
+      );
     }
-
-    setHandleClick() {
-        const code = "DKLAD7#ARJL^JLR9393#";
-        localStorage.setItem(key, code);
-        this.setState({generated: code});
-    }
-
-    copyHandleClick() {
-      navigator.clipboard.writeText(this.state.generated)
-    }
-
-    render() {
-        if (this.state.generated === null) {
-            return (
-              <div
-                onClick={this.setHandleClick}
-                className="ExportButton text-medium--small raspTextColor"
-              >
-                Сгенерировать код
-              </div>
-            );
-        } else {
-            return (
-              <div
-                onClick={this.copyHandleClick}
-                className="ExportField text-medium--small"
-              >
-                {this.state.generated}
-              </div>
-            );
-        }
-        
-    }
+  }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isMobile: state.windowSizes.isMobile,
+  };
+};
+
+export default connect(mapStateToProps)(ExportButton);

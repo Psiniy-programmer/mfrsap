@@ -9,6 +9,11 @@
     background-color: var(--current--theme--bg);
 }
 
+.Input:focus {
+    border-color: var(--green);
+    box-shadow: inset 0px 2px 0px rgba(66, 156, 151, 0.3);
+}
+
 .Input__search {
     margin-bottom: 10px;
 }
