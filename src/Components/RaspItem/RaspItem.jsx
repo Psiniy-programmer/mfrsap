@@ -4,7 +4,7 @@ import './RaspItem.modules.css';
 class RaspItem extends Component {
     render() {
         return (
-            <p className={`raspItem textColor text-bold--large`}>
+            <p className={`raspItem scheduleColor text-bold--large`}>
                 {this.props.text}
             </p>
         )
