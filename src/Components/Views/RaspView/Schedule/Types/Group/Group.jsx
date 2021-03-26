@@ -10,6 +10,10 @@ import {
 import { checkOnArr } from "../../../../../../helpers/helpers";
 import Consts from "../../../../../../helpers/consts";
 import "./style.css";
+import ItemContainer from "../Items/ItemContainer/ItemContainer";
+import RaspItemInfo from "../Items/RaspItemInfo/RaspItemInfo";
+
+const TYPE = 'group';
 
 class Group extends Component {
   getContext(item, index, soon) {
@@ -79,7 +83,7 @@ class Group extends Component {
         </div>
       );
     }
-    
+
     return (
       <>
         <div className="rasp__item_main">{arr}</div>
@@ -140,16 +144,19 @@ class Group extends Component {
 
     const num = this.getContext(pair, 0, diff.soon);
     const denum = this.getContext(pair, 1, diff.soon);
-
     return (
-      <div key={item.pairnumber} className={`rasp__item ${diff.soon ? 'soon' : 'scheduleColor'} `}>
+      <ItemContainer key={item.pairnumber} item={item} diff={diff}>
         {timer}
         <div className="rasp__item_double">
-          <div className={`rasp__item_info ${opacity ? '' : 'opacity'}`}>{num}</div>
+          <RaspItemInfo type={TYPE} opacity={opacity}>
+            {num}
+          </RaspItemInfo>
           <div className="splitter" />
-          <div className={`rasp__item_info ${opacity ? 'opacity' : ''}`}>{denum}</div>
+          <RaspItemInfo type={TYPE} opacity={!opacity}>
+            {denum}
+          </RaspItemInfo>
         </div>
-      </div>
+      </ItemContainer>
     );
   }
 

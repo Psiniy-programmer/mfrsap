@@ -7,8 +7,12 @@ import {
 } from "../../../../../../helpers/helpers";
 import Timer from "../../Card/Context/Timer/Timer";
 import { connect } from "react-redux";
-import {checkOnArr} from "../../../../../../helpers/helpers";
+import { checkOnArr } from "../../../../../../helpers/helpers";
 import "./style.css";
+import ItemContainer from "../Items/ItemContainer/ItemContainer";
+import RaspItemInfo from "../Items/RaspItemInfo/RaspItemInfo";
+
+const TYPE = "teacher";
 
 class Teacher extends Component {
   getContext(item, index, soon) {
@@ -81,14 +85,12 @@ class Teacher extends Component {
     const res = this.getContext(pair, 0, diff.soon);
 
     return (
-      <div key={diff.timer} className={`rasp__item ${diff.soon ? "soon" : ""}`}>
+      <ItemContainer item={item} diff={diff}>
         {timer}
-        <div
-          className={`rasp__item_info ${diff.soon ? "soon" : ""} scheduleColor`}
-        >
+        <RaspItemInfo item={item} diff={diff}>
           {res}
-        </div>
-      </div>
+        </RaspItemInfo>
+      </ItemContainer>
     );
   }
 
@@ -112,17 +114,18 @@ class Teacher extends Component {
     const denum = this.getContext(pair, 1, diff.soon);
 
     return (
-      <div
-        key={item.pairnumber}
-        className={`rasp__item ${diff.soon ? "soon" : "scheduleColor"}`}
-      >
+      <ItemContainer key={item.pairnumber} item={item} diff={diff}>
         {timer}
         <div className="rasp__item_double">
-          <div className={`rasp__item_info ${opacity ? '' : 'opacity'}`}>{num}</div>
+          <RaspItemInfo type={TYPE} opacity={opacity}>
+            {num}
+          </RaspItemInfo>
           <div className="splitter" />
-          <div className={`rasp__item_info ${opacity ? 'opacity' : ''}`}>{denum}</div>
+          <RaspItemInfo type={TYPE} opacity={!opacity}>
+            {denum}
+          </RaspItemInfo>
         </div>
-      </div>
+      </ItemContainer>
     );
   }
 
