@@ -7,18 +7,17 @@ import Group from "./Types/Group/Group";
 import Teacher from "./Types/Teacher/Teacher";
 
 class Schedule extends Component {
-  
   getCommonRasp(curDay) {
     const { pairList } = curDay;
     const { type } = this.props;
 
-    switch(type) {
-      case 'group':
+    switch (type) {
+      case "group":
         return <Group pairList={pairList} />;
-      case 'teacher':
-        return <Teacher pairList={pairList}/>;
-      case 'aud':
-        return <Aud pairList={pairList}/>;  
+      case "teacher":
+        return <Teacher pairList={pairList} />;
+      case "aud":
+        return <Aud pairList={pairList} />;
       default:
         break;
     }
@@ -48,7 +47,7 @@ class Schedule extends Component {
 
     if (loading === false) {
       return <div className={"Schedule"}>{this.getRasp(dayIndex)}</div>;
-    } else return <div/>;
+    } else return <div />;
   }
 }
 
