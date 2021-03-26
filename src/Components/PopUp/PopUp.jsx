@@ -6,13 +6,13 @@ class PopUp extends Component {
   render() {
     const { isMobile } = this.props;
     return (
-      <div
-        className={`popUp textColor ${
+      <p
+        className={`popUp raspTextColor ${
           isMobile ? "text-regular--small" : "text-regular--medium"
         }`}
       >
         Код скопирован в буфер обмена
-      </div>
+      </p>
     );
   }
 }

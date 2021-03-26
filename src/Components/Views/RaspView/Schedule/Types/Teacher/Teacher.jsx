@@ -94,6 +94,7 @@ class Teacher extends Component {
 
   getDoublePair(item, pairIndex) {
     const { pair } = item;
+    const opacity = this.props.appTimer.isOdd;
     const diff = getTimer(item, this.props.appTimer.date);
     const timer = (
       <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
@@ -117,9 +118,9 @@ class Teacher extends Component {
       >
         {timer}
         <div className="rasp__item_double">
-          <div className="rasp__item_info">{num}</div>
+          <div className={`rasp__item_info ${opacity ? '' : 'opacity'}`}>{num}</div>
           <div className="splitter" />
-          <div className="rasp__item_info">{denum}</div>
+          <div className={`rasp__item_info ${opacity ? 'opacity' : ''}`}>{denum}</div>
         </div>
       </div>
     );

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PopUp from "../../../../PopUp/PopUp";
 import "./style.css";
 
 const key = "GENERATED";
@@ -15,7 +14,6 @@ class ExportButton extends Component {
     };
 
     this.setHandleClick = this.setHandleClick.bind(this);
-    this.copyHandleClick = this.copyHandleClick.bind(this);
   }
 
   setHandleClick() {
