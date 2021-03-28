@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-class RaspItemInfo extends Component {
+class DoubleInfo extends Component {
   render() {
-    const { type, children, opacity, addiClass } = this.props;
+    const { type, children, opacity } = this.props;
     let subClass = '';
 
     if (type === 'aud') {
@@ -12,11 +12,11 @@ class RaspItemInfo extends Component {
     }
    
     return (
-      <div className={`${subClass} ${opacity ? "" : "opacity"} ${addiClass}`}>
+      <div className={`${subClass} ${opacity ? "" : "opacity"} `}>
         {children}
       </div>
     );
   }
 }
 
-export default RaspItemInfo;
+export default DoubleInfo;

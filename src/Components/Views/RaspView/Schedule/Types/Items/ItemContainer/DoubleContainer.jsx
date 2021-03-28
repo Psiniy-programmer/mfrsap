@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class ItemContainer extends Component {
+class DoubleContainer extends Component {
   render() {
     const { item, diff, children } = this.props;
 
@@ -15,4 +15,4 @@ class ItemContainer extends Component {
   }
 }
 
-export default ItemContainer;
+export default DoubleContainer;

@@ -9,8 +9,10 @@ import Timer from "../../Card/Context/Timer/Timer";
 import { connect } from "react-redux";
 import { checkOnArr } from "../../../../../../helpers/helpers";
 import "./style.css";
-import ItemContainer from "../Items/ItemContainer/ItemContainer";
-import RaspItemInfo from "../Items/RaspItemInfo/RaspItemInfo";
+import DoubleContainer from "../Items/ItemContainer/DoubleContainer";
+import DoubleInfo from "../Items/RaspItemInfo/DoubleInfo";
+import SingleInfo from '../Items/RaspItemInfo/SingleInfo';
+import SingleContainer from '../Items/ItemContainer/SingleContainer';
 
 const TYPE = "teacher";
 
@@ -79,18 +81,19 @@ class Teacher extends Component {
   getSinglePair(item) {
     const { pair } = item;
     const diff = getTimer(item, this.props.appTimer.date);
+    const opacity = this.props.appTimer.isOdd;
     const timer = (
       <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
     );
     const res = this.getContext(pair, 0, diff.soon);
 
     return (
-      <ItemContainer item={item} diff={diff}>
-        {timer}
-        <RaspItemInfo item={item} diff={diff}>
-          {res}
-        </RaspItemInfo>
-      </ItemContainer>
+        <SingleContainer diff={diff}>
+          {timer}
+          <SingleInfo diff={diff} opacity={opacity}>
+            {res}
+          </SingleInfo>
+        </SingleContainer>
     );
   }
 
@@ -114,18 +117,18 @@ class Teacher extends Component {
     const denum = this.getContext(pair, 1, diff.soon);
 
     return (
-      <ItemContainer key={item.pairnumber} item={item} diff={diff}>
+      <DoubleContainer key={item.pairnumber} item={item} diff={diff}>
         {timer}
         <div className="rasp__item_double">
-          <RaspItemInfo type={TYPE} opacity={opacity}>
+          <DoubleInfo type={TYPE} opacity={opacity}>
             {num}
-          </RaspItemInfo>
+          </DoubleInfo>
           <div className="splitter" />
-          <RaspItemInfo type={TYPE} opacity={!opacity}>
+          <DoubleInfo type={TYPE} opacity={!opacity}>
             {denum}
-          </RaspItemInfo>
+          </DoubleInfo>
         </div>
-      </ItemContainer>
+      </DoubleContainer>
     );
   }
 

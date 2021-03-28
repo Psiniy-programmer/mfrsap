@@ -7,16 +7,12 @@
 
 .aud_rasp__item_info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.aud_pair__item_subject {
-    margin-bottom: 6px;
-}
-
 .aud_pair__item_teacher {
-    margin-bottom: 6px;
+    margin-top: 6px;
 }
 
 .aud_pair__item_subgroup {
@@ -43,7 +39,11 @@
 
   .aud_pair__item_teacher {
     width: 160px;
-    margin-bottom: unset;
+    margin-top: unset;
+  }
+
+  .aud_pair__item_subgroup {
+    margin-top: unset;
   }
 
   .aud_rasp__item_aud {

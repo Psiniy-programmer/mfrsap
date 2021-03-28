@@ -8,9 +8,11 @@ import {
   checkIsDouble,
 } from "../../../../../../helpers/helpers";
 import { checkOnArr } from "../../../../../../helpers/helpers";
-import RaspItemInfo from "../Items/RaspItemInfo/RaspItemInfo";
-import ItemContainer from "../Items/ItemContainer/ItemContainer";
+import DoubleInfo from "../Items/RaspItemInfo/DoubleInfo";
+import DoubleContainer from "../Items/ItemContainer/DoubleContainer";
 import "./style.css";
+import SingleContainer from '../Items/ItemContainer/SingleContainer';
+import SingleInfo from '../Items/RaspItemInfo/SingleInfo';
 
 const TYPE = 'aud';
 
@@ -89,22 +91,19 @@ class Aud extends Component {
   getSinglePair(item) {
     const { pair } = item;
     const diff = getTimer(item, this.props.appTimer.date);
+    const opacity = this.props.appTimer.isOdd;
     const timer = (
       <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
     );
     const res = this.getContext(pair, 0, diff.soon);
 
     return (
-      <div key={diff.timer} className={`rasp__item ${diff.soon ? "soon" : ""}`}>
+      <SingleContainer diff={diff}>
         {timer}
-        <div
-          className={`aud_rasp__item_info ${
-            diff.soon ? "soon" : ""
-          } scheduleColor`}
-        >
+        <SingleInfo diff={diff} opacity={opacity}>
           {res}
-        </div>
-      </div>
+        </SingleInfo>
+      </SingleContainer>
     );
   }
 
@@ -128,14 +127,14 @@ class Aud extends Component {
     const denum = this.getContext(pair, 1, diff.soon);
 
     return (
-      <ItemContainer key={item.pairnumber} item={item} diff={diff}>
+      <DoubleContainer key={item.pairnumber} item={item} diff={diff}>
          {timer}
         <div className="rasp__item_double">
-          <RaspItemInfo type={TYPE} opacity={opacity}>{num}</RaspItemInfo>
+          <DoubleInfo type={TYPE} opacity={opacity}>{num}</DoubleInfo>
           <div className="splitter" />
-          <RaspItemInfo type={TYPE} opacity={!opacity}>{denum}</RaspItemInfo>
+          <DoubleInfo type={TYPE} opacity={!opacity}>{denum}</DoubleInfo>
         </div>
-      </ItemContainer>
+      </DoubleContainer>
     );
   }
 
