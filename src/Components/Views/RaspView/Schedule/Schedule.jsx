@@ -1,30 +1,30 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import RaspItem from "../../../RaspItem/RaspItem";
-import "./style.css";
-import Aud from "./Types/Aud/Aud";
-import Group from "./Types/Group/Group";
-import Teacher from "./Types/Teacher/Teacher";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import RaspItem from '../../../RaspItem/RaspItem';
+import './style.css';
+import Aud from './Types/Aud/Aud';
+import Group from './Types/Group/Group';
+import Teacher from './Types/Teacher/Teacher';
 
 class Schedule extends Component {
   getCommonRasp(curDay) {
-    const { pairList } = curDay;
-    const { type } = this.props;
+    const {pairList} = curDay;
+    const {type} = this.props;
 
     switch (type) {
-      case "group":
-        return <Group pairList={pairList} />;
-      case "teacher":
-        return <Teacher pairList={pairList} />;
-      case "aud":
-        return <Aud pairList={pairList} />;
+      case 'group':
+        return <Group pairList={pairList}/>;
+      case 'teacher':
+        return <Teacher pairList={pairList}/>;
+      case 'aud':
+        return <Aud pairList={pairList}/>;
       default:
         break;
     }
   }
 
   getRasp(curDay) {
-    const { day } = this.props.raspData.data;
+    const {day} = this.props.raspData.data;
     let isEmpty = true;
 
     if (day !== undefined && !day[curDay].special_day) {
@@ -32,22 +32,22 @@ class Schedule extends Component {
         if (item.pair.length !== 0) isEmpty = false;
         return null;
       });
-    } else return <RaspItem text="Занятия по особому расписанию" />;
+    } else return <RaspItem text="Занятия по особому расписанию"/>;
 
     return isEmpty ? (
-      <RaspItem text="Занятий нет" />
+        <RaspItem text="Занятий нет"/>
     ) : (
-      this.getCommonRasp(day[curDay])
+        this.getCommonRasp(day[curDay])
     );
   }
 
   render() {
-    const { loading } = this.props.raspData;
-    const { dayIndex } = this.props.appTimer;
+    const {loading} = this.props.raspData;
+    const {dayIndex} = this.props.appTimer;
 
     if (loading === false) {
-      return <div className={"Schedule"}>{this.getRasp(dayIndex)}</div>;
-    } else return <div />;
+      return <div className={'Schedule'}>{this.getRasp(dayIndex)}</div>;
+    } else return <div/>;
   }
 }
 

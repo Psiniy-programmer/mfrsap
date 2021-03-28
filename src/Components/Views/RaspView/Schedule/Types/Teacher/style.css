@@ -1,18 +1,10 @@
-.teacher_pair__item_subject {
-  margin-bottom: 6px;
-}
-
 .teacher_pair__item_group {
-  margin-bottom: 6px;
+  margin-top: 6px;
 }
 
 @media only screen and (min-width: 1224px) {
-  .teacher_pair__item_subject {
-    margin-bottom: unset;
-  }
-
   .teacher_pair__item_group {
-    margin-bottom: unset;
+    margin-top: unset;
   }
 
   .teacher_item__main {

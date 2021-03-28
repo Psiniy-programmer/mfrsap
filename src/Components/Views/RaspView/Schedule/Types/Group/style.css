@@ -1,6 +1,5 @@
 .pair__item_subject {
   order: 1;
-  margin-bottom: 6px;
 }
 
 .pair__item_subgroup {
@@ -9,6 +8,7 @@
 }
 
 .pair__item_teacher {
+  margin-top: 6px;
   order: 2;
 }
 
@@ -22,12 +22,13 @@
   }
 
   .pair__item_subgroup {
+    margin-top: unset;
     order: 2;
   }
 
   .pair__item_teacher {
     order: 3;
-    margin-bottom: unset;
+    margin-top: unset;
     width: 160px;
     text-align: start;
   }
