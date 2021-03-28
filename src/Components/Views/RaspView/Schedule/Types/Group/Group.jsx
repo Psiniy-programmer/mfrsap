@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Timer from '../../Card/Context/Timer/Timer';
+import Timer from '../../Timer/Timer';
 import {connect} from 'react-redux';
 import EmptyCard from '../../EmptyCard/EmptyCard';
 import {

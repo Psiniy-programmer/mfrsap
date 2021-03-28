@@ -4,8 +4,8 @@ import {
   DARK_THEME,
   LIGHT_THEME,
   SYSTEM_THEME,
-} from "../../../../../../../reducers/theme";
-import Consts from "../../../../../../../helpers/consts";
+} from "../../../../../reducers/theme";
+import Consts from "../../../../../helpers/consts";
 import "./style.css";
 
 const red = "#c15555",

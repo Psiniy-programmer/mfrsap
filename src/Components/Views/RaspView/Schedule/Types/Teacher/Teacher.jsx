@@ -5,7 +5,7 @@ import {
   checkItem,
   getTimer,
 } from "../../../../../../helpers/helpers";
-import Timer from "../../Card/Context/Timer/Timer";
+import Timer from "../../Timer/Timer";
 import { connect } from "react-redux";
 import { checkOnArr } from "../../../../../../helpers/helpers";
 import "./style.css";
