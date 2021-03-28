@@ -80,8 +80,9 @@ class Teacher extends Component {
 
   getSinglePair(item) {
     const { pair } = item;
-    const diff = getTimer(item, this.props.appTimer.date);
-    const opacity = this.props.appTimer.isOdd;
+    const {appTimer} = this.props;
+    const diff = getTimer(item, appTimer);
+    const opacity = appTimer.isOdd;
     const timer = (
       <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
     );
@@ -99,8 +100,9 @@ class Teacher extends Component {
 
   getDoublePair(item, pairIndex) {
     const { pair } = item;
-    const opacity = this.props.appTimer.isOdd;
-    const diff = getTimer(item, this.props.appTimer.date);
+    const {appTimer} = this.props;
+    const opacity = appTimer.isOdd;
+    const diff = getTimer(item, appTimer);
     const timer = (
       <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer} />
     );

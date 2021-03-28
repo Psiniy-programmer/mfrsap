@@ -195,16 +195,20 @@ const checkItem = (item) => {
   return item !== undefined && item.length !== 0;
 }
 
-const getTimer = (cur, date) => {
+const getTimer = (cur, appTimer) => {
   const { pairtime } = cur;
-  // const { date } = this.props.appTimer;
+  let res = { diff: null, soon: false, timer: pairtime };
+
+  if (appTimer.todayIndex !== appTimer.dayIndex) {
+    return res;
+  }
+
   const t = pairtime
     .split("—")[0]
     .split(":")
     .map((i) => Number(i));
-  let res = { diff: null, soon: false, timer: pairtime };
 
-  const curTime = date.getHours() * 60 + date.getMinutes();
+  const curTime = appTimer.date.getHours() * 60 + appTimer.date.getMinutes();
   const nextPair = t[0] * 60 + t[1];
   const diffTime = nextPair - curTime;
   // const diffTime = 40;

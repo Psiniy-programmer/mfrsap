@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { generateUniqKey } from "../../../../helpers/helpers";
-import { connect } from "react-redux";
+import React, {Component} from 'react';
+import {generateUniqKey} from '../../../../helpers/helpers';
+import {connect} from 'react-redux';
 import {
   desktopMobileData,
   mobileDaysData,
-} from "../../../../helpers/helpData";
-import Consts from "../../../../helpers/consts";
-import "./style.css";
+} from '../../../../helpers/helpData';
+import Consts from '../../../../helpers/consts';
+import './style.css';
 
 class DaysCarousel extends Component {
   constructor(props) {
@@ -22,19 +22,19 @@ class DaysCarousel extends Component {
   }
 
   updTime() {
-    const { currentDayIndex } = this.props;
+    const {currentDayIndex} = this.props;
     let stateIndex = 0;
-    if (currentDayIndex=== -1) stateIndex = 1; // Если вскр, то перекидываем на пн
+    if (currentDayIndex === -1) stateIndex = 1; // Если вскр, то перекидываем на пн
     for (let key in this.state) {
       stateIndex === currentDayIndex
-        ? this.setState({ [key]: true })
-        : this.setState({ [key]: false });
+          ? this.setState({[key]: true})
+          : this.setState({[key]: false});
       stateIndex++;
     }
   }
 
   componentDidMount() {
-    this.updTime()
+    this.updTime();
   }
 
   componentDidUpdate(prev) {
@@ -54,62 +54,62 @@ class DaysCarousel extends Component {
       } else tempObj[key] = false;
       dayIndex++;
     }
-    this.setState({ days: tempObj });
+    this.setState({days: tempObj});
     this.props.updateDays(curday);
   }
 
   getDayList() {
     let resArr = [];
     const daysData =
-      this.props.windowSizes.width > Consts.DESKTOP_MIN_WIDTH
-        ? desktopMobileData
-        : mobileDaysData;
+        this.props.windowSizes.width > Consts.DESKTOP_MIN_WIDTH
+            ? desktopMobileData
+            : mobileDaysData;
     daysData.map((item, index) =>
-      resArr.push(
-        <div
-          key={generateUniqKey("days", index)}
-          onClick={this.handleClick.bind(this, item.eng)}
-          className={`DayItem DayItem_${
-            this.state[item.eng] ? "active" : "unActive"
-          }`}
-        >
-          {" "}
-          {item.rus}
-        </div>
-      )
+        resArr.push(
+            <div
+                key={generateUniqKey('days', index)}
+                onClick={this.handleClick.bind(this, item.eng)}
+                className={`DayItem DayItem_${
+                    this.state[item.eng] ? 'active' : 'unActive'
+                }`}
+            >
+              {' '}
+              {item.rus}
+            </div>,
+        ),
     );
     return resArr;
   }
 
   getMobileView() {
     return (
-      <div className={"scroller-container"}>
-        <div className="container-wrapper">
-          <div className={"DaysCarousel"}>
-            <div className="DaysCarousel-wrap">{this.getDayList()}</div>
+        <div className={'scroller-container'}>
+          <div className="container-wrapper">
+            <div className={'DaysCarousel'}>
+              <div className="DaysCarousel-wrap">{this.getDayList()}</div>
+            </div>
           </div>
         </div>
-      </div>
     );
   }
 
   getDesktopView() {
-    return <div className={"DaysCarousel"}>{this.getDayList()}</div>;
+    return <div className={'DaysCarousel'}>{this.getDayList()}</div>;
   }
 
   render() {
-    const { windowSizes} = this.props;
+    const {windowSizes} = this.props;
 
     return windowSizes.width > Consts.DESKTOP_MIN_WIDTH
-      ? this.getDesktopView()
-      : this.getMobileView();
+        ? this.getDesktopView()
+        : this.getMobileView();
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     windowSizes: state.windowSizes,
-    appTimer: state.appTimer
+    appTimer: state.appTimer,
   };
 };
 
