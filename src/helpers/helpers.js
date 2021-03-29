@@ -210,8 +210,8 @@ const getTimer = (cur, appTimer) => {
 
   const curTime = appTimer.date.getHours() * 60 + appTimer.date.getMinutes();
   const nextPair = t[0] * 60 + t[1];
-  // const diffTime = nextPair - curTime;
-  const diffTime = 40;
+  const diffTime = nextPair - curTime;
+  // const diffTime = 40;
 
   if (diffTime > 0 && diffTime <= 60) {
     res.diff = diffTime;

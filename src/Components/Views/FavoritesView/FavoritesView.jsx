@@ -3,7 +3,6 @@ import './style.css';
 import satellite from './img/satellite.svg';
 import {connect} from 'react-redux';
 import FavoriteList from "./FavoriteList/FavoriteList";
-import Import from './Import/Import';
 
 class FavoritesView extends Component {
     favoriteStorageIsEmpty() {
