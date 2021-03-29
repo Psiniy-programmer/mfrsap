@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class SingleInfo extends Component {
   render() {
     const { diff, children, type, isMobile } = this.props;
-    const op = diff.soon && isMobile ? "scheduleColor" : "soon";
+    const op = diff.soon && isMobile ? "scheduleColor" : "";
     let subClass = "";
     console.log(isMobile)
 
