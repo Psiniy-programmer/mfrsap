@@ -14,7 +14,7 @@ class SingleInfo extends Component {
 
     return (
         <div
-            className={`${subClass} ${diff.soon ? 'soon' : ''} kaldkaldkla`}
+            className={`${subClass} ${diff.soon ? 'soon' : ''}`}
         >
           {children}
         </div>
