@@ -1,0 +1,10 @@
+.confirmation {
+    display: flex;
+    flex-direction: row;
+    gap: var(--items--gap);
+}
+
+.confirmation > p {
+    width: 100%;
+    text-align: center;
+}

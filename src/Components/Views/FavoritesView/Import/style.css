@@ -1,0 +1,13 @@
+.import {
+    margin-top: 30px;
+    max-width: 455px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.import__content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

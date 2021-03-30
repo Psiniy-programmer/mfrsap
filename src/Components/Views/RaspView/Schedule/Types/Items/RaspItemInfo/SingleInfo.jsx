@@ -6,7 +6,6 @@ class SingleInfo extends Component {
     const { diff, children, type, isMobile } = this.props;
     const op = diff.soon && isMobile ? "scheduleColor" : "";
     let subClass = "";
-    console.log(isMobile)
 
     if (type === "aud") {
       subClass = "aud_rasp__item_info";

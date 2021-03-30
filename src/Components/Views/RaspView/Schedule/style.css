@@ -60,7 +60,8 @@
   height: 1px;
   border-bottom: 1px dashed #ffffff;
   opacity: 0.5;
-  margin: 16px 0;
+  margin: 16px -5px 16px -5px;
+  padding: 0 5px;
 }
 
 .schedule-item {
@@ -72,6 +73,11 @@
   opacity: 0.5;
 }
 
+.aud_rasp__item_aud > p,
+.rasp__item_aud > p {
+  text-align: end;
+}
+
 @media only screen and (min-width: 1224px) {
   .Schedule {
     margin-top: unset;
@@ -79,6 +85,8 @@
   }
 
   .splitter {
+    margin: 16px 0;
+    padding: unset;
     display: none;
   }
 

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import './style.css';
 import satellite from './img/satellite.svg';
 import {connect} from 'react-redux';
 import FavoriteList from "./FavoriteList/FavoriteList";
+import Import from './Import/Import';
+import './style.css';
 
 class FavoritesView extends Component {
     favoriteStorageIsEmpty() {
@@ -54,7 +55,7 @@ class FavoritesView extends Component {
         return <>
             <h2 className={'text-bold--header textColor'}>Избранное</h2>
             {this.favoriteStorageIsEmpty() ? this.emptyView() : this.resultView()}
-            {/* <Import/> */}
+            <Import/>
         </>
     }
 }
