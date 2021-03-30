@@ -1,19 +1,20 @@
 .popUp {
     position: fixed;
-    bottom: 10%;
+    bottom: 66px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--green);
-    min-width: 455px;
-    height: 5.59%;
+    width: calc(100% - 20px);
+    padding: 10px 43px;
+    max-width: 455px;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 @media only screen and (min-width: 1224px) {
     .popUp {
-        max-width: 455px;
-        bottom: 40px;
+        bottom: 120px;
     }
   }
   

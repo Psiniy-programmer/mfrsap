@@ -7,7 +7,7 @@
 .SearchButtons a {
     display: grid;
     width: 50%;
-    height: 50px;
+    padding: 16px 20px;
     align-items: center;
     align-content: center;
     background-color: #429C97;
@@ -17,29 +17,24 @@
 }
 
 .SearchHelper {
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .SearchHelper__list {
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 1224px) {
+@media only screen and (min-width: 1224px) {
     .SearchHelper {
-        margin-bottom: 10px;
-        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-top: 40px;
     }
 
     .SearchHelper__list {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .SearchButtons {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: var(--items--gap)
+        margin-top: unset;
+        margin-bottom: 20px;
     }
 }
 
