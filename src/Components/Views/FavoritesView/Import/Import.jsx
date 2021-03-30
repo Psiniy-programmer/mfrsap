@@ -8,7 +8,7 @@ import {rewriteStorageData} from '../../../../actions/favoriteStorage';
 const test = {
   groups: ['К3-63Б', 'К3-62Б'],
   teachers: [],
-  auditoryies: ['365', '465'],
+  auditoryies: ['365', '1220'],
 };
 
 class Import extends Component {
@@ -39,10 +39,10 @@ class Import extends Component {
   }
 
   handleConfirm() {
-    this.props.rewriteStorage(test);
     this.setState({
-      clicked: true,
+      clicked: false,
     });
+    this.props.rewriteStorage(test);
   }
 
   handleCancel() {

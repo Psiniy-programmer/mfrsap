@@ -116,7 +116,6 @@ class FavoriteList extends Component {
   }
 
   render() {
-    console.log(this.props.data)
     if (this.props.data.length !== 0) {
       return <div className={"FavoriteList"}>{this.createList()}</div>;
     } else return null;
