@@ -38,11 +38,20 @@ class Import extends Component {
     });
   }
 
-  handleConfirm() {
+  async handleConfirm() {
     this.setState({
       clicked: false,
     });
-    this.props.rewriteStorage(test);
+
+    let newDat;
+
+    await fetch(
+        `https://mf.bmstu.ru/rasp/api/favorites?code=${this.state.code}`)
+        .then((response) => response.json())
+        .catch((error) => console.error(error))
+        .then((res) => newDat = res);
+
+    this.props.rewriteStorage(newDat);
   }
 
   handleCancel() {
@@ -54,7 +63,6 @@ class Import extends Component {
   render() {
     const {isMobile} = this.props;
     const {code, clicked} = this.state;
-
     return <div className={`import textColor`}>
       <p className={isMobile ?
           'text-regular--small' :
