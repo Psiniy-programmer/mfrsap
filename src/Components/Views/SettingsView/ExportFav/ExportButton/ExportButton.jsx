@@ -16,11 +16,11 @@ class ExportButton extends Component {
     this.setHandleClick = this.setHandleClick.bind(this);
   }
 
-  setHandleClick() {
+  async setHandleClick() {
     const context = this;
     let code = '';
 
-    fetch('https://mf.bmstu.ru/rasp/api/favorites', {
+    await fetch('https://mf.bmstu.ru/rasp/api/favorites', {
       method: 'POST',
       headers: {
         'Content-Type': 'text/plain'
