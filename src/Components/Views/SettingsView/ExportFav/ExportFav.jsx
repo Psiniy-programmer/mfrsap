@@ -16,9 +16,9 @@ class ExportFav extends Component {
   handleCopy() {
     navigator.clipboard.writeText(this.state.generated);
     this.setState({ copyAction: true });
-    // setTimeout(() => {
-    //   this.setState({ copyAction: false });
-    // }, 2000)
+    setTimeout(() => {
+      this.setState({ copyAction: false });
+    }, 2000)
   }
 
   render() {
