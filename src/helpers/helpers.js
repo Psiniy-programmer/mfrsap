@@ -1,16 +1,17 @@
-import Consts from "./consts";
+import Consts from './consts';
+import keyboard from './keyboard.js';
 
 const changeLangEngToRus = (word) => {
   let str;
   switch (word[0].toLowerCase()) {
-    case "k":
-      str = "К";
+    case 'k':
+      str = 'К';
       break;
-    case "l":
-      str = "ЛТ";
+    case 'l':
+      str = 'ЛТ';
       break;
-    case "a":
-      str = "Аспирантура";
+    case 'a':
+      str = 'Аспирантура';
       break;
     default:
       break;
@@ -22,14 +23,14 @@ const changeLangEngToRus = (word) => {
 const changeLangRusToEng = (word) => {
   let str;
   switch (word[0].toUpperCase()) {
-    case "К":
-      str = "K";
+    case 'К':
+      str = 'K';
       break;
-    case "Л":
-      str = "LT";
+    case 'Л':
+      str = 'LT';
       break;
-    case "А":
-      str = "Apsirant";
+    case 'А':
+      str = 'Apsirant';
       break;
     default:
       break;
@@ -41,14 +42,14 @@ const changeLangRusToEng = (word) => {
 const findFacultyName = (word) => {
   let str = word;
   switch (str.toLowerCase()) {
-    case "k":
-      str = "Космический факультет";
+    case 'k':
+      str = 'Космический факультет';
       break;
-    case "lt":
-      str = "Лесной факультет";
+    case 'lt':
+      str = 'Лесной факультет';
       break;
-    case "aspirant":
-      str = "Аспирантура";
+    case 'aspirant':
+      str = 'Аспирантура';
       break;
     default:
       break;
@@ -57,75 +58,75 @@ const findFacultyName = (word) => {
 };
 
 const translateFullGroupNameToRus = (word) => {
-  let str = "";
+  let str = '';
   switch (word[0].toUpperCase()) {
-    case "K":
-      str += "К";
+    case 'K':
+      str += 'К';
       break;
-    case "LT":
-      str += "ЛТ";
+    case 'LT':
+      str += 'ЛТ';
       break;
     default:
       break;
   }
   for (let i = 1; i < word.length - 1; i++) str += word[i];
   switch (word[word.length - 1].toUpperCase()) {
-    case "B":
-      return (str += "Б");
-    case "M":
-      return (str += "М");
+    case 'B':
+      return (str += 'Б');
+    case 'M':
+      return (str += 'М');
     default:
       return (str += word[word.length - 1]);
   }
 };
 
 const translateFullGroupNameToEng = (word) => {
-  let str = "";
+  let str = '';
   switch (word[0].toUpperCase()) {
-    case "К":
-      str += "k";
+    case 'К':
+      str += 'k';
       break;
-    case "ЛТ":
-      str += "lt";
+    case 'ЛТ':
+      str += 'lt';
       break;
     default:
       break;
   }
   for (let i = 1; i < word.length - 1; i++) str += word[i];
   switch (word[word.length - 1].toUpperCase()) {
-    case "Б":
-      return (str += "b");
-    case "М":
-      return (str += "m");
+    case 'Б':
+      return (str += 'b');
+    case 'М':
+      return (str += 'm');
     default:
       return str;
   }
 };
 
 const generateUniqKey = (prefix, index) =>
-  `${prefix}_${new Date().getTime() + index}`;
+    `${prefix}_${new Date().getTime() + index}`;
 
 const removeClasses = (DOM) =>
-  DOM.classList.forEach((item) => DOM.classList.remove(item));
+    DOM.classList.forEach((item) => DOM.classList.remove(item));
 
 const findRequestType = (param) => {
-  const NAMES = ["group", "aud", "teacher"];
+  const NAMES = ['group', 'aud', 'teacher'];
   let type = {},
-    regResult;
+      regResult;
   NAMES.map((item) => {
-    let regExp = new RegExp(item, "i");
+    let regExp = new RegExp(item, 'i');
     regResult = regExp.exec(param);
     if (regResult !== null) type.name = regResult[0];
     return type;
   });
   switch (type.name) {
-    case "group":
+    case 'group':
       type.type = 1;
       break;
-    case "teacher":
+    case 'teacher':
       type.type = 3;
       break;
-    case "aud":
+    case 'aud':
       type.type = 5;
       break;
     default:
@@ -135,7 +136,7 @@ const findRequestType = (param) => {
 };
 
 const getTextColorFromWidth = (width) => {
-  return width < Consts.DESKTOP_MIN_WIDTH ? "raspTextColor" : "textColor";
+  return width < Consts.DESKTOP_MIN_WIDTH ? 'raspTextColor' : 'textColor';
 };
 
 const finderIsEmpty = (state) => {
@@ -144,7 +145,7 @@ const finderIsEmpty = (state) => {
 
 const getRaspType = (data) => {
   let keys = Object.keys(data);
-  let types = ["aud", "teacher", "group"];
+  let types = ['aud', 'teacher', 'group'];
   let res;
 
   keys.map((item) => {
@@ -159,20 +160,20 @@ const getRaspType = (data) => {
 
 const switchNumber = (numb) => {
   switch (numb) {
-    case "1":
-      return "I";
-    case "2":
-      return "II";
-    case "3":
-      return "III";
-    case "4":
-      return "IV";
-    case "5":
-      return "V";
-    case "6":
-      return "VI";
-    case "7":
-      return "VII";
+    case '1':
+      return 'I';
+    case '2':
+      return 'II';
+    case '3':
+      return 'III';
+    case '4':
+      return 'IV';
+    case '5':
+      return 'V';
+    case '6':
+      return 'VI';
+    case '7':
+      return 'VII';
     default:
       break;
   }
@@ -189,24 +190,21 @@ const mergeObjects = (source, target) => {
     }
   }
   return target;
-}
+};
 
 const checkItem = (item) => {
   return item !== undefined && item.length !== 0;
-}
+};
 
 const getTimer = (cur, appTimer) => {
-  const { pairtime } = cur;
-  let res = { diff: null, soon: false, timer: pairtime };
+  const {pairtime} = cur;
+  let res = {diff: null, soon: false, timer: pairtime};
 
   if (appTimer.todayIndex !== appTimer.dayIndex) {
     return res;
   }
 
-  const t = pairtime
-    .split("—")[0]
-    .split(":")
-    .map((i) => Number(i));
+  const t = pairtime.split('—')[0].split(':').map((i) => Number(i));
 
   const curTime = appTimer.date.getHours() * 60 + appTimer.date.getMinutes();
   const nextPair = t[0] * 60 + t[1];
@@ -219,10 +217,10 @@ const getTimer = (cur, appTimer) => {
   }
 
   return res;
-}
+};
 
 const checkIsDouble = (cur) => {
-  const { pair } = cur;
+  const {pair} = cur;
   let isDouble = false;
 
   if (pair.length > 1) {
@@ -230,15 +228,22 @@ const checkIsDouble = (cur) => {
   }
 
   return isDouble;
-}
+};
 
 const checkOnArr = (item) => {
   if (Array.isArray(item)) {
-    return item.join(", ");
+    return item.join(', ');
   } else {
     return item;
   }
-}
+};
+
+const convertString = (str, index) => {
+  if (keyboard[str[index]]) {
+    return str.replaceAt(index, keyboard[str[index]]);
+  }
+  return str;
+};
 
 export {
   changeLangEngToRus,
@@ -257,5 +262,6 @@ export {
   checkItem,
   getTimer,
   checkIsDouble,
-  checkOnArr
+  checkOnArr,
+  convertString,
 };

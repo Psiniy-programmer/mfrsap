@@ -1,12 +1,12 @@
-import './fonts.css'
+import './fonts.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose} from 'redux';
-import reducer from './reducers'
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware, compose} from 'redux';
+import reducer from './reducers';
 import thunk from 'redux-thunk';
-import { BrowserRouter, Switch } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import {BrowserRouter, Switch} from 'react-router-dom';
+import {createBrowserHistory} from 'history';
 import * as serviceWorker from './serviceWorker';
 import App from './Components/App/App';
 
@@ -14,20 +14,21 @@ const axios = require('axios');
 const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
 const devtoolMiddleware =
     ext && process.env.NODE_ENV === 'development' ? ext() : func => func;
-const store = createStore(reducer, compose(applyMiddleware(thunk), devtoolMiddleware));
+const store = createStore(reducer,
+    compose(applyMiddleware(thunk), devtoolMiddleware));
 const history = createBrowserHistory();
 
 ReactDOM.render(
-  <React.StrictMode>
+    <React.StrictMode>
       <Provider store={store}>
-          <BrowserRouter history={history}>
-              <Switch>
-                  <App/>
-              </Switch>
-          </BrowserRouter>
+        <BrowserRouter history={history}>
+          <Switch>
+            <App/>
+          </Switch>
+        </BrowserRouter>
       </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    </React.StrictMode>,
+    document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
@@ -35,4 +36,9 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register();
 
-export {axios, history}
+String.prototype.replaceAt = function(index, newSymbols) {
+  return this.substr(0, index) + newSymbols +
+      this.substr(index + newSymbols.length);
+};
+
+export {axios, history};

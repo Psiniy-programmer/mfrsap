@@ -5,12 +5,6 @@ import './style.css';
 import Confirmation from '../../../Confirmation/Confirmation';
 import {rewriteStorageData} from '../../../../actions/favoriteStorage';
 
-const test = {
-  groups: ['К3-63Б', 'К3-62Б'],
-  teachers: [],
-  auditoryies: ['365', '1220'],
-};
-
 class Import extends Component {
   constructor(props) {
     super(props);
@@ -42,8 +36,13 @@ class Import extends Component {
     this.setState({
       clicked: false,
     });
+    this.setState({code: ''})
 
-    let newDat;
+    let newDat = {
+      groups: [],
+      teachers: [],
+      auditoryies: []
+    }
 
     await fetch(
         `https://mf.bmstu.ru/rasp/api/favorites?code=${this.state.code}`)
