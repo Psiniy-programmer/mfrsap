@@ -28,8 +28,8 @@ class SearchResult extends Component {
     return (
         <div className={`SearchResult`}>
           <SearchList  title={'Группы'} data={groupsList}/>
-          {/*<SearchList title={'Преподаватели'} data={teachersList}/>*/}
-          {/*<SearchList title={'Аудитории'} data={auditoryList}/>*/}
+          <SearchList title={'Преподаватели'} data={teachersList}/>
+          <SearchList title={'Аудитории'} data={auditoryList}/>
         </div>
     );
   }
