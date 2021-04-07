@@ -1,7 +1,7 @@
-const UPDATE_TIME = "UPDATE_TIME";
-const GET_DAY_INDEX = "GET_DAY_INDEX";
-const UPDATE_DAY_INDEX = "UPDATE_DAY_INDEX";
-const WEEK_IS_ODD = "WEEK_IS_ODD";
+const UPDATE_TIME = 'UPDATE_TIME';
+const GET_DAY_INDEX = 'GET_DAY_INDEX';
+const UPDATE_DAY_INDEX = 'UPDATE_DAY_INDEX';
+const WEEK_IS_ODD = 'WEEK_IS_ODD';
 
 const d = new Date();
 
@@ -9,7 +9,7 @@ const initialState = {
   date: d,
   dayIndex: 0,
   todayIndex: d.getDay(),
-  isOdd: true
+  isOdd: true,
 };
 
 const daysInYear = {
@@ -41,23 +41,9 @@ export default function appTimer(state = initialState, action) {
         dayIndex: index === -1 ? (index = 0) : index,
       };
     case WEEK_IS_ODD:
-      let currentNumber = state.date.getDate(),
-        currentMonth = state.date.getMonth(),
-        countWeeks = 1; // 1 т.к начинаем с 1 недели
-
-      while (currentNumber > 7 && currentMonth !== 8) {
-        currentNumber -= 7;
-
-        if (currentMonth > 8 && currentNumber < 7) {
-          currentNumber += daysInYear[currentMonth];
-          currentMonth--;
-        }
-        countWeeks++;
-      }
-
       return {
         ...state,
-        isOdd: countWeeks % 2 === 1,
+        isOdd: new Date().getWeek() % 2 === 0,
       };
     case UPDATE_DAY_INDEX:
       return {

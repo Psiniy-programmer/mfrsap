@@ -2,17 +2,34 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import SearchList from '../SearchList/SearchList';
 import './style.css';
-import {convertString} from '../../../../helpers/helpers';
 
 class SearchResult extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      groups: false,
+      teachers: false,
+      auds: false
+    };
+
+    this.gRef = React.createRef();
+  }
+
   render() {
     const {groupsList, teachersList, auditoryList} = this.props;
+    if (this.gRef.current) {
+
+      // if (!this.gRef.current.children.length) {
+      //   alert('kek')
+      // }
+    }
 
     return (
         <div className={`SearchResult`}>
-          <SearchList title={'Группы'} data={groupsList}/>
-          <SearchList title={'Преподаватели'} data={teachersList}/>
-          <SearchList title={'Аудитории'} data={auditoryList}/>
+          <SearchList  title={'Группы'} data={groupsList}/>
+          {/*<SearchList title={'Преподаватели'} data={teachersList}/>*/}
+          {/*<SearchList title={'Аудитории'} data={auditoryList}/>*/}
         </div>
     );
   }

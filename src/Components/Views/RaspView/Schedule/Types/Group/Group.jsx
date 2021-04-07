@@ -117,7 +117,7 @@ class Group extends Component {
         <Timer soon={diff.soon} diff={diff.diff} timer={diff.timer}/>
     );
     const res = this.getContext(pair, 0, diff.soon);
-
+  
     return (
         <SingleContainer diff={diff}>
           {timer}
