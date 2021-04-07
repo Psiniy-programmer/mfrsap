@@ -1,7 +1,6 @@
 .SearchList {
     display: grid;
     gap: var(--items--gap);
-    margin-top: 10px;
 }
 
 .SearchList_item {

@@ -5,11 +5,10 @@
 }
 
 .ThemeChanger__changer {
-    display: grid;
-    align-content: space-between;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    grid-template-columns: 1fr 0.1fr;
-    padding: 17px 20px;
+    padding: 16px 20px;
     background-color: var(--green);
     cursor: pointer;
     border-radius: 4px;
@@ -25,7 +24,7 @@
 .ThemeChanger__input:checked + .ThemeChanger__checkbox {
     background: var(--theme--icon);
     width: 25px;
-    height: 20px;
+    height: 19px;
 }
 
 @media only screen and (min-width: 1224px) {

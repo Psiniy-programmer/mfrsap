@@ -6,7 +6,7 @@
 }
 
 @media only screen and (min-width: 1224px) {
-    .CoruseType__header {
-        margin-bottom: 10px;
+    .CourseType {
+        margin-bottom: 4px;
     }
 }

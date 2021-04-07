@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import "./style.css";
+import React, {Component} from 'react';
+import './style.css';
 
 class Footer extends Component {
   render() {
     return (
-      <footer className={"Footer"}>
-        <a href="https://mf.bmstu.ru/">
-          <p className={"Copyright textColor text-regular--medium"}>
-            2020 © Мытищинский филиал МГТУ им. Н. Э. Баумана
+        <footer className={'Footer'}>
+          <p className={'Copyright'}>
+            <a className={'textColor text-regular--medium'} href="https://mf.bmstu.ru/">
+              2020 © Мытищинский филиал МГТУ им. Н. Э. Баумана
+            </a>
           </p>
-        </a>
-      </footer>
+        </footer>
     );
   }
 }
