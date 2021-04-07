@@ -1,4 +1,6 @@
 .MenuItem {
+    width: 100%;
+    text-align: start;
     display: grid;
     grid-template-rows: 1fr;
     background-color: var(--green);

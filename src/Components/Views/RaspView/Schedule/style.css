@@ -58,7 +58,7 @@
 .splitter {
   width: 100%;
   height: 1px;
-  border-bottom: 1px dashed #ffffff;
+  border-bottom: 1px dashed var(--current--theme--bg);
   opacity: 0.5;
   margin: 16px -5px 16px -5px;
   padding: 0 5px;
@@ -96,7 +96,7 @@
     align-content: center;
     background-color: unset;
     padding: 24px 0;
-    border-bottom: 1px dashed var(--gray);
+    border-bottom: 1px dashed var(--current--theme--bg);
   }
 
   .schedule-item:last-child {

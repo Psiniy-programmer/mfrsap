@@ -1,13 +1,19 @@
 .import {
     margin-top: 30px;
     max-width: 455px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 10px;
 }
 
 .import__content {
-    display: flex;
-    flex-direction: row;
+    display: grid;
     gap: 10px;
+    grid-template-columns: 1fr 0.1fr;
+}
+
+@media only screen and (min-width: 1224px) {
+    .import {
+        margin-top: 40px;
+        gap: 20px;
+    }
 }

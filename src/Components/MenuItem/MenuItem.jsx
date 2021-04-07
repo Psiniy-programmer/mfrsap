@@ -9,14 +9,14 @@ class MenuItem extends Component {
     const isMobile = windowWidth > consts.DESKTOP_MIN_WIDTH;
 
     return (
-        <p
+        <button
             onClick={fun}
             className={`MenuItem ${subclass !== undefined ? subclass : ''} ${
                 isMobile ? 'text-medium--medium' : 'text-medium--small'
             } raspTextColor`}
         >
           {text}
-        </p>
+        </button>
     );
   }
 }
