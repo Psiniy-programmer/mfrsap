@@ -122,9 +122,6 @@
   }
 
   .rasp__item_info {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
     width: 100%;
   }
 

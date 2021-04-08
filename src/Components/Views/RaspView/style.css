@@ -1,4 +1,3 @@
 .RaspView {
-    display: grid;
     background: var(--current--theme--bg);
 }

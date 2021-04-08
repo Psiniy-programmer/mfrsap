@@ -5,6 +5,7 @@
 }
 
 .SearchDescription__backtrace {
+    align-self: flex-start;
     display: flex;
     gap: 8px;
     flex-direction: row;
