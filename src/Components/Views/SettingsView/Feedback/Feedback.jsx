@@ -106,7 +106,7 @@ class Feedback extends Component {
                     </button>
                 </form> : <div className='response'>
                     <img src={mail_icon} alt='Отправлено'/>
-                    <div className='response__text '>
+                    <div className='response__text'>
                         <p>Сообщение отправлено.</p>
                         <p>Мы ответим вам в ближайшие дни.</p>
                     </div>
