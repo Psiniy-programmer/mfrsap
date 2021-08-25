@@ -10,6 +10,7 @@
 }
 
 .Input:focus {
+    outline: 2px solid var(--green);
     border-color: var(--green);
     box-shadow: inset 0px 2px 0px rgba(66, 156, 151, 0.3);
 }
