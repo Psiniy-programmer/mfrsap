@@ -3,24 +3,30 @@
     bottom: 0;
     left: 0;
 
+    width: 100%;
+    height: 45px;
+
+    border-top: 1px solid #429C97;
+    background-color: var(--current--theme--bg);
+
+    z-index: 2;
+}
+
+.NavigationBar__wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
 
-    width: 100%;
-    height: 45px;
-    border-top: 1px solid #429C97;
-    background-color: var(--current--theme--bg);
-    z-index: 2;
+    max-width: 455px;
+    margin: 0 auto;
 }
 
 .NavigationBar a {
+    flex-grow: 1;
     padding: 10px;
+    text-align: center;
 }
 
-.NavigationBar a + a {
-    margin-left: 40px;
-}
 
 @media only screen and (min-width: 1224px) {
     .NavigationBar {
@@ -34,5 +40,9 @@
 
     .NavigationBar a:last-child {
         padding-right: 0;
+    }
+    
+    .NavigationBar a + a {
+        margin-left: 40px;
     }
 }
