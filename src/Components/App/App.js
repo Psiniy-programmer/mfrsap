@@ -23,10 +23,10 @@ import "./App.css";
 class App extends Component {
   componentDidMount() {
     window.addEventListener("resize", this.props.resizeWindow);
-    this.props.fetchDataGroups("https://mf.bmstu.ru/rasp/api/group/list");
-    this.props.fetchFacultyData("https://mf.bmstu.ru/rasp/api/faculty/list");
-    this.props.fetchTeachersData("https://mf.bmstu.ru/rasp/api/teacher/list");
-    this.props.fetchAuditoryData("https://mf.bmstu.ru/rasp/api/aud/list");
+    this.props.fetchDataGroups("https://rasp.msfu.ru/api/group/list");
+    this.props.fetchFacultyData("https://rasp.msfu.ru/api/faculty/list");
+    this.props.fetchTeachersData("https://rasp.msfu.ru/api/teacher/list");
+    this.props.fetchAuditoryData("https://rasp.msfu.ru/api/aud/list");
     this.props.fetchAltList();
     this.syncStorages();
     this.getThemeClass();

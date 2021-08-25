@@ -38,7 +38,7 @@ class Rasp extends PureComponent {
     const type = findRequestType(rasp);
     this.setState({type: type});
     this.props.fetchRaspData(
-        `https://mf.bmstu.ru/rasp/api/${type.name}?id=${id}`,
+        `https://rasp.msfu.ru/api/${type.name}?id=${id}`,
     );
   }
 

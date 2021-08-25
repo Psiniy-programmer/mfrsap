@@ -4,7 +4,7 @@ import {
   ALTLIST_DATA_FETCH_OK,
 } from "../reducers/altList";
 
-const URL = "https://mf.bmstu.ru/rasp/api/group/altlist";
+const URL = "https://rasp.msfu.ru/api/group/altlist";
 
 function fetchAltListSuccess(altList) {
   return {

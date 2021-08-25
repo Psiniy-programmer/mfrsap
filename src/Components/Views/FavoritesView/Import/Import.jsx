@@ -45,7 +45,7 @@ class Import extends Component {
     }
 
     await fetch(
-        `https://mf.bmstu.ru/rasp/api/favorites?code=${this.state.code}`)
+        `https://rasp.msfu.ru/api/favorites?code=${this.state.code}`)
         .then((response) => response.json())
         .catch((error) => console.error(error))
         .then((res) => newDat = res);

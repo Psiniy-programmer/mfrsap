@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const onSubmit = async val => {
-    await fetch('https://mf.bmstu.ru/rasp/api/feedback', {
+    await fetch('https://rasp.msfu.ru/api/feedback', {
         method: 'POST',
         headers: {
             'Content-Type': 'text/plain',
