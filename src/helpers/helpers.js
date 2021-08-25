@@ -183,8 +183,6 @@ const mergeObjects = (source, target) => {
     if (!source) {
         return;
     }
-    debugger
-
 
     if (Object.keys(target).length >= Object.keys(source).length) {
         for (let key in source) {

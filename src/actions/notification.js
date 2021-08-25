@@ -4,7 +4,7 @@ import {
   NOTIFY_FETCH_OK,
 } from "../reducers/notification";
 
-const URL = "https://mf.bmstu.ru/rasp/test/?type=7";
+const URL = "https://rasp.msfu.ru/api/announcements";
 
 function fetchNotifyDataSuccess(notification) {
   return {
