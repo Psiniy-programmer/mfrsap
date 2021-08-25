@@ -39,7 +39,6 @@
 @media only screen and (min-width: 1224px) {
     .DaysCarousel {
         display: flex;
-        gap: 12px;
         margin-bottom: 30px;
     }
 
@@ -60,6 +59,10 @@
         line-height: 100%;
         text-align: center;
         cursor: pointer;
+    }
+
+    .DayItem + .DayItem {
+        margin-left: 12px;
     }
 }
 

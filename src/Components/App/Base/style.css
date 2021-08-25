@@ -1,28 +1,32 @@
 .SearchDescription {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
-}
-
-.SearchDescription__backtrace {
-    align-self: flex-start;
-    display: flex;
-    gap: 8px;
-    flex-direction: row;
-    cursor: pointer;
-    color: var(--green);
+    margin-bottom: 10px;
 }
 
 .SearchDescription__hide {
     display: none;
 }
 
-@media only screen and (max-width: 1224px) {
-    .SearchDescription__backtrace {
-        display: none;
-    }
+.SearchDescription__backtrace {
+    display: none;
+}
 
+@media only screen and (min-width: 1224px) {
     .SearchDescription {
         margin-bottom: 20px;
     }
+
+    .SearchDescription__backtrace {
+        display: flex;
+        align-self: flex-start;
+        flex-direction: row;
+        cursor: pointer;
+        color: var(--green);
+    }
+    
+    .SearchDescription__backtrace img {
+        margin-right: 8px;
+    }
+        
 }

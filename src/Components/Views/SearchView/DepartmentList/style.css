@@ -1,7 +1,6 @@
 .DepartmentList {
     display: grid;
     gap: var(--items--gap);
-    margin-bottom: 3.438em;
 }
 
 .DepartmentList__hide {

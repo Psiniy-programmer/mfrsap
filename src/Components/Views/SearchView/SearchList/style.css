@@ -4,8 +4,8 @@
 }
 
 .SearchList_item {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
     background-color: var(--green);
     border-radius: 4px;
     cursor: pointer;

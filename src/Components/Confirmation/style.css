@@ -1,10 +1,12 @@
 .confirmation {
     display: flex;
     flex-direction: row;
-    gap: var(--items--gap);
 }
 
-.confirmation > p {
-    width: 100%;
+.confirmation > button {
     text-align: center;
+}
+
+.confirmation button + button {
+    margin-left: var(--items--gap);
 }

@@ -1,7 +1,6 @@
 .SearchButtons {
     display: flex;
     flex-wrap: nowrap;
-    gap: var(--items--gap)
 }
 
 .SearchButtons a {
@@ -14,6 +13,10 @@
     text-align: center;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.SearchButtons a + a {
+    margin-left: var(--items--gap);
 }
 
 .SearchHelper {

@@ -1,29 +1,48 @@
 .NavigationBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
     height: 45px;
+
+    border-top: 1px solid #429C97;
     background-color: var(--current--theme--bg);
+
+    z-index: 2;
+}
+
+.NavigationBar__wrapper {
     display: flex;
-    gap: 40px;
     flex-direction: row;
     justify-content: center;
+
+    max-width: 455px;
+    margin: 0 auto;
 }
+
+.NavigationBar a {
+    flex-grow: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+
 @media only screen and (min-width: 1224px) {
+    .NavigationBar {
+        position: relative;
+        justify-self: end;
+
+        width: auto;
+        height: auto;
+        border: none;
+    }
+
     .NavigationBar a:last-child {
         padding-right: 0;
     }
-}
-.NavigationBar a {
-    padding: 10px;
-}
-
-@media only screen and (max-width: 1224px) {
-    .NavigationBar {
-        border-top: 1px solid #429C97;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
+    
+    .NavigationBar a + a {
+        margin-left: 40px;
     }
 }
-
-
