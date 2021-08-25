@@ -71,12 +71,11 @@ class CourseList extends Component {
       nextState["С"] !== undefined &&
       Object.keys(nextState["С"]).length !== 0
     ) {
-      mergeObjects(nextState["С"], nextState["Б"]);
+      nextState["Б"] = mergeObjects(nextState["С"], nextState["Б"]);
       nextState["Б"].merged = true;
     }
     
     nextState = this.normalizeObject(nextState);
-
     this.setState(nextState);
   }
 
@@ -93,6 +92,7 @@ class CourseList extends Component {
         Object.keys(this.state[key]).length !== 0 &&
         key !== "С"
       ) {
+        console.log(this.state[key])
         res.push(
           <CourseListType
             url={this.props.match.url}
