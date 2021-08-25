@@ -3,6 +3,10 @@ html, body, #root, .App, .content{
   box-sizing: border-box;
 }
 
+.App {
+  min-width: 250px;
+}
+
 button {
   padding: 0;
   border: none;
