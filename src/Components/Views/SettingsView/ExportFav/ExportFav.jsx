@@ -22,7 +22,7 @@ class ExportFav extends Component {
         const context = this;
         let code = '';
 
-        await fetch('https://mf.bmstu.ru/rasp/api/favorites', {
+        await fetch('https://rasp.msfu.ru/api/favorites', {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/plain',
