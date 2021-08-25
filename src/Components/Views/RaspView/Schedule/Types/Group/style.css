@@ -19,6 +19,7 @@
 
   .pair__item_subject {
     order: 1;
+    margin-bottom: 6px;
   }
 
   .pair__item_subgroup {

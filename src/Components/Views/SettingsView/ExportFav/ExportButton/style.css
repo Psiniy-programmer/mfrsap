@@ -1,11 +1,12 @@
 .ExportButton {
     display: grid;
     grid-template-rows: 1fr;
-    background-color: var(--green);
-    border-radius: 4px;
-    cursor: pointer;
+    margin-bottom: var(--items--gap);
     padding: 16px 20px;
     text-align: center;
+    border-radius: 4px;
+    background-color: var(--green);
+    cursor: pointer;
 }
 
 .ExportField {
