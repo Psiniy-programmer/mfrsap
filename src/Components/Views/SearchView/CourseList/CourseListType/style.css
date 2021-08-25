@@ -1,12 +1,21 @@
 .CourseType {
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: var(--items--gap)
+    margin-top: 10px;
+}
+
+.CourseType p {
+    margin-bottom: 10px;
+}
+
+.CourseType a + a {
+    margin-top: var(--items--gap);
 }
 
 @media only screen and (min-width: 1224px) {
-    .CourseType {
-        margin-bottom: 4px;
+
+    .CourseType p {
+        margin-bottom: 20px;
     }
+
 }

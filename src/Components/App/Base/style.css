@@ -7,10 +7,13 @@
 .SearchDescription__backtrace {
     align-self: flex-start;
     display: flex;
-    gap: 8px;
     flex-direction: row;
     cursor: pointer;
     color: var(--green);
+}
+
+.SearchDescription__backtrace img {
+    margin-right: 8px;
 }
 
 .SearchDescription__hide {

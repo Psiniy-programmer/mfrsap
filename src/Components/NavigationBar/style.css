@@ -1,29 +1,38 @@
 .NavigationBar {
-    height: 45px;
-    background-color: var(--current--theme--bg);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
     display: flex;
-    gap: 40px;
     flex-direction: row;
     justify-content: center;
+
+    width: 100%;
+    height: 45px;
+    border-top: 1px solid #429C97;
+    background-color: var(--current--theme--bg);
+    z-index: 2;
 }
-@media only screen and (min-width: 1224px) {
-    .NavigationBar a:last-child {
-        padding-right: 0;
-    }
-}
+
 .NavigationBar a {
     padding: 10px;
 }
 
-@media only screen and (max-width: 1224px) {
-    .NavigationBar {
-        border-top: 1px solid #429C97;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-    }
+.NavigationBar a + a {
+    margin-left: 40px;
 }
 
+@media only screen and (min-width: 1224px) {
+    .NavigationBar {
+        position: relative;
+        justify-self: end;
 
+        width: auto;
+        height: auto;
+        border: none;
+    }
+
+    .NavigationBar a:last-child {
+        padding-right: 0;
+    }
+}

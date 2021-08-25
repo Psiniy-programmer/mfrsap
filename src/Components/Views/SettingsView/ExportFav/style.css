@@ -1,21 +1,9 @@
-.Export {
-    box-sizing: border-box;
-}
-
-.Export__content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.Export__content input {
+    margin-bottom: var(--items--gap);
 }
 
 @media only screen and (min-width: 1224px) {
-    .Export {
-        max-width: 455px;
-    }
-
     .Export__content {
-        gap: 16px;
         margin-top: 40px;
     }
-  }
-  
+}

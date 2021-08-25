@@ -59,23 +59,25 @@ class ExportFav extends Component {
         const {isMobile} = this.props;
 
         return (
-            <div className="Export">
-                <h2 className={` ${isMobile ? 'text-medium--medium' : 'text-bold--header'} textColor`}>Экспорт
-                    избранного</h2>
-                <div className="Export__content">
-                    <ExportButton
-                        func={this.handleCopy}
-                        fetchFunc={this.setHandleClick}
-                        generated={generated}
-                        isMobile={isMobile}
-                        copyAction={this.state.copyAction}
-                    />
-                    <p className={`${isMobile ? 'text-regular--small' : 'text-regular--medium'} textColor`}>
-                        Скопируйте код и затем вставьте его в форму на странице избранного
-                        на новом устройстве.
-                    </p>
+            <div className="content_info">
+                <div className="Export">
+                    <h2 className={` ${isMobile ? 'text-medium--medium' : 'text-bold--header'} textColor`}>Экспорт
+                        избранного</h2>
+                    <div className="Export__content">
+                        <ExportButton
+                            func={this.handleCopy}
+                            fetchFunc={this.setHandleClick}
+                            generated={generated}
+                            isMobile={isMobile}
+                            copyAction={this.state.copyAction}
+                        />
+                        <p className={`${isMobile ? 'text-regular--small' : 'text-regular--medium'} textColor`}>
+                            Скопируйте код и затем вставьте его в форму на странице избранного
+                            на новом устройстве.
+                        </p>
+                    </div>
+                    {copyAction ? <PopUp/> : ''}
                 </div>
-                {copyAction ? <PopUp/> : ''}
             </div>
         );
     }

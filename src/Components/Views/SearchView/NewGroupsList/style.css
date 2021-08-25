@@ -1,5 +1,4 @@
 .NewGroupsList {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: var(--items--gap);
 }

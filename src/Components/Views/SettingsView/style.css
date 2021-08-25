@@ -1,12 +1,10 @@
 .view__items {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: var(--items--gap);
 }
 
 @media only screen and (min-width: 1224px) {
   .view__items {
-    width: 455px;
     margin-top: 40px;
   }
 }

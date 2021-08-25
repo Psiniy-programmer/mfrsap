@@ -29,7 +29,7 @@ class SettingsView extends Component {
             break;
     }
     return (
-      <>
+      <div className="content_info">
         <h2 className={"text-bold--header textColor"}>Настройки</h2>
         <div className={"view__items"}>
           <Link to={"/settings/export"}>
@@ -48,7 +48,7 @@ class SettingsView extends Component {
             <MenuItem text={"Информация о разработчиках"} />
           </Link>
         </div>
-      </>
+      </div>
     );
   }
 }

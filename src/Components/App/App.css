@@ -192,10 +192,6 @@ body {
     max-width: 1110px;
   }
 
-  .NavigationBar {
-    justify-self: end;
-  }
-
   .content_info {
     max-width: 455px;
     margin-bottom: unset;

@@ -23,9 +23,12 @@
   .aud_rasp__item_info {
     display: flex;
     flex-direction: row;
-    gap: 30px;
     width: 100%;
     justify-content: unset;
+  }
+
+  .aud_rasp__item_info div + div {
+    margin-left: 30px;
   }
 
   .aud_rasp__item_aud {

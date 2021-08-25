@@ -18,7 +18,6 @@
 
 .rasp {
   display: flex;
-  gap: 10px;
   flex-direction: column;
 }
 
@@ -26,6 +25,10 @@
   padding: 10px;
   border-radius: 4px;
   background-color: var(--green);
+}
+
+.rasp__item + .rasp__item {
+  margin-top: 10px;
 }
 
 .rasp__item_main {
@@ -125,8 +128,10 @@
     width: 100%;
   }
 
-  .rasp__item_double {
-    gap: 24px;
+  .rasp__item_double .rasp__item_info:first-child {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 2px dashed rgba(205, 205, 205, 1);
   }
 
 
