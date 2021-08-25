@@ -1,157 +1,179 @@
 .Schedule {
-  max-height: 100%;
-  display: grid;
-  grid-gap: 10px;
-  margin-top: 10px;
-  padding-bottom: 66px;
+    max-height: 100%;
+    display: grid;
+    grid-gap: 10px;
+    margin-top: 10px;
+    padding-bottom: 66px;
 }
 
 .schedule-item {
-  background-color: var(--green);
+    background-color: var(--green);
 }
 
 .schedule-item__Single {
-  max-width: 100%;
-  display: grid;
-  margin-bottom: 0.625em;
+    max-width: 100%;
+    display: grid;
+    margin-bottom: 0.625em;
 }
 
 .rasp {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .rasp__item {
-  padding: 10px;
-  border-radius: 4px;
-  background-color: var(--green);
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--green);
 }
 
 .rasp__item + .rasp__item {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .rasp__item_main {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 
 .rasp__item_info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .rasp__item_double {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .rasp__item_aud {
-  display: flex;
-  align-items: flex-end;
+    display: flex;
+    align-items: flex-end;
 }
 
 .soon {
-  background-color: var(--red);
+    background-color: var(--red);
 }
 
 
 .splitter {
-  width: 100%;
-  height: 1px;
-  border-bottom: 1px dashed var(--current--theme--bg);
-  opacity: 0.5;
-  margin: 16px -5px 16px -5px;
-  padding: 0 5px;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed var(--current--theme--bg);
+    opacity: 0.5;
+    margin: 16px -5px 16px -5px;
+    padding: 0 5px;
 }
 
 .schedule-item {
-  padding-top: 10px;
-  border-radius: 4px;
+    padding-top: 10px;
+    border-radius: 4px;
 }
 
 .opacity {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 .aud_rasp__item_aud > p,
 .rasp__item_aud > p {
-  text-align: end;
+    text-align: end;
 }
 
 @media only screen and (min-width: 1224px) {
-  .Schedule {
-    margin-top: unset;
-    margin-bottom: unset;
-    padding-bottom: unset;
-  }
+    .Schedule {
+        margin-top: unset;
+        margin-bottom: unset;
+        padding-bottom: unset;
+    }
 
-  .splitter {
-    margin: 16px 0;
-    padding: unset;
-    display: none;
-  }
+    .splitter {
+        margin: 16px 0;
+        padding: unset;
+        display: none;
+    }
 
-  .schedule-item {
-    grid-template-columns: 255px 1fr;
-    align-content: center;
-    background-color: unset;
-    padding: 24px 0;
-    border-bottom: 1px dashed var(--current--theme--bg);
-  }
+    .schedule-item {
+        grid-template-columns: 255px 1fr;
+        align-content: center;
+        background-color: unset;
+        padding: 24px 0;
+        border-bottom: 1px dashed var(--current--theme--bg);
+    }
 
-  .schedule-item:last-child {
-    border-bottom: unset;
-  }
+    .schedule-item:last-child {
+        border-bottom: unset;
+    }
 
-  .schedule-item__Double {
-    display: grid;
-    grid-template-columns: 255px 1fr;
-  }
+    .schedule-item__Double {
+        display: grid;
+        grid-template-columns: 255px 1fr;
+    }
 
-  .rasp__item {
-    display: grid;
-    grid-template-columns: 255px 1fr;
-    gap: 30px;
-    padding: 24px 0;
-    background-color: var(--current--theme--bg);
-    border-bottom: 2px dashed rgba(205, 205, 205, .5);
-  }
+    .rasp__item {
+        display: grid;
+        grid-template-columns: 255px 1fr;
+        gap: 30px;
+        padding: 24px 0;
+        background-color: var(--current--theme--bg);
+        border-bottom: 2px dashed rgba(205, 205, 205, .5);
+    }
 
-  .rasp__item:last-child {
-    border-bottom: unset;
-  }
+    .rasp__item:last-child {
+        border-bottom: unset;
+    }
 
-  .rasp__item_info {
-    width: 100%;
-  }
+    .rasp__item_info {
+        width: 100%;
+    }
 
-  .rasp__item_double .rasp__item_info:first-child {
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 2px dashed rgba(205, 205, 205, 1);
-  }
+    .rasp__item_double .rasp__item_info:first-child {
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+        border-bottom: 2px dashed rgba(205, 205, 205, 1);
+    }
 
 
-  .rasp__item_main {
-    flex-direction: row;
-    gap: 30px;
-  }
+    .rasp__item_main {
+        flex-direction: row;
+        gap: 30px;
+    }
 
-  .rasp__item_aud {
-    justify-content: end;
-    align-items: start;
-    width: 160px;
-    text-align: end;
-  }
+    .rasp__item_aud {
+        justify-content: end;
+        align-items: start;
+        width: 160px;
+        text-align: end;
+    }
 
-  .soon {
-    background-color: unset;
-}
+    .soon {
+        background-color: unset;
+    }
 
-  .soon {
-    color: var(--red);
-  }
+    .soon {
+        color: var(--red);
+    }
+
+    .everyDayTables > div > h3 {
+        font-family: "RobotoBold", "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 120%;
+        color: var(--current--theme--menu--txt);
+    }
+
+    .everyDayTables > div > .rasp,
+    .everyDayTables > div > p {
+        margin-top: 30px;
+        margin-bottom: 60px;
+        border-bottom: 2px dashed rgba(205, 205, 205, .5);
+        border-top: 2px dashed rgba(205, 205, 205, .5);
+    }
+
+    .everyDayTables > div > p {
+        padding: 24px 0;
+    }
+
 }

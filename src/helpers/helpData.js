@@ -12,7 +12,7 @@ const getTime = index => {
     return helpData[index]
 }
 
-const mobileDaysData = [
+const mobileCarouselData = [
     {
         'rus': 'ПН',
         'eng': 'monday'
@@ -39,7 +39,7 @@ const mobileDaysData = [
     }
 ]
 
-const desktopMobileData = [
+const desktopCarouselData = [
     {
         'rus': 'Понедельник',
         'eng': 'monday'
@@ -63,7 +63,11 @@ const desktopMobileData = [
     {
         'rus': 'Суббота',
         'eng': 'saturday'
+    },
+    {
+        'rus': 'Все дни',
+        'eng': 'every'
     }
 ]
 
-export {getTime, mobileDaysData, desktopMobileData}
+export {getTime, mobileCarouselData, desktopCarouselData}

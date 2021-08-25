@@ -22,6 +22,10 @@
         text-align: center;
     }
 
+    .DayItem_everyone {
+        display: none;
+    }
+
     .container-wrapper {
         overflow-x: scroll;
         overflow-y: hidden;
