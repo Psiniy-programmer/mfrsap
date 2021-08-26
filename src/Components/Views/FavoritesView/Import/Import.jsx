@@ -4,6 +4,7 @@ import MenuItem from '../../../MenuItem/MenuItem';
 import './style.css';
 import Confirmation from '../../../Confirmation/Confirmation';
 import {rewriteStorageData} from '../../../../actions/favoriteStorage';
+import PopUp from "../../../PopUp/PopUp";
 
 class Import extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Import extends Component {
     this.state = {
       clicked: false,
       code: '',
+      popUp: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -36,7 +38,13 @@ class Import extends Component {
     this.setState({
       clicked: false,
     });
-    this.setState({code: ''})
+
+    if (!this.state.code) {
+      this.setState({popUp: true});
+      return setTimeout(() => {
+        this.setState({popUp: false});
+      }, 2000);
+    }
 
     let newDat = {
       groups: [],
@@ -51,6 +59,7 @@ class Import extends Component {
         .then((res) => newDat = res);
 
     this.props.rewriteStorage(newDat);
+    this.setState({code: ''})
   }
 
   handleCancel() {
@@ -60,7 +69,7 @@ class Import extends Component {
   }
 
   render() {
-    const {isMobile} = this.props;
+    const {isMobile, popUp} = this.props;
     const {code, clicked} = this.state;
     return <div className={`import textColor`}>
       <p className={isMobile ?
@@ -90,6 +99,9 @@ class Import extends Component {
               onConfirm={this.handleConfirm}
               onCancel={this.handleCancel}
           />
+      }
+      {
+        popUp && <PopUp text="ОШИБКА" />
       }
     </div>;
   }

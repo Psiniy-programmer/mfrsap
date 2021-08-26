@@ -143,6 +143,11 @@ const finderIsEmpty = (state) => {
     return state.length > 0 ? true : false;
 };
 
+/**
+ * Получение типа расписания (Препод, аудитория, группа)
+ * @param data - Расписание
+ * @returns {*} - Возвращаем тип расписания
+ */
 const getRaspType = (data) => {
     let keys = Object.keys(data);
     let types = ['aud', 'teacher', 'group'];
@@ -158,6 +163,11 @@ const getRaspType = (data) => {
     return res;
 };
 
+/**
+ * Перевод цифры в римскую
+ * @param numb - Цифра
+ * @returns {string} - Римская цифра
+ */
 const switchNumber = (numb) => {
     switch (numb) {
         case '0':
@@ -179,6 +189,12 @@ const switchNumber = (numb) => {
     }
 };
 
+/**
+ * Склеиваем объекты
+ * @param source - Источник
+ * @param target - Цель
+ * @returns {*} - Возвращаем склеенный объект
+ */
 const mergeObjects = (source, target) => {
     if (!source) {
         return;
@@ -203,76 +219,99 @@ const mergeObjects = (source, target) => {
     }
 }
 
-    const checkItem = (item) => {
-        return item !== undefined && item.length !== 0;
-    };
+const checkItem = (item) => {
+    return item !== undefined && item.length !== 0;
+};
 
-    const getTimer = (cur, appTimer) => {
-        const {pairtime} = cur;
-        let res = {diff: null, soon: false, timer: pairtime};
+/**
+ * Расчёт разницы времени для текущей пары (подсветка красным)
+ * @param cur - Текущая пара
+ * @param appTimer - Глобальный объект даты
+ * @returns {{timer, diff: null, soon: boolean}} diff - Разница во времени до пары, soon - включение подсветки
+ */
+const getTimer = (cur, appTimer) => {
+    const {pairtime} = cur;
+    const daysDiff = appTimer.todayIndex !== appTimer.dayIndex + 1;
+    let res = {diff: null, soon: false, timer: pairtime};
 
-        if (appTimer.todayIndex !== appTimer.dayIndex) {
-            return res;
-        }
 
-        const t = pairtime.split('—')[0].split(':').map((i) => Number(i));
-
-        const curTime = appTimer.date.getHours() * 60 + appTimer.date.getMinutes();
-        const nextPair = t[0] * 60 + t[1];
-        const diffTime = nextPair - curTime;
-        // const diffTime = 40;
-
-        if (diffTime > 0 && diffTime <= 60) {
-            res.diff = diffTime;
-            res.soon = true;
-        }
-
+    if (daysDiff) {
         return res;
-    };
+    }
 
-    const checkIsDouble = (cur) => {
-        const {pair} = cur;
-        let isDouble = false;
+    const t = pairtime.split('—')[0].split(':').map((i) => Number(i));
 
-        if (pair.length > 1) {
-            isDouble = true;
-        }
+    const curTime = appTimer.date.getHours() * 60 + appTimer.date.getMinutes();
+    const nextPair = t[0] * 60 + t[1];
+    const diffTime = nextPair - curTime;
+    // const diffTime = 40; Раскоментить для теста
+    if (diffTime > 0 && diffTime <= 60) {
+        res.diff = diffTime;
+        res.soon = true;
+    }
 
-        return isDouble;
-    };
+    return res;
+};
 
-    const checkOnArr = (item) => {
-        if (Array.isArray(item)) {
-            return item.join(', ');
-        } else {
-            return item;
-        }
-    };
+/**
+ * Проверяем пары на раздвоение
+ * @param cur - Пара
+ * @returns {boolean} - Двойная или одинарная
+ */
+const checkIsDouble = (cur) => {
+    const {pair} = cur;
+    let isDouble = false;
 
-    const convertString = (str, index) => {
-        if (keyboard[str[index]]) {
-            return str.replaceAt(index, keyboard[str[index]]);
-        }
-        return str;
-    };
+    if (pair.length > 1) {
+        isDouble = true;
+    }
 
-    export {
-        changeLangEngToRus,
-        changeLangRusToEng,
-        findFacultyName,
-        translateFullGroupNameToEng,
-        translateFullGroupNameToRus,
-        generateUniqKey,
-        removeClasses,
-        findRequestType,
-        getTextColorFromWidth,
-        finderIsEmpty,
-        getRaspType,
-        switchNumber,
-        mergeObjects,
-        checkItem,
-        getTimer,
-        checkIsDouble,
-        checkOnArr,
-        convertString,
-    };
+    return isDouble;
+};
+
+/**
+ * Перевод параметра в строку
+ * @param item - Потенциальный массив
+ * @returns {*} - Распарсенная строка
+ */
+const checkOnArr = (item) => {
+    if (Array.isArray(item)) {
+        return item.join(', ');
+    } else {
+        return item;
+    }
+};
+
+/**
+ * Переворачиваем переданный текст в англ. раскладку
+ * @param str - Строка из инпута в UI
+ * @param index - Индекс нужного символа
+ * @returns {*} - Переведеная строка
+ */
+const convertString = (str, index) => {
+    if (keyboard[str[index]]) {
+        return str.replaceAt(index, keyboard[str[index]]);
+    }
+    return str;
+};
+
+export {
+    changeLangEngToRus,
+    changeLangRusToEng,
+    findFacultyName,
+    translateFullGroupNameToEng,
+    translateFullGroupNameToRus,
+    generateUniqKey,
+    removeClasses,
+    findRequestType,
+    getTextColorFromWidth,
+    finderIsEmpty,
+    getRaspType,
+    switchNumber,
+    mergeObjects,
+    checkItem,
+    getTimer,
+    checkIsDouble,
+    checkOnArr,
+    convertString,
+};

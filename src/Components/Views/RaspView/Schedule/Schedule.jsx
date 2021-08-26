@@ -5,7 +5,6 @@ import './style.css';
 import Aud from './Types/Aud/Aud';
 import Group from './Types/Group/Group';
 import Teacher from './Types/Teacher/Teacher';
-import {desktopCarouselData} from "../../../../helpers/helpData";
 
 class Schedule extends Component {
     getCommonRasp(curDay) {
@@ -31,7 +30,6 @@ class Schedule extends Component {
     getTable(tableIndex) {
         let isEmpty = true;
         const {day} = this.props.raspData.data;
-
         // Получаем ОДИН день, если он существует
         if (day !== undefined && !day[tableIndex].special_day) {
             day[tableIndex].pairList.map((item) => {
@@ -57,7 +55,7 @@ class Schedule extends Component {
         const {day} = this.props.raspData.data;
 
         // Если получаем всё расписание
-        if (dayIndex === null && !isMobile && day) {
+        if (dayIndex === 6 && !isMobile && day) {
             let tables = [];
 
             for (let i = 0; i < day.length; i++) {
@@ -76,8 +74,10 @@ class Schedule extends Component {
             </div>
         }
 
-        // Если получаем один из дней
-        return this.getTable(dayIndex);
+        if (dayIndex !== null) {
+            // Если получаем один из дней
+            return this.getTable(dayIndex);
+        }
     }
 
     render() {

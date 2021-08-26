@@ -61,7 +61,7 @@ const mapStateToProps = state => {
     }),
     // Динамический поиск по аудиториям //
     auditoryList: state.auditoryList.data.map(auditoryElem => {
-      if (auditoryElem.aud.includes(state.filterItems)) return auditoryElem;
+      if (auditoryElem.aud.toLowerCase().includes(state.filterItems.toLowerCase())) return auditoryElem;
       else return null;
     }),
   };

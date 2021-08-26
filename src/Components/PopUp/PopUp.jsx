@@ -4,14 +4,14 @@ import "./style.css";
 
 class PopUp extends Component {
   render() {
-    const { isMobile } = this.props;
+    const { isMobile, text } = this.props;
     return (
       <p
         className={`popUp raspTextColor ${
           isMobile ? "text-regular--small" : "text-regular--medium"
         }`}
       >
-        Код скопирован в буфер обмена
+        {text}
       </p>
     );
   }

@@ -18,6 +18,7 @@ class DaysCarousel extends Component {
             thursday: false,
             friday: false,
             saturday: false,
+            everyone: false
         };
     }
 
