@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
 import './style.css';
 
 class Footer extends Component {
@@ -7,7 +8,7 @@ class Footer extends Component {
         <footer className={'Footer'}>
           <p className={'Copyright'}>
             <a className={'textColor text-regular--medium'} href="https://mf.bmstu.ru/">
-              2020 © Мытищинский филиал МГТУ им. Н. Э. Баумана
+              {this.props.date.getFullYear()} © Мытищинский филиал МГТУ им. Н. Э. Баумана
             </a>
           </p>
         </footer>
@@ -15,4 +16,10 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+const mapStateToProps = (state) => {
+    return {
+        date: state.appTimer.date
+    };
+};
+
+export default connect(mapStateToProps, null)(Footer);
