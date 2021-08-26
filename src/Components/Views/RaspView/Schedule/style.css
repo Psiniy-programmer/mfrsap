@@ -51,6 +51,7 @@
 .rasp__item_aud {
     display: flex;
     align-items: flex-end;
+    margin-left: 6px;
 }
 
 .soon {
@@ -149,10 +150,11 @@
 
     .soon {
         background-color: unset;
+        color: var(--red);
     }
 
-    .soon {
-        color: var(--red);
+    .everyDayTables {
+        margin-top: 30px;
     }
 
     .everyDayTables > div > h3 {
@@ -161,7 +163,7 @@
         font-weight: 700;
         font-size: 24px;
         line-height: 120%;
-        color: var(--current--theme--menu--txt);
+        color: var(--green);
     }
 
     .everyDayTables > div > .rasp,

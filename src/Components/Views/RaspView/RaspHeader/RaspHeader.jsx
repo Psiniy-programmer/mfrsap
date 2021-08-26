@@ -46,12 +46,15 @@ class RaspHeader extends Component {
 
     return (
       <div className={"RaspHeader textColor"}>
-        <img
-          onClick={() => this.toggleFavorites()}
+        <div 
           className={"Header_Logo"}
-          src={localStorage.getItem(data[type]) !== null ? star_active : star}
-          alt="error"
-        />
+          onClick={() => this.toggleFavorites()}
+        >
+          <img
+            src={localStorage.getItem(data[type]) !== null ? star_active : star}
+            alt="error"
+          />
+        </div>
         <div className={"Header_Text"}>
           <h3 className={"header__text_title shift-text text-bold--large"}>
             {data[type]}

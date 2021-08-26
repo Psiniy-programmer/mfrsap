@@ -1,7 +1,10 @@
 .RaspHeader {
     display: grid;
     background-color: var(--current--theme--bg);
-    grid-template-columns: 41px 1fr;
+    grid-template-columns: 31px 1fr;
+    margin-bottom: 10px;
+    align-content: center;
+    align-items: center;
 }
 
 .header__text_title {
@@ -25,21 +28,11 @@
     margin: 0.61111em 0 0.61111em 0.278em;
 }
 
-.RaspHeader p {
-    margin: 0.75em 0;
-}
-
 .Header_Logo {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 10.5px;
-    margin-left: -10.5px;
-}
-.RaspHeader {
-    margin-bottom: 10px;
-    align-content: center;
-    align-items: center;
+    width: 41px;
+    box-sizing: border-box;
+    margin-left: -10px;
+    padding: 10px;
 }
 
 @media only screen and (min-width: 1224px) {
