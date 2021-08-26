@@ -123,10 +123,10 @@ class RaspHeader extends Component {
                 : "Удалить из избранного"}
             </p>
           </div>
-          <div onClick={() => alert("В разработке")} className="RaspHeader_PDF">
+          {/* <div onClick={() => alert("В разработке")} className="RaspHeader_PDF">
             <img className={"PDF_icon"} src={PDF_icon} alt="PDF" />
             <p>PDF-версия для печати</p>
-          </div>
+          </div> */}
         </div>
       </>
     );
