@@ -1,6 +1,6 @@
 {
   "short_name": "МФ МГТУ Расписание",
-  "name": "МФ МГТУ им. Н.Э. Расписание",
+  "name": "МФ МГТУ Расписание",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +19,7 @@
     }
   ],
   "start_url": ".",
-  "display": "minimal-ui",
+  "display": "fullscreen",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
