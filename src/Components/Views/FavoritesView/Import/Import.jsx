@@ -64,14 +64,8 @@ class Import extends Component {
            return this.showNotify('Заполните поле для ввода кода!', 2000);
         }
 
-        let newDat = {
-            groups: [],
-            teachers: [],
-            auditoryies: []
-        }
-
         await fetch(
-            `${this.state.code}`)
+            `https://rasp.msfu.ru/api/favorites?code=${this.state.code}`)
             .then((response) => {
                 console.log(response);
                 return response.json()
@@ -83,8 +77,7 @@ class Import extends Component {
             .then((res) => {
                if (res) {
                    this.showNotify('Удачный импорт', 2000);
-                   newDat = res;
-                   this.props.rewriteStorage(newDat);
+                   this.props.rewriteStorage(res);
                }
             });
 
