@@ -25,7 +25,8 @@ class EmptyCard extends Component {
         }`}
       >
         {children}
-        <p className="emptyCard__text">Занятия нет</p>
+        <p className="emptyCard__text emptyMobile">Занятия нет</p>
+        <p className="emptyCard__text emptyDesktop">—</p>
       </div>
       {this.getHyphen()}
     </>;
