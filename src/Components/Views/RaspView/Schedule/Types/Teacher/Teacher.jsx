@@ -59,7 +59,7 @@ class Teacher extends Component {
           className="teacher_pair__item_subgroup text-regular--small"
           key={item[index].subgroup}
         >
-          {item[index].subgroup + " подгруппа"}
+          подгруппы
         </p>
       );
     }

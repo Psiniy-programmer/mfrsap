@@ -61,7 +61,7 @@ class Aud extends Component {
               className="aud_pair__item_subgroup text-regular--small"
               key={item[index].subgroup}
           >
-            {item[index].subgroup + ' подгруппа'}
+            подгруппы
           </p>,
       );
     }
