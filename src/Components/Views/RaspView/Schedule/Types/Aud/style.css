@@ -13,6 +13,7 @@
 
 .aud_pair__item_teacher {
     margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 .aud_pair__item_subgroup {
@@ -43,6 +44,7 @@
     box-sizing: border-box;
     width: 190px;
     margin-top: unset;
+    margin-bottom: unset;
     padding-right: 30px;
   }
 
