@@ -1,6 +1,6 @@
 .feedback__form {
   display: grid;
-  gap: 16px;
+  gap: var(--items--gap);
 }
 
 .feedback__submit {

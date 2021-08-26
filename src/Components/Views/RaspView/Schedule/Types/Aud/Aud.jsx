@@ -101,7 +101,7 @@ class Aud extends Component {
     return (
         <SingleContainer diff={diff}>
           {timer}
-          <SingleInfo diff={diff} opacity={opacity}>
+          <SingleInfo type={TYPE} diff={diff} opacity={opacity}>
             {res}
           </SingleInfo>
         </SingleContainer>

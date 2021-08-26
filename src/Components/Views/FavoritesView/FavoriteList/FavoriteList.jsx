@@ -101,12 +101,15 @@ class FavoriteList extends Component {
               {item}
             </p>
           </Link>
-          <img
+          <button 
             className={"FavoriteList_item__context"}
             onClick={() => this.props.removeFromFavorites(info)}
-            src={this.getIcon()}
-            alt="error"
-          />
+          >
+            <img
+              src={this.getIcon()}
+              alt="remove"
+            /> 
+          </button>
         </div>
       );
 

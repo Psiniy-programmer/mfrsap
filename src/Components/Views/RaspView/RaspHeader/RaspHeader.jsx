@@ -46,12 +46,15 @@ class RaspHeader extends Component {
 
     return (
       <div className={"RaspHeader textColor"}>
-        <img
-          onClick={() => this.toggleFavorites()}
+        <div 
           className={"Header_Logo"}
-          src={localStorage.getItem(data[type]) !== null ? star_active : star}
-          alt="error"
-        />
+          onClick={() => this.toggleFavorites()}
+        >
+          <img
+            src={localStorage.getItem(data[type]) !== null ? star_active : star}
+            alt="star"
+          />
+        </div>
         <div className={"Header_Text"}>
           <h3 className={"header__text_title shift-text text-bold--large"}>
             {data[type]}
@@ -112,7 +115,7 @@ class RaspHeader extends Component {
             <img
               className={"favorites_Logo"}
               src={storageItem !== null ? star_active : star}
-              alt="error"
+              alt="star"
             />
             <p>
               {storageItem === null
@@ -120,10 +123,10 @@ class RaspHeader extends Component {
                 : "Удалить из избранного"}
             </p>
           </div>
-          <div onClick={() => alert("В разработке")} className="RaspHeader_PDF">
-            <img className={"PDF_icon"} src={PDF_icon} alt="error" />
+          {/* <div onClick={() => alert("В разработке")} className="RaspHeader_PDF">
+            <img className={"PDF_icon"} src={PDF_icon} alt="PDF" />
             <p>PDF-версия для печати</p>
-          </div>
+          </div> */}
         </div>
       </>
     );
