@@ -64,16 +64,28 @@ class Import extends Component {
            return this.showNotify('Заполните поле для ввода кода!', 2000);
         }
 
+        let newDat = {
+            groups: [],
+            teachers: [],
+            auditoryies: []
+        }
+
         await fetch(
             `${this.state.code}`)
-            .then((response) => response.json())
+            .then((response) => {
+                console.log(response);
+                return response.json()
+            })
             .catch((error) => {
                 this.showNotify('Произошла ошибка при импорте', 2000);
                 return console.error(error);
             })
             .then((res) => {
-                this.showNotify('Удачный импорт', 2000);
-                this.props.rewriteStorage(res);
+               if (res) {
+                   this.showNotify('Удачный импорт', 2000);
+                   newDat = res;
+                   this.props.rewriteStorage(newDat);
+               }
             });
 
         this.setState({code: ''})

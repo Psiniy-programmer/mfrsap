@@ -54,6 +54,10 @@ class ExportFav extends Component {
         }, 2000);
     }
 
+    componentWillUnmount() {
+        localStorage.removeItem(key);
+    }
+
     render() {
         const {copyAction, generated} = this.state;
         const {isMobile} = this.props;
