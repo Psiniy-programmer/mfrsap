@@ -4,7 +4,11 @@
 }
 
 .FavoriteList_item__context {
-    padding: 16px 16px 16px 20px;
+    margin: 0;
+    padding: 16px 20px;
+    line-height: 0;
+    border: none;
+    background: transparent;
 }
 
 .FavoriteList_item {
