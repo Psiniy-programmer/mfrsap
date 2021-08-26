@@ -8,11 +8,15 @@
   }
 
   .teacher_item__main {
-    width: 160px;
+    box-sizing: border-box;
+    width: 190px;
+    padding-right: 30px;
   }
 
   .teacher_pair__item_subject {
-    width: 455px;
+    box-sizing: border-box;
+    width: 475px;
+    padding-right: 40px;
   }
 
   .soon {

@@ -13,28 +13,25 @@
 }
 
 @media only screen and (min-width: 1224px) {
-  .pair__item_teacher {
-    margin-bottom: unset;
-  }
-
   .pair__item_subject {
     order: 1;
+    box-sizing: border-box;
+    width: 475px;
     margin-bottom: 6px;
+    padding-right: 40px;
   }
 
   .pair__item_subgroup {
-    margin-top: unset;
     order: 2;
+    margin-top: unset;
   }
 
   .pair__item_teacher {
     order: 3;
+    box-sizing: border-box;
+    width: 190px;
     margin-top: unset;
-    width: 160px;
+    padding-right: 30px;
     text-align: start;
-  }
-
-  .item__main {
-    min-width: 455px;
   }
 }

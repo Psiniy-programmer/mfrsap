@@ -7,7 +7,7 @@
 
 .aud_rasp__item_info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -24,34 +24,29 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: unset;
-  }
-
-  .aud_rasp__item_info div + div {
-    margin-left: 30px;
   }
 
   .aud_rasp__item_aud {
     flex-direction: column;
+    margin-top: unset;
+    text-align: end;
   }
 
   .aud_pair__item_subject {
-    width: 455px;
+    box-sizing: border-box;
+    width: 475px;
     margin-bottom: unset;
+    padding-right: 40px;
   }
 
   .aud_pair__item_teacher {
-    width: 160px;
+    box-sizing: border-box;
+    width: 190px;
     margin-top: unset;
+    padding-right: 30px;
   }
 
   .aud_pair__item_subgroup {
     margin-top: unset;
-  }
-
-  .aud_rasp__item_aud {
-    width: 160px;
-    margin-top: unset;
-    text-align: end;
   }
 }

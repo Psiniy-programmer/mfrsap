@@ -17,11 +17,13 @@
 @media only screen and (min-width: 1224px) {
   .emptyCard {
     display: flex;
-    width: 455px;
     grid-template-rows: unset;
     grid-template-columns: unset;
-    background-color: unset;
+    box-sizing: border-box;
+    width: 475px;
     padding: unset;
+    padding-right: 40px;
+    background-color: unset;
   }
 
   .emptyCard__text {
@@ -33,6 +35,9 @@
   }
 
   .hyphen_start {
+    box-sizing: border-box;
+    width: 190px;
+    padding-right: 30px;
     text-align: start;
   }
   

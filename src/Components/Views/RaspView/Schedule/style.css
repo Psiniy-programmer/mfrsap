@@ -129,7 +129,8 @@
         width: 100%;
     }
 
-    .rasp__item_double .rasp__item_info:first-child {
+    .rasp__item_double .rasp__item_info:first-child,
+    .rasp__item_double .aud_rasp__item_info:first-child {
         margin-bottom: 24px;
         padding-bottom: 24px;
         border-bottom: 2px dashed rgba(205, 205, 205, 1);
@@ -138,13 +139,12 @@
 
     .rasp__item_main {
         flex-direction: row;
-        gap: 30px;
     }
 
     .rasp__item_aud {
         justify-content: end;
         align-items: start;
-        width: 160px;
+        margin-left: 0;
         text-align: end;
     }
 
