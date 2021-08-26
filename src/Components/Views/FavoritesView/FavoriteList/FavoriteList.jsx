@@ -107,7 +107,7 @@ class FavoriteList extends Component {
           >
             <img
               src={this.getIcon()}
-              alt="error"
+              alt="remove"
             /> 
           </button>
         </div>
