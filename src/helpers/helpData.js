@@ -65,8 +65,8 @@ const desktopCarouselData = [
         'eng': 'saturday'
     },
     {
-        'rus': 'Все дни',
-        'eng': 'everyone'
+        'rus': 'Вся неделя',
+        'eng': 'whole week '
     }
 ]
 
