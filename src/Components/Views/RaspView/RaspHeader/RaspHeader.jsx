@@ -12,6 +12,7 @@ import Consts from "../../../../helpers/consts";
 import { getRaspType } from "../../../../helpers/helpers";
 import "./style.css";
 import consts from "../../../../helpers/consts";
+import {GeneratedKey, GeneratedTimeStamp} from "../../SettingsView/ExportFav/ExportFav";
 
 class RaspHeader extends Component {
   getHeaderWeek() {
@@ -161,9 +162,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addToFavorite: (item) => {
+      localStorage.removeItem(GeneratedKey);
+      localStorage.removeItem(GeneratedTimeStamp);
       dispatch(addToFavorite(item));
     },
     removeFromFavorite: (item) => {
+      localStorage.removeItem(GeneratedKey);
+      localStorage.removeItem(GeneratedTimeStamp);
       dispatch(removeFromFavorite(item));
     },
   };
