@@ -173,7 +173,7 @@ textarea::placeholder {
 }
 
 /*Десктопы*/
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
   .content {
     max-width: unset;
     margin: unset;
@@ -299,4 +299,22 @@ textarea::placeholder {
 
 .textColor {
   color: var(--current--theme--menu--txt);
+}
+
+@media print {
+  .App {
+    /* max-width: 100%; */
+    color: black;
+  }
+
+  html {
+    --bg--dark--theme: white;
+    --bg--light--theme: white;
+    --menu--txt--light--theme: black;
+    --rasp--text-light--theme: white;
+    --txt--dark--theme: black;
+    --gray: black;
+    --green: black;
+    --red: black;
+  }
 }

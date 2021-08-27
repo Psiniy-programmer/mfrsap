@@ -31,7 +31,7 @@
     padding: 10px;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
     .RaspHeader {
         display: flex;
         align-items: center;
@@ -80,5 +80,16 @@
     .Header_Logo {
         padding: unset;
         margin-left: unset;
+    }
+}
+
+@media print {
+    .RaspHeader {
+        display: none;
+    }
+
+    .Header_Text {
+        margin: 0;
+        margin-bottom: 30px;
     }
 }

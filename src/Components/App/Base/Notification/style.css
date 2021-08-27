@@ -12,7 +12,7 @@
   display: none;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
   .notification {
     margin-top: 40px;
     padding: 17px 20px;

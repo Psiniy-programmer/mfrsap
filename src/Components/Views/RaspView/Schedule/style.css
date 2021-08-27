@@ -80,7 +80,7 @@
     text-align: end;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
     .Schedule {
         margin-top: unset;
         margin-bottom: unset;
@@ -176,4 +176,37 @@
         padding: 24px 0;
     }
 
+}
+
+@media print {
+    .opacity {
+        opacity: 1;
+    }
+    
+    .rasp__item {
+        padding: 5px 0;
+        border-radius: 0;
+        border-bottom: 1px solid black;
+        grid-template-columns: 120px 1fr;
+    }
+
+    .everyDayTables {
+        margin-top: 0;
+    }
+
+    .everyDayTables > div > .rasp,
+    .everyDayTables > div > p {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+        border-radius: 0;
+    }
+
+    .rasp__item_double .rasp__item_info:first-child,
+    .rasp__item_double .aud_rasp__item_info:first-child {
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid black;
+    }
 }

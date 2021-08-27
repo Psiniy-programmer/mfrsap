@@ -2,7 +2,7 @@
   margin-top: 6px;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
   .teacher_pair__item_group {
     margin-top: unset;
   }

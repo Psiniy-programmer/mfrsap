@@ -37,7 +37,7 @@
     display: none;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
     .DaysCarousel {
         display: flex;
         margin-bottom: 30px;
@@ -71,6 +71,20 @@
 }
 
 .DayItem_active {
-    background-color: #429C97;
+    background-color: var(--green);
     color: var(--current--theme--bg);
+}
+
+@media print {
+    .DaysCarousel {
+        display: none;
+    }
+    
+    /* .DayItem_active {
+        display: block;
+        margin: 0 !important;
+        background-color: white;
+        border: 1px solid black;
+        color: black;
+    } */
 }

@@ -11,7 +11,7 @@
     grid-template-columns: 1fr 0.1fr;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
     .import {
         margin-top: 40px;
         gap: 20px;
