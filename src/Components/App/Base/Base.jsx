@@ -23,7 +23,7 @@ class Base extends Component {
         return findFacultyName(match.params.faculty);
       case "/search/:faculty/:department":
         return "Кафедра " + changeLangEngToRus(match.params.department);
-      case "/search/:faculty/:department/:course":
+      case "/search/:faculty/:department/:course/:suffix":
         return `Кафедра ${changeLangEngToRus(match.params.department)} — ${
           match.params.course
         } курс`;
