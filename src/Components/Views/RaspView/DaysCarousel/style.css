@@ -1,67 +1,68 @@
-@media only screen and (max-width: 1224px) {
-    .scroller-container {
-        overflow: hidden;
-        margin: 0 -10px 10px -10px;
-    }
+.scroller-container {
+    overflow: hidden;
+    margin: 0 -10px 10px -10px;
+}
 
-    .DaysCarousel {
-        display: inline-block;
-        min-width: 100%;
-        padding: 10px;
-    }
+.container-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: -30px;
+    padding-bottom: 30px;
+}
 
-    .DayItem {
-        width: 50px;
-        height: 50px;
-        color: var(--green);
-        border: 1px solid var(--green);
-        border-radius: 25px;
-        display: grid;
-        align-items: center;
-        text-align: center;
-    }
+.DaysCarousel {
+    display: inline-block;
+    min-width: 100%;
+    padding: 10px;
+}
 
-    .DayItem_everyone {
-        display: none;
-    }
+.DaysCarousel-wrap {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--carousel--gap);
+}
 
-    .container-wrapper {
-        overflow-x: scroll;
-        overflow-y: hidden;
-        margin-bottom: -30px;
-        padding-bottom: 30px;
-    }
+.DayItem {
+    display: grid;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    border: 1px solid var(--green);
+    border-radius: 25px;
+    text-align: center;
+    color: var(--green);
+}
 
-    .DaysCarousel-wrap {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: var(--carousel--gap);
-    }
+.DayItem_everyone {
+    display: none;
 }
 
 @media only screen and (min-width: 1224px) {
     .DaysCarousel {
         display: flex;
         margin-bottom: 30px;
+        padding: 0;
     }
 
     .DayItem {
-        min-width: 95px;
-        height: 41px;
-        border: 1px solid var(--green);
-        box-sizing: border-box;
-        border-radius: 4px;
+        display: block;
+        width: auto;
+        height: auto;
         padding: 10px 24px;
-        color: var(--green);
-        display: flex;
-        align-items: center;
-
+        border: 1px solid var(--green);
+        border-radius: 4px;
+        
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
-        line-height: 100%;
-        text-align: center;
+        line-height: 1.3;
+        
+        color: var(--green);
         cursor: pointer;
+    }
+
+    .DayItem_everyone {
+        display: block;
     }
 
     .DayItem + .DayItem {
