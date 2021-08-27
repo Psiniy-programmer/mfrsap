@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MenuItem from "../../../../MenuItem/MenuItem";
 import { connect } from "react-redux";
-import { switchNumber } from "../../../../../helpers/helpers";
+import {switchNumberToRoman, translateSuffixToEng} from "../../../../../helpers/helpers";
 import Consts from "../../../../../helpers/consts";
 import { Link } from "react-router-dom";
 import "./style.css";
@@ -10,22 +10,23 @@ import consts from "../../../../../helpers/consts";
 
 class CourseListType extends Component {
   parseData() {
-    const { data, url, setList } = this.props;
+    const { data, url, setList, courseType } = this.props;
     const res = [];
+    const suffix = translateSuffixToEng(courseType);
   
     for (let course in data) {
       if (course === "merged") {
         continue;
       }
 
-      let courseNumber = switchNumber(course);
+      let courseNumber = switchNumberToRoman(course);
       let text = courseNumber + " курс";
       res.push(
         <Link
           onClick={() => setList(data[course])}
           key={text}
           className="Link"
-          to={`${url}/${courseNumber}`}
+          to={`${url}/${courseNumber}/${suffix}`}
         >
           <MenuItem text={text} />
         </Link>

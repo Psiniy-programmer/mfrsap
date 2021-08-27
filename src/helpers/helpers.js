@@ -168,7 +168,7 @@ const getRaspType = (data) => {
  * @param numb - Цифра
  * @returns {string} - Римская цифра
  */
-const switchNumber = (numb) => {
+const switchNumberToRoman = (numb) => {
     switch (numb) {
         case '0':
             return 'I';
@@ -187,6 +187,44 @@ const switchNumber = (numb) => {
         default:
             break;
     }
+};
+
+/**
+ * Переводим римские цифры в арабские
+ * @param romanNumber - римское число
+ * @returns {number} - арабское число
+ */
+const switchRomanToNumber = (romanNumber) => {
+    let courseNumber;
+
+    switch (romanNumber) {
+        case 'I' :
+            courseNumber = 1;
+            break;
+        case 'II' :
+            courseNumber = 2;
+            break;
+        case 'III' :
+            courseNumber = 3;
+            break;
+        case 'IV' :
+            courseNumber = 4;
+            break;
+        case 'V' :
+            courseNumber = 5;
+            break;
+        case 'VI' :
+            courseNumber = 1;
+            break;
+        case 'VII' :
+            courseNumber = 2;
+            break;
+        default :
+            courseNumber = 0;
+            break;
+    }
+
+    return courseNumber;
 };
 
 /**
@@ -238,6 +276,34 @@ const clearSuffix = (target) => {
 
     return newObj
 }
+
+const translateSuffixToRus = (suffix) => {
+    switch (suffix.toLowerCase()) {
+        case 'b':
+            return 'б';
+        case 'm':
+            return 'м';
+        case 'а':
+            return 'а';
+        default:
+            return null;
+    }
+};
+
+const translateSuffixToEng = (suffix) => {
+    switch (suffix.toLowerCase()) {
+        case 'б':
+            return 'b';
+        case 'м':
+            return 'm';
+        case 'а':
+            return 'a';
+        case 'с':
+            return 'c'
+        default:
+            return null;
+    }
+};
 
 const checkItem = (item) => {
     return item !== undefined && item.length !== 0;
@@ -327,12 +393,15 @@ export {
     getTextColorFromWidth,
     finderIsEmpty,
     getRaspType,
-    switchNumber,
+    switchNumberToRoman,
     mergeObjects,
     checkItem,
     getTimer,
     checkIsDouble,
     checkOnArr,
     convertString,
-    clearSuffix
+    clearSuffix,
+    switchRomanToNumber,
+    translateSuffixToRus,
+    translateSuffixToEng
 };
