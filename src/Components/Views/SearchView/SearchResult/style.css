@@ -4,7 +4,7 @@
     margin-top: 10px;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
     .SearchResult {
         margin-top: 0;
     }

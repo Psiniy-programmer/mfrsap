@@ -34,7 +34,7 @@
   margin-bottom: 12px;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
   .context__timer,
   .diff__timer {
     min-width: 255px;
@@ -48,5 +48,17 @@
 
   .diff__timer {
     flex-direction: column;
+  }
+}
+
+@media print {
+  .context__timer {
+    min-width: 100px;
+    margin-bottom: 0;
+  }
+
+  .context__timer_svg,
+  .diff__timer {
+    display: none;
   }
 }

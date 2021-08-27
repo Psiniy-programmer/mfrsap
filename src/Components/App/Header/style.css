@@ -26,7 +26,7 @@
     display: none;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
     .AppHeader {
         margin-bottom: 60px;
     }
@@ -38,5 +38,11 @@
     
     .TittleType {
         display: block;
+    }
+}
+
+@media print {
+    .AppHeader {
+        display: none;
     }
 }

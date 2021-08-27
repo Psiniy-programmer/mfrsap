@@ -20,7 +20,7 @@
     margin-top: 6px;
 }
 
-@media only screen and (min-width: 1224px) {
+@media (min-width: 1224px), print {
   .aud_rasp__item_info {
     display: flex;
     flex-direction: row;
