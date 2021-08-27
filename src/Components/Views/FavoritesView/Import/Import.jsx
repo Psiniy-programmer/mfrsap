@@ -61,7 +61,7 @@ class Import extends Component {
         });
 
         if (!this.state.code) {
-           return this.showNotify('Заполните поле для ввода кода!', 2000);
+            return this.showNotify('Заполните поле для ввода кода!', 2000);
         }
 
         await fetch(
@@ -74,10 +74,17 @@ class Import extends Component {
                 return console.error(error);
             })
             .then((res) => {
-               if (res) {
-                   this.showNotify('Удачный импорт', 2000);
-                   this.props.rewriteStorage(res);
-               }
+                if (res.error) {
+                    switch (res.error) {
+                        case 'Code does not exist':
+                            return this.showNotify('Введенного кода не существует!', 2000);
+                        default:
+                            return this.showNotify('Ошибка', 2000)
+                    }
+                }
+
+                this.showNotify('Удачный импорт', 2000);
+                return this.props.rewriteStorage(res);
             });
 
         this.setState({code: ''})
