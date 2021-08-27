@@ -14,6 +14,7 @@ import {
 } from '../../../actions/appTimer';
 import {PureComponent} from 'react';
 import './style.css';
+import Loader from "../../Loader/Loader";
 
 class Rasp extends PureComponent {
   constructor(props) {
@@ -52,15 +53,20 @@ class Rasp extends PureComponent {
     const {type} = this.state;
     const {match, updateDayIndex} = this.props;
     const {isOdd, dayIndex} = this.props.appTimer;
+    const {loading} = this.props.raspData;
 
-    return (
-        <div className={'RaspView'}>
-          {this.getHeader()}
-          <RaspHeader weekIsOdd={isOdd} match={match} type={type.name}/>
-          <DaysCarousel currentDayIndex={dayIndex} updateDays={updateDayIndex}/>
-          <Schedule match={match} type={type.name}/>
-        </div>
-    );
+    if (loading) {
+      return <Loader/>
+    } else {
+      return (
+          <div className={'RaspView'}>
+            {this.getHeader()}
+            <RaspHeader weekIsOdd={isOdd} match={match} type={type.name}/>
+            <DaysCarousel currentDayIndex={dayIndex} updateDays={updateDayIndex}/>
+            <Schedule match={match} type={type.name}/>
+          </div>
+      );
+    }
   }
 }
 
