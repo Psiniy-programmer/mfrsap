@@ -17,10 +17,13 @@ class Notification extends Component {
         if (data.length === 0) {
             return <></>;
         } else {
+            console.log(data[0].link)
+            console.log(data[0].link.length === 0 ? '_self' : '_blank')
+
             return (
                 <a
                     href={data[0].link}
-                    target="_blank"
+                    target={data[0].link.length === 0 ? '_self' : '_blank'}
                     rel="noopener noreferrer"
                     className={`notification ${hide}`}
                 >
