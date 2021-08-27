@@ -68,6 +68,11 @@
         height: 20px;
     }
 
+    .printer_icon {
+        width: 20px;
+        height: 18px;
+    }
+
     .RaspHeader_favorites,
     .RaspHeader_PDF {
         cursor: pointer;

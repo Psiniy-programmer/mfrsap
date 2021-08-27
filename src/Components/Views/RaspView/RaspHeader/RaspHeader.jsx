@@ -4,6 +4,7 @@ import star from "./Icons/star.svg";
 import star_active from "./Icons/star_active.svg";
 import calendar_dark from "./Icons/Calendar-icon.svg";
 import PDF_icon from "./Icons/PDF_dark.svg";
+import printer_icon from "./Icons/printer.svg";
 import {
   addToFavorite,
   removeFromFavorite,
@@ -138,6 +139,10 @@ class RaspHeader extends Component {
             <img className={"PDF_icon"} src={PDF_icon} alt="PDF" />
             <p>PDF-версия для печати</p>
           </div> */}
+          <div onClick={() => window.print()} className="RaspHeader_PDF">
+            <img className={"printer_icon"} src={printer_icon} alt="print" />
+            <p>Распечатать страницу</p>
+          </div>
         </div>
       </>
     );
