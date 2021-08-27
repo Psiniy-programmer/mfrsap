@@ -4,14 +4,17 @@ import ExportButton from './ExportButton/ExportButton';
 import './style.css';
 import {connect} from 'react-redux';
 
-const key = 'GENERATED';
+export const GeneratedKey = 'GENERATED';
+export const GeneratedTimeStamp = 'TIME_STAMP';
+export const diffForRemove = 604800;
 
 class ExportFav extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            generated: localStorage.getItem(key),
-            copyAction: false,
+            generated: localStorage.getItem(GeneratedKey),
+            timeStamp: localStorage.getItem(GeneratedTimeStamp),
+            copyAction: false
         };
 
         this.handleCopy = this.handleCopy.bind(this);
@@ -21,6 +24,7 @@ class ExportFav extends Component {
     async setHandleClick() {
         const context = this;
         let code = '';
+        let timeStamp = '';
 
         await fetch('https://rasp.msfu.ru/api/favorites', {
             method: 'POST',
@@ -39,7 +43,9 @@ class ExportFav extends Component {
             return response.json();
         }).then(function (data) {
             code = data.code;
-            localStorage.setItem(key, code);
+            timeStamp = data.date;
+            localStorage.setItem(GeneratedKey, code);
+            localStorage.setItem(GeneratedTimeStamp, timeStamp);
             context.setState({generated: code});
         }).catch(function (error) {
             console.error(error);
@@ -54,8 +60,12 @@ class ExportFav extends Component {
         }, 2000);
     }
 
-    componentWillUnmount() {
-        localStorage.removeItem(key);
+    componentDidMount() {
+        if (this.props.appTimer.date - Number(this.state.time) > diffForRemove) {
+            localStorage.removeItem(GeneratedKey);
+            localStorage.removeItem(GeneratedTimeStamp);
+            this.setState({generated: '', timeStamp: ''});
+        }
     }
 
     render() {
@@ -89,6 +99,7 @@ class ExportFav extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        appTimer: state.appTimer,
         storage: state.favoriteStorage,
         isMobile: state.windowSizes.isMobile,
     };

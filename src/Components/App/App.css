@@ -71,6 +71,7 @@ body {
   margin: 0;
   background-color: var(--current--theme--bg);
   width: auto;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .text-bold--header {
