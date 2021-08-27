@@ -17,7 +17,7 @@ class SearchList extends Component {
 
     switch (title) {
       case 'Преподаватели' :
-        type.name = 'teacher';
+        type.name = 'full_name';
         type.id = 'teacherid';
         break;
       case 'Аудитории' :

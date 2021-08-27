@@ -54,7 +54,7 @@ const mapStateToProps = state => {
     }),
     // Динамический поиск по преподам //
     teachersList: state.teachersList.data.map(teacherElem => {
-      if (teacherElem.teacher.toLowerCase().
+      if (teacherElem.full_name.toLowerCase().
           includes(state.filterItems.toLowerCase())) {
         return teacherElem;
       } else return null;
