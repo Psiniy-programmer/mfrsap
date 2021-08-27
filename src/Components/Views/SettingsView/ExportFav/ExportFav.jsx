@@ -6,13 +6,15 @@ import {connect} from 'react-redux';
 
 export const GeneratedKey = 'GENERATED';
 export const GeneratedTimeStamp = 'TIME_STAMP';
+export const diffForRemove = 604800;
 
 class ExportFav extends Component {
     constructor(props) {
         super(props);
         this.state = {
             generated: localStorage.getItem(GeneratedKey),
-            copyAction: false,
+            timeStamp: localStorage.getItem(GeneratedTimeStamp),
+            copyAction: false
         };
 
         this.handleCopy = this.handleCopy.bind(this);
@@ -58,6 +60,14 @@ class ExportFav extends Component {
         }, 2000);
     }
 
+    componentDidMount() {
+        if (this.props.appTimer.date - Number(this.state.time) > diffForRemove) {
+            localStorage.removeItem(GeneratedKey);
+            localStorage.removeItem(GeneratedTimeStamp);
+            this.setState({generated: '', timeStamp: ''});
+        }
+    }
+
     render() {
         const {copyAction, generated} = this.state;
         const {isMobile} = this.props;
@@ -89,6 +99,7 @@ class ExportFav extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        appTimer: state.appTimer,
         storage: state.favoriteStorage,
         isMobile: state.windowSizes.isMobile,
     };
