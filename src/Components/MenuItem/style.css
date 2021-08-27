@@ -1,12 +1,12 @@
 .MenuItem {
-    width: 100%;
-    text-align: start;
     display: grid;
     grid-template-rows: 1fr;
-    background-color: var(--green);
-    border-radius: 4px;
-    cursor: pointer;
+    width: 100%;
     padding: 16px 20px;
+    text-align: start;
+    border-radius: 4px;
+    background-color: var(--green);
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 1224px) {

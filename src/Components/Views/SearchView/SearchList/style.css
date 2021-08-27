@@ -4,10 +4,14 @@
 }
 
 .SearchList_item {
-    /* display: flex; */
-    /* justify-content: space-between; */
-    background-color: var(--green);
+    padding: 16px 20px;
     border-radius: 4px;
+    background-color: var(--green);
     cursor: pointer;
-    padding: 1em 1em 1em 1.25em;
+}
+
+@media only screen and (min-width: 1224px) {
+    .SearchList_item {
+        padding: 17px 20px;
+    }
 }
