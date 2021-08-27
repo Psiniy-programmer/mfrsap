@@ -1,4 +1,11 @@
 .SearchResult {
     display: grid;
     grid-gap: calc(var(--items--gap) * 2);
+    margin-top: 10px;
+}
+
+@media only screen and (min-width: 1224px) {
+    .SearchResult {
+        margin-top: 0;
+    }
 }

@@ -24,10 +24,6 @@
     grid-template-columns: 1fr 0.1fr;
 }
 
-.RaspHeader h2 {
-    margin: 0.61111em 0 0.61111em 0.278em;
-}
-
 .Header_Logo {
     width: 41px;
     box-sizing: border-box;

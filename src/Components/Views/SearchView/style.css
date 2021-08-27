@@ -31,8 +31,8 @@
 
 @media only screen and (min-width: 1224px) {
     .SearchHelper {
-        margin-bottom: 20px;
         margin-top: 40px;
+        margin-bottom: 20px;
     }
 
     .SearchHelper__list {
