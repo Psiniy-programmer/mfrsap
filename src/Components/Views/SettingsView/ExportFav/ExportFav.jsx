@@ -42,7 +42,7 @@ class ExportFav extends Component {
             localStorage.setItem(key, code);
             context.setState({generated: code});
         }).catch(function (error) {
-            console.log(error);
+            console.error(error);
         });
     }
 

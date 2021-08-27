@@ -67,7 +67,6 @@ class Import extends Component {
         await fetch(
             `https://rasp.msfu.ru/api/favorites?code=${this.state.code}`)
             .then((response) => {
-                console.log(response);
                 return response.json()
             })
             .catch((error) => {
@@ -88,10 +87,6 @@ class Import extends Component {
         this.setState({
             clicked: false,
         });
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(prevState)
     }
 
     render() {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./style.css";
 import { connect } from "react-redux";
 import {
-  changeLangEngToRus,
+  changeLangEngToRus, clearSuffix,
   finderIsEmpty,
   mergeObjects,
 } from "../../../../helpers/helpers";
@@ -72,6 +72,7 @@ class CourseList extends Component {
       Object.keys(nextState["С"]).length !== 0
     ) {
       nextState["Б"] = mergeObjects(nextState["С"], nextState["Б"]);
+      nextState["Б"] = clearSuffix(nextState["Б"])
       nextState["Б"].merged = true;
     }
     
@@ -92,7 +93,6 @@ class CourseList extends Component {
         Object.keys(this.state[key]).length !== 0 &&
         key !== "С"
       ) {
-        console.log(this.state[key])
         res.push(
           <CourseListType
             url={this.props.match.url}

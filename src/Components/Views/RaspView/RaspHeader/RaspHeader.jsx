@@ -43,6 +43,11 @@ class RaspHeader extends Component {
   getMobileView() {
     const { data } = this.props.raspData;
     const { type } = this.props;
+    let headerName = data[type];
+
+    if (type === 'group' && headerName && headerName[headerName.length - 1] === 'С') {
+      headerName = headerName.slice(0, -1);
+    }
 
     return (
       <div className={"RaspHeader textColor"}>
@@ -57,7 +62,7 @@ class RaspHeader extends Component {
         </div>
         <div className={"Header_Text"}>
           <h3 className={"header__text_title shift-text text-bold--large"}>
-            {data[type]}
+            {headerName}
           </h3>
           <p className={"text-regular--medium"}>{this.getHeaderWeek()}</p>
         </div>
@@ -88,9 +93,14 @@ class RaspHeader extends Component {
       default:  
         break;
     }
-    
+
+
     if (data[type] !== undefined) {
       raspHeader += data[type];
+
+      if (type === 'group' && raspHeader[raspHeader.length - 1] === 'С') {
+        raspHeader = raspHeader.slice(0, -1);
+      }
     }
 
     dateText = dateText.substring(0, dateText.length - 3); // удаляем лишние буквы из года

@@ -219,6 +219,26 @@ const mergeObjects = (source, target) => {
     }
 }
 
+/**
+ * Удаление суффикса из имени группы ( как последнего символа)
+ * @param target: object - Массив из которого нужно
+ * @returns {array}
+ */
+const clearSuffix = (target) => {
+    let newObj = {};
+    for (let key in target) {
+        newObj[key] = target[key].map((item) => {
+            if (item.groupname[item.groupname.length - 1] === 'С') {
+                item.groupname = item.groupname.slice(0, -1);
+            }
+
+            return item;
+        })
+    }
+
+    return newObj
+}
+
 const checkItem = (item) => {
     return item !== undefined && item.length !== 0;
 };
@@ -314,4 +334,5 @@ export {
     checkIsDouble,
     checkOnArr,
     convertString,
+    clearSuffix
 };
