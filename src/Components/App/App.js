@@ -9,7 +9,7 @@ import NavigationBar from "../NavigationBar/NavigationBar";
 import SearchRoutes from "../Routes/SearchRoutes";
 import SettingsRoutes from "../Routes/SettignsRoutes";
 import FavoritesRoutes from "../Routes/FavoritesRoutes";
-import { removeClasses } from "../../helpers/helpers";
+import {removeClasses} from "../../helpers/helpers";
 import { addToFavorite } from "../../actions/favoriteStorage";
 import Rasp from "../Views/RaspView/Rasp";
 import Loader from "../Loader/Loader";
@@ -62,7 +62,7 @@ class App extends Component {
 
   render() {
     const { windowSizes } = this.props;
-    
+
     if (this.infoIsFetched()) {
       return (
         <div className={`App`}>

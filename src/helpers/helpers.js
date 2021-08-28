@@ -403,5 +403,6 @@ export {
     clearSuffix,
     switchRomanToNumber,
     translateSuffixToRus,
-    translateSuffixToEng
+    translateSuffixToEng,
+
 };
