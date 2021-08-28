@@ -38,6 +38,7 @@ class NewGroupsList extends Component {
 
         // groupName выступает в роли ключа, из-за структуры апи
         for (let groupName in SGroupsList.data) {
+            const groupSuffix = groupName[groupName.length - 1].toLowerCase();
             // Проверяем совпадение на кафедру
             const splittedName = groupName.split('-');
 
@@ -45,7 +46,7 @@ class NewGroupsList extends Component {
                 continue;
             }
             // Проверяем совпадение по суффиксу
-            if (groupName[groupName.length - 1].toLowerCase() !== suffix && groupName[groupName.length - 1].toLowerCase() !== 'с') {
+            if ((groupSuffix !== suffix && groupSuffix !== 'с') || (suffix === 'м' && groupSuffix === 'с') ) {
                 continue;
             }
 
@@ -56,7 +57,7 @@ class NewGroupsList extends Component {
 
             if (groupSemester === semesterNumber || groupSemester === semesterNumber - 1) {
                 let finalName = groupName;
-                if (groupName[groupName.length - 1].toLowerCase() === 'с') {
+                if (groupSuffix === 'с') {
                     finalName = finalName.slice(0, -1);
                 };
 
