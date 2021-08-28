@@ -22,6 +22,7 @@ class NavigationBar extends Component {
               <img
                 src={pathname === "/" ? searchLogo_active : searchLogo}
                 alt="searchLogo trouble"
+                title="Поиск"
               />
             </span>
           </Link>
@@ -30,6 +31,7 @@ class NavigationBar extends Component {
               <img
                 src={pathname === "/favorites" ? starLogo_active : starLogo}
                 alt="starLogo trouble"
+                title="Избранное"
               />
             </span>
           </Link>
@@ -39,7 +41,11 @@ class NavigationBar extends Component {
             rel="noopener noreferrer"
           >
             <span>
-              <img src={mapLogo} alt="starLogo trouble" />
+              <img 
+                src={mapLogo}
+                alt="starLogo trouble"
+                title="Интерактивная карта ГУК"
+              />
             </span>
           </a>
           <Link to={`/settings`}>
@@ -49,6 +55,7 @@ class NavigationBar extends Component {
                   pathname === "/settings" ? settingsLogo_active : settingsLogo
                 }
                 alt="settingsLogo trouble"
+                title="Настройки"
               />
             </span>
           </Link>
