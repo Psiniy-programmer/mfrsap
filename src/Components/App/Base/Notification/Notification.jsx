@@ -20,7 +20,7 @@ class Notification extends Component {
             return (
                 <a
                     href={data[0].link}
-                    target="_blank"
+                    target={data[0].link.length === 0 ? '_self' : '_blank'}
                     rel="noopener noreferrer"
                     className={`notification ${hide}`}
                 >

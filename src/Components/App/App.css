@@ -10,6 +10,13 @@ body,
   box-sizing: border-box;
 }
 
+#root {
+  position: relative;
+  /*display: grid;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+}
+
 .App {
   min-width: 250px;
 }

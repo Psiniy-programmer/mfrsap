@@ -30,6 +30,40 @@ export function fetchGroupsData(url) {
     fetch(url)
       .then((response) => response.json())
       .catch((error) => dispatch(fetchGroupsDataError(error)))
-      .then((groupsList) => dispatch(fetchGroupsDataSuccess(groupsList)));
+      .then((groupsList) => {
+
+
+        return dispatch(fetchGroupsDataSuccess(groupsList));
+      });
   };
 }
+
+const generateSearchLists = (groupList) => {
+  const finalList = {
+    "ЛТ" : {
+
+    },
+    "К": {
+
+    }
+  }
+  // Перебираем список кафедр
+  groupList.forEach((group) => {
+
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

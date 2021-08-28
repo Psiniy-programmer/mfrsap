@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
+import './style.css';
 
 class Loader extends Component {
     render() {
+
         return (
-            <div>
-               
-            </div>
+            <div className="loader" id="loader-1"></div>
         );
     }
 }
