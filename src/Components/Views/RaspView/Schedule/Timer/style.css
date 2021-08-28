@@ -48,6 +48,11 @@
 
   .diff__timer {
     flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .diff_timer_pair {
+    margin-bottom: 6px;
   }
 }
 
@@ -58,7 +63,7 @@
   }
 
   .context__timer_svg,
-  .diff__timer {
+  .diff__timer_dif {
     display: none;
   }
 }
