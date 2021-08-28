@@ -12,6 +12,11 @@
   display: none;
 }
 
+.nolink {
+  pointer-events: none;
+  cursor: default;
+}
+
 @media (min-width: 1224px), print {
   .notification {
     margin-top: 40px;
