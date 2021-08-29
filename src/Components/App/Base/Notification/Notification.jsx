@@ -22,7 +22,7 @@ class Notification extends Component {
                     href={data[0].link}
                     target={data[0].link.length === 0 ? '_self' : '_blank'}
                     rel="noopener noreferrer"
-                    className={`notification ${hide}`}
+                    className={`notification ${hide} ${data[0].link.length === 0 ? 'nolink' : ''}`}
                 >
                     {
                         data[0].title && <p
