@@ -283,7 +283,7 @@ const translateSuffixToRus = (suffix) => {
             return 'б';
         case 'm':
             return 'м';
-        case 'а':
+        case 'a':
             return 'а';
         default:
             return null;
