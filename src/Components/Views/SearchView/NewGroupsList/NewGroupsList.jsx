@@ -46,7 +46,7 @@ class NewGroupsList extends Component {
                 continue;
             }
             // Проверяем совпадение по суффиксу
-            if ((groupSuffix !== suffix && groupSuffix !== 'с') || ((suffix === 'м' || suffix === 'cfs') && groupSuffix === 'с')) {
+            if ((groupSuffix !== suffix && groupSuffix !== 'с') || ((suffix === 'м' || suffix === 'а') && groupSuffix === 'с')) {
                 continue;
             }
 
