@@ -38,10 +38,11 @@
         margin-bottom: 30px;
     }
 
-    .RaspHeader div + div {
+    .RaspHeader div + div,
+    .RaspHeader div + a{
         margin-left: 40px;
     }
-
+    
     .RaspHeader_date,
     .RaspHeader_favorites,
     .RaspHeader_PDF {
