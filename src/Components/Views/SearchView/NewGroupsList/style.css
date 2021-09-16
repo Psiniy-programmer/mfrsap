@@ -2,3 +2,7 @@
     display: grid;
     gap: var(--items--gap);
 }
+
+.NewGroupsList__hide {
+    display: none;
+}

@@ -3,7 +3,13 @@ import {connect} from "react-redux";
 import MenuItem from "../../../MenuItem/MenuItem";
 import {Link} from 'react-router-dom';
 import "./style.css";
-import {changeLangEngToRus, clearSuffix, switchRomanToNumber, translateSuffixToRus} from "../../../../helpers/helpers";
+import {
+    changeLangEngToRus,
+    clearSuffix,
+    finderIsEmpty,
+    switchRomanToNumber,
+    translateSuffixToRus
+} from "../../../../helpers/helpers";
 
 class NewGroupsList extends Component {
     getList() {
@@ -89,7 +95,7 @@ class NewGroupsList extends Component {
 
     render() {
 
-        return <div className="NewGroupsList">
+        return <div className={`NewGroupsList ${finderIsEmpty(this.props.findInput) ? 'NewGroupsList__hide' : ''}`}>
             {this.generateList()}
         </div>;
     }
@@ -98,6 +104,7 @@ class NewGroupsList extends Component {
 const mapStateToProps = (state) => {
     return {
         SGroupsList: state.groupsList,
+        findInput: state.filterItems,
         groupsList: state.newGroupsList,
     };
 };
