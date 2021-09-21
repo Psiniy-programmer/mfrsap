@@ -7,5 +7,6 @@ const PREFIX = {
   М: "Магистратура",
   А: "Аспирантура",
 };
+const DATE_UPDATE_TIME = 5000;
 
-export default { DESKTOP_MIN_WIDTH, PREFIX, weekInUnix, firstSepUnix};
+export default { DESKTOP_MIN_WIDTH, PREFIX, weekInUnix, firstSepUnix, DATE_UPDATE_TIME};

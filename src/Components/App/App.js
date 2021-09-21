@@ -18,6 +18,7 @@ import Footer from "./Footer/Footer";
 import Consts from "../../helpers/consts";
 import HomeRoutes from "../Routes/HomeRoutes";
 import { fetchAltList } from "../../actions/altList.js";
+import {updateTime} from "../../actions/appTimer";
 import "./App.css";
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
     this.props.fetchAltList();
     this.syncStorages();
     this.getThemeClass();
+    setInterval(() => this.props.updateTime(), Consts.DATE_UPDATE_TIME)
   }
 
   componentWillUnmount() {
@@ -135,6 +137,9 @@ const mapDispatchToProps = (dispatch) => {
     fetchAltList: () => {
       dispatch(fetchAltList());
     },
+    updateTime: () => {
+      dispatch(updateTime());
+    }
   };
 };
 

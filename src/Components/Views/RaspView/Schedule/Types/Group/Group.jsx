@@ -144,9 +144,9 @@ class Group extends Component {
           </EmptyCard>
       );
     }
-
     const num = this.getContext(pair, 0, diff.soon);
     const denum = this.getContext(pair, 1, diff.soon);
+
     return (
         <DoubleContainer key={item.pairnumber} item={item} diff={diff}>
           {timer}
