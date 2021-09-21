@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Timer from '../../Timer/Timer';
 import {connect} from 'react-redux';
 import EmptyCard from '../../EmptyCard/EmptyCard';
-import {checkIsDouble, checkItem, checkOnArr, getTimer,} from '../../../../../../helpers/helpers';
+import {checkIsDouble, checkItem, checkOnArr, clearGroupName, getTimer,} from '../../../../../../helpers/helpers';
 import DoubleInfo from '../Items/RaspItemInfo/DoubleInfo';
 import DoubleContainer from '../Items/ItemContainer/DoubleContainer';
 import './style.css';
@@ -21,7 +21,7 @@ class Aud extends Component {
         }
 
         const group = checkItem(item[index].group) ? (
-            <p className="text-regular--small">{checkOnArr(item[index].group)}</p>
+            <p className="text-regular--small">{clearGroupName(checkOnArr(item[index].group))}</p>
         ) : (
             <p>----</p>
         );

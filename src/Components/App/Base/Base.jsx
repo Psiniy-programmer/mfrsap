@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {changeLangEngToRus, finderIsEmpty, findFacultyName,} from "../../../helpers/helpers";
+import {changeLangEngToRus, finderIsEmpty, findFacultyName, translateSuffixToRusFull,} from "../../../helpers/helpers";
 import {connect} from "react-redux";
 import SearchInput from "../../SearchInput/SearchInput";
 import SearchResult from "../../Views/SearchView/SearchResult/SearchResult";
@@ -20,9 +20,14 @@ class Base extends Component {
             case "/search/:faculty/:department":
                 return "Кафедра " + changeLangEngToRus(match.params.department);
             case "/search/:faculty/:department/:course/:suffix":
-                return `Кафедра ${changeLangEngToRus(match.params.department)} — ${
+                let descr = `Кафедра ${changeLangEngToRus(match.params.department)} — ${
                     match.params.course
                 } курс`;
+
+                if (match.params.suffix !== 'b') {
+                    descr += ` ${translateSuffixToRusFull(match.params.suffix)}`;
+                }
+                return descr;
             case "/settings":
                 return "Настройки";
             case "/favorites":

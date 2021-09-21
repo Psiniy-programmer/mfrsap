@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import EmptyCard from "../../EmptyCard/EmptyCard";
-import {checkIsDouble, checkItem, checkOnArr, getTimer,} from "../../../../../../helpers/helpers";
+import {checkIsDouble, checkItem, checkOnArr, clearGroupName, getTimer,} from "../../../../../../helpers/helpers";
 import Timer from "../../Timer/Timer";
 import {connect} from "react-redux";
 import "./style.css";
@@ -43,7 +43,7 @@ class Teacher extends Component {
                     className="teacher_pair__item_group text-regular--small"
                     key={item[index].group}
                 >
-                    {checkOnArr(item[index].group)}
+                    {clearGroupName(checkOnArr(item[index].group))}
                 </p>
             );
         }

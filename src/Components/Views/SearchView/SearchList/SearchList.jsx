@@ -1,6 +1,6 @@
 /* eslint-disable no-loop-func */
 import React, {Component} from 'react';
-import {generateUniqKey} from '../../../../helpers/helpers';
+import {clearGroupName, generateUniqKey} from '../../../../helpers/helpers';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Consts from '../../../../helpers/consts';
@@ -37,9 +37,11 @@ class SearchList extends Component {
                                 key={generateUniqKey('SearchItem_', item.groupname)}
                                 to={`/list/groupid=${item.groupid}`}>
                                 <div className={'SearchList_item'}>
-                                    <p className={' text-medium--small raspTextColor'}>{item.groupname}</p>
+                                    <p className={' text-medium--small raspTextColor'}>{clearGroupName(item.groupname)}</p>
                                 </div>
                             </Link>;
+
+
                             return list.push(temp);
                         }
                         return null;

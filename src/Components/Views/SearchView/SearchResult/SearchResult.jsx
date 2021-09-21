@@ -13,17 +13,10 @@ class SearchResult extends Component {
             auds: false
         };
 
-        this.gRef = React.createRef();
     }
 
     render() {
         const {groupsList, teachersList, auditoryList} = this.props;
-        if (this.gRef.current) {
-
-            // if (!this.gRef.current.children.length) {
-            //   alert('kek')
-            // }
-        }
 
         return (
             <div className={`SearchResult`}>

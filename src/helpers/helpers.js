@@ -277,6 +277,10 @@ const clearSuffix = (target) => {
     return newObj
 }
 
+/**
+ * @param suffix - суффикс типа обучения из path
+ * @returns {string|null} - переведенный суффикс на русский
+ */
 const translateSuffixToRus = (suffix) => {
     switch (suffix.toLowerCase()) {
         case 'b':
@@ -290,6 +294,27 @@ const translateSuffixToRus = (suffix) => {
     }
 };
 
+/**
+ * @param suffix - суфикс типа обучения из path
+ * @returns {string|null} - Полная строка типа обучения
+ */
+const translateSuffixToRusFull = (suffix) => {
+    switch (suffix.toLowerCase()) {
+        case 'b':
+            return 'бакалавриата'
+        case 'm':
+            return 'магистратуры'
+        case 'a':
+            return 'аспирантуры'
+        default:
+            return null;
+    }
+}
+
+/**
+ * @param suffix - суфикс типа обучения из path
+ * @returns {string|null} - переведенный суффикс на английский
+ */
 const translateSuffixToEng = (suffix) => {
     switch (suffix.toLowerCase()) {
         case 'б':
@@ -358,7 +383,7 @@ const checkIsDouble = (cur) => {
 /**
  * Перевод параметра в строку
  * @param item - Потенциальный массив
- * @returns {*} - Распарсенная строка
+ * @returns {string} - Распарсенная строка
  */
 const checkOnArr = (item) => {
     if (Array.isArray(item)) {
@@ -380,6 +405,21 @@ const convertString = (str, index) => {
     }
     return str;
 };
+
+/**
+ * Убираем суффикс специалитета из имени группы
+ * @param groupname {string} - имя группы в виде строки
+ * @returns {string} - обработанное имя группы
+ */
+const clearGroupName = (groupname) => {
+    return groupname.split(', ').map((str) => {
+        if (str[str.length - 1].toLowerCase() !== 'с') {
+            return str;
+        }
+
+        return str.slice(0, -1);
+    }).join(', ');
+}
 
 export {
     changeLangEngToRus,
@@ -404,5 +444,6 @@ export {
     switchRomanToNumber,
     translateSuffixToRus,
     translateSuffixToEng,
-
+    translateSuffixToRusFull,
+    clearGroupName
 };
