@@ -1,25 +1,25 @@
 .teacher_pair__item_group {
-  margin-top: 6px;
+    margin-top: 6px;
 }
 
 @media (min-width: 1224px), print {
-  .teacher_pair__item_group {
-    margin-top: unset;
-  }
+    .teacher_pair__item_group {
+        margin-top: unset;
+    }
 
-  .teacher_item__main {
-    box-sizing: border-box;
-    width: 190px;
-    padding-right: 30px;
-  }
+    .teacher_item__main {
+        box-sizing: border-box;
+        width: 190px;
+        padding-right: 30px;
+    }
 
-  .teacher_pair__item_subject {
-    box-sizing: border-box;
-    width: 475px;
-    padding-right: 40px;
-  }
+    .teacher_pair__item_subject {
+        box-sizing: border-box;
+        width: 475px;
+        padding-right: 40px;
+    }
 
-  .soon {
-    background-color: unset;
-  }
+    .soon {
+        background-color: unset;
+    }
 }

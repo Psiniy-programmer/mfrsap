@@ -1,13 +1,8 @@
 import React, {Component} from "react";
 import "./style.css";
 import {connect} from "react-redux";
-import {
-    changeLangEngToRus, clearSuffix,
-    finderIsEmpty,
-    mergeObjects,
-} from "../../../../helpers/helpers";
+import {changeLangEngToRus, finderIsEmpty, mergeObjects,} from "../../../../helpers/helpers";
 import CourseListType from "./CourseListType/CourseListType";
-import Loader from "../../../Loader/Loader";
 
 class CourseList extends Component {
     constructor(props) {

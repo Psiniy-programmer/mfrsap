@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import {generateUniqKey} from '../../../../helpers/helpers';
 import {connect} from 'react-redux';
-import {
-    desktopCarouselData,
-    mobileCarouselData,
-} from '../../../../helpers/helpData';
+import {desktopCarouselData, mobileCarouselData,} from '../../../../helpers/helpData';
 import Consts from '../../../../helpers/consts';
 import './style.css';
 

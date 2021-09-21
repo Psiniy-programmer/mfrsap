@@ -4,14 +4,11 @@ import star from "./Icons/star.svg";
 import star_active from "./Icons/star_active.svg";
 import calendar_dark from "./Icons/Calendar-icon.svg";
 import PDF_icon from "./Icons/PDF_dark.svg";
-import {
-    addToFavorite,
-    removeFromFavorite,
-} from "../../../../actions/favoriteStorage.js";
+import {addToFavorite, removeFromFavorite,} from "../../../../actions/favoriteStorage.js";
 import Consts from "../../../../helpers/consts";
+import consts from "../../../../helpers/consts";
 import {getRaspType} from "../../../../helpers/helpers";
 import "./style.css";
-import consts from "../../../../helpers/consts";
 import {GeneratedKey, GeneratedTimeStamp} from "../../SettingsView/ExportFav/ExportFav";
 
 class RaspHeader extends Component {

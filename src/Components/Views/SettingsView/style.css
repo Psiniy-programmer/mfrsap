@@ -1,10 +1,10 @@
 .view__items {
-  display: grid;
-  gap: var(--items--gap);
+    display: grid;
+    gap: var(--items--gap);
 }
 
 @media (min-width: 1224px), print {
-  .view__items {
-    margin-top: 40px;
-  }
+    .view__items {
+        margin-top: 40px;
+    }
 }

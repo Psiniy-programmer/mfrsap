@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import "./style.css";
 import {
     changeLangEngToRus,
-    clearSuffix,
     finderIsEmpty,
     switchRomanToNumber,
     translateSuffixToRus
@@ -65,7 +64,8 @@ class NewGroupsList extends Component {
                 let finalName = groupName;
                 if (groupSuffix === 'с') {
                     finalName = finalName.slice(0, -1);
-                };
+                }
+
 
                 generatedList.push({
                     groupname: finalName,

@@ -1,8 +1,4 @@
-import {
-  FACULTY_DATA_FETCH_LOADING,
-  FACULTY_DATA_FETCH_OK,
-  FACULTY_DATA_FETCH_ERROR,
-} from "../reducers/facultyList";
+import {FACULTY_DATA_FETCH_ERROR, FACULTY_DATA_FETCH_LOADING, FACULTY_DATA_FETCH_OK,} from "../reducers/facultyList";
 
 function fetchFacultyDataSuccess(facultyList) {
     return {
@@ -13,13 +9,13 @@ function fetchFacultyDataSuccess(facultyList) {
 
 function fetchFacultyDataLoading() {
     return {
-        type : FACULTY_DATA_FETCH_LOADING
+        type: FACULTY_DATA_FETCH_LOADING
     }
 }
 
 function fetchFacultyDataError(error) {
     return {
-        type : FACULTY_DATA_FETCH_ERROR,
+        type: FACULTY_DATA_FETCH_ERROR,
         error
     }
 }

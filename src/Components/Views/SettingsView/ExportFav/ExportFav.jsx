@@ -90,7 +90,7 @@ class ExportFav extends Component {
                             на новом устройстве.
                         </p>
                     </div>
-                    {copyAction && <PopUp text='Код скопирован в буфер обмена'/> }
+                    {copyAction && <PopUp text='Код скопирован в буфер обмена'/>}
                 </div>
             </div>
         );

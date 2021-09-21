@@ -18,4 +18,4 @@ export default function theme(state = initialState, action) {
     }
 }
 
-export  {LIGHT_THEME, DARK_THEME, SYSTEM_THEME};
+export {LIGHT_THEME, DARK_THEME, SYSTEM_THEME};

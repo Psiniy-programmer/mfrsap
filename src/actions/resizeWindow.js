@@ -1,6 +1,4 @@
-import {
-    CHANGE_WINDOW_SIZES
-} from '../reducers/windowSizes';
+import {CHANGE_WINDOW_SIZES} from '../reducers/windowSizes';
 
 const update = () => {
     return {

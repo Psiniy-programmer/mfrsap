@@ -16,7 +16,8 @@ export default function windowSizes(state = initialState, action) {
                 width: window.innerWidth,
                 isMobile: window.innerWidth < consts.DESKTOP_MIN_WIDTH
             }
-        default: return state
+        default:
+            return state
     }
 }
 

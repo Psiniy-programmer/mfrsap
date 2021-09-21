@@ -32,7 +32,7 @@ class DepartmentList extends Component {
             }
         }
 
-        resList = [...resList].sort((a,b) => {
+        resList = [...resList].sort((a, b) => {
             return (parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/)));
         })
 

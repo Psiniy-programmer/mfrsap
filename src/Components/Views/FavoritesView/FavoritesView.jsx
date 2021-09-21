@@ -17,32 +17,32 @@ class FavoritesView extends Component {
 
     emptyView() {
         return (
-          <div className={"favorites__empty"}>
-            <img className={"satellite"} src={satellite} alt="imgError" />
-            <div className={"emptyFavorites"}>
-              <p
-                className={
-                  "emptyFavorites__text_info text-regular--small textColor"
-                }
-              >
-                Здесь пока ничего нет.
-              </p>
-              <p
-                className={
-                  "emptyFavorites__text_helper text-regular--small textColor"
-                }
-              >
-                Выберите группу, преподавателя или аудиторию на странице поиска,
-                чтобы добавить их в избранное.
-              </p>
+            <div className={"favorites__empty"}>
+                <img className={"satellite"} src={satellite} alt="imgError"/>
+                <div className={"emptyFavorites"}>
+                    <p
+                        className={
+                            "emptyFavorites__text_info text-regular--small textColor"
+                        }
+                    >
+                        Здесь пока ничего нет.
+                    </p>
+                    <p
+                        className={
+                            "emptyFavorites__text_helper text-regular--small textColor"
+                        }
+                    >
+                        Выберите группу, преподавателя или аудиторию на странице поиска,
+                        чтобы добавить их в избранное.
+                    </p>
+                </div>
             </div>
-          </div>
         );
     }
 
     resultView() {
         const {groups, teachers, auditoryies} = this.props.favoriteStorage;
-        const { groupsList, teachersList, auditoryList} = this.props;
+        const {groupsList, teachersList, auditoryList} = this.props;
 
         return <div className={'favorites__completed'}>
             <FavoriteList list={groupsList} data={groups} title={'Группы'}/>

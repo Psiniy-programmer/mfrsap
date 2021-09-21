@@ -1,14 +1,14 @@
 .aud_rasp__item_aud {
-  display: flex;
-  align-items: flex-end;
-  flex-direction: row;
-  justify-content: space-between;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .aud_rasp__item_info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .aud_pair__item_teacher {
@@ -21,34 +21,34 @@
 }
 
 @media (min-width: 1224px), print {
-  .aud_rasp__item_info {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-  }
+    .aud_rasp__item_info {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
 
-  .aud_rasp__item_aud {
-    flex-direction: column;
-    margin-top: unset;
-    text-align: end;
-  }
+    .aud_rasp__item_aud {
+        flex-direction: column;
+        margin-top: unset;
+        text-align: end;
+    }
 
-  .aud_pair__item_subject {
-    box-sizing: border-box;
-    width: 475px;
-    margin-bottom: unset;
-    padding-right: 40px;
-  }
+    .aud_pair__item_subject {
+        box-sizing: border-box;
+        width: 475px;
+        margin-bottom: unset;
+        padding-right: 40px;
+    }
 
-  .aud_pair__item_teacher {
-    box-sizing: border-box;
-    width: 190px;
-    margin-top: unset;
-    margin-bottom: unset;
-    padding-right: 30px;
-  }
+    .aud_pair__item_teacher {
+        box-sizing: border-box;
+        width: 190px;
+        margin-top: unset;
+        margin-bottom: unset;
+        padding-right: 30px;
+    }
 
-  .aud_pair__item_subgroup {
-    margin-top: unset;
-  }
+    .aud_pair__item_subgroup {
+        margin-top: unset;
+    }
 }

@@ -24,9 +24,9 @@
         cursor: pointer;
         color: var(--green);
     }
-    
+
     .SearchDescription__backtrace img {
         margin-right: 8px;
     }
-        
+
 }

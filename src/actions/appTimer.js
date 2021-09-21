@@ -1,9 +1,4 @@
-import {
-    GET_DAY_INDEX,
-    UPDATE_TIME,
-    WEEK_IS_ODD,
-    UPDATE_DAY_INDEX
-} from '../reducers/appTimer';
+import {GET_DAY_INDEX, UPDATE_DAY_INDEX, UPDATE_TIME, WEEK_IS_ODD} from '../reducers/appTimer';
 
 function updateTime() {
     return {

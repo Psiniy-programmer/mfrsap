@@ -16,14 +16,29 @@ class GroupsList extends Component {
             tempStr, // Понадобится для выборки кафедр по названию
             link;
         switch (match.params.course) {
-            case 'I' : courseNumber = 1 ;break;
-            case 'II' : courseNumber = 2; break;
-            case 'III' : courseNumber = 3; break;
-            case 'IV' : courseNumber = 4 ;break;
-            case 'V' : courseNumber = 5 ;break;
-            case 'VI' : courseNumber = 1; break;
-            case 'VII' : courseNumber = 2; break;
-            default :break;
+            case 'I' :
+                courseNumber = 1;
+                break;
+            case 'II' :
+                courseNumber = 2;
+                break;
+            case 'III' :
+                courseNumber = 3;
+                break;
+            case 'IV' :
+                courseNumber = 4;
+                break;
+            case 'V' :
+                courseNumber = 5;
+                break;
+            case 'VI' :
+                courseNumber = 1;
+                break;
+            case 'VII' :
+                courseNumber = 2;
+                break;
+            default :
+                break;
         }
         // находим нужные нам группы по кафедре
         department = changeLangEngToRus(match.params.department);

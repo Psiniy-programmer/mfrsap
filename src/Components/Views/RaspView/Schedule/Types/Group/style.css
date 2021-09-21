@@ -1,37 +1,37 @@
 .pair__item_subject {
-  order: 1;
+    order: 1;
 }
 
 .pair__item_subgroup {
-  margin-top: 6px;
-  order: 3;
+    margin-top: 6px;
+    order: 3;
 }
 
 .pair__item_teacher {
-  margin-top: 6px;
-  order: 2;
+    margin-top: 6px;
+    order: 2;
 }
 
 @media (min-width: 1224px), print {
-  .pair__item_subject {
-    order: 1;
-    box-sizing: border-box;
-    width: 475px;
-    margin-bottom: 6px;
-    padding-right: 40px;
-  }
+    .pair__item_subject {
+        order: 1;
+        box-sizing: border-box;
+        width: 475px;
+        margin-bottom: 6px;
+        padding-right: 40px;
+    }
 
-  .pair__item_subgroup {
-    order: 2;
-    margin-top: unset;
-  }
+    .pair__item_subgroup {
+        order: 2;
+        margin-top: unset;
+    }
 
-  .pair__item_teacher {
-    order: 3;
-    box-sizing: border-box;
-    width: 190px;
-    margin-top: unset;
-    padding-right: 30px;
-    text-align: start;
-  }
+    .pair__item_teacher {
+        order: 3;
+        box-sizing: border-box;
+        width: 190px;
+        margin-top: unset;
+        padding-right: 30px;
+        text-align: start;
+    }
 }

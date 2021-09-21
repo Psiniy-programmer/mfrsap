@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
 import groupsList from "./groupsList.js";
 import facultyList from "./facultyList.js";
 import teachersList from "./teachersList.js";
@@ -14,17 +14,17 @@ import altList from "./altList.js";
 import newGroupsList from "./newGroupsList.js";
 
 export default combineReducers({
-  groupsList,
-  facultyList,
-  teachersList,
-  auditoryList,
-  raspData,
-  filterItems,
-  theme,
-  favoriteStorage,
-  windowSizes,
-  appTimer,
-  notification,
-  altList,
-  newGroupsList,
+    groupsList,
+    facultyList,
+    teachersList,
+    auditoryList,
+    raspData,
+    filterItems,
+    theme,
+    favoriteStorage,
+    windowSizes,
+    appTimer,
+    notification,
+    altList,
+    newGroupsList,
 });

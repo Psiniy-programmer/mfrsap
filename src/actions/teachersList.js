@@ -1,8 +1,4 @@
-import {
-    TEACHERS_DATA_FETCH_ERROR,
-    TEACHERS_DATA_FETCH_LOADING,
-    TEACHERS_DATA_FETCH_OK
-} from '../reducers/teachersList';
+import {TEACHERS_DATA_FETCH_ERROR, TEACHERS_DATA_FETCH_LOADING, TEACHERS_DATA_FETCH_OK} from '../reducers/teachersList';
 
 function fetchTeachersDataSuccess(teachersList) {
     return {
@@ -19,7 +15,7 @@ function fetchTeachersDataLoading() {
 
 function fetchTeachersDataError(error) {
     return {
-        type : TEACHERS_DATA_FETCH_ERROR,
+        type: TEACHERS_DATA_FETCH_ERROR,
         error
     }
 }

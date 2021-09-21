@@ -1,69 +1,69 @@
 .context__timer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
 }
 
 .context__timer p,
 .diff_timer_pair p,
 .diff__timer_dif p {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .context__timer_svg,
 .diff__timer_svg {
-  display: flex;
-  align-items: center;
-  margin-right: 8px;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
 }
 
 .diff_timer_pair,
 .diff__timer_dif {
-  display: flex;
+    display: flex;
 }
 
 .context__timer_info {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .diff__timer {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
 }
 
 @media (min-width: 1224px), print {
-  .context__timer,
-  .diff__timer {
-    min-width: 255px;
-    align-items: flex-start;
-  }
+    .context__timer,
+    .diff__timer {
+        min-width: 255px;
+        align-items: flex-start;
+    }
 
-  .context__timer_info {
-    display: flex;
-    align-items: center;
-  }
+    .context__timer_info {
+        display: flex;
+        align-items: center;
+    }
 
-  .diff__timer {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+    .diff__timer {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 
-  .diff_timer_pair {
-    margin-bottom: 6px;
-  }
+    .diff_timer_pair {
+        margin-bottom: 6px;
+    }
 }
 
 @media print {
-  .context__timer {
-    min-width: 100px;
-    margin-bottom: 0;
-  }
+    .context__timer {
+        min-width: 100px;
+        margin-bottom: 0;
+    }
 
-  .context__timer_svg,
-  .diff__timer_dif {
-    display: none;
-  }
+    .context__timer_svg,
+    .diff__timer_dif {
+        display: none;
+    }
 }

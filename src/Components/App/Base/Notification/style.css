@@ -1,25 +1,25 @@
 .notification {
-  display: grid;
-  gap: var(--items--gap);
-  padding: 10px;
-  border: 1px solid var(--red);
-  border-radius: 4px;
-  margin-top: 10px;
-  color: var(--red);
+    display: grid;
+    gap: var(--items--gap);
+    padding: 10px;
+    border: 1px solid var(--red);
+    border-radius: 4px;
+    margin-top: 10px;
+    color: var(--red);
 }
 
 .hide {
-  display: none;
+    display: none;
 }
 
 .nolink {
-  pointer-events: none;
-  cursor: default;
+    pointer-events: none;
+    cursor: default;
 }
 
 @media (min-width: 1224px), print {
-  .notification {
-    margin-top: 40px;
-    padding: 17px 20px;
-  }
+    .notification {
+        margin-top: 40px;
+        padding: 17px 20px;
+    }
 }

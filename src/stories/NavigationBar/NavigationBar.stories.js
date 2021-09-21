@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch } from 'react-router-dom'
+import {BrowserRouter, Switch} from 'react-router-dom'
 import {action} from "@storybook/addon-actions";
 import {storiesOf} from "@storybook/react";
 import NavigationBar from '../../Components/NavigationBar/NavigationBar'

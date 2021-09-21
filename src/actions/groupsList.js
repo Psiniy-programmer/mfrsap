@@ -1,56 +1,48 @@
-import {
-  GROUPS_DATA_FETCH_ERROR,
-  GROUPS_DATA_FETCH_LOADING,
-  GROUPS_DATA_FETCH_OK,
-} from "../reducers/groupsList";
+import {GROUPS_DATA_FETCH_ERROR, GROUPS_DATA_FETCH_LOADING, GROUPS_DATA_FETCH_OK,} from "../reducers/groupsList";
 
 function fetchGroupsDataSuccess(groupsList) {
-  return {
-    type: GROUPS_DATA_FETCH_OK,
-    groupsList,
-  };
+    return {
+        type: GROUPS_DATA_FETCH_OK,
+        groupsList,
+    };
 }
 
 function fetchGroupsDataLoading() {
-  return {
-    type: GROUPS_DATA_FETCH_LOADING,
-  };
+    return {
+        type: GROUPS_DATA_FETCH_LOADING,
+    };
 }
 
 function fetchGroupsDataError(error) {
-  return {
-    type: GROUPS_DATA_FETCH_ERROR,
-    error,
-  };
+    return {
+        type: GROUPS_DATA_FETCH_ERROR,
+        error,
+    };
 }
 
 export function fetchGroupsData(url) {
-  return (dispatch) => {
-    dispatch(fetchGroupsDataLoading());
-    fetch(url)
-      .then((response) => response.json())
-      .catch((error) => dispatch(fetchGroupsDataError(error)))
-      .then((groupsList) => {
+    return (dispatch) => {
+        dispatch(fetchGroupsDataLoading());
+        fetch(url)
+            .then((response) => response.json())
+            .catch((error) => dispatch(fetchGroupsDataError(error)))
+            .then((groupsList) => {
 
 
-        return dispatch(fetchGroupsDataSuccess(groupsList));
-      });
-  };
+                return dispatch(fetchGroupsDataSuccess(groupsList));
+            });
+    };
 }
 
 const generateSearchLists = (groupList) => {
-  const finalList = {
-    "ЛТ" : {
-
-    },
-    "К": {
-
+    const finalList = {
+        "ЛТ": {},
+        "К": {}
     }
-  }
-  // Перебираем список кафедр
-  groupList.forEach((group) => {
+    // Перебираем список кафедр
+    groupList.forEach((group) => {
 
-  })
+    })
 }
 
 
