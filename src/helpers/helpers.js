@@ -421,6 +421,52 @@ const clearGroupName = (groupname) => {
     }).join(', ');
 }
 
+/**
+ * Поиск по вхождению в строке
+ * @param item {string}
+ * @param curInput {string}
+ * @returns {boolean}
+ */
+const searchByInclude = (item, curInput) => {
+    return item.toLowerCase().includes(curInput.toLowerCase());
+};
+
+/**
+ * Убираем пробелы из слова
+ * @param word {string}
+ * @returns {string}
+ */
+const removeSpaces = (word) => {
+    console.log(word)
+    return word.split(' ').join('');
+}
+
+/**
+ * Сортировка массива строк по позиции символов
+ * @param target {object[]}
+ * @param fieldForCheck {string} - поле, по которому нужно отсоритровать массив
+ * @param curInput {string}
+ * @returns {object[]}
+ */
+const sortBySymbols = (target, curInput, fieldForCheck) => {
+    const newInput = removeSpaces(curInput).toLowerCase();
+
+    const done = [];
+    const notDone = [];
+
+    target.forEach((item) => {
+        const newItem = removeSpaces(item[fieldForCheck]).toLowerCase();
+
+        if (newInput === newItem.slice(0, newInput.length)) {
+            done.push(item);
+        } else {
+            notDone.push(item);
+        }
+    })
+
+    return [...done, ...notDone];
+};
+
 export {
     changeLangEngToRus,
     changeLangRusToEng,
@@ -445,5 +491,8 @@ export {
     translateSuffixToRus,
     translateSuffixToEng,
     translateSuffixToRusFull,
-    clearGroupName
+    clearGroupName,
+    searchByInclude,
+    removeSpaces,
+    sortBySymbols
 };

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import SearchList from '../SearchList/SearchList';
 import './style.css';
+import {searchByInclude, sortBySymbols} from "../../../../helpers/helpers";
 
 class SearchResult extends Component {
     constructor(props) {
@@ -28,33 +29,26 @@ class SearchResult extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         facultyList: state.facultyList,
         findInput: state.filterItems,
         groupsList: Object.keys(state.altList.data).map((key) => {
             return Object.keys(state.altList.data[key]).map((keyz) => {
-                return state.altList.data[key][keyz].map((group) => {
-                    if (
-                        group.groupname.toLowerCase().includes(state.filterItems.toLowerCase())
-                    ) {
-                        return group;
-                    } else return null;
-                });
+                return state.altList.data[key][keyz]
+                    .filter((group) => searchByInclude(group.groupname, state.filterItems));
             });
-
         }),
         // Динамический поиск по преподам //
-        teachersList: state.teachersList.data.map(teacherElem => {
-            if (teacherElem.full_name.toLowerCase().includes(state.filterItems.toLowerCase())) {
-                return teacherElem;
-            } else return null;
-        }),
+        teachersList: sortBySymbols(
+            state.teachersList.data
+                .filter(teacherElem => searchByInclude(teacherElem.full_name, state.filterItems)),
+            state.filterItems,
+            'full_name'
+        ),
         // Динамический поиск по аудиториям //
-        auditoryList: state.auditoryList.data.map(auditoryElem => {
-            if (auditoryElem.aud.toLowerCase().includes(state.filterItems.toLowerCase())) return auditoryElem;
-            else return null;
-        }),
+        auditoryList: state.auditoryList.data
+            .filter(auditoryElem => searchByInclude(auditoryElem.aud, state.filterItems)),
     };
 };
 
