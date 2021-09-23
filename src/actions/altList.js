@@ -1,6 +1,5 @@
 import {ALTLIST_DATA_FETCH_ERROR, ALTLIST_DATA_FETCH_LOADING, ALTLIST_DATA_FETCH_OK,} from "../reducers/altList";
-
-const URL = "https://rasp.msfu.ru/api/group/altlist";
+import api from "../helpers/api";
 
 function fetchAltListSuccess(altList) {
     return {
@@ -25,7 +24,7 @@ function fetchAltListError(error) {
 export function fetchAltList() {
     return (dispatch) => {
         dispatch(fetchAltListLoading());
-        fetch(URL)
+        fetch(api.lists.alt)
             .then((response) => response.json())
             .catch((error) => dispatch(fetchAltListError(error)))
             .then((altList) => dispatch(fetchAltListSuccess(altList)));

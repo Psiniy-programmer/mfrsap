@@ -1,4 +1,5 @@
 import {GROUPS_DATA_FETCH_ERROR, GROUPS_DATA_FETCH_LOADING, GROUPS_DATA_FETCH_OK,} from "../reducers/groupsList";
+import api from "../helpers/api";
 
 function fetchGroupsDataSuccess(groupsList) {
     return {
@@ -20,42 +21,12 @@ function fetchGroupsDataError(error) {
     };
 }
 
-export function fetchGroupsData(url) {
+export function fetchGroupsData() {
     return (dispatch) => {
         dispatch(fetchGroupsDataLoading());
-        fetch(url)
+        fetch(api.lists.group)
             .then((response) => response.json())
             .catch((error) => dispatch(fetchGroupsDataError(error)))
-            .then((groupsList) => {
-
-
-                return dispatch(fetchGroupsDataSuccess(groupsList));
-            });
+            .then((groupsList) => dispatch(fetchGroupsDataSuccess(groupsList)))
     };
-}
-
-const generateSearchLists = (groupList) => {
-    const finalList = {
-        "ЛТ": {},
-        "К": {}
-    }
-    // Перебираем список кафедр
-    groupList.forEach((group) => {
-
-    })
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};

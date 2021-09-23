@@ -1,4 +1,5 @@
 import {FACULTY_DATA_FETCH_ERROR, FACULTY_DATA_FETCH_LOADING, FACULTY_DATA_FETCH_OK,} from "../reducers/facultyList";
+import api from "../helpers/api";
 
 function fetchFacultyDataSuccess(facultyList) {
     return {
@@ -20,10 +21,10 @@ function fetchFacultyDataError(error) {
     }
 }
 
-export function fetchFacultyData(url) {
+export function fetchFacultyData() {
     return (dispatch) => {
         dispatch(fetchFacultyDataLoading())
-        fetch(url)
+        fetch(api.lists.faculty)
             .then(response => response.json())
             .catch(error => dispatch(fetchFacultyDataError(error)))
             .then(facultyList => dispatch(fetchFacultyDataSuccess(facultyList)))

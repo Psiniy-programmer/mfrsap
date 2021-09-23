@@ -10,6 +10,7 @@ import consts from "../../../../helpers/consts";
 import {getRaspType} from "../../../../helpers/helpers";
 import "./style.css";
 import {GeneratedKey, GeneratedTimeStamp} from "../../SettingsView/ExportFav/ExportFav";
+import api from "../../../../helpers/api";
 
 class RaspHeader extends Component {
     getHeaderWeek() {
@@ -93,8 +94,6 @@ class RaspHeader extends Component {
                 break;
         }
 
-        const pdfUrl = `https://rasp.msfu.ru/print/index.php?${type}=${raspID}`
-
         if (data[type] !== undefined) {
             raspHeader += data[type];
 
@@ -133,7 +132,7 @@ class RaspHeader extends Component {
                                 : "Удалить из избранного"}
                         </p>
                     </div>
-                    <a target="_blank" href={pdfUrl} className="RaspHeader_PDF">
+                    <a target="_blank" href={api.pdf(type, raspID)} className="RaspHeader_PDF">
                         <img className={"PDF_icon"} src={PDF_icon} alt="PDF"/>
                         <p className='textColor'>PDF-версия для печати</p>
                     </a>

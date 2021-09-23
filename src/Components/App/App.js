@@ -24,10 +24,10 @@ import "./App.css";
 class App extends Component {
     componentDidMount() {
         window.addEventListener("resize", this.props.resizeWindow);
-        this.props.fetchDataGroups("https://rasp.msfu.ru/api/group/list");
-        this.props.fetchFacultyData("https://rasp.msfu.ru/api/faculty/list");
-        this.props.fetchTeachersData("https://rasp.msfu.ru/api/teacher/list");
-        this.props.fetchAuditoryData("https://rasp.msfu.ru/api/aud/list");
+        this.props.fetchDataGroups();
+        this.props.fetchFacultyData();
+        this.props.fetchTeachersData();
+        this.props.fetchAuditoryData();
         this.props.fetchAltList();
         this.syncStorages();
         this.getThemeClass();
@@ -116,17 +116,17 @@ const mapStateToProps = (state) => {
 // Исползьуем наше actions для прокидывания данных в наш store //
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchFacultyData: (url) => {
-            dispatch(fetchFacultyData(url));
+        fetchFacultyData: () => {
+            dispatch(fetchFacultyData());
         },
-        fetchDataGroups: (url) => {
-            dispatch(fetchGroupsData(url));
+        fetchDataGroups: () => {
+            dispatch(fetchGroupsData());
         },
-        fetchTeachersData: (url) => {
-            dispatch(fetchTeachersData(url));
+        fetchTeachersData: () => {
+            dispatch(fetchTeachersData());
         },
-        fetchAuditoryData: (url) => {
-            dispatch(fetchAuditoryData(url));
+        fetchAuditoryData: () => {
+            dispatch(fetchAuditoryData());
         },
         addToFavorite: (item) => {
             dispatch(addToFavorite(item));

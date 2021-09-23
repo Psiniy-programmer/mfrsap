@@ -3,6 +3,7 @@ import {createForm} from 'final-form';
 import mail_icon from './mail_dark.svg';
 import './style.css';
 import {connect} from "react-redux";
+import api from "../../../../helpers/api";
 
 const initialState = {
     email: '',
@@ -11,7 +12,7 @@ const initialState = {
 };
 
 const onSubmit = async val => {
-    await fetch('https://rasp.msfu.ru/api/feedback', {
+    await fetch(api.feedback, {
         method: 'POST',
         headers: {
             'Content-Type': 'text/plain',

@@ -5,6 +5,7 @@ import './style.css';
 import Confirmation from '../../../Confirmation/Confirmation';
 import {rewriteStorageData} from '../../../../actions/favoriteStorage';
 import PopUp from "../../../PopUp/PopUp";
+import api from "../../../../helpers/api";
 
 class Import extends Component {
     constructor(props) {
@@ -64,8 +65,7 @@ class Import extends Component {
             return this.showNotify('Заполните поле для ввода кода!', 2000);
         }
 
-        await fetch(
-            `https://rasp.msfu.ru/api/favorites?code=${this.state.code}`)
+        await fetch(api.favorites.import(this.state.code))
             .then((response) => {
                 return response.json()
             })

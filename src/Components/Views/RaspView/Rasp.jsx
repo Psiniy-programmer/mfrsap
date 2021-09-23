@@ -33,9 +33,7 @@ class Rasp extends PureComponent {
         const id = rasp.match(/\d+/g)[0];
         const type = findRequestType(rasp);
         this.setState({type: type});
-        this.props.fetchRaspData(
-            `https://rasp.msfu.ru/api/${type.name}?id=${id}`,
-        );
+        this.props.fetchRaspData(type.name, id);
     }
 
     getHeader() {
@@ -75,8 +73,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchRaspData: (url) => {
-            dispatch(fetchRaspData(url));
+        fetchRaspData: (type, id) => {
+            dispatch(fetchRaspData(type, id));
         },
         getDayIndex: () => {
             dispatch(getDayIndex());

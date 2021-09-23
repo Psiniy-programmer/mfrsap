@@ -3,6 +3,7 @@ import PopUp from '../../../PopUp/PopUp';
 import ExportButton from './ExportButton/ExportButton';
 import './style.css';
 import {connect} from 'react-redux';
+import api from "../../../../helpers/api";
 
 export const GeneratedKey = 'GENERATED';
 export const GeneratedTimeStamp = 'TIME_STAMP';
@@ -26,7 +27,7 @@ class ExportFav extends Component {
         let code = '';
         let timeStamp = '';
 
-        await fetch('https://rasp.msfu.ru/api/favorites', {
+        await fetch(api.favorites.export, {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/plain',

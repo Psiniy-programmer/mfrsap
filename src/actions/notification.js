@@ -1,6 +1,5 @@
 import {NOTIFY_FETCH_ERROR, NOTIFY_FETCH_LOADING, NOTIFY_FETCH_OK,} from "../reducers/notification";
-
-const URL = "https://rasp.msfu.ru/api/announcements";
+import api from "../helpers/api";
 
 function fetchNotifyDataSuccess(notification) {
     return {
@@ -25,7 +24,7 @@ function fetchNotifyDataError(error) {
 export function fetchNotifyData() {
     return (dispatch) => {
         dispatch(fetchNotifyDataLoading());
-        fetch(URL)
+        fetch(api.announcements)
             .then((response) => response.json())
             .catch((error) => dispatch(fetchNotifyDataError(error)))
             .then((notification) => dispatch(fetchNotifyDataSuccess(notification)));

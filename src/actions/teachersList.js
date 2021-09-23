@@ -1,4 +1,5 @@
 import {TEACHERS_DATA_FETCH_ERROR, TEACHERS_DATA_FETCH_LOADING, TEACHERS_DATA_FETCH_OK} from '../reducers/teachersList';
+import api from "../helpers/api";
 
 function fetchTeachersDataSuccess(teachersList) {
     return {
@@ -20,10 +21,10 @@ function fetchTeachersDataError(error) {
     }
 }
 
-export function fetchTeachersData(url) {
+export function fetchTeachersData() {
     return (dispatch) => {
         dispatch(fetchTeachersDataLoading())
-        fetch(url)
+        fetch(api.lists.teacher)
             .then(response => response.json())
             .catch(error => dispatch(fetchTeachersDataError(error)))
             .then(teachersList => dispatch(fetchTeachersDataSuccess(teachersList)))
