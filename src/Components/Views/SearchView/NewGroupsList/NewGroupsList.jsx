@@ -36,10 +36,6 @@ class NewGroupsList extends Component {
         const suffix = translateSuffixToRus(match.params.suffix);
         const semesterNumber = switchRomanToNumber(match.params.course) * 2;
         const generatedList = [];
-        console.log(semesterNumber)
-        // if (!caf || !suffix || !semesterNumber) {
-        //     return;
-        // }
 
         // groupName выступает в роли ключа, из-за структуры апи
         for (let groupName in SGroupsList.data) {

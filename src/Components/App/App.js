@@ -20,6 +20,7 @@ import HomeRoutes from "../Routes/HomeRoutes";
 import {fetchAltList} from "../../actions/altList.js";
 import {updateTime} from "../../actions/appTimer";
 import "./App.css";
+import routes from "../../helpers/routes";
 
 class App extends Component {
     componentDidMount() {
@@ -64,6 +65,7 @@ class App extends Component {
 
     render() {
         const {windowSizes} = this.props;
+        const {home, search, list} = routes;
 
         if (this.infoIsFetched()) {
             return (
@@ -71,16 +73,16 @@ class App extends Component {
                     <div className="content">
                         <Route
                             exact
-                            path={"/"}
+                            path={home}
                             render={(routerProps) => <HomeRoutes {...routerProps} />}
                         />
                         <Route
-                            path={"/search"}
+                            path={search}
                             render={(routerProps) => <SearchRoutes {...routerProps} />}
                         />
                         <Route
                             exact
-                            path={"/list/:rasp"}
+                            path={list}
                             render={(routerProps) => <Rasp {...routerProps} />}
                         />
                         <FavoritesRoutes/>
@@ -88,7 +90,7 @@ class App extends Component {
                     </div>
                     {windowSizes.width < Consts.DESKTOP_MIN_WIDTH ? (
                         <Route
-                            path={"/"}
+                            path={home}
                             render={(routerProps) => <NavigationBar {...routerProps} />}
                         />
                     ) : (

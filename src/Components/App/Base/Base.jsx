@@ -8,8 +8,33 @@ import consts from "../../../helpers/consts";
 import Notification from "./Notification/Notification";
 import arrow from "./arrow.svg";
 import "./style.css";
+import {Link} from "react-router-dom";
+import routes from "../../../helpers/routes";
 
 class Base extends Component {
+
+    /**
+     * Создаем ссылку для кнопки "Назад"
+     * Забираем урл, сплитим его в массив, удаляем оттуда один элемент
+     * Если длина массива в конце === 1, то переходим на домашний урл
+     * @returns {string}
+     */
+    handleClickBack() {
+        const { match } = this.props;
+        const splittedUrl = match.url.split('/');
+        splittedUrl.pop();
+
+        if (splittedUrl.length === 2 && splittedUrl.includes('search')) {
+            return routes.home;
+        };
+
+        if (splittedUrl.length > 2 && match.params.hasOwnProperty('course')) {
+            splittedUrl.pop();
+        }
+
+        return `${splittedUrl.join('/')}`;
+    }
+
     // Динамичное подставление нужного описания (текст под заголовком)
     dynamicDescription() {
         const {match} = this.props; // деструктурируем для удобства
@@ -52,13 +77,13 @@ class Base extends Component {
                         <p className={"SearchDescription__text  text-regular--medium "}>
                             {this.dynamicDescription()}
                         </p>
-                        <div
-                            onClick={() => window.history.back()}
+                        <Link
+                            to={() => this.handleClickBack()}
                             className={"SearchDescription__backtrace text-regular--medium"}
                         >
                             <img src={arrow} alt="<"/>
                             <p>Назад</p>
-                        </div>
+                        </Link>
                     </div>
                 </>
             );
