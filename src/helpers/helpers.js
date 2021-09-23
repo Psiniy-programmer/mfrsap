@@ -437,7 +437,6 @@ const searchByInclude = (item, curInput) => {
  * @returns {string}
  */
 const removeSpaces = (word) => {
-    console.log(word)
     return word.split(' ').join('');
 }
 
