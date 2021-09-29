@@ -47,8 +47,11 @@ const mapStateToProps = (state) => {
             'full_name'
         ),
         // Динамический поиск по аудиториям //
-        auditoryList: state.auditoryList.data
-            .filter(auditoryElem => searchByInclude(auditoryElem.aud, state.filterItems)),
+        auditoryList: sortBySymbols(
+            state.auditoryList.data
+                .filter(auditoryElem => searchByInclude(auditoryElem.aud, state.filterItems)),
+            state.filterItems,
+            'aud'),
     };
 };
 
