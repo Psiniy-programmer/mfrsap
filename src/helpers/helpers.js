@@ -341,17 +341,14 @@ const checkItem = (item) => {
  * @returns {{timer, diff: null, soon: boolean}} diff - Разница во времени до пары, soon - включение подсветки
  */
 const getTimer = (cur, appTimer) => {
-    const {pairtime} = cur;
+    const {pairtime, pair} = cur;
     const daysDiff = appTimer.todayIndex !== appTimer.dayIndex + 1;
     let res = {diff: null, soon: false, timer: pairtime};
 
-
-    if (daysDiff) {
+    if (daysDiff || ((pair[0] && isPairEmpty(pair, 0)) && (pair[1] && isPairEmpty(pair, 1)))) {
         return res;
     }
-
     const t = pairtime.split('—')[0].split(':').map((i) => Number(i));
-
     const curTime = appTimer.date.getHours() * 60 + appTimer.date.getMinutes();
     const nextPair = t[0] * 60 + t[1];
     const diffTime = nextPair - curTime;
@@ -466,6 +463,17 @@ const sortBySymbols = (target, curInput, fieldForCheck) => {
     return [...done, ...notDone];
 };
 
+/**
+ * Проверка пары на пустоту (нет занятий)
+ * @param pair {Object[]} - массив объектов пар
+ * @param index {number} - номер пары (0 - по первой неделе, 1 - по второй неделе)
+ * @returns {boolean}
+ */
+const isPairEmpty = (pair, index) => {
+    console.log(pair.length === 0 || Object.keys(pair[index]).length === 0)
+    return pair.length === 0 || Object.keys(pair[index]).length === 0;
+}
+
 export {
     changeLangEngToRus,
     changeLangRusToEng,
@@ -493,5 +501,6 @@ export {
     clearGroupName,
     searchByInclude,
     removeSpaces,
-    sortBySymbols
+    sortBySymbols,
+    isPairEmpty
 };

@@ -5,11 +5,11 @@ const routes = {
     favorites: '/favorites',
     settings: {
         base: '/settings',
-        theme: '/theme',
-        feedback: '/feedback',
-        developers: '/developers',
-        export: '/export',
-        manual: '/manual'
+        theme: '/settings/theme',
+        feedback: '/settings/feedback',
+        developers: '/settings/developers',
+        export: '/settings/export',
+        manual: '/settings/manual'
     },
 };
 
