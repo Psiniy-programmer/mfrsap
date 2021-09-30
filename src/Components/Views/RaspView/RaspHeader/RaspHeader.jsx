@@ -16,11 +16,13 @@ class RaspHeader extends Component {
     getHeaderWeek() {
         const {windowSizes, weekIsOdd} = this.props;
 
-        if (windowSizes.width < consts.DESKTOP_MIN_WIDTH) {
-            return weekIsOdd ? "Числитель" : "Знаменатель";
-        } else {
-            return weekIsOdd ? "числитель" : "знаменатель";
-        }
+        // if (windowSizes.width < consts.DESKTOP_MIN_WIDTH) {
+        //     return weekIsOdd ? "Числитель" : "Знаменатель";
+        // } else {
+        //     return weekIsOdd ? "числитель" : "знаменатель";
+        // }
+
+        return weekIsOdd ? "I неделя" : "II неделя";
     }
 
     toggleFavorites() {
@@ -63,7 +65,7 @@ class RaspHeader extends Component {
                     <h3 className={"header__text_title shift-text text-bold--large"}>
                         {headerName}
                     </h3>
-                    <p className={"text-regular--medium"}>{this.getHeaderWeek()}</p>
+                    <p className={"header__text_week text-regular--medium"}>{this.getHeaderWeek()}</p>
                 </div>
             </div>
         );
