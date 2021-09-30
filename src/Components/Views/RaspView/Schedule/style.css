@@ -72,7 +72,8 @@
     border-radius: 4px;
 }
 
-.opacity {
+.opacity > div,
+.opacity > p {
     opacity: 0.5;
 }
 
@@ -116,7 +117,7 @@
         gap: 30px;
         padding: 24px 0;
         background-color: var(--current--theme--bg);
-        border-bottom: 2px dashed rgba(205, 205, 205, .5);
+        border-bottom: 2px dashed var(--border);
     }
 
     .rasp__item:last-child {
@@ -131,7 +132,7 @@
     .rasp__item_double .aud_rasp__item_info:first-child {
         margin-bottom: 24px;
         padding-bottom: 24px;
-        border-bottom: 2px dashed rgba(205, 205, 205, 1);
+        border-bottom: 2px dashed var(--border);
     }
 
 
@@ -168,8 +169,8 @@
     .everyDayTables > div > p {
         margin-top: 30px;
         margin-bottom: 60px;
-        border-bottom: 2px dashed rgba(205, 205, 205, .5);
-        border-top: 2px dashed rgba(205, 205, 205, .5);
+        border-bottom: 2px dashed var(--border);
+        border-top: 2px dashed var(--border);
     }
 
     .everyDayTables > div > p {
@@ -179,7 +180,8 @@
 }
 
 @media print {
-    .opacity {
+    .opacity > div,
+    .opacity > p {
         opacity: 1;
     }
 
