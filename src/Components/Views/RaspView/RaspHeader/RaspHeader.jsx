@@ -17,9 +17,9 @@ class RaspHeader extends Component {
         const {windowSizes, weekIsOdd} = this.props;
 
         if (windowSizes.width < consts.DESKTOP_MIN_WIDTH) {
-            return weekIsOdd ? "Числитель" : "Знаменатель";
+            return weekIsOdd ? "1-я неделя" : "2-я неделя";
         } else {
-            return weekIsOdd ? "числитель" : "знаменатель";
+            return weekIsOdd ? "первая неделя" : "вторая неделя";
         }
     }
 
@@ -63,7 +63,7 @@ class RaspHeader extends Component {
                     <h3 className={"header__text_title shift-text text-bold--large"}>
                         {headerName}
                     </h3>
-                    <p className={"text-regular--medium"}>{this.getHeaderWeek()}</p>
+                    <p className={"header__text_week text-regular--medium"}>{this.getHeaderWeek()}</p>
                 </div>
             </div>
         );
