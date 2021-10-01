@@ -345,7 +345,7 @@ const getTimer = (cur, appTimer) => {
     const daysDiff = appTimer.todayIndex !== appTimer.dayIndex + 1;
     let res = {diff: null, soon: false, timer: pairtime};
 
-    if (daysDiff || ((pair[0] && isPairEmpty(pair, 0)) && (pair[1] && isPairEmpty(pair, 1)))) {
+    if (daysDiff ) {
         return res;
     }
     const t = pairtime.split('—')[0].split(':').map((i) => Number(i));
