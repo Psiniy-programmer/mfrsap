@@ -344,12 +344,11 @@ const getTimer = (cur, appTimer) => {
     const {pairtime, pair} = cur;
     const daysDiff = appTimer.todayIndex !== appTimer.dayIndex + 1;
     const isAllPairEmpty = pair.length === 0;
-    const isDoublyNumEmpty = isPairEmpty(pair, 0);
-    const isDoublyDeNumEmpty = isPairEmpty(pair, 1);
+    const isCurDoubly = appTimer.isOdd ? isPairEmpty(pair, 1) : isPairEmpty(pair, 0);
 
     let res = {diff: null, soon: false, timer: pairtime};
 
-    if (daysDiff || (isAllPairEmpty || isDoublyNumEmpty || isDoublyDeNumEmpty)) {
+    if (daysDiff || isAllPairEmpty || isCurDoubly) {
         return res;
     }
     const t = pairtime.split('—')[0].split(':').map((i) => Number(i));
