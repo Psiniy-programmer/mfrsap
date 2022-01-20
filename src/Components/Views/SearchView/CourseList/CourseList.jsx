@@ -80,7 +80,6 @@ class CourseList extends Component {
 
     getCourseList() {
         const res = [];
-
         for (let key in this.state) {
             if (
                 this.state[key] !== undefined &&

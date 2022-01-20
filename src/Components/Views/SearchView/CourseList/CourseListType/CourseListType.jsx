@@ -11,6 +11,7 @@ import setNewGroupsList from "../../../../../actions/newGroupsList";
 class CourseListType extends Component {
     parseData() {
         const {data, url, setList, courseType} = this.props;
+
         const res = [];
         const suffix = translateSuffixToEng(courseType);
 
@@ -18,8 +19,7 @@ class CourseListType extends Component {
             if (course === "merged") {
                 continue;
             }
-
-            let courseNumber = switchNumberToRoman(course);
+            let courseNumber = switchNumberToRoman((Number(course) - 1) + '');
             let text = courseNumber + " курс";
             res.push(
                 <Link
