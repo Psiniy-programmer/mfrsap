@@ -170,19 +170,19 @@ const getRaspType = (data) => {
  */
 const switchNumberToRoman = (numb) => {
     switch (numb) {
-        case '0':
-            return 'I';
         case '1':
-            return 'II';
+            return 'I';
         case '2':
-            return 'III';
+            return 'II';
         case '3':
-            return 'IV';
+            return 'III';
         case '4':
-            return 'V';
+            return 'IV';
         case '5':
-            return 'VI';
+            return 'V';
         case '6':
+            return 'VI';
+        case '7':
             return 'VII';
         default:
             break;
