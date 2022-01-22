@@ -14,12 +14,11 @@ class CourseListType extends Component {
 
         const res = [];
         const suffix = translateSuffixToEng(courseType);
-
         for (let course in data) {
             if (course === "merged") {
                 continue;
             }
-            let courseNumber = switchNumberToRoman((Number(course) - 1) + '');
+            let courseNumber = switchNumberToRoman(course);
             let text = courseNumber + " курс";
             res.push(
                 <Link
