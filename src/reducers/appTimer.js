@@ -28,7 +28,7 @@ export default function appTimer(state = initialState, action) {
         case WEEK_IS_ODD:
             return {
                 ...state,
-                isOdd: new Date().getWeek() % 2 === 0,
+                isOdd: new Date().getWeek() % 2 === 1,
             };
         case UPDATE_DAY_INDEX:
             return {
