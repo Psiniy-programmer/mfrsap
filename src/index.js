@@ -41,8 +41,16 @@ String.prototype.replaceAt = function (index, newSymbols) {
 };
 
 Date.prototype.getWeek = function () {
-    const onejan = new Date(this.getFullYear(), 0, 1);
-    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() - 1) / 7);
+    let curMonth = new Date().getMonth(),
+        curYear = new Date().getFullYear();
+
+    if (curMonth < 8) {
+        curYear -= 1;
+    }
+
+    const septFirst = new Date(curYear, 8, 1);
+    return Math.ceil((((this - septFirst) / 86400000) + septFirst.getDay() - 1) / 7);
+
 }
 
 
