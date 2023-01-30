@@ -7,8 +7,7 @@ const regExp = /\w/gi;
 
 class SearchInput extends Component {
     findItem() {
-        const res = Array.from(this.nameInput.value.matchAll(regExp));
-
+        // const res = Array.from(this.nameInput.value.matchAll(regExp));
         // res.map((item) => this.nameInput.value = convertString(this.nameInput.value, item.index));
 
         this.props.onFindItem(this.nameInput.value);
