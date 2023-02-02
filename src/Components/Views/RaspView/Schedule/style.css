@@ -116,8 +116,9 @@
         grid-template-columns: 255px 1fr;
         gap: 30px;
         padding: 24px 0;
+        border-radius: 0;
         background-color: var(--current--theme--bg);
-        border-bottom: 2px dashed var(--border);
+        border-bottom: 2px solid var(--border);
     }
 
     .rasp__item:last-child {
@@ -169,8 +170,8 @@
     .everyDayTables > div > p {
         margin-top: 30px;
         margin-bottom: 60px;
-        border-bottom: 2px dashed var(--border);
-        border-top: 2px dashed var(--border);
+        border-bottom: 2px solid var(--border);
+        border-top: 2px solid var(--border);
     }
 
     .everyDayTables > div > p {

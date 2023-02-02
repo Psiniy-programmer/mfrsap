@@ -42,8 +42,8 @@ html {
     --theme--light--icon: url("img/done_light.svg");
     --theme--dark--icon: url("img/done_dark.svg");
     
-    --border--light--theme: rgba(19, 53, 51, .3);
-    --border--dark--theme: rgba(205, 205, 205, .5);
+    --border--light--theme: rgba(100, 100, 100, .3);
+    --border--dark--theme: rgba(100, 100, 100, .5);
 
     --gray: #7c8786;
     --green: #429c97;
