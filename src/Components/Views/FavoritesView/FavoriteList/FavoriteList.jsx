@@ -16,7 +16,10 @@ class FavoriteList extends Component {
             name: "",
             id: "",
         };
-        let link;
+        
+        let link,
+            linkID = '';
+        
         switch (item.type) {
             case "group":
                 properties.name = "groupname";
@@ -33,14 +36,13 @@ class FavoriteList extends Component {
             default:
                 break;
         }
-        link = `${properties.id}=`;
-
+        
         if (item.type === "group") {
             for (let key in list) {
                 for (let type in list[key]) {
                     list[key][type].map((elem) => {
                         return item.name === elem[properties.name]
-                            ? (link += elem[properties.id])
+                            ? (linkID += elem[properties.id])
                             : null;
                     });
                 }
@@ -48,12 +50,14 @@ class FavoriteList extends Component {
         } else {
             list.map((elem) => {
                 return item.name === elem[properties.name]
-                    ? (link += elem[properties.id])
+                    ? (linkID += elem[properties.id])
                     : null;
             });
         }
 
-        return link;
+        link = `${properties.id}=${linkID}`;
+
+        return [link, linkID];
     }
 
     getIcon() {
@@ -82,35 +86,38 @@ class FavoriteList extends Component {
                 name: item,
             };
 
-            let link = this.findLink(info);
-            let temp = (
-                <div
-                    key={generateUniqKey("favItem_", item)}
-                    className={"FavoriteList_item"}
-                >
-                    <Link className={"fullWidth"} to={`/list/${link}`}>
-                        <p
-                            className={
-                                "FavoriteList_item__context text-medium--small raspTextColor"
-                            }
-                        >
-                            {item}
-                        </p>
-                    </Link>
-                    <button
-                        className={"FavoriteList_item__context"}
-                        onClick={() => this.props.removeFromFavorites(info)}
-                        title="Удалить из избранного"
+            let [link, linkID] = this.findLink(info);
+            
+            if (linkID) {
+                let temp = (
+                    <div
+                        key={generateUniqKey("favItem_", item)}
+                        className={"FavoriteList_item"}
                     >
-                        <img
-                            src={this.getIcon()}
-                            alt="remove"
-                        />
-                    </button>
-                </div>
-            );
+                        <Link className={"fullWidth"} to={`/list/${link}`}>
+                            <p
+                                className={
+                                    "FavoriteList_item__context text-medium--small raspTextColor"
+                                }
+                            >
+                                {item}
+                            </p>
+                        </Link>
+                        <button
+                            className={"FavoriteList_item__context"}
+                            onClick={() => this.props.removeFromFavorites(info)}
+                            title="Удалить из избранного"
+                        >
+                            <img
+                                src={this.getIcon()}
+                                alt="remove"
+                            />
+                        </button>
+                    </div>
+                );
 
-            return list.push(temp);
+                return list.push(temp);
+            }
         });
         return list;
     }
