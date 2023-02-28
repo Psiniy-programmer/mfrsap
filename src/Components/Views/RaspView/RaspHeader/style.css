@@ -13,11 +13,6 @@
     text-overflow: ellipsis;
 }
 
-.header__text_week {
-    text-align: right;
-    white-space: nowrap;
-}
-
 .favorites_Logo {
     cursor: pointer;
 }
@@ -49,7 +44,6 @@
         margin-left: 40px;
     }
 
-    .RaspHeader_date,
     .RaspHeader_favorites,
     .RaspHeader_PDF {
         display: flex;
@@ -58,11 +52,6 @@
 
     .RaspHeader img {
         margin-right: 8px;
-    }
-
-    .date_calendar {
-        width: 20px;
-        height: 20px;
     }
 
     .favorites_Logo {

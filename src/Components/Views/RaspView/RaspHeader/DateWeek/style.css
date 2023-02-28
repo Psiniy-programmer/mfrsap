@@ -1,0 +1,17 @@
+.date-week {
+    text-align: right;
+    white-space: nowrap;
+}
+
+@media (min-width: 1224px), print {
+    .date-week {
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .date-week img {
+        width: 20px;
+        height: 20px;
+    }
+}

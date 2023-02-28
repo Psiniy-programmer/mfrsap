@@ -2,26 +2,16 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import star from "./Icons/star.svg";
 import star_active from "./Icons/star_active.svg";
-import calendar_dark from "./Icons/Calendar-icon.svg";
 import PDF_icon from "./Icons/PDF_dark.svg";
 import {addToFavorite, removeFromFavorite,} from "../../../../actions/favoriteStorage.js";
 import Consts from "../../../../helpers/consts";
-import consts from "../../../../helpers/consts";
 import {getRaspType} from "../../../../helpers/helpers";
 import "./style.css";
 import {GeneratedKey, GeneratedTimeStamp} from "../../SettingsView/ExportFav/ExportFav";
 import api from "../../../../helpers/api";
+import DateText from "./DateWeek/DateWeek";
 
 class RaspHeader extends Component {
-    getHeaderWeek() {
-        const {windowSizes, weekIsOdd} = this.props;
-
-        if (windowSizes.width < consts.DESKTOP_MIN_WIDTH) {
-            return weekIsOdd ? "1-я неделя" : "2-я неделя";
-        } else {
-            return weekIsOdd ? "первая неделя" : "вторая неделя";
-        }
-    }
 
     toggleFavorites() {
         const {data} = this.props.raspData;
@@ -63,7 +53,8 @@ class RaspHeader extends Component {
                     <h3 className={"header__text_title shift-text text-bold--large"}>
                         {headerName}
                     </h3>
-                    <p className={"header__text_week text-regular--medium"}>{this.getHeaderWeek()}</p>
+
+                    <DateText />
                 </div>
             </div>
         );
@@ -72,17 +63,11 @@ class RaspHeader extends Component {
     getDesktopView() {
         const {data} = this.props.raspData;
         const {type, match} = this.props;
-        const date = new Date();
         const raspID = match.params.rasp.split('=')[1];
-        const options = {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-        };
+        
         const storageItem = localStorage.getItem(data[type]);
         let raspHeader = '';
-        let dateText = date.toLocaleDateString("ru", options);
-
+        
         switch (type) {
             case 'aud':
                 raspHeader = 'Аудитория ';
@@ -103,9 +88,6 @@ class RaspHeader extends Component {
             }
         }
 
-        dateText = dateText.substring(0, dateText.length - 3); // удаляем лишние буквы из года
-        dateText += ` — ${this.getHeaderWeek()}`;
-
         return (
             <>
                 <div className={"Header_Text"}>
@@ -114,10 +96,8 @@ class RaspHeader extends Component {
                     </h3>
                 </div>
                 <div className={"RaspHeader textColor"}>
-                    <div className="RaspHeader_date">
-                        <img className={"date_calendar"} src={calendar_dark} alt="error"/>
-                        <p>{dateText}</p>
-                    </div>
+                    <DateText />
+
                     <div
                         onClick={() => this.toggleFavorites()}
                         className="RaspHeader_favorites"
