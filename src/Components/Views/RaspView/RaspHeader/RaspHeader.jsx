@@ -98,10 +98,10 @@ class RaspHeader extends Component {
                     </h3>
                 </div>
                 <div className={"RaspHeader textColor"}>
-                    <div className="RaspHeader_date">
+                    {/* <div className="RaspHeader_date">
                         <img className={"date_calendar"} src={calendar_dark} alt="error"/>
                         <DateWeek />
-                    </div>
+                    </div> */}
                     
                     <div
                         onClick={() => this.toggleFavorites()}
