@@ -9,7 +9,8 @@ import {getRaspType} from "../../../../helpers/helpers";
 import "./style.css";
 import {GeneratedKey, GeneratedTimeStamp} from "../../SettingsView/ExportFav/ExportFav";
 import api from "../../../../helpers/api";
-import DateText from "./DateWeek/DateWeek";
+import DateWeek from "./DateWeek/DateWeek";
+import calendar_dark from "./Icons/Calendar-icon.svg";
 
 class RaspHeader extends Component {
 
@@ -53,8 +54,9 @@ class RaspHeader extends Component {
                     <h3 className={"header__text_title shift-text text-bold--large"}>
                         {headerName}
                     </h3>
-
-                    <DateText />
+                    <div className="header__text_week text-regular--medium">
+                        <DateWeek />
+                    </div>   
                 </div>
             </div>
         );
@@ -96,8 +98,11 @@ class RaspHeader extends Component {
                     </h3>
                 </div>
                 <div className={"RaspHeader textColor"}>
-                    <DateText />
-
+                    <div className="RaspHeader_date">
+                        <img className={"date_calendar"} src={calendar_dark} alt="error"/>
+                        <DateWeek />
+                    </div>
+                    
                     <div
                         onClick={() => this.toggleFavorites()}
                         className="RaspHeader_favorites"
