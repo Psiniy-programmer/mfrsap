@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import Consts from "../../../../../helpers/consts";
+import Consts from "../../helpers/consts";
 
 class DateWeek extends Component {
 

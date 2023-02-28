@@ -9,7 +9,7 @@ import {getRaspType} from "../../../../helpers/helpers";
 import "./style.css";
 import {GeneratedKey, GeneratedTimeStamp} from "../../SettingsView/ExportFav/ExportFav";
 import api from "../../../../helpers/api";
-import DateWeek from "./DateWeek/DateWeek";
+import DateWeek from "../../../DateWeek/DateWeek";
 import calendar_dark from "./Icons/Calendar-icon.svg";
 
 class RaspHeader extends Component {
