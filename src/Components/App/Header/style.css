@@ -10,16 +10,28 @@
 
 .SearchTittle {
     display: flex;
+    width: 100%;
     margin: 0;
     cursor: pointer;
 }
 
 .SearchTittle_text {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     white-space: nowrap;
 }
 
 .SearchTittle__title {
     padding: 11px 0;
+}
+
+.SearchTittle__date {
+    display: flex;
+}
+
+.SearchTittle__date div {
+    align-self: center;
 }
 
 .TittleType {
@@ -33,11 +45,27 @@
 
     .SearchTittle img {
         display: block;
+        width: 45px;
         margin-right: 10px;
     }
 
     .TittleType {
         display: block;
+    }
+
+    .SearchTittle_text {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: auto;
+    }
+    
+    .SearchTittle__title {
+        padding: 3px 0 2px;
+    }
+    
+    .SearchTittle__date {
+        display: flex;
+        font-size: 14px !important;
     }
 }
 

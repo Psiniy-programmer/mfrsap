@@ -5,6 +5,7 @@ import NavigationBar from "../../NavigationBar/NavigationBar";
 import {connect} from "react-redux";
 import Consts from "../../../helpers/consts"
 import './style.css';
+import DateWeek from '../../DateWeek/DateWeek';
 
 class AppHeader extends Component {
     render() {
@@ -14,6 +15,9 @@ class AppHeader extends Component {
                 <img src={bmstu_logo} alt="МФ МГТУ"/>
                 <Link className={'textColor SearchTittle_text'} to="/">
                     <h1 className={'SearchTittle__title text-bold--large'}>Расписание МФ МГТУ</h1>
+                    <div className='SearchTittle__date text-regular--small'>
+                        <DateWeek/>
+                    </div>
                 </Link>
             </div>
             {windowSizes.width > Consts.DESKTOP_MIN_WIDTH ?
