@@ -5,12 +5,13 @@ import Consts from "../../helpers/consts";
 class DateWeek extends Component {
 
     getHeaderWeek() {
-        const {windowSizes, weekIsOdd} = this.props;
+        const {windowSizes} = this.props;
+        const {isOdd} = this.props.appTimer;
 
         if (windowSizes.width < Consts.DESKTOP_MIN_WIDTH) {
-            return weekIsOdd ? "1-я неделя" : "2-я неделя";
+            return isOdd ? "1-я неделя" : "2-я неделя";
         } else {
-            return weekIsOdd ? "первая неделя" : "вторая неделя";
+            return isOdd ? "первая неделя" : "вторая неделя";
         }
     }
 
@@ -23,7 +24,7 @@ class DateWeek extends Component {
     }
 
     getDesktopView() {
-        const date = new Date();
+        const {date} = this.props.appTimer;
         const options = {
             month: "long",
             day: "numeric",
@@ -48,6 +49,7 @@ class DateWeek extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        appTimer: state.appTimer,
         windowSizes: state.windowSizes
     };
 };
