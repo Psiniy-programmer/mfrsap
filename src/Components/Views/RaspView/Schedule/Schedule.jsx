@@ -67,11 +67,7 @@ class Schedule extends Component {
                 );
             }
 
-            return <div className='everyDayTables'>
-                {
-                    tables.map((dayTable) => dayTable)
-                }
-            </div>
+            return <div className='everyDayTables'>{ tables }</div>
         }
 
         if (dayIndex !== null) {

@@ -1,17 +1,3 @@
-const helpData = {
-    0: "8:40 - 10:15",
-    1: "10:25 - 12:00",
-    2: "12:50 - 14:25",
-    3: "14:35 - 16:10",
-    4: "16:20 - 17:55",
-    5: "18:00 - 19:35",
-    6: "19:45 - 21:20"
-}
-
-const getTime = index => {
-    return helpData[index]
-}
-
 const mobileCarouselData = [
     {
         'rus': 'ПН',
@@ -70,4 +56,4 @@ const desktopCarouselData = [
     }
 ]
 
-export {getTime, mobileCarouselData, desktopCarouselData}
+export {mobileCarouselData, desktopCarouselData}
