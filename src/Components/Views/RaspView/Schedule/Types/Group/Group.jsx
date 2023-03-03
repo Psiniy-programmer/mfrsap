@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import Timer from '../../Timer/Timer';
 import {connect} from 'react-redux';
-import EmptyCard from '../../EmptyCard/EmptyCard';
+import EmptyCard from '../../Items/EmptyCard/EmptyCard';
 import {checkIsDouble, checkItem, checkOnArr, getTimer,} from '../../../../../../helpers/helpers';
 import Consts from '../../../../../../helpers/consts';
-import DoubleContainer from '../Items/ItemContainer/DoubleContainer';
-import DoubleInfo from '../Items/RaspItemInfo/DoubleInfo';
+import DoubleContainer from '../../Items/ItemContainer/DoubleContainer';
+import DoubleInfo from '../../Items/RaspItemInfo/DoubleInfo';
 import './style.css';
-import SingleInfo from '../Items/RaspItemInfo/SingleInfo';
-import SingleContainer from '../Items/ItemContainer/SingleContainer';
+import SingleInfo from '../../Items/RaspItemInfo/SingleInfo';
+import SingleContainer from '../../Items/ItemContainer/SingleContainer';
 
 const TYPE = 'group';
 

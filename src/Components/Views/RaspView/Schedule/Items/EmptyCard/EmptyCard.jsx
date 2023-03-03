@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import consts from "../../../../../helpers/consts";
+import consts from "../../../../../../helpers/consts";
 import "./style.css";
 
 class EmptyCard extends Component {

@@ -1,13 +1,13 @@
 import React, {Component} from "react";
-import EmptyCard from "../../EmptyCard/EmptyCard";
+import EmptyCard from "../../Items/EmptyCard/EmptyCard";
 import {checkIsDouble, checkItem, checkOnArr, clearGroupName, getTimer,} from "../../../../../../helpers/helpers";
 import Timer from "../../Timer/Timer";
 import {connect} from "react-redux";
 import "./style.css";
-import DoubleContainer from "../Items/ItemContainer/DoubleContainer";
-import DoubleInfo from "../Items/RaspItemInfo/DoubleInfo";
-import SingleInfo from '../Items/RaspItemInfo/SingleInfo';
-import SingleContainer from '../Items/ItemContainer/SingleContainer';
+import DoubleContainer from "../../Items/ItemContainer/DoubleContainer";
+import DoubleInfo from "../../Items/RaspItemInfo/DoubleInfo";
+import SingleInfo from '../../Items/RaspItemInfo/SingleInfo';
+import SingleContainer from '../../Items/ItemContainer/SingleContainer';
 
 const TYPE = "teacher";
 
