@@ -1,8 +1,16 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import Consts from "../../helpers/consts";
+import {updateTime, getDayIndex, updateDayIndex, weekIsOdd} from '../../actions/appTimer';
 
 class DateWeek extends Component {
+    componentDidMount() {
+        const {updateTime, weekIsOdd, getDayIndex} = this.props;
+
+        getDayIndex();
+        weekIsOdd();
+        updateTime();
+    }
 
     getHeaderWeek() {
         const {windowSizes} = this.props;
@@ -44,7 +52,6 @@ class DateWeek extends Component {
             ? this.getDesktopView()
             : this.getMobileView();
     }
-
 }
 
 const mapStateToProps = (state) => {
@@ -54,4 +61,21 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(DateWeek);
+const mapDispatchToProps = dispatch => {
+    return {
+        updateTime: () => {
+            dispatch(updateTime());
+        },
+        getDayIndex: () => {
+            dispatch(getDayIndex());
+        },
+        weekIsOdd: () => {
+            dispatch(weekIsOdd());
+        },
+        updateDayIndex: (index) => {
+            dispatch(updateDayIndex(index));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DateWeek);
