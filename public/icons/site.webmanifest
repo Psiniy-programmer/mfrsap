@@ -1,6 +1,6 @@
 {
-    "name": "\u0420\u0430\u0441\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
-    "short_name": "\u0420\u0430\u0441\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
+    "name": "\u0420\u0430\u0441\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u041c\u0424",
+    "short_name": "\u0420\u0430\u0441\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u041c\u0424",
     "icons": [
         {
             "src": "/icons/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#429c97",
+    "background_color": "#429c97",
     "display": "standalone"
 }
