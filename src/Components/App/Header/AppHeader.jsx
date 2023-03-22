@@ -12,11 +12,13 @@ class AppHeader extends Component {
         const {windowSizes} = this.props;
         return <header className={'AppHeader textColor'}>
             <div onClick={this.props.clearInput} className={'SearchTittle'}>
-                <img src={bmstu_logo} alt="МФ МГТУ"/>
-                <Link className={'textColor SearchTittle_text'} to="/">
-                    <h1 className={'SearchTittle__title text-bold--large'}>Расписание МФ МГТУ</h1>
-                    <div className='SearchTittle__date text-regular--small'>
-                        <DateWeek/>
+                <Link className={'SearchTittle_link'} to="/">
+                    <img src={bmstu_logo} alt="МФ МГТУ"/>
+                    <div className={'textColor SearchTittle_text'} >
+                        <h1 className={'SearchTittle__title text-bold--large'}>Расписание МФ МГТУ</h1>
+                        <div className='SearchTittle__date text-regular--small'>
+                            <DateWeek/>
+                        </div>
                     </div>
                 </Link>
             </div>
