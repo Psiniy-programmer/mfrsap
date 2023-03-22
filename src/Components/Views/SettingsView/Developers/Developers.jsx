@@ -11,9 +11,9 @@ class Developers extends Component {
             <>
                 <h2 className={'developers__header text-bold--header textColor'}>Информация о разработчиках</h2>
                 <div className={'developers__items textColor'}>
-                    <p className={pFont}>Frontend: Дмитрий Овденко.</p>
-                    <p className={pFont}>Backend: Артем Назаров. </p>
-                    <p className={pFont}>Design: Анастасия Подворная.</p>
+                    <p className={pFont}>Frontend: Дмитрий Овденко</p>
+                    <p className={pFont}>Backend: Артем Назаров</p>
+                    <p className={pFont}>PM, Design: Анастасия Подворная</p>
                 </div>
             </>
         );
