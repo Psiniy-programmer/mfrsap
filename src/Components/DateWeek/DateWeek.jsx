@@ -1,49 +1,34 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import Consts from "../../helpers/consts";
-import {updateTime, getDayIndex, updateDayIndex, weekIsOdd} from '../../actions/appTimer';
+import {updateTime, getDayIndex, updateDayIndex, weekIsOdd, getWeekNumber} from '../../actions/appTimer';
 
 class DateWeek extends Component {
     componentDidMount() {
-        const {updateTime, weekIsOdd, getDayIndex} = this.props;
+        const {updateTime, weekIsOdd, getWeekNumber, getDayIndex} = this.props;
 
         getDayIndex();
         weekIsOdd();
+        getWeekNumber();
         updateTime();
     }
 
-    getHeaderWeek() {
-        const {windowSizes} = this.props;
-        const {isOdd} = this.props.appTimer;
-
-        if (windowSizes.width < Consts.DESKTOP_MIN_WIDTH) {
-            return isOdd ? "1-я неделя" : "2-я неделя";
-        } else {
-            return isOdd ? "первая неделя" : "вторая неделя";
-        }
-    }
-
     getMobileView() {
-        let dateWeek = this.getHeaderWeek();
+        const {weekNumber} = this.props.appTimer;
 
-        return (
-            <div>{dateWeek}</div>
-        )
+        return `${weekNumber}-я неделя`
     }
 
     getDesktopView() {
-        const {date} = this.props.appTimer;
+        const {date, isOdd, weekNumber} = this.props.appTimer;
         const options = {
             month: "long",
             day: "numeric",
         };
         
-        let dateWeek = this.getHeaderWeek();
         let dateText = date.toLocaleDateString("ru", options);
 
-        return (
-            <div>{`${dateText} — ${dateWeek}`}</div>
-        )
+        return `${dateText} — ${weekNumber}-я неделя, ${isOdd ? "числитель" : "знаменатель"}`
     }
 
     render() {
@@ -71,6 +56,9 @@ const mapDispatchToProps = dispatch => {
         },
         weekIsOdd: () => {
             dispatch(weekIsOdd());
+        },
+        getWeekNumber: () => {
+            dispatch(getWeekNumber());
         },
         updateDayIndex: (index) => {
             dispatch(updateDayIndex(index));

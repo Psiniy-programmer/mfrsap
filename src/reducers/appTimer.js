@@ -2,6 +2,7 @@ const UPDATE_TIME = 'UPDATE_TIME';
 const GET_DAY_INDEX = 'GET_DAY_INDEX';
 const UPDATE_DAY_INDEX = 'UPDATE_DAY_INDEX';
 const WEEK_IS_ODD = 'WEEK_IS_ODD';
+const WEEK_NUMBER = 'WEEK_NUMBER';
 
 const d = new Date();
 
@@ -9,6 +10,7 @@ const initialState = {
     date: d,
     dayIndex: 0,
     todayIndex: d.getDay(),
+    weekNumber: 0,
     isOdd: true,
 };
 
@@ -30,6 +32,11 @@ export default function appTimer(state = initialState, action) {
                 ...state,
                 isOdd: new Date().getWeek() % 2 === 1,
             };
+        case WEEK_NUMBER:
+            return {
+                ...state,
+                weekNumber: new Date().getWeek(),
+            };
         case UPDATE_DAY_INDEX:
             return {
                 ...state,
@@ -44,5 +51,6 @@ export {
     GET_DAY_INDEX,
     UPDATE_TIME,
     WEEK_IS_ODD,
+    WEEK_NUMBER,
     UPDATE_DAY_INDEX,
 };

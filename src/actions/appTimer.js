@@ -1,4 +1,10 @@
-import {GET_DAY_INDEX, UPDATE_DAY_INDEX, UPDATE_TIME, WEEK_IS_ODD} from '../reducers/appTimer';
+import {
+    GET_DAY_INDEX,
+    UPDATE_DAY_INDEX,
+    UPDATE_TIME,
+    WEEK_IS_ODD,
+    WEEK_NUMBER
+} from '../reducers/appTimer';
 
 function updateTime() {
     return {
@@ -18,6 +24,12 @@ function weekIsOdd() {
     }
 }
 
+function getWeekNumber() {
+    return {
+        type: WEEK_NUMBER
+    }
+}
+
 function updateDayIndex(index) {
     return {
         type: UPDATE_DAY_INDEX,
@@ -25,4 +37,10 @@ function updateDayIndex(index) {
     }
 }
 
-export {updateTime, getDayIndex, weekIsOdd, updateDayIndex};
+export {
+    updateTime,
+    getDayIndex,
+    weekIsOdd,
+    getWeekNumber,
+    updateDayIndex
+};
