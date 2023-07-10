@@ -100,7 +100,7 @@ class RaspHeader extends Component {
                 <div className={"RaspHeader textColor"}>
                     <div className="RaspHeader_date">
                         <img className={"date_calendar"} src={calendar_dark} alt="error"/>
-                        <DateWeek />
+                        <DateWeek showDate showOdd />
                     </div>
                     
                     <div

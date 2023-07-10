@@ -32,9 +32,6 @@
 
 .SearchTittle__date {
     display: flex;
-}
-
-.SearchTittle__date div {
     align-self: center;
 }
 
@@ -70,6 +67,7 @@
     .SearchTittle__date {
         display: flex;
         font-size: 14px !important;
+        align-self: flex-start;
     }
 }
 

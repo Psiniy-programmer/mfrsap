@@ -17,7 +17,7 @@ class AppHeader extends Component {
                     <div className={'textColor SearchTittle_text'} >
                         <h1 className={'SearchTittle__title text-bold--large'}>Расписание МФ МГТУ</h1>
                         <div className='SearchTittle__date text-regular--small'>
-                            <DateWeek/>
+                            <DateWeek showWeek showOdd />
                         </div>
                     </div>
                 </Link>

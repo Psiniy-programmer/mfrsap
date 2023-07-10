@@ -19,7 +19,7 @@ class DateWeek extends Component {
         return `${weekNumber}-я неделя`
     }
 
-    getDesktopView() {
+    getDesktopView(showDate = true, showWeek = true, showOdd = true) {
         const {date, isOdd, weekNumber} = this.props.appTimer;
         const options = {
             month: "long",
@@ -27,14 +27,28 @@ class DateWeek extends Component {
         };
         
         let dateText = date.toLocaleDateString("ru", options);
+        let result = [];
 
-        return `${dateText} — ${weekNumber}-я неделя, ${isOdd ? "числитель" : "знаменатель"}`
+        if (showDate) {
+            result = [...result, dateText]
+        }
+
+        if (showWeek) {
+            result = [...result, `${weekNumber}-я неделя`]
+        }
+
+        if (showOdd) {
+            result = [...result, `${isOdd ? "числитель" : "знаменатель"}`]
+        }
+
+        return result.join(', ');
     }
 
     render() {
-        const {windowSizes} = this.props;
+        const {windowSizes, showDate = false, showWeek = false, showOdd = false} = this.props;
+
         return windowSizes.width > Consts.DESKTOP_MIN_WIDTH
-            ? this.getDesktopView()
+            ? this.getDesktopView(showDate, showWeek, showOdd)
             : this.getMobileView();
     }
 }
