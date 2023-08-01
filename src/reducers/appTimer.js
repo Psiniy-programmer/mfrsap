@@ -9,6 +9,7 @@ const d = new Date();
 const initialState = {
     date: d,
     dayIndex: 0,
+    realDayIndex: 0,
     todayIndex: d.getDay(),
     weekNumber: 0,
     isOdd: true,
@@ -25,12 +26,13 @@ export default function appTimer(state = initialState, action) {
             let index = state.date.getDay() - 1;
             return {
                 ...state,
-                dayIndex: index === -1 ? (index = 0) : index,
+                realDayIndex: state.date.getDay(),
+                dayIndex: index === -1 ? (index = 0) : index
             };
         case WEEK_IS_ODD:
             return {
                 ...state,
-                isOdd: new Date().getWeek() % 2 === 1,
+                isOdd: new Date().getWeek() % 2,
             };
         case WEEK_NUMBER:
             return {

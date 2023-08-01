@@ -1,16 +1,17 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import Consts from "../../helpers/consts";
-import {updateTime, getDayIndex, updateDayIndex, weekIsOdd, getWeekNumber} from '../../actions/appTimer';
+import {updateTime, getDayIndex, weekIsOdd, getWeekNumber} from '../../actions/appTimer';
+import {desktopCarouselData} from '../../helpers/helpData';
 
 class DateWeek extends Component {
     componentDidMount() {
         const {updateTime, weekIsOdd, getWeekNumber, getDayIndex} = this.props;
 
-        getDayIndex();
+        updateTime();
         weekIsOdd();
         getWeekNumber();
-        updateTime();
+        getDayIndex();
     }
 
     getMobileView() {
@@ -19,8 +20,9 @@ class DateWeek extends Component {
         return `${weekNumber}-я неделя`
     }
 
-    getDesktopView(showDate = true, showWeek = true, showOdd = true) {
-        const {date, isOdd, weekNumber} = this.props.appTimer;
+    getDesktopView(showDate = false, showWeek = false, showOdd = false, showDay = false) {
+        const {date, isOdd, weekNumber, realDayIndex} = this.props.appTimer;
+
         const options = {
             month: "long",
             day: "numeric",
@@ -41,14 +43,22 @@ class DateWeek extends Component {
             result = [...result, `${isOdd ? "числитель" : "знаменатель"}`]
         }
 
+        if (showDay) {
+            if (realDayIndex === 0 ) {
+                result = [...result, 'воскресенье']
+            } else {
+                result = [...result, `${desktopCarouselData[realDayIndex - 1].rus.toLocaleLowerCase()}`]
+            }
+        }
+
         return result.join(', ');
     }
 
     render() {
-        const {windowSizes, showDate = false, showWeek = false, showOdd = false} = this.props;
+        const {windowSizes, showDate, showWeek, showOdd, showDay} = this.props;
 
         return windowSizes.width > Consts.DESKTOP_MIN_WIDTH
-            ? this.getDesktopView(showDate, showWeek, showOdd)
+            ? this.getDesktopView(showDate, showWeek, showOdd, showDay)
             : this.getMobileView();
     }
 }
@@ -73,10 +83,7 @@ const mapDispatchToProps = dispatch => {
         },
         getWeekNumber: () => {
             dispatch(getWeekNumber());
-        },
-        updateDayIndex: (index) => {
-            dispatch(updateDayIndex(index));
-        },
+        }
     };
 };
 
