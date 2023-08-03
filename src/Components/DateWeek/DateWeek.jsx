@@ -1,17 +1,16 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import Consts from "../../helpers/consts";
-import {updateTime, getDayIndex, weekIsOdd, getWeekNumber} from '../../actions/appTimer';
+import {updateTime, weekIsOdd, getWeekNumber} from '../../actions/appTimer';
 import {desktopCarouselData} from '../../helpers/helpData';
 
 class DateWeek extends Component {
     componentDidMount() {
-        const {updateTime, weekIsOdd, getWeekNumber, getDayIndex} = this.props;
+        const {updateTime, weekIsOdd, getWeekNumber} = this.props;
 
         updateTime();
         weekIsOdd();
         getWeekNumber();
-        getDayIndex();
     }
 
     getMobileView() {
@@ -21,7 +20,7 @@ class DateWeek extends Component {
     }
 
     getDesktopView(showDate = false, showWeek = false, showOdd = false, showDay = false) {
-        const {date, isOdd, weekNumber, realDayIndex} = this.props.appTimer;
+        const {date, isOdd, weekNumber, todayIndex} = this.props.appTimer;
 
         const options = {
             month: "long",
@@ -44,10 +43,10 @@ class DateWeek extends Component {
         }
 
         if (showDay) {
-            if (realDayIndex === 0 ) {
+            if (todayIndex === 0 ) {
                 result = [...result, 'воскресенье']
             } else {
-                result = [...result, `${desktopCarouselData[realDayIndex - 1].rus.toLocaleLowerCase()}`]
+                result = [...result, `${desktopCarouselData[todayIndex - 1].rus.toLocaleLowerCase()}`]
             }
         }
 
@@ -74,9 +73,6 @@ const mapDispatchToProps = dispatch => {
     return {
         updateTime: () => {
             dispatch(updateTime());
-        },
-        getDayIndex: () => {
-            dispatch(getDayIndex());
         },
         weekIsOdd: () => {
             dispatch(weekIsOdd());
