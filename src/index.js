@@ -35,23 +35,4 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.register();
 
-String.prototype.replaceAt = function (index, newSymbols) {
-    return this.substr(0, index) + newSymbols +
-        this.substr(index + newSymbols.length);
-};
-
-Date.prototype.getWeek = function () {
-    let curMonth = new Date().getMonth(),
-        curYear = new Date().getFullYear();
-
-    if (curMonth < 8) {
-        curYear -= 1;
-    }
-
-    const septFirst = new Date(curYear, 8, 1);
-    return Math.ceil((((this - septFirst) / 86400000) + septFirst.getDay() - 1) / 7);
-
-}
-
-
 export {axios, history};

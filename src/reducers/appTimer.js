@@ -1,3 +1,5 @@
+import {getWeek} from "../helpers/helpers";
+
 const UPDATE_TIME = 'UPDATE_TIME';
 const GET_DAY_INDEX = 'GET_DAY_INDEX';
 const UPDATE_DAY_INDEX = 'UPDATE_DAY_INDEX';
@@ -32,12 +34,12 @@ export default function appTimer(state = initialState, action) {
         case WEEK_IS_ODD:
             return {
                 ...state,
-                isOdd: new Date().getWeek() % 2,
+                isOdd: getWeek() % 2,
             };
         case WEEK_NUMBER:
             return {
                 ...state,
-                weekNumber: new Date().getWeek(),
+                weekNumber: getWeek(),
             };
         case UPDATE_DAY_INDEX:
             return {

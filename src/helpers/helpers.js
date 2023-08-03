@@ -400,8 +400,10 @@ const checkOnArr = (item) => {
  * @returns {*} - Переведеная строка
  */
 const convertString = (str, index) => {
-    if (keyboard[str[index]]) {
-        return str.replaceAt(index, keyboard[str[index]]);
+    const newSymbols = keyboard[str[index]];
+
+    if (newSymbols) {
+        return str.substr(0, index) + newSymbols + str.substr(index + newSymbols.length);
     }
     return str;
 };
@@ -479,6 +481,23 @@ const isPairEmpty = (pair, index) => {
     return pair.length === 0 || Object.keys(pair[index]).length === 0;
 }
 
+const getWeek = (semesterStart = new Date("2023-09-01")) => {
+    // semesterStart будет передаваться с бэка
+    
+    const curDate = new Date();
+    
+    // let curMonth = new Date().getMonth(),
+    //     curYear = new Date().getFullYear();
+
+    // if (curMonth < 8) {
+    //     curYear -= 1;
+    // }
+
+    // semesterStart = new Date(curYear, 8, 1);
+
+    return Math.ceil((((curDate - semesterStart) / 86400000) + semesterStart.getDay() - 1) / 7);
+}
+
 export {
     changeLangEngToRus,
     changeLangRusToEng,
@@ -507,5 +526,6 @@ export {
     searchByInclude,
     removeSpaces,
     sortBySymbols,
-    isPairEmpty
+    isPairEmpty,
+    getWeek
 };
