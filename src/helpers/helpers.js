@@ -481,21 +481,25 @@ const isPairEmpty = (pair, index) => {
     return pair.length === 0 || Object.keys(pair[index]).length === 0;
 }
 
-const getWeek = (semesterStart = new Date("2023-09-01")) => {
-    // semesterStart будет передаваться с бэка
-    
+/**
+ * Получение номера недели
+ * @param firstWeekMonday {Date} - дата понедельника первой учебной недели
+ * @param semesterStartDate {Date} - дата начала учёбы в семестре (может быть на 0-й неделе, если не «съедает» неделю)
+ * @returns {number}
+ */
+const getWeek = (firstWeekMonday, semesterStartDate) => {
     const curDate = new Date();
-    
-    // let curMonth = new Date().getMonth(),
-    //     curYear = new Date().getFullYear();
+    let weekNumber = Math.ceil((((curDate - firstWeekMonday) / 86400000) + firstWeekMonday.getDay()) / 7);
 
-    // if (curMonth < 8) {
-    //     curYear -= 1;
-    // }
+    if (weekNumber < 1) {
+        if  (semesterStartDate < firstWeekMonday) {
+            weekNumber = 0;
+        } else {
+            weekNumber = 1;
+        }
+    }
 
-    // semesterStart = new Date(curYear, 8, 1);
-
-    return Math.ceil((((curDate - semesterStart) / 86400000) + semesterStart.getDay() - 1) / 7);
+    return weekNumber;
 }
 
 export {
