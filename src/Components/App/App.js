@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {fetchSemesterStart} from "../../actions/semesterStart.js";
 import {fetchGroupsData} from "../../actions/groupsList.js";
 import {fetchFacultyData} from "../../actions/facultyList.js";
 import {fetchTeachersData} from "../../actions/teachersList.js";
@@ -27,6 +28,7 @@ class App extends Component {
         window.addEventListener("resize", this.props.resizeWindow);
         this.props.fetchDataGroups();
         this.props.fetchFacultyData();
+        this.props.fetchSemesterStart();
         this.props.fetchTeachersData();
         this.props.fetchAuditoryData();
         this.props.fetchAltList();
@@ -56,10 +58,11 @@ class App extends Component {
     }
 
     infoIsFetched() {
-        const {groupsList, facultyList, teachersList, auditoryList} = this.props;
+        const {groupsList, facultyList, teachersList, auditoryList, semesterStart} = this.props;
         if (groupsList.loading !== false) return false;
         if (facultyList.loading !== false) return false;
         if (teachersList.loading !== false) return false;
+        if (semesterStart.loading !== false) return false;
         return auditoryList.loading === false;
     }
 
@@ -107,6 +110,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return {
         currentTheme: state.theme,
+        semesterStart: state.semesterStart,
         groupsList: state.groupsList,
         facultyList: state.facultyList,
         teachersList: state.teachersList,
@@ -115,11 +119,14 @@ const mapStateToProps = (state) => {
     };
 };
 
-// Исползьуем наше actions для прокидывания данных в наш store //
+// Используем наше actions для прокидывания данных в наш store //
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchFacultyData: () => {
             dispatch(fetchFacultyData());
+        },
+        fetchSemesterStart: () => {
+            dispatch(fetchSemesterStart());
         },
         fetchDataGroups: () => {
             dispatch(fetchGroupsData());

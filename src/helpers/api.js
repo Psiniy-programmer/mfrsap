@@ -3,6 +3,7 @@ const API_URL = BASE + 'api/';
 const PRINT_URL = BASE + '/print/index.php';
 
 const api = {
+    semesterStart: API_URL + 'semesterStart',
     lists: {
         group: API_URL + 'group/list',
         faculty: API_URL +'faculty/list',
