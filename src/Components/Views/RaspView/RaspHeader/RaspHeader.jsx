@@ -82,7 +82,6 @@ class RaspHeader extends Component {
         }
 
         if (data[type] !== undefined) {
-            console.log(data);
             raspHeader += data[type];
 
             if (type === 'group' && raspHeader[raspHeader.length - 1] === 'С') {

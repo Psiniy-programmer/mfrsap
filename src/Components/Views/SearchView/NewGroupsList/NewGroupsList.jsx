@@ -70,8 +70,6 @@ class NewGroupsList extends Component {
             }
         }
 
-        console.log(generatedList)
-
         if (generatedList.length === 0) {
             return 'Список пуст'
         }
