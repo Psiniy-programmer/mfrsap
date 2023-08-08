@@ -7,7 +7,7 @@ import Schedule from './Schedule/Schedule';
 import {findRequestType} from '../../../helpers/helpers';
 import Consts from '../../../helpers/consts';
 import AppHeader from '../../App/Header/AppHeader';
-import {getDayIndex, updateDayIndex, weekIsOdd,} from '../../../actions/appTimer';
+import {getDayIndex, updateDayIndex, weekIsOdd} from '../../../actions/appTimer';
 import './style.css';
 import Loader from "../../Loader/Loader";
 
@@ -25,10 +25,10 @@ class Rasp extends PureComponent {
 
     componentDidMount() {
         const {rasp} = this.props.match.params;
-        const {weekIsOdd, getDayIndex} = this.props;
+        const {weekIsOdd, getDayIndex, semesterStart} = this.props;
 
         getDayIndex();
-        weekIsOdd();
+        weekIsOdd(semesterStart);
 
         const id = rasp.match(/\d+/g)[0];
         const type = findRequestType(rasp);
@@ -68,6 +68,7 @@ const mapStateToProps = (state) => {
         appTimer: state.appTimer,
         windowSize: state.windowSizes,
         raspData: state.raspData,
+        semesterStart: state.semesterStart
     };
 };
 
@@ -79,8 +80,8 @@ const mapDispatchToProps = (dispatch) => {
         getDayIndex: () => {
             dispatch(getDayIndex());
         },
-        weekIsOdd: () => {
-            dispatch(weekIsOdd());
+        weekIsOdd: (semesterStart) => {
+            dispatch(weekIsOdd(semesterStart));
         },
         updateDayIndex: (index) => {
             dispatch(updateDayIndex(index));

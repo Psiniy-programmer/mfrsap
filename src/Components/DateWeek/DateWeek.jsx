@@ -6,11 +6,11 @@ import {desktopCarouselData} from '../../helpers/helpData';
 
 class DateWeek extends Component {
     componentDidMount() {
-        const {updateTime, weekIsOdd, getWeekNumber} = this.props;
+        const {updateTime, weekIsOdd, getWeekNumber, semesterStart} = this.props;
 
         updateTime();
-        weekIsOdd();
-        getWeekNumber();
+        weekIsOdd(semesterStart.data);
+        getWeekNumber(semesterStart.data);
     }
 
     getMobileView() {
@@ -65,7 +65,8 @@ class DateWeek extends Component {
 const mapStateToProps = (state) => {
     return {
         appTimer: state.appTimer,
-        windowSizes: state.windowSizes
+        windowSizes: state.windowSizes,
+        semesterStart: state.semesterStart
     };
 };
 
@@ -74,11 +75,11 @@ const mapDispatchToProps = dispatch => {
         updateTime: () => {
             dispatch(updateTime());
         },
-        weekIsOdd: () => {
-            dispatch(weekIsOdd());
+        weekIsOdd: (semesterStart) => {
+            dispatch(weekIsOdd(semesterStart));
         },
-        getWeekNumber: () => {
-            dispatch(getWeekNumber());
+        getWeekNumber: (semesterStart) => {
+            dispatch(getWeekNumber(semesterStart));
         }
     };
 };

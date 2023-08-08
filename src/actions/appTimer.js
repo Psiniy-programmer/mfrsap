@@ -18,15 +18,17 @@ function getDayIndex() {
     }
 }
 
-function weekIsOdd() {
+function weekIsOdd(semesterStart) {
     return {
-        type: WEEK_IS_ODD
+        type: WEEK_IS_ODD,
+        semesterStart
     }
 }
 
-function getWeekNumber() {
+function getWeekNumber(semesterStart) {
     return {
-        type: WEEK_NUMBER
+        type: WEEK_NUMBER,
+        semesterStart
     }
 }
 

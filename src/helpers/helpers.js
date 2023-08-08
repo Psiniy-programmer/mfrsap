@@ -487,9 +487,11 @@ const isPairEmpty = (pair, index) => {
  * @param semesterStartDate {Date} - дата начала учёбы в семестре (может быть на 0-й неделе, если не «съедает» неделю)
  * @returns {number}
  */
-const getWeek = (firstWeekMonday, semesterStartDate) => {
-    const curDate = new Date();
-    let weekNumber = Math.ceil((((curDate - firstWeekMonday) / 86400000) + firstWeekMonday.getDay()) / 7);
+const getWeek = (currentDate, semesterStart) => {
+    const firstWeekMonday = new Date(semesterStart.firstWeekMonday);
+    const semesterStartDate = new Date(semesterStart.semesterStartDate);
+
+    let weekNumber = Math.ceil((((currentDate - firstWeekMonday) / 86400000) + firstWeekMonday.getDay()) / 7);
 
     if (weekNumber < 1) {
         if  (semesterStartDate < firstWeekMonday) {

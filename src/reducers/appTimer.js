@@ -12,8 +12,6 @@ const initialState = {
     date: d,
     dayIndex: 0,
     todayIndex: d.getDay(),
-    firstWeekMonday: new Date("2023-08-28"), // должна приходить с бэка (дата понедельника первой учебной недели)
-    semesterStartDate: new Date("2023-09-01"), // должна приходить с бэка (дата начала учёбы в семестре)
     weekNumber: 0,
     isOdd: true,
 };
@@ -35,12 +33,12 @@ export default function appTimer(state = initialState, action) {
         case WEEK_IS_ODD:
             return {
                 ...state,
-                isOdd: getWeek(state.firstWeekMonday, state.semesterStartDate) % 2,
+                isOdd: getWeek(state.date, action.semesterStart) % 2,
             };
         case WEEK_NUMBER:
             return {
                 ...state,
-                weekNumber: getWeek(state.firstWeekMonday, state.semesterStartDate),
+                weekNumber: getWeek(state.date, action.semesterStart),
             };
         case UPDATE_DAY_INDEX:
             return {
