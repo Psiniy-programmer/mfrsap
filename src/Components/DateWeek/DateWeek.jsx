@@ -9,8 +9,8 @@ class DateWeek extends Component {
         const {updateTime, weekIsOdd, getWeekNumber, semesterStart} = this.props;
 
         updateTime();
-        weekIsOdd(semesterStart.data);
-        getWeekNumber(semesterStart.data);
+        weekIsOdd(semesterStart);
+        getWeekNumber(semesterStart);
     }
 
     getMobileView() {
@@ -21,25 +21,35 @@ class DateWeek extends Component {
 
     getDesktopView(showDate = false, showWeek = false, showOdd = false, showDay = false) {
         const {date, isOdd, weekNumber, todayIndex} = this.props.appTimer;
-
+        const {semesterStart} = this.props;
+        
         const options = {
             month: "long",
-            day: "numeric",
+            day: "numeric"
         };
         
-        let dateText = date.toLocaleDateString("ru", options);
+        const dateText = date.toLocaleDateString("ru", options);
+
+        const semesterStartDate = new Date(semesterStart.semesterStartDate);
+        const semesterStartDateText = semesterStartDate.toLocaleDateString("ru", options);
+        const isSemesterStarted =  semesterStartDate < date;
+
         let result = [];
 
         if (showDate) {
-            result = [...result, dateText]
+            result = [...result, dateText];
         }
 
         if (showWeek) {
-            result = [...result, `${weekNumber}-я неделя`]
+            result = isSemesterStarted 
+                ? [...result, `${weekNumber}-я неделя`] 
+                : [...result, `Занятия начнутся ${semesterStartDateText}`];
         }
 
         if (showOdd) {
-            result = [...result, `${isOdd ? "числитель" : "знаменатель"}`]
+            result = isSemesterStarted
+                ? [...result, `${isOdd ? "числитель" : "знаменатель"}`]
+                : [...result, `${isOdd ? "по числителю" : "по знаменателю"}`];
         }
 
         if (showDay) {
@@ -66,7 +76,7 @@ const mapStateToProps = (state) => {
     return {
         appTimer: state.appTimer,
         windowSizes: state.windowSizes,
-        semesterStart: state.semesterStart
+        semesterStart: state.semesterStart.data
     };
 };
 
