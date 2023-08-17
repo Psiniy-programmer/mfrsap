@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import Consts from "../../helpers/consts";
 import {updateTime, weekIsOdd, getWeekNumber} from '../../actions/appTimer';
-import {desktopCarouselData} from '../../helpers/helpData';
 
 class DateWeek extends Component {
     componentDidMount() {
@@ -20,29 +19,31 @@ class DateWeek extends Component {
     }
 
     getDesktopView(showDate = false, showWeek = false, showOdd = false, showDay = false) {
-        const {date, isOdd, weekNumber, todayIndex} = this.props.appTimer;
+        const {date, isOdd, weekNumber} = this.props.appTimer;
         const {semesterStart} = this.props;
-        
-        const options = {
-            month: "long",
-            day: "numeric"
-        };
-        
-        const dateText = date.toLocaleDateString("ru", options);
 
         const semesterStartDate = new Date(semesterStart.semesterStartDate);
-        const semesterStartDateText = semesterStartDate.toLocaleDateString("ru", options);
         const isSemesterStarted =  semesterStartDate < date;
 
         let result = [];
 
         if (showDate) {
+            const dateText = date.toLocaleDateString("ru", {
+                month: "long",
+                day: "numeric"
+            });
+
             result = [...result, dateText];
         }
 
         if (showWeek) {
+            const semesterStartDateText = semesterStartDate.toLocaleDateString("ru", {
+                month: "long",
+                day: "numeric"
+            });
+
             result = isSemesterStarted 
-                ? [...result, `${weekNumber}-я неделя`] 
+                ? [...result, `${weekNumber}-я неделя`]
                 : [...result, `Занятия начнутся ${semesterStartDateText}`];
         }
 
@@ -53,11 +54,11 @@ class DateWeek extends Component {
         }
 
         if (showDay) {
-            if (todayIndex === 0 ) {
-                result = [...result, 'воскресенье']
-            } else {
-                result = [...result, `${desktopCarouselData[todayIndex - 1].rus.toLocaleLowerCase()}`]
-            }
+            const dayText = date.toLocaleDateString("ru", {
+                weekday: "long"
+            });
+
+            result = [...result, dayText];
         }
 
         return result.join(', ');
