@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {fetchSemesterStart} from "../../actions/semesterStart.js";
+import {fetchRaspConfig} from "../../actions/raspConfig.js";
 import {fetchGroupsData} from "../../actions/groupsList.js";
 import {fetchFacultyData} from "../../actions/facultyList.js";
 import {fetchTeachersData} from "../../actions/teachersList.js";
@@ -28,7 +28,7 @@ class App extends Component {
         window.addEventListener("resize", this.props.resizeWindow);
         this.props.fetchDataGroups();
         this.props.fetchFacultyData();
-        this.props.fetchSemesterStart();
+        this.props.fetchRaspConfig();
         this.props.fetchTeachersData();
         this.props.fetchAuditoryData();
         this.props.fetchAltList();
@@ -58,11 +58,11 @@ class App extends Component {
     }
 
     infoIsFetched() {
-        const {groupsList, facultyList, teachersList, auditoryList, semesterStart} = this.props;
+        const {groupsList, facultyList, teachersList, auditoryList, raspConfig} = this.props;
         if (groupsList.loading !== false) return false;
         if (facultyList.loading !== false) return false;
         if (teachersList.loading !== false) return false;
-        if (semesterStart.loading !== false) return false;
+        if (raspConfig.loading !== false) return false;
         return auditoryList.loading === false;
     }
 
@@ -110,7 +110,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return {
         currentTheme: state.theme,
-        semesterStart: state.semesterStart,
+        raspConfig: state.raspConfig,
         groupsList: state.groupsList,
         facultyList: state.facultyList,
         teachersList: state.teachersList,
@@ -125,8 +125,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchFacultyData: () => {
             dispatch(fetchFacultyData());
         },
-        fetchSemesterStart: () => {
-            dispatch(fetchSemesterStart());
+        fetchRaspConfig: () => {
+            dispatch(fetchRaspConfig());
         },
         fetchDataGroups: () => {
             dispatch(fetchGroupsData());

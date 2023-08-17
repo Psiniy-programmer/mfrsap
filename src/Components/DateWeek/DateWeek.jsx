@@ -5,11 +5,11 @@ import {updateTime, weekIsOdd, getWeekNumber} from '../../actions/appTimer';
 
 class DateWeek extends Component {
     componentDidMount() {
-        const {updateTime, weekIsOdd, getWeekNumber, semesterStart} = this.props;
+        const {updateTime, weekIsOdd, getWeekNumber, raspConfig} = this.props;
 
         updateTime();
-        weekIsOdd(semesterStart);
-        getWeekNumber(semesterStart);
+        weekIsOdd(raspConfig);
+        getWeekNumber(raspConfig);
     }
 
     getMobileView() {
@@ -20,10 +20,10 @@ class DateWeek extends Component {
 
     getDesktopView(showDate = false, showWeek = false, showOdd = false, showDay = false) {
         const {date, isOdd, weekNumber} = this.props.appTimer;
-        const {semesterStart} = this.props;
+        const {raspConfig} = this.props;
 
-        const semesterStartDate = new Date(semesterStart.semesterStartDate);
-        const isSemesterStarted =  semesterStartDate < date;
+        const semesterStart = new Date(raspConfig.semester_start);
+        const isSemesterStarted =  semesterStart < date;
 
         let result = [];
 
@@ -37,14 +37,14 @@ class DateWeek extends Component {
         }
 
         if (showWeek) {
-            const semesterStartDateText = semesterStartDate.toLocaleDateString("ru", {
+            const semesterStartText = semesterStart.toLocaleDateString("ru", {
                 month: "long",
                 day: "numeric"
             });
 
             result = isSemesterStarted 
                 ? [...result, `${weekNumber}-я неделя`]
-                : [...result, `Занятия начнутся ${semesterStartDateText}`];
+                : [...result, `Занятия начнутся ${semesterStartText}`];
         }
 
         if (showOdd) {
@@ -77,7 +77,7 @@ const mapStateToProps = (state) => {
     return {
         appTimer: state.appTimer,
         windowSizes: state.windowSizes,
-        semesterStart: state.semesterStart.data
+        raspConfig: state.raspConfig.data
     };
 };
 
@@ -86,11 +86,11 @@ const mapDispatchToProps = dispatch => {
         updateTime: () => {
             dispatch(updateTime());
         },
-        weekIsOdd: (semesterStart) => {
-            dispatch(weekIsOdd(semesterStart));
+        weekIsOdd: (raspConfig) => {
+            dispatch(weekIsOdd(raspConfig));
         },
-        getWeekNumber: (semesterStart) => {
-            dispatch(getWeekNumber(semesterStart));
+        getWeekNumber: (raspConfig) => {
+            dispatch(getWeekNumber(raspConfig));
         }
     };
 };

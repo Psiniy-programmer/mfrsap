@@ -33,12 +33,12 @@ export default function appTimer(state = initialState, action) {
         case WEEK_IS_ODD:
             return {
                 ...state,
-                isOdd: getWeek(state.date, action.semesterStart) % 2,
+                isOdd: getWeek(state.date, action.raspConfig) % 2
             };
         case WEEK_NUMBER:
             return {
                 ...state,
-                weekNumber: getWeek(state.date, action.semesterStart),
+                weekNumber: getWeek(state.date, action.raspConfig)
             };
         case UPDATE_DAY_INDEX:
             return {

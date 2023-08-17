@@ -483,18 +483,18 @@ const isPairEmpty = (pair, index) => {
 
 /**
  * Получение номера недели
- * @param firstWeekMonday {Date} - дата понедельника первой учебной недели
- * @param semesterStartDate {Date} - дата начала учёбы в семестре (может быть на 0-й неделе, если не «съедает» неделю)
+ * @param currentDate {Date} - текущая дата
+ * @param raspConfig {Object} - конфиг расписания (содержит дату начала учёбы и дату понедельника первой недели)
  * @returns {number}
  */
-const getWeek = (currentDate, semesterStart) => {
-    const firstWeekMonday = new Date(semesterStart.firstWeekMonday);
-    const semesterStartDate = new Date(semesterStart.semesterStartDate);
+const getWeek = (currentDate, raspConfig) => {
+    const firstWeekMonday = new Date(raspConfig.first_week_monday);
+    const semesterStart = new Date(raspConfig.semester_start);
 
     let weekNumber = Math.ceil((((currentDate - firstWeekMonday) / 86400000) + firstWeekMonday.getDay()) / 7);
 
     if (weekNumber < 1) {
-        if  (semesterStartDate < firstWeekMonday) {
+        if  (semesterStart < firstWeekMonday) {
             weekNumber = 0;
         } else {
             weekNumber = 1;

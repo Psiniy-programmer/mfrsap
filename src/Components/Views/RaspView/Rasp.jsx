@@ -25,10 +25,10 @@ class Rasp extends PureComponent {
 
     componentDidMount() {
         const {rasp} = this.props.match.params;
-        const {weekIsOdd, getDayIndex, semesterStart} = this.props;
+        const {weekIsOdd, getDayIndex, raspConfig} = this.props;
 
         getDayIndex();
-        weekIsOdd(semesterStart);
+        weekIsOdd(raspConfig);
 
         const id = rasp.match(/\d+/g)[0];
         const type = findRequestType(rasp);
@@ -68,7 +68,7 @@ const mapStateToProps = (state) => {
         appTimer: state.appTimer,
         windowSize: state.windowSizes,
         raspData: state.raspData,
-        semesterStart: state.semesterStart
+        raspConfig: state.raspConfig
     };
 };
 
@@ -80,8 +80,8 @@ const mapDispatchToProps = (dispatch) => {
         getDayIndex: () => {
             dispatch(getDayIndex());
         },
-        weekIsOdd: (semesterStart) => {
-            dispatch(weekIsOdd(semesterStart));
+        weekIsOdd: (raspConfig) => {
+            dispatch(weekIsOdd(raspConfig));
         },
         updateDayIndex: (index) => {
             dispatch(updateDayIndex(index));

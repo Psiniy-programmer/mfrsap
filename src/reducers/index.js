@@ -1,5 +1,5 @@
 import {combineReducers} from "redux";
-import semesterStart from "./semesterStart.js";
+import raspConfig from "./raspConfig.js";
 import groupsList from "./groupsList.js";
 import facultyList from "./facultyList.js";
 import teachersList from "./teachersList.js";
@@ -15,7 +15,7 @@ import altList from "./altList.js";
 import newGroupsList from "./newGroupsList.js";
 
 export default combineReducers({
-    semesterStart,
+    raspConfig,
     groupsList,
     facultyList,
     teachersList,

@@ -18,17 +18,17 @@ function getDayIndex() {
     }
 }
 
-function weekIsOdd(semesterStart) {
+function weekIsOdd(raspConfig) {
     return {
         type: WEEK_IS_ODD,
-        semesterStart
+        raspConfig
     }
 }
 
-function getWeekNumber(semesterStart) {
+function getWeekNumber(raspConfig) {
     return {
         type: WEEK_NUMBER,
-        semesterStart
+        raspConfig
     }
 }
 
